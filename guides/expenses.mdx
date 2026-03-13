@@ -1,0 +1,75 @@
+---
+title: "Expenses, Receipts, and Bills"
+description: "Manage your business expenses including uploaded receipts and Xero-synced bills in one unified view"
+icon: "receipt"
+---
+
+## Expenses overview
+
+The Expenses page brings together two types of outbound transactions:
+
+- **Receipts**: Documents you upload to eggz (photos, PDFs). AI extracts the data automatically.
+- **Bills**: Purchase invoices synced from Xero (accounts payable).
+
+Both appear on the Expenses page, separated by tabs.
+
+## Receipts tab
+
+### Viewing receipts
+
+The Receipts tab shows all documents you have uploaded. Each receipt displays:
+
+- **Status**: Pending (processing), Processed (ready to review), or Published (sent to Xero)
+- **Merchant name**: Extracted by AI from the document
+- **Amount**: Total transaction amount and currency
+- **Date**: Transaction date from the receipt
+- **Category**: AI-assigned expense category
+
+### Receipt detail page
+
+Click any receipt to open its detail view. Here you can:
+
+- View the original document (PDF viewer or image)
+- Review and edit extracted data (merchant, date, amount, line items)
+- See the AI extraction summary
+- Download the original file
+- Publish to Xero (as Bill or Spend Money)
+- Delete the receipt
+
+### Receipt lifecycle
+
+| Stage | Status | What happens |
+|-------|--------|-------------|
+| Uploaded | Pending | File stored, AI processing queued |
+| Processed | Processed | Data extracted, ready for review |
+| Submitted | Submitted | Sent for approval (if applicable) |
+| Approved | Approved | Approved for payment |
+| Published | Published | Created in Xero as Bill or Spend Money |
+
+## Bills tab
+
+### Viewing bills
+
+The Bills tab shows purchase invoices synced from Xero. Each bill displays:
+
+- Invoice number and reference
+- Contact (supplier) name
+- Dates (issued, due)
+- Amounts (subtotal, tax, total, paid, due)
+- Status (from Xero: Draft, Submitted, Authorised, Paid, Voided)
+
+### Bill detail page
+
+Click any bill to view full details including the PDF attachment (if available in Xero). Bills are read-only -- all editing happens in Xero.
+
+<Note>Bills are synced from Xero and cannot be created, edited, or deleted in eggz. Use Xero to manage your bills, then sync the latest data from **Settings > Integrations**.</Note>
+
+## Uploading new receipts
+
+From the Expenses page, you can upload new documents directly:
+
+- **Drag and drop** PDFs or images onto the upload zone
+- **Click** the upload zone to open the file picker
+- On mobile, use the **camera button** in the bottom dock
+
+See [Uploading Documents](/guides/uploading-documents) for full details on supported formats and processing.

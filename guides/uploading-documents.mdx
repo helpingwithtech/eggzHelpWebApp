@@ -1,0 +1,130 @@
+---
+title: "Uploading Documents"
+description: "Upload receipts, bills, and invoices using drag-and-drop, file picker, or mobile camera capture"
+icon: "upload"
+---
+
+## How document upload works
+
+eggz uses AI to automatically extract data from your receipts and bills. Upload a document, and eggz reads the merchant name, date, amounts, line items, and categories -- no manual data entry needed.
+
+## Supported file types
+
+| Format | Extensions | Notes |
+|--------|-----------|-------|
+| PDF | `.pdf` | Single and multi-page supported. Each page counts as one document toward your plan limit. |
+| JPEG | `.jpg`, `.jpeg` | Photos of receipts work well |
+| PNG | `.png` | Screenshots and scanned documents |
+| WebP | `.webp` | Compressed web images |
+
+<Warning>Other file types (Word documents, Excel files, HEIC photos, GIFs, TIFFs) are not supported. Convert them to PDF or JPEG before uploading.</Warning>
+
+## Upload methods
+
+### Drag and drop (desktop)
+
+The fastest way to upload on desktop:
+
+<Steps>
+  <Step title="Navigate to the upload area">
+    The drag-and-drop zone appears on the **Dashboard** (home page) and the **Expenses** page.
+  </Step>
+
+  <Step title="Drag files from your computer">
+    Drag one or more files from Finder or Explorer onto the upload zone. The zone highlights when files are hovering over it.
+  </Step>
+
+  <Step title="Drop to upload">
+    Release the files. eggz immediately starts processing each document.
+  </Step>
+</Steps>
+
+<Tip>You can upload multiple files at once. Each file is processed independently.</Tip>
+
+### File picker (desktop and mobile)
+
+Click the upload zone to open your system file picker. Select one or more files and confirm.
+
+### Camera capture (mobile)
+
+On mobile, use the camera button in the bottom navigation dock:
+
+<Steps>
+  <Step title="Tap the camera button">
+    The camera icon sits between Home and Expenses in the mobile bottom dock.
+  </Step>
+
+  <Step title="Take a photo">
+    Point your camera at a receipt or bill and capture the image. eggz converts the photo to JPEG for processing.
+  </Step>
+
+  <Step title="Confirm upload">
+    The captured image uploads automatically. If you prefer, tap **Upload from Photos Instead** to pick an existing image from your gallery.
+  </Step>
+</Steps>
+
+## What happens after upload
+
+<Steps>
+  <Step title="Document stored">
+    The file is securely stored in eggz and a new receipt record is created with status **Pending**.
+  </Step>
+
+  <Step title="AI extraction">
+    eggz uses AI (powered by Claude) to read the document and extract:
+
+    - Merchant/vendor name
+    - Transaction date
+    - Total amount and currency
+    - Individual line items with quantities and prices
+    - Expense category
+  </Step>
+
+  <Step title="Review extracted data">
+    Once processing completes, the receipt status changes to **Processed**. Open the receipt to review and correct any extracted data before syncing to Xero.
+  </Step>
+</Steps>
+
+## Publishing to Xero
+
+After a receipt is processed, you can publish it to Xero. eggz creates the appropriate record based on whether the receipt is paid or unpaid:
+
+| Payment State | Xero Record Type | What it creates |
+|--------------|-------------------|-----------------|
+| **Unpaid** | Bill (ACCPAY) | A purchase invoice in Xero for your supplier |
+| **Paid** | Spend Money (Bank Transaction) | A bank transaction in Xero. Requires selecting a bank account. |
+
+<Note>Each receipt can only be published to Xero once. Make sure the extracted data is correct before publishing.</Note>
+
+## Document limits
+
+Your plan determines how many documents you can process per month:
+
+| Plan | Monthly Limit | Annual Limit |
+|------|---------------|--------------|
+| Starter | 20 | 300 |
+| Professional | 100 | 1,500 |
+| Business | 1,000 | Unlimited |
+| Enterprise | Unlimited | Unlimited |
+
+<Warning>Multi-page PDFs count each page as a separate document. A 3-page PDF uses 3 of your monthly allowance.</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My document failed to process">
+    Check that the file is a supported format (PDF, JPEG, PNG, or WebP) and that the image is clear and readable. Blurry photos or very low-resolution images may fail to extract correctly. Try re-uploading a clearer version.
+  </Accordion>
+
+  <Accordion title="The extracted data is wrong">
+    AI extraction is not perfect. Open the receipt detail page and edit any incorrect fields before publishing to Xero. Common issues include misread dates, incorrect totals on faded receipts, and missing line items on complex multi-page documents.
+  </Accordion>
+
+  <Accordion title="I've hit my document limit">
+    Your plan has a monthly processing limit. Upgrade your plan from **Settings > Billing** to increase your allowance. Documents uploaded after hitting the limit will not be processed until the next billing cycle or after upgrading.
+  </Accordion>
+
+  <Accordion title="I can't publish to Xero">
+    Ensure your Xero connection is active in **Settings > Integrations**. The receipt must be in **Processed** status before it can be published. If publishing a paid receipt as Spend Money, you must select a bank account first.
+  </Accordion>
+</AccordionGroup>

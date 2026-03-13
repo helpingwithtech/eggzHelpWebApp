@@ -1,0 +1,97 @@
+---
+title: "Xero Integration"
+description: "Connect Xero to sync invoices, bills, quotes, contacts, and chart of accounts with eggz"
+icon: "arrows-rotate"
+---
+
+## How eggz works with Xero
+
+eggz syncs your accounting data from Xero so you can view invoices, bills, quotes, and customer information in one place alongside your uploaded receipts. The integration is primarily one-way (Xero to eggz), with the ability to push processed receipts back to Xero.
+
+## Connect Xero
+
+<Steps>
+  <Step title="Open Integrations">
+    Navigate to **Settings > Integrations**.
+  </Step>
+
+  <Step title="Click Connect to Xero">
+    Click the **Connect to Xero** button. You will be redirected to Xero's authorisation page.
+  </Step>
+
+  <Step title="Authorise access">
+    Sign in to Xero (if not already) and grant eggz permission to access your data.
+  </Step>
+
+  <Step title="Select your organisation">
+    If you have multiple Xero organisations, choose the one you want to connect. Only one Xero organisation can be connected per eggz workspace.
+  </Step>
+</Steps>
+
+Once connected, the integrations page shows your connection status and sync options.
+
+## What syncs from Xero
+
+eggz pulls the following data from your Xero account:
+
+| Data | Direction | Notes |
+|------|-----------|-------|
+| **Invoices** | Xero to eggz | Sales invoices with status, amounts, dates, customer info |
+| **Bills** | Xero to eggz | Purchase invoices (accounts payable) |
+| **Quotes** | Xero to eggz | Quotes with prospect, amounts, status |
+| **Customers** | Xero to eggz | Contact information synced into your Accounts list |
+| **Chart of Accounts** | Xero to eggz | Account codes used for expense category mapping |
+
+<Note>Sync is manual -- click the **Sync** button on each section of the integrations page to pull the latest data. eggz does not automatically poll Xero for changes.</Note>
+
+## What eggz pushes to Xero
+
+eggz can push processed receipts to Xero in two ways:
+
+| Receipt State | Creates in Xero | Use Case |
+|--------------|-----------------|----------|
+| **Unpaid** | Bill (ACCPAY) | A supplier invoice you still need to pay |
+| **Paid** | Spend Money (Bank Transaction) | An expense already paid, recorded against a bank account |
+
+<Warning>Invoices, quotes, and customer records created in eggz cannot be pushed to Xero. They can only be synced from Xero into eggz.</Warning>
+
+## Account mapping
+
+After syncing your Chart of Accounts from Xero, you can map eggz expense categories to Xero account codes. This ensures receipts are posted to the correct account when published to Xero.
+
+<Steps>
+  <Step title="Sync Chart of Accounts">
+    On the integrations page, click **Sync** next to Chart of Accounts to pull your Xero account list.
+  </Step>
+
+  <Step title="Map categories">
+    In the **Account Mapping** section, assign each eggz expense category to the appropriate Xero account code.
+  </Step>
+</Steps>
+
+## Managing your connection
+
+### Connection status
+
+The integrations page shows your current connection status:
+
+| Status | Meaning |
+|--------|---------|
+| **Connected** | Active connection, ready to sync |
+| **Expired** | OAuth token has expired. Reconnect to refresh. |
+| **Error** | Connection issue. Try disconnecting and reconnecting. |
+| **Not connected** | No Xero account linked |
+
+eggz automatically refreshes your Xero token daily. If the refresh fails, the status changes to **Expired**.
+
+### Disconnect Xero
+
+To disconnect your Xero account, click **Disconnect** on the integrations page. This removes the connection but does not delete any data already synced into eggz.
+
+## Limitations
+
+- **One Xero organisation per workspace**: You cannot connect multiple Xero organisations to the same eggz workspace.
+- **One-way sync for most data**: Invoices, bills, quotes, and contacts only sync from Xero to eggz, not the other way.
+- **Manual sync**: You need to click the Sync button to pull new data. There is no automatic polling.
+- **No bank reconciliation**: eggz displays financial data but does not perform bank reconciliation. Continue using Xero for reconciliation.
+- **Currency conversion**: Analytics use your default exchange rates set in general settings, not live foreign exchange rates.

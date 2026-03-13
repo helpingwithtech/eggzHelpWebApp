@@ -1,0 +1,128 @@
+---
+title: "Getting Started with eggz"
+description: "Set up your eggz account, connect Xero and Gmail, and start automating your bookkeeping in under five minutes"
+icon: "rocket"
+---
+
+## Welcome to eggz
+
+eggz connects your email to Xero so you can automate invoices, bills, receipts, and more. This guide walks you through your first five minutes -- from signing up to processing your first document.
+
+## Prerequisites
+
+- A Xero account (free trial works)
+- A Gmail account (for email-to-document automation)
+- A modern web browser (Chrome, Safari, Firefox, or Edge)
+
+## Sign up and create your workspace
+
+<Steps>
+  <Step title="Create your account">
+    Go to [app.eggz.ai](https://app.eggz.ai) and click **Sign Up**. eggz uses secure authentication powered by WorkOS -- you can sign up with your email or an existing Google account.
+  </Step>
+
+  <Step title="Create your workspace">
+    After signing in for the first time, you will be asked to create a workspace. eggz pre-fills your workspace name and company domain from your email address.
+
+    - **Workspace name**: Your company or team name
+    - **Company domain**: Extracted from your email (e.g. `acme.com`)
+
+    Click **Create workspace** to continue.
+
+    <Tip>Each workspace is a separate organisation. If you work with multiple businesses, you can create a workspace for each one.</Tip>
+  </Step>
+</Steps>
+
+## Complete the onboarding wizard
+
+After creating your workspace, eggz walks you through a five-step setup wizard. You can skip most steps and come back later from **Settings > General**.
+
+<Steps>
+  <Step title="Choose your region" icon="globe">
+    Select your region to set the correct currency, date format, and tax settings.
+
+    | Region | Currency | Date Format | Tax |
+    |--------|----------|-------------|-----|
+    | Australia | AUD | DD/MM/YYYY | GST |
+    | United States | USD | MM/DD/YYYY | Sales Tax |
+
+    <Warning>This setting affects how amounts and dates display throughout the app. Choose carefully -- changing it later requires updating your general settings.</Warning>
+  </Step>
+
+  <Step title="Select your industry" icon="building">
+    Choose the industry that best describes your business. This helps eggz categorise your expenses more accurately.
+
+    Options include trades, professional services, IT and technology, healthcare, retail, hospitality, creative and media, education, transport and logistics, real estate, and other.
+
+    <Tip>If none of the options fit, select **Other** and type your industry. This improves the AI's accuracy when extracting data from your receipts.</Tip>
+  </Step>
+
+  <Step title="Tell us what matters to you" icon="heart">
+    eggz tracks the time you save by automating bookkeeping. Choose what you would do with that extra time -- family, more productive work, health, travel, or something else.
+
+    This step is optional and does not affect functionality.
+  </Step>
+
+  <Step title="Set your hourly rate" icon="dollar-sign">
+    Enter your hourly rate so eggz can calculate the dollar value of time saved. For example, if you charge $150/hour and eggz saves you 2 hours per week, your dashboard will show $300/week in time savings.
+
+    This step is optional. You can update it later in **Settings > General**.
+  </Step>
+
+  <Step title="Connect your accounts" icon="plug">
+    This is the most important step. Connect your Xero accounting software and Gmail to unlock automation.
+
+    **Connect Xero:**
+    1. Click **Connect to Xero**
+    2. Sign in to your Xero account when prompted
+    3. Authorise eggz to access your Xero data
+    4. Select the Xero organisation to connect (if you have multiple)
+
+    **Connect Gmail:**
+    1. Click **Connect Gmail**
+    2. Authorise eggz to read your emails
+    3. eggz will automatically detect invoices, bills, and receipts in your inbox
+
+    <Note>You can skip this step and connect later from **Settings > Integrations**. However, most eggz features require a Xero connection to work.</Note>
+  </Step>
+</Steps>
+
+After completing the wizard, click **Go to dashboard** to start using eggz.
+
+## What happens next
+
+Once you reach the dashboard, eggz begins working immediately:
+
+<CardGroup cols={2}>
+  <Card title="Upload receipts" icon="upload" href="/guides/uploading-documents">
+    Drag and drop PDFs or photos of receipts to have them automatically extracted and categorised.
+  </Card>
+
+  <Card title="Sync from Xero" icon="arrows-rotate" href="/guides/xero-sync">
+    Your invoices, bills, quotes, and contacts sync automatically from Xero.
+  </Card>
+
+  <Card title="Explore the dashboard" icon="chart-line" href="/guides/dashboard">
+    View your monthly spend, revenue, quote pipeline, and expense breakdown at a glance.
+  </Card>
+
+  <Card title="Manage settings" icon="gear" href="/guides/settings">
+    Adjust your region, currency, integrations, team members, and billing plan.
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="I can't connect to Xero">
+    Make sure you are signed in to the correct Xero account. If you have multiple Xero organisations, you will be asked to choose which one to connect. If the connection fails, try disconnecting and reconnecting from **Settings > Integrations**.
+  </Accordion>
+
+  <Accordion title="I skipped the wizard -- how do I go back?">
+    You cannot re-open the wizard, but all the same settings are available in **Settings > General** (region, industry, hourly rate) and **Settings > Integrations** (Xero, Gmail).
+  </Accordion>
+
+  <Accordion title="My workspace name is wrong">
+    Go to **Settings > General** to update your workspace name, timezone, reporting currency, and industry.
+  </Accordion>
+</AccordionGroup>

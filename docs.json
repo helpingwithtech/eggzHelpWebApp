@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "aspen",
-  "name": "eggz Help Center",
+  "name": "eggz Help Centre",
   "colors": {
     "primary": "#F5B20B",
     "light": "#F5B20B",
@@ -17,38 +17,48 @@
   "description": "eggz connects your email to Xero in two minutes or less. Automate your invoices, bills, and more.",
   "favicon": "/eggz-logo.png",
   "navigation": {
-        "groups": [
-        {
-          "group": "Getting started",
-          "pages": [
-            "index",
-            "quickstart"
-          ]
-        },
-        {
-          "group": "Bills",
-          "pages": [
-            "essentials/settings"            ]
-        },
-        {
-          "group": "Invoices",
-          "pages": [
-            "essentials/markdown"
-          ]
-        },
-        {
-          "group": "Account Management",
-          "pages": [
-            "ai-tools/cursor"
-          ]
-        }
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "index",
+          "guides/onboarding",
+          "guides/dashboard"
+        ]
+      },
+      {
+        "group": "Documents",
+        "pages": [
+          "guides/uploading-documents",
+          "guides/expenses"
+        ]
+      },
+      {
+        "group": "Sales",
+        "pages": [
+          "guides/invoices-and-quotes"
+        ]
+      },
+      {
+        "group": "Customers",
+        "pages": [
+          "guides/customers-and-contacts"
+        ]
+      },
+      {
+        "group": "Integrations & Settings",
+        "pages": [
+          "guides/xero-sync",
+          "guides/settings"
+        ]
+      }
     ],
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://help.eggz.ai",
-          "icon": "book-open-cover"
+          "anchor": "Dashboard",
+          "href": "https://app.eggz.ai",
+          "icon": "arrow-up-right-from-square"
         }
       ]
     }
@@ -72,13 +82,13 @@
   },
   "contextual": {
     "options": [
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "copy",
-     "view"
-   ]
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "copy",
+      "view"
+    ]
   },
   "footer": {
     "socials": {

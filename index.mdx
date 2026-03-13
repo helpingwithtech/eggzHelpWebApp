@@ -1,144 +1,67 @@
 ---
-mode: "frame"
-title: "Introduction"
+title: "eggz Help Centre"
 sidebarTitle: "Home"
-description: "Welcome to our help centre!"
+description: "Learn how to connect your email to Xero and automate your invoices, bills, receipts, and more with eggz"
 ---
 
-import { Container, Title} from '/snippets/home/utility.mdx';
-import { ProductTiles } from '/snippets/home/product-tiles.mdx';
-import { appCategories } from '/snippets/home/data.mdx';
-import { ProductCard } from '/snippets/home/product-cards.mdx';
-import { Button } from '/snippets/home/button.mdx';
+## Welcome to eggz
 
-<div className="px-5 divide-y divide-gray-100 dark:divide-white/10">
-  <Container>
-    <div className="w-full flex flex-col">
-      <div className="flex flex-col items-start justify-center w-full max-w-4xl text-left">
-        <div
-          className="text-gray-900 dark:text-gray-200 text-4xl tracking-tight"
-        >
-          eggz Help Centre
-        </div>
-        <p
-          className="text-md text-gray-600 dark:text-gray-400 text-left mt-3 mb-4"
-        >
-          Connect your email to Xero in two minutes or less. Follow our three step quickstart guide to begin.
-        </p>
-        <div className="flex flex-row gap-4 mt-5">
-          <Button intent="primary" size="small" href="/quickstart">
-            Start Here
-          </Button>
-        </div>
-      </div>
-    </div>
+eggz connects your email to Xero in two minutes or less. Upload receipts, sync invoices, track expenses, and manage your sales pipeline -- all from one place.
 
-  </Container>
-   <Container>
-    <div className="flex flex-col w-full mb-8">
-      <div className="flex items-center justify-between w-full">
-        <Title>
-          Build intelligent applications
-        </Title>
-      </div>
-      <p
-        className="text-[#5B616E] dark:text-gray-300 text-md mb-1 mt-3"
-      >
-        See our demo apps and tutorials to jumpstart your intelligent application within minutes.
-      </p>
-    </div>
-    <div className="dark:hidden block">
-    <CardGroup cols={3}>
-        <ProductCard
-        title="Bills Paid"
-        description="Automate storing, categorising and reconcilling bills"
-        href="https://youtu.be/EPdHV_Ex0XY"
-        img="https://mintlify-assets.b-cdn.net/aspen-ai.svg"
-        model="GPT-01"
-        type="Model API"
-        />
-        <ProductCard
-          title="Get Paid"
-          description="Set up invoices for automated reminders"
-          href="https://youtu.be/vqKhGq3kshg"
-          img="https://mintlify-assets.b-cdn.net/aspen-chat.svg"
-          model="Neural Engine"
-          type="Model API"
-        />
-          <ProductCard
-          title="Sync Accounts"
-          description="Make sure your contacts, emails and other account info is always up to date"
-          href="https://youtu.be/NM-dutlwRFc"
-          img="https://mintlify-assets.b-cdn.net/aspen-connect.svg"
-          model="AI"
-          type="Model API"
-        />
-    </CardGroup>
-    </div>
-    <div className="dark:block hidden">
-    <CardGroup cols={3}>
-        <ProductCard
-        title="Bills Paid"
-        description="Automate storing, categorising and reconcilling bills"
-        href="https://youtu.be/EPdHV_Ex0XY"
-        img="https://mintlify-assets.b-cdn.net/aspen-dark-ai.svg"
-        model="GPT-01"
-        type="Model API"
-        />
-        <ProductCard
-          title="Get Paid"
-          description="Set up invoices for automated reminders"
-          href="https://youtu.be/vqKhGq3kshg"
-          img="https://mintlify-assets.b-cdn.net/aspen-dark-chat.svg"
-          model="Neural Engine"
-          type="Model API"
-        />
-          <ProductCard
-          title="Sync Accounts"
-          description="Make sure your contacts, emails and other account info is always up to date"
-          href="https://youtu.be/NM-dutlwRFc"
-          img="https://mintlify-assets.b-cdn.net/aspen-dark-connect.svg"
-          model="AI"
-          type="Model API"
-        />
-    </CardGroup>
-    </div>
-    <ul class="not-prose pb-[1px] h-1 min-w-full mt-3 overflow-auto" />
-  </Container>
-  <Container>
-    <div className="flex flex-col w-full mb-8">
-      <div className="flex items-center justify-between w-full">
-        <Title>
-          Build AI Applications
-        </Title>
-      </div>
-      <p
-        className="text-[#5B616E] dark:text-gray-300 text-md mb-1 mt-3"
-      >
-        Use AspenAI's backend and frontend suites of AI services to build intelligent applications.
-      </p>
-    </div>
-    <ProductTiles categories={appCategories} />
-    <ul class="not-prose pb-[1px] h-1 min-w-full mt-3 overflow-auto" />
-  </Container>
-  
+<CardGroup cols={2}>
+  <Card title="Get started" icon="rocket" href="/guides/onboarding">
+    Set up your account, connect Xero and Gmail, and start automating in under five minutes.
+  </Card>
 
-  <Container>
-    <div className="flex flex-col w-full mb-5">
-    <Title>
-      Support
-    </Title>
+  <Card title="Upload documents" icon="upload" href="/guides/uploading-documents">
+    Drag and drop receipts and bills. AI extracts merchant, date, amount, and line items automatically.
+  </Card>
 
-  </div>
-  <Columns cols={1}>
-    <Card
-      title="Hire an Egghead"
-      icon="stars"
-      href="mailto:support@eggz.ai?subject=I%20need%20an%20Egghead&body=Hi%20Team%2C%0A%0AI%27d%20like%20to%20fast-track%20my%20setup%20with%20an%20expert.%0A%0AMy%20Company%20Name%3A%20%0AMy%20Current%20Accounting%20Software%20(e.g.%20Xero)%3A%20%0ABest%20phone%20number%3A%20%0A%0AThanks%21"
-    >
-    Want eggz set up for you? Click to email us and get an expert fast!
-    </Card>
-  </Columns>
-  </Container>
-</div>
+  <Card title="Explore the dashboard" icon="chart-line" href="/guides/dashboard">
+    View monthly spend, revenue, pipeline, and expense breakdown at a glance.
+  </Card>
 
+  <Card title="Connect Xero" icon="arrows-rotate" href="/guides/xero-sync">
+    Sync invoices, bills, quotes, and contacts from your Xero account.
+  </Card>
+</CardGroup>
+
+## What eggz does
+
+| Feature | Description |
+|---------|-------------|
+| **Receipt scanning** | Upload PDFs or photos. AI reads the merchant, date, amounts, and line items. |
+| **Xero sync** | Pull invoices, bills, quotes, and customers from Xero into eggz. |
+| **Publish to Xero** | Push processed receipts back to Xero as Bills or Spend Money transactions. |
+| **Sales pipeline** | Track quotes and invoices synced from Xero with analytics. |
+| **Expense analytics** | See monthly spend by category, merchant, and time period. |
+| **Gmail integration** | Connect Gmail to detect invoices and receipts in your inbox. |
+| **Mobile camera** | Snap a photo of a receipt from your phone and it uploads instantly. |
+
+## Quick links
+
+<CardGroup cols={3}>
+  <Card title="Expenses" icon="receipt" href="/guides/expenses">
+    Receipts and bills
+  </Card>
+
+  <Card title="Invoices & Quotes" icon="file-invoice-dollar" href="/guides/invoices-and-quotes">
+    Sales and pipeline
+  </Card>
+
+  <Card title="Customers" icon="users" href="/guides/customers-and-contacts">
+    Accounts and contacts
+  </Card>
+
+  <Card title="Settings" icon="gear" href="/guides/settings">
+    Workspace configuration
+  </Card>
+
+  <Card title="Xero Integration" icon="arrows-rotate" href="/guides/xero-sync">
+    Connect and sync
+  </Card>
+
+  <Card title="Support" icon="headset" href="mailto:support@eggz.ai?subject=I%20need%20an%20Egghead&body=Hi%20Team%2C%0A%0AI%27d%20like%20to%20fast-track%20my%20setup%20with%20an%20expert.%0A%0AMy%20Company%20Name%3A%20%0AMy%20Current%20Accounting%20Software%20(e.g.%20Xero)%3A%20%0ABest%20phone%20number%3A%20%0A%0AThanks%21">
+    Hire an Egghead
+  </Card>
+</CardGroup>

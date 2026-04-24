@@ -51,6 +51,12 @@
           "guides/xero-sync",
           "guides/settings"
         ]
+      },
+      {
+        "group": "Resources",
+        "pages": [
+          "changelog"
+        ]
       }
     ],
     "global": {

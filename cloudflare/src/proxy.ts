@@ -1,18 +1,15 @@
 /**
- * eggz.ai/help/* — reverse proxy to Mintlify (custom subpath).
+ * eggz.ai help path — reverse proxy to Mintlify (`*.mintlify.app`).
  *
- * Per Mintlify "Custom subpath" docs:
- *   - target origin = <subdomain>.mintlify.app
- *   - send Origin / X-Forwarded-{For,Proto} / X-Real-IP / User-Agent
- *   - DO NOT forward Host
- *   - cache ONLY /mintlify-assets/_next/static/*
+ * Mintlify serves docs under the `/help` prefix on the preview host. The Worker
+ * forwards the browser path unchanged, except sitemap, robots, and llms files
+ * that Mintlify keeps at the host root but we expose under `/help` on eggz.ai.
  *
- * SEO note (HTMLRewriter):
- *   Mintlify generates HTML referencing its own origin (eggz.mintlify.app) in
- *   <link rel="canonical">, <meta property="og:url">, hreflang, and sitemap
- *   anchor URLs. We rewrite those to https://eggz.ai/help/... so Google indexes
- *   the eggz.ai apex, not the mintlify.app preview origin. We do NOT touch
- *   relative URLs or third-party absolute URLs.
+ * HTML and XML responses rewrite mintlify.app URLs to `https://eggz.ai/help/…`.
+ *
+ * Per Mintlify Cloudflare guidance: target `subdomain.mintlify.app`, omit Host,
+ * set Origin and X-Forwarded-* headers, cache only hashed static under
+ * `mintlify-assets/_next/static` (long Cache-Control on that prefix only).
  */
 
 interface Env {
@@ -30,6 +27,100 @@ const PROXIED_PREFIXES: readonly string[] = [
 ];
 
 const PROXIED_EXACT: readonly string[] = ["/skill.md"];
+
+function isApexMintlifyPath(pathname: string): boolean {
+  return (
+    pathname.startsWith("/mintlify-assets/") ||
+    pathname.startsWith("/_mintlify/") ||
+    pathname.startsWith("/.well-known/") ||
+    pathname.startsWith("/_next/")
+  );
+}
+
+/** Browser paths under /help that Mintlify actually serves from the host root. */
+const HELP_BROWSER_TO_UPSTREAM_ROOT: Readonly<Record<string, string>> = {
+  "/help/sitemap.xml": "/sitemap.xml",
+  "/help/robots.txt": "/robots.txt",
+  "/help/llms.txt": "/llms.txt",
+  "/help/llms-full.txt": "/llms-full.txt",
+};
+
+/**
+ * Browser → Mintlify pathname. Default: identical (docs live under /help on
+ * eggz.mintlify.app). Exceptions: SEO/LLM files Mintlify exposes at `/` on the
+ * preview host but we surface under `/help/...` on eggz.ai.
+ */
+function upstreamPathname(browserPathname: string): string {
+  const hit = HELP_BROWSER_TO_UPSTREAM_ROOT[browserPathname];
+  if (hit) return hit;
+  return browserPathname;
+}
+
+function shouldExposeUnderHelpOnPublicSite(pathname: string): boolean {
+  if (!pathname || pathname === "/") return true;
+  if (pathname === "/help" || pathname.startsWith("/help/")) return true;
+  return !isApexMintlifyPath(pathname);
+}
+
+function mintlifyAbsoluteToPublic(absolute: string, mintlifyOrigin: string): string {
+  let u: URL;
+  try {
+    u = new URL(absolute);
+  } catch {
+    return absolute;
+  }
+  if (u.hostname !== mintlifyOrigin) return absolute;
+
+  const path = u.pathname;
+  let publicPath = path;
+  if (shouldExposeUnderHelpOnPublicSite(path)) {
+    if (path === "/" || path === "") publicPath = "/help";
+    else if (path === "/help" || path.startsWith("/help/")) publicPath = path;
+    else publicPath = `/help${path.startsWith("/") ? "" : "/"}${path}`;
+  }
+
+  return `${PUBLIC_ORIGIN}${publicPath}${u.search}${u.hash}`;
+}
+
+function prefixHelpForRootRelative(value: string): string {
+  if (
+    !value.startsWith("/") ||
+    value.startsWith("//") ||
+    value.startsWith("/help") ||
+    isApexMintlifyPath(value)
+  ) {
+    return value;
+  }
+  return `/help${value}`;
+}
+
+function rewriteAttributeIfMintlifyAbsolute(
+  el: Element,
+  attr: string,
+  mintlifyOrigin: string,
+): void {
+  const v = el.getAttribute(attr);
+  if (!v) return;
+  const httpsOrigin = `https://${mintlifyOrigin}`;
+  const httpOrigin = `http://${mintlifyOrigin}`;
+  let next = v;
+  if (v.startsWith(httpsOrigin) || v.startsWith(httpOrigin)) {
+    next = mintlifyAbsoluteToPublic(v, mintlifyOrigin);
+  } else if (v.startsWith("/") && !v.startsWith("//")) {
+    next = prefixHelpForRootRelative(v);
+  }
+  if (next !== v) el.setAttribute(attr, next);
+}
+
+class MintlifyUrlAttrRewriter {
+  constructor(
+    private readonly attr: string,
+    private readonly mintlifyOrigin: string,
+  ) {}
+  element(el: Element) {
+    rewriteAttributeIfMintlifyAbsolute(el, this.attr, this.mintlifyOrigin);
+  }
+}
 
 function shouldProxy(pathname: string): boolean {
   if (PROXIED_EXACT.includes(pathname)) return true;
@@ -52,52 +143,53 @@ function isXmlLike(contentType: string | null): boolean {
   return ct.includes("xml") || ct.includes("text/plain");
 }
 
-/**
- * Rewrite an absolute URL that points at the Mintlify origin so it points at
- * eggz.ai instead. Leaves other URLs untouched.
- */
-function rewriteAbsoluteUrl(value: string, mintlifyOrigin: string): string {
-  const httpsOrigin = `https://${mintlifyOrigin}`;
-  const httpOrigin = `http://${mintlifyOrigin}`;
-  if (value.startsWith(httpsOrigin)) return PUBLIC_ORIGIN + value.slice(httpsOrigin.length);
-  if (value.startsWith(httpOrigin)) return PUBLIC_ORIGIN + value.slice(httpOrigin.length);
-  return value;
-}
-
-function rewriteAttribute(
-  el: Element,
-  attr: string,
+function rewriteLocationHeader(
+  loc: string,
   mintlifyOrigin: string,
-): void {
-  const v = el.getAttribute(attr);
-  if (!v) return;
-  const next = rewriteAbsoluteUrl(v, mintlifyOrigin);
-  if (next !== v) el.setAttribute(attr, next);
+): string | null {
+  try {
+    if (loc.startsWith("/")) {
+      const q = loc.indexOf("?");
+      const pathOnly = q === -1 ? loc : loc.slice(0, q);
+      const search = q === -1 ? "" : loc.slice(q);
+      if (isApexMintlifyPath(pathOnly)) {
+        return `${PUBLIC_ORIGIN}${pathOnly}${search}`;
+      }
+      if (pathOnly === "/" || pathOnly === "") {
+        return `${PUBLIC_ORIGIN}/help${search}`;
+      }
+      // Mintlify already uses /help on the preview host (e.g. /help after /help/).
+      if (pathOnly === "/help" || pathOnly.startsWith("/help/")) {
+        return `${PUBLIC_ORIGIN}${pathOnly}${search}`;
+      }
+      return `${PUBLIC_ORIGIN}/help${pathOnly}${search}`;
+    }
+    const abs = new URL(loc);
+    if (abs.hostname !== mintlifyOrigin) return null;
+    return mintlifyAbsoluteToPublic(abs.toString(), mintlifyOrigin);
+  } catch {
+    return null;
+  }
 }
 
-class CanonicalAttrRewriter {
-  constructor(
-    private readonly attr: string,
-    private readonly mintlifyOrigin: string,
-  ) {}
-  element(el: Element) {
-    rewriteAttribute(el, this.attr, this.mintlifyOrigin);
-  }
+function rewritePlainTextMintlifyUrls(body: string, mintlifyOrigin: string): string {
+  const esc = mintlifyOrigin.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp(`https?://${esc}[^\\s"'<>]*`, "g");
+  return body.replace(re, (match) => mintlifyAbsoluteToPublic(match, mintlifyOrigin));
 }
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // Defence in depth: only handle paths the route map allows.
     if (!shouldProxy(url.pathname)) {
       return new Response("Not Found", { status: 404 });
     }
 
     const origin = env.MINTLIFY_ORIGIN;
-    const upstream = new URL(`https://${origin}${url.pathname}${url.search}`);
+    const upPath = upstreamPathname(url.pathname);
+    const upstream = new URL(`https://${origin}${upPath}${url.search}`);
 
-    // Build headers from the incoming request, but do NOT forward Host.
     const upstreamHeaders = new Headers(request.headers);
     upstreamHeaders.delete("host");
     upstreamHeaders.set("Origin", `https://${origin}`);
@@ -126,8 +218,13 @@ export default {
 
     const upstreamResponse = await fetch(upstreamRequest);
 
-    // Cache header normalisation: only cache the long-lived static asset path.
     const outHeaders = new Headers(upstreamResponse.headers);
+    const loc = upstreamResponse.headers.get("Location");
+    if (loc) {
+      const nextLoc = rewriteLocationHeader(loc, origin);
+      if (nextLoc) outHeaders.set("Location", nextLoc);
+    }
+
     if (isStaticAsset(url.pathname)) {
       outHeaders.set("Cache-Control", "public, max-age=86400, immutable");
     } else {
@@ -136,19 +233,17 @@ export default {
 
     const contentType = upstreamResponse.headers.get("content-type");
 
-    // SEO: rewrite Mintlify-origin URLs to eggz.ai in HTML responses.
     if (isHtml(contentType)) {
       const rewriter = new HTMLRewriter()
-        // Canonical link, alternate hreflang links, og/twitter meta
-        .on('link[rel="canonical"]', new CanonicalAttrRewriter("href", origin))
-        .on('link[rel="alternate"]', new CanonicalAttrRewriter("href", origin))
-        .on('meta[property="og:url"]', new CanonicalAttrRewriter("content", origin))
-        .on('meta[name="twitter:url"]', new CanonicalAttrRewriter("content", origin))
-        // Any absolute URL that happens to point at the Mintlify origin
-        .on("a[href]", new CanonicalAttrRewriter("href", origin))
-        .on("link[href]", new CanonicalAttrRewriter("href", origin))
-        .on("script[src]", new CanonicalAttrRewriter("src", origin))
-        .on("img[src]", new CanonicalAttrRewriter("src", origin));
+        .on('link[rel="canonical"]', new MintlifyUrlAttrRewriter("href", origin))
+        .on('link[rel="alternate"]', new MintlifyUrlAttrRewriter("href", origin))
+        .on('meta[property="og:url"]', new MintlifyUrlAttrRewriter("content", origin))
+        .on('meta[name="twitter:url"]', new MintlifyUrlAttrRewriter("content", origin))
+        .on("a[href]", new MintlifyUrlAttrRewriter("href", origin))
+        .on("link[href]", new MintlifyUrlAttrRewriter("href", origin))
+        .on("script[src]", new MintlifyUrlAttrRewriter("src", origin))
+        .on("img[src]", new MintlifyUrlAttrRewriter("src", origin))
+        .on("form[action]", new MintlifyUrlAttrRewriter("action", origin));
 
       return rewriter.transform(
         new Response(upstreamResponse.body, {
@@ -159,9 +254,6 @@ export default {
       );
     }
 
-    // SEO: rewrite absolute URLs in sitemap.xml / robots.txt as plain string
-    // replacement (HTMLRewriter does not parse XML or text). Only safe for
-    // small responses we read fully into memory.
     if (
       isXmlLike(contentType) &&
       (url.pathname.endsWith("/sitemap.xml") ||
@@ -169,11 +261,7 @@ export default {
         url.pathname.endsWith(".xml"))
     ) {
       const text = await upstreamResponse.text();
-      const rewritten = text
-        .split(`https://${origin}`)
-        .join(PUBLIC_ORIGIN)
-        .split(`http://${origin}`)
-        .join(PUBLIC_ORIGIN);
+      const rewritten = rewritePlainTextMintlifyUrls(text, origin);
       return new Response(rewritten, {
         status: upstreamResponse.status,
         statusText: upstreamResponse.statusText,

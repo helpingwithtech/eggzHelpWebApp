@@ -1,0 +1,37 @@
+---
+title: "Settings & privacy"
+description: "Protected domains, themes, auto-save, and how Unscrambled Tabs handles your data"
+icon: "shield-halved"
+---
+
+## Where data lives
+
+| Storage | Typical contents |
+|---------|------------------|
+| **chrome.storage.local** | Workspaces, settings, snapshots, API key, long-lived preferences |
+| **chrome.storage.session** | Short-lived UI state and per-window workspace map (implementation detail) |
+| **Service worker memory** | Tab activity timestamps for discard heuristics (cleared when the worker stops) |
+
+## Protected domains
+
+In **Protected Domains**, enter host fragments (for example `mail.google.com` or `docs.google.com`). Tabs whose hostname **matches** those entries are **never** discarded by **Performance mode** sweeps or **Free RAM now** (substring match — be specific to avoid over-broad rules).
+
+## Themes
+
+The extension supports **light** and **dark** themes using design tokens. Toggle from the in-product **Settings** or dashboard header where available.
+
+## Auto-save tabs
+
+When **Auto-save tabs** is on, tab navigations in the **active workspace** update saved tab lists through a **debounced** path in the background worker — this avoids writing storage on every single event and reduces UI flicker.
+
+## AI and network
+
+- **No eggz server** is required for core workspace features.
+- **Anthropic** is only contacted when you use **AI** features and a valid **API key** is configured.
+- Review Anthropic’s policies for **data processing** when you enable AI.
+
+## Permissions
+
+The manifest lists permissions needed for tabs, groups, storage, side panel, and related Chrome APIs. Granting fewer permissions than requested is not supported — if you reject a prompt, some features will not work.
+
+For **Chrome Web Store** updates and permission changes, see Google’s [update checklist](https://developer.chrome.com/docs/webstore/update).

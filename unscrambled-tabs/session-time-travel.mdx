@@ -1,0 +1,32 @@
+---
+title: "Session Time-Travel"
+description: "Automatic snapshots of your browser session in Unscrambled Tabs and how to restore from a recent snapshot"
+icon: "clock-rotate-left"
+---
+
+## What it does
+
+**Session Time-Travel** takes **automatic snapshots** of your current browsing context (for the focused normal window’s tab set, as implemented in your version) on a **schedule** — for example every few minutes while enabled.
+
+Snapshots let you **rewind** to a recent tab layout if something changed accidentally or you want an older arrangement back.
+
+## Enabling and limits
+
+- Toggle **Session Time-Travel** in **Settings** under smart features.
+- The product keeps a **limited ring buffer** of snapshots (for example the most recent 50) so storage stays bounded.
+
+<Note>
+Snapshot frequency and retention are implementation details — check your in-product Settings copy for the exact interval.
+</Note>
+
+## Restoring
+
+From **Settings**, choose a snapshot and **Restore**. The extension applies the saved workspace and tab metadata. If something fails, try an older snapshot.
+
+<Tip>
+Snapshots are **local** to your Chrome profile and extension storage. They are **not** cloud-synced to eggz unless a future integration explicitly adds that.
+</Tip>
+
+## Privacy
+
+Snapshots contain **URLs and titles** (and any tab metadata the extension stores). Treat exported backups separately if you need to move machines — see [Backup & import](/unscrambled-tabs/backup-import).

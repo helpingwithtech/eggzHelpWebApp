@@ -1,0 +1,43 @@
+---
+title: "AI assistant & search"
+description: "Anthropic Claude in Unscrambled Tabs, bring-your-own API key, tab context, and keyboard search"
+icon: "sparkles"
+---
+
+## Bring your own API key
+
+The extension’s **AI features** use **Anthropic Claude** (model configured in the product). You paste an **Anthropic API key** in **Settings**. The key is stored in **Chrome local storage** for the extension and is used from the **background service worker** — not from random web pages — so your key does not leak into site JavaScript.
+
+<Warning>
+Never share your API key or commit it to a repo. Rotate the key in the [Anthropic console](https://console.anthropic.com/settings/keys) if you suspect exposure.
+</Warning>
+
+## What the AI can do
+
+Typical capabilities (exact labels may vary by version):
+
+- **Chat** about your tabs or selected context.
+- **Organise** tabs into logical **tab groups** within the current workspace.
+- **Save resources** — suggestions for folders of saved links derived from open tabs.
+
+The AI only receives what you (or the feature) explicitly sends — for example tab titles, URLs, or extracted snippet content — according to the action you run.
+
+## Search (⌘K / Ctrl+Shift+K)
+
+**Quick search** opens from the keyboard from **any tab** (command is registered in the extension manifest):
+
+- **Mac:** ⌘K  
+- **Windows / Linux:** Ctrl+Shift+K  
+
+Use it to find workspaces, tabs, or in-product actions without leaving the keyboard.
+
+## AI assistant shortcut
+
+- **Mac:** ⌘J  
+- **Windows / Linux:** Ctrl+Shift+J  
+
+Opens the AI surface from the side panel flow (exact UX depends on your build).
+
+## If you do not use AI
+
+You can leave the API key empty. **Workspaces**, **Performance modes**, **snapshots**, and **backup** work without AI. Only AI-specific actions will prompt you to add a key.

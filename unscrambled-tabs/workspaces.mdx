@@ -1,0 +1,53 @@
+---
+title: "Workspaces & tabs"
+description: "Browser workspaces, switching, pinned tabs, tab groups, multi-window binding, and how Unscrambled Tabs keeps your tab sets organised"
+icon: "folder-tree"
+---
+
+## Workspaces
+
+A **workspace** is a **saved set of browser tabs** (and related metadata) with a name, colour, and optional emoji. You can:
+
+- **Switch workspace** — Chrome closes the current non-internal tabs in that window and opens the saved URLs from the target workspace (or starts from a new tab if empty).
+- **Capture tabs** — Save what is open right now into a workspace.
+- **Organise** — group tabs (Tab Groups in Chrome) when supported by your workflow and AI organise features.
+
+## What gets saved on a tab
+
+Typically each stored tab includes:
+
+- **URL** and **title** (as known when captured)
+- **Pinned** state
+- **Tab group** membership (when groups are restored)
+
+Internal extension pages and some `chrome://` pages are filtered for consistency and safety.
+
+## Switching workspaces
+
+When you switch:
+
+1. The extension **persists** the current window’s real tabs into the **previous** workspace (for that window’s binding).
+2. It **opens** the target workspace’s tab list in the **same Chrome window** you triggered the switch from (when you use the side panel or dashboard attached to that window).
+
+<Tip>
+Think of switching as “replace this window’s tab strip with another saved set” — your **tabs are not hidden in a mystery window**; they are normal Chrome tabs that reload when discarded.
+</Tip>
+
+## Multi-window use
+
+If you run **two normal Chrome windows**:
+
+- Each window can be **bound** to a different active workspace — the side panel or dashboard in **that** window shows the workspace relevant to **that** window.
+- **Global** “last activated workspace” in storage may update when you switch, but the UI prefers the **per-window** binding so you are not fighting between monitors.
+
+## Pinned tabs
+
+**Pinned** tabs are part of your workspace model. They are treated with extra care in **Performance & RAM** — pinned tabs are **not** eligible for automatic discard or **Free RAM now**.
+
+## Tab deduplication
+
+If you navigate to a URL you already have open, the extension can show a **banner** (via the content script) offering to **jump to the existing tab** instead of keeping duplicates. This saves RAM and clutter.
+
+## Resources (optional)
+
+Some builds support **resources** — saved links or notes grouped inside a workspace, separate from live tabs. Open URLs from resources when you need them without keeping them in the tab strip.

@@ -1,6 +1,6 @@
 {
-  // Two Workers: one proxies Mintlify content under /help, one 301-redirects the
-  // legacy help.eggz.ai subdomain to the new eggz.ai/help/* paths (SEO).
+  // Two Workers: proxy Mintlify under eggz.ai/help (same paths as eggz.mintlify.app
+  // except sitemap or robots fetched from host root); second 301s help.eggz.ai → eggz.ai/help.
   // Mintlify custom-subpath docs require:
   //   - origin: <subdomain>.mintlify.app  (NOT .dev — .dev is only for "/docs" toggle)
   //   - never forward Host header

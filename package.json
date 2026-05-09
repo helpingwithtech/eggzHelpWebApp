@@ -1,0 +1,17 @@
+{
+  "name": "eggz-help-centre",
+  "private": true,
+  "description": "Mintlify Help Centre docs + Cloudflare Workers in cloudflare/",
+  "scripts": {
+    "validate": "pnpm --dir cloudflare run validate",
+    "types": "pnpm --dir cloudflare run types",
+    "dev:proxy": "pnpm --dir cloudflare run dev:proxy",
+    "dev:redirect": "pnpm --dir cloudflare run dev:redirect",
+    "deploy:proxy": "pnpm --dir cloudflare run deploy:proxy",
+    "deploy:redirect": "pnpm --dir cloudflare run deploy:redirect",
+    "deploy:dry-run:proxy": "pnpm --dir cloudflare run deploy:dry-run:proxy",
+    "deploy:dry-run:redirect": "pnpm --dir cloudflare run deploy:dry-run:redirect",
+    "tail:proxy": "pnpm --dir cloudflare run tail:proxy",
+    "tail:redirect": "pnpm --dir cloudflare run tail:redirect"
+  }
+}

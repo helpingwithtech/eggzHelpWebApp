@@ -29,6 +29,7 @@
   // serving the marketing site (provided that Worker is registered as `*` and
   // these are explicit prefixes).
   "routes": [
+    { "pattern": "eggz.ai/robots.txt",                     "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/help",                           "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/help/*",                         "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/.well-known/vercel/*",           "zone_name": "eggz.ai" },

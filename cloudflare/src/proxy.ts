@@ -2,8 +2,12 @@
  * eggz.ai help path — reverse proxy to Mintlify (`*.mintlify.app`).
  *
  * Mintlify serves docs under the `/help` prefix on the preview host. The Worker
- * forwards the browser path unchanged, except sitemap, robots, and llms files
+ * forwards the browser path unchanged, except sitemap and llms files
  * that Mintlify keeps at the host root but we expose under `/help` on eggz.ai.
+ *
+ * Robots: `https://eggz.ai/robots.txt` is the **canonical** URL (200 with the bytes from
+ * `src/robots-content.ts`). `https://eggz.ai/help/robots.txt` mirrors the same bytes for
+ * convenience. There is no Vercel-side robots.txt — `app.eggz.ai` is auth-walled.
  *
  * HTML and XML responses rewrite mintlify.app URLs to `https://eggz.ai/help/…`.
  *
@@ -11,6 +15,8 @@
  * set Origin and X-Forwarded-* headers, cache only hashed static under
  * `mintlify-assets/_next/static` (long Cache-Control on that prefix only).
  */
+
+import { ROBOTS_TXT } from "./robots-content";
 
 interface Env {
   MINTLIFY_ORIGIN: string;
@@ -40,7 +46,6 @@ function isApexMintlifyPath(pathname: string): boolean {
 /** Browser paths under /help that Mintlify actually serves from the host root. */
 const HELP_BROWSER_TO_UPSTREAM_ROOT: Readonly<Record<string, string>> = {
   "/help/sitemap.xml": "/sitemap.xml",
-  "/help/robots.txt": "/robots.txt",
   "/help/llms.txt": "/llms.txt",
   "/help/llms-full.txt": "/llms-full.txt",
 };
@@ -177,9 +182,28 @@ function rewritePlainTextMintlifyUrls(body: string, mintlifyOrigin: string): str
   return body.replace(re, (match) => mintlifyAbsoluteToPublic(match, mintlifyOrigin));
 }
 
+/**
+ * Serve the single canonical robots.txt inline. The bytes live in
+ * `src/robots-content.ts` and are bundled into the Worker, so editing them
+ * requires a Worker deploy (which is the desired single-source-of-truth model).
+ */
+function serveCanonicalRobots(): Response {
+  return new Response(ROBOTS_TXT, {
+    status: 200,
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "public, max-age=3600",
+    },
+  });
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/robots.txt" || url.pathname === "/help/robots.txt") {
+      return serveCanonicalRobots();
+    }
 
     if (!shouldProxy(url.pathname)) {
       return new Response("Not Found", { status: 404 });

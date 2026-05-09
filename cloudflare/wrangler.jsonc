@@ -21,7 +21,9 @@
   "vars": {
     // Mintlify subdomain (matches dashboard.mintlify.com/<org>/<subdomain>).
     // Custom subpath REQUIRES the .app origin per Mintlify docs.
-    "MINTLIFY_ORIGIN": "eggz.mintlify.app"
+    "MINTLIFY_ORIGIN": "eggz.mintlify.app",
+    // Single canonical robots.txt is receipt-tracker-master/public/robots.txt (Vercel).
+    "APP_ROBOTS_ORIGIN": "https://app.eggz.ai"
   },
 
   // Routes the proxy claims on the eggz.ai zone. Cloudflare picks the most
@@ -29,6 +31,7 @@
   // serving the marketing site (provided that Worker is registered as `*` and
   // these are explicit prefixes).
   "routes": [
+    { "pattern": "eggz.ai/robots.txt",                     "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/help",                           "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/help/*",                         "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/.well-known/vercel/*",           "zone_name": "eggz.ai" },
@@ -51,7 +54,7 @@
       "observability": { "enabled": true, "head_sampling_rate": 1 },
       // Same key as the proxy Worker so wrangler stops warning about
       // non-inherited vars; the redirect Worker does not read this binding.
-      "vars": { "MINTLIFY_ORIGIN": "" },
+      "vars": { "MINTLIFY_ORIGIN": "", "APP_ROBOTS_ORIGIN": "" },
       "routes": [
         { "pattern": "help.eggz.ai/*", "zone_name": "eggz.ai" }
       ]

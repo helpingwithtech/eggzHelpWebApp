@@ -1,8 +1,0 @@
-# eggz Help Centre (Mintlify) — overrides auto-generated robots for correct sitemap URL.
-# Served at eggz.mintlify.app/robots.txt and proxied as https://eggz.ai/help/robots.txt
-User-agent: *
-Disallow: /cdn-cgi/
-Allow: /_next/image
-Disallow: /_next/
-
-Sitemap: https://eggz.ai/help/sitemap.xml

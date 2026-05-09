@@ -4,7 +4,7 @@ Two Workers that front the eggz Help Centre on the **`eggz.ai`** zone.
 
 | Worker | Route(s) | Purpose |
 |---|---|---|
-| `eggz-help-proxy` | `eggz.ai/help`, `eggz.ai/help/*`, plus required Mintlify well-known and asset paths | Reverse proxy: forwards **`eggz.ai` paths to the same path on `eggz.mintlify.app`** (docs are under `/help` on both). **`/help/sitemap.xml`** and friends map to Mintlify **host-root** `/sitemap.xml`, etc. HTML/XML rewrites and **`Location`** fixes keep **`https://eggz.ai/help/...`** canonical (no `/help/help` loops on trailing-slash redirects). |
+| `eggz-help-proxy` | `eggz.ai/robots.txt`, `eggz.ai/help`, `eggz.ai/help/*`, plus required Mintlify well-known and asset paths | **`/robots.txt`** and **`/help/robots.txt`** 307-redirect to **`https://app.eggz.ai/robots.txt`** (single canonical file in **receipt-tracker-master** `public/robots.txt`). Otherwise: reverse proxy to **`eggz.mintlify.app`** (docs under `/help`). **`/help/sitemap.xml`** maps to Mintlify host-root `/sitemap.xml`. HTML/XML rewrites and **`Location`** fixes keep **`https://eggz.ai/help/...`** canonical. |
 | `eggz-help-redirect` | `help.eggz.ai/*` | HTTP **301** to `eggz.ai/help/<path>` so SEO link equity migrates per URL. |
 
 > Mintlify origin = `eggz.mintlify.app` (custom subpath uses **`.app`**, not `.dev`).
@@ -73,10 +73,9 @@ If Mintlify keeps prompting to add `eggz.ai` in the dashboard, leave the project
    - Add property for `eggz.ai` if not present, verify ownership.
    - Open the **`help.eggz.ai`** property → **Settings → Change of Address** → choose `eggz.ai`.
    - Submit the Help Centre sitemap: **`https://eggz.ai/help/sitemap.xml`** (do not replace **`https://eggz.ai/sitemap.xml`** — that is the marketing site index; list **both** in Search Console and/or in robots).
-   - **Apex `robots.txt`:** ensure **`https://eggz.ai/robots.txt`** includes **`Sitemap: https://eggz.ai/help/sitemap.xml`** in addition to the marketing sitemap (Google supports multiple `Sitemap:` lines per [robots.txt spec](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec)). This file is maintained with the marketing site, not in this repo.
-   - Optional: confirm **`https://eggz.ai/help/robots.txt`** lists the same Help sitemap in the `Sitemap:` line (repo **`robots.txt`** overrides Mintlify’s default after deploy).
+   - **Single `robots.txt`:** edit **`receipt-tracker-master/public/robots.txt`** and deploy the Vercel app; then **`pnpm deploy:proxy`** so **`https://eggz.ai/robots.txt`** and **`https://eggz.ai/help/robots.txt`** mirror it (`APP_ROBOTS_ORIGIN`, default `https://app.eggz.ai`). Remove any stale marketing-only **`robots.txt`** on the apex host if another Worker still serves it—this Worker’s route must win for **`eggz.ai/robots.txt`**.
 6. Ship the extension version with the new help URL.
 
 ## Routing safety
 
-This Worker only claims explicit prefixes (`/help`, `/help/*`, `/.well-known/vercel/*`, `/.well-known/skills/*`, `/skill.md`, `/_mintlify/*`, `/mintlify-assets/_next/static/*`). Cloudflare matches the most specific route first, so a catch-all `eggz.ai/*` Worker that serves the marketing site continues to handle every other URL.
+This Worker only claims explicit routes (`/robots.txt`, `/help`, `/help/*`, `/.well-known/vercel/*`, `/.well-known/skills/*`, `/skill.md`, `/_mintlify/*`, `/mintlify-assets/_next/static/*`). Cloudflare matches the most specific route first, so a catch-all `eggz.ai/*` Worker that serves the marketing site continues to handle every other URL.

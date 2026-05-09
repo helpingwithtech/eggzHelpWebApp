@@ -2,8 +2,13 @@
  * eggz.ai help path — reverse proxy to Mintlify (`*.mintlify.app`).
  *
  * Mintlify serves docs under the `/help` prefix on the preview host. The Worker
- * forwards the browser path unchanged, except sitemap, robots, and llms files
+ * forwards the browser path unchanged, except sitemap and llms files
  * that Mintlify keeps at the host root but we expose under `/help` on eggz.ai.
+ *
+ * Robots: `https://eggz.ai/robots.txt` and `https://eggz.ai/help/robots.txt` 307-redirect
+ * to the single canonical file on the Vercel app (`public/robots.txt` ⇒
+ * `https://app.eggz.ai/robots.txt`). Per Google's spec robots.txt redirects are followed
+ * (≤5 hops) and the rules apply to the requesting host.
  *
  * HTML and XML responses rewrite mintlify.app URLs to `https://eggz.ai/help/…`.
  *
@@ -14,6 +19,8 @@
 
 interface Env {
   MINTLIFY_ORIGIN: string;
+  /** Vercel app origin; canonical robots.txt = {APP_ROBOTS_ORIGIN}/robots.txt */
+  APP_ROBOTS_ORIGIN: string;
 }
 
 const PUBLIC_ORIGIN = "https://eggz.ai";
@@ -40,7 +47,6 @@ function isApexMintlifyPath(pathname: string): boolean {
 /** Browser paths under /help that Mintlify actually serves from the host root. */
 const HELP_BROWSER_TO_UPSTREAM_ROOT: Readonly<Record<string, string>> = {
   "/help/sitemap.xml": "/sitemap.xml",
-  "/help/robots.txt": "/robots.txt",
   "/help/llms.txt": "/llms.txt",
   "/help/llms-full.txt": "/llms-full.txt",
 };
@@ -177,9 +183,36 @@ function rewritePlainTextMintlifyUrls(body: string, mintlifyOrigin: string): str
   return body.replace(re, (match) => mintlifyAbsoluteToPublic(match, mintlifyOrigin));
 }
 
+/**
+ * Single canonical robots.txt for eggz lives in `receipt-tracker-master/public/robots.txt`
+ * (served at `${APP_ROBOTS_ORIGIN}/robots.txt` by Vercel). Apex `eggz.ai/robots.txt` and
+ * legacy `eggz.ai/help/robots.txt` 307-redirect there so there is exactly one byte source.
+ *
+ * Google supports up to 5 redirect hops on robots.txt and applies the resulting rules to
+ * the requesting host — see https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec
+ * ("Logical redirects (3xx) are followed... rules apply to the host that was requested").
+ *
+ * 307 is preferred over 301 so we can repoint the canonical origin in future without bots
+ * caching a permanent answer.
+ */
+function redirectToCanonicalRobots(appRobotsOrigin: string): Response {
+  const target = `${appRobotsOrigin.replace(/\/$/, "")}/robots.txt`;
+  return new Response(null, {
+    status: 307,
+    headers: {
+      Location: target,
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+
+    if (url.pathname === "/robots.txt" || url.pathname === "/help/robots.txt") {
+      return redirectToCanonicalRobots(env.APP_ROBOTS_ORIGIN);
+    }
 
     if (!shouldProxy(url.pathname)) {
       return new Response("Not Found", { status: 404 });

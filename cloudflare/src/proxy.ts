@@ -5,10 +5,9 @@
  * forwards the browser path unchanged, except sitemap and llms files
  * that Mintlify keeps at the host root but we expose under `/help` on eggz.ai.
  *
- * Robots: `https://eggz.ai/robots.txt` and `https://eggz.ai/help/robots.txt` 307-redirect
- * to the single canonical file on the Vercel app (`public/robots.txt` ⇒
- * `https://app.eggz.ai/robots.txt`). Per Google's spec robots.txt redirects are followed
- * (≤5 hops) and the rules apply to the requesting host.
+ * Robots: `https://eggz.ai/robots.txt` is the **canonical** URL (200 with the bytes from
+ * `src/robots-content.ts`). `https://eggz.ai/help/robots.txt` mirrors the same bytes for
+ * convenience. There is no Vercel-side robots.txt — `app.eggz.ai` is auth-walled.
  *
  * HTML and XML responses rewrite mintlify.app URLs to `https://eggz.ai/help/…`.
  *
@@ -17,10 +16,10 @@
  * `mintlify-assets/_next/static` (long Cache-Control on that prefix only).
  */
 
+import { ROBOTS_TXT } from "./robots-content";
+
 interface Env {
   MINTLIFY_ORIGIN: string;
-  /** Vercel app origin; canonical robots.txt = {APP_ROBOTS_ORIGIN}/robots.txt */
-  APP_ROBOTS_ORIGIN: string;
 }
 
 const PUBLIC_ORIGIN = "https://eggz.ai";
@@ -184,24 +183,16 @@ function rewritePlainTextMintlifyUrls(body: string, mintlifyOrigin: string): str
 }
 
 /**
- * Single canonical robots.txt for eggz lives in `receipt-tracker-master/public/robots.txt`
- * (served at `${APP_ROBOTS_ORIGIN}/robots.txt` by Vercel). Apex `eggz.ai/robots.txt` and
- * legacy `eggz.ai/help/robots.txt` 307-redirect there so there is exactly one byte source.
- *
- * Google supports up to 5 redirect hops on robots.txt and applies the resulting rules to
- * the requesting host — see https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec
- * ("Logical redirects (3xx) are followed... rules apply to the host that was requested").
- *
- * 307 is preferred over 301 so we can repoint the canonical origin in future without bots
- * caching a permanent answer.
+ * Serve the single canonical robots.txt inline. The bytes live in
+ * `src/robots-content.ts` and are bundled into the Worker, so editing them
+ * requires a Worker deploy (which is the desired single-source-of-truth model).
  */
-function redirectToCanonicalRobots(appRobotsOrigin: string): Response {
-  const target = `${appRobotsOrigin.replace(/\/$/, "")}/robots.txt`;
-  return new Response(null, {
-    status: 307,
+function serveCanonicalRobots(): Response {
+  return new Response(ROBOTS_TXT, {
+    status: 200,
     headers: {
-      Location: target,
-      "Cache-Control": "public, max-age=3600",
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "public, max-age=3600",
     },
   });
 }
@@ -211,7 +202,7 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/robots.txt" || url.pathname === "/help/robots.txt") {
-      return redirectToCanonicalRobots(env.APP_ROBOTS_ORIGIN);
+      return serveCanonicalRobots();
     }
 
     if (!shouldProxy(url.pathname)) {

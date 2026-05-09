@@ -72,7 +72,8 @@ If Mintlify keeps prompting to add `eggz.ai` in the dashboard, leave the project
 5. Google Search Console:
    - Add property for `eggz.ai` if not present, verify ownership.
    - Open the **`help.eggz.ai`** property → **Settings → Change of Address** → choose `eggz.ai`.
-   - Submit the Help Centre sitemap: **`https://eggz.ai/help/sitemap.xml`** (do not use **`https://eggz.ai/sitemap.xml`** — that is the marketing site index).
+   - Submit the Help Centre sitemap: **`https://eggz.ai/help/sitemap.xml`** (do not replace **`https://eggz.ai/sitemap.xml`** — that is the marketing site index; list **both** in Search Console and/or in robots).
+   - **Apex `robots.txt`:** ensure **`https://eggz.ai/robots.txt`** includes **`Sitemap: https://eggz.ai/help/sitemap.xml`** in addition to the marketing sitemap (Google supports multiple `Sitemap:` lines per [robots.txt spec](https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec)). This file is maintained with the marketing site, not in this repo.
    - Optional: confirm **`https://eggz.ai/help/robots.txt`** lists the same Help sitemap in the `Sitemap:` line (repo **`robots.txt`** overrides Mintlify’s default after deploy).
 6. Ship the extension version with the new help URL.
 

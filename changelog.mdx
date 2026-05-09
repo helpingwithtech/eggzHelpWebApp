@@ -1,15 +1,157 @@
 ---
 title: "Changelog"
-description: "Release notes for eggz with the latest product updates, new features, dashboard improvements, Xero sync changes, and bug fixes shipped each week."
+description: "Single source of truth for eggz and Unscrambled Tabs — Help Centre updates, platform notes, and Chrome extension release notes."
 sidebarTitle: "Changelog"
 icon: "clock-rotate-left"
-keywords: ["changelog", "release notes", "updates", "what's new"]
+keywords: ["changelog", "release notes", "updates", "what's new", "Unscrambled Tabs"]
 ---
 
-Product updates for eggz — the latest features, improvements, and fixes. For help using any feature, head to the [Getting started](/guides/onboarding) guide or [hire an Egghead](mailto:support@eggz.ai).
+This is the **only public changelog** for **eggz** (web app and Help Centre) and **Unscrambled Tabs** (Chrome extension). Extension semver history that previously lived in the extension repository is maintained here.
+
+For help using any feature, see [Getting started](/guides/onboarding) or [hire an Egghead](mailto:support@eggz.ai).
+
+---
+
+## Unscrambled Tabs (Chrome extension)
+
+<Update label="v1.1.3" description="9 May 2026 · Help Centre deep link, icon pipeline, About version">
+  ### Release
+
+  - **Chrome Web Store / manifest** version set to **1.1.3** (matches the built package users install).
+
+  ### UX
+
+  - **Performance & RAM → Learn more** opens this Help Centre at the [**Performance modes**](/unscrambled-tabs/performance-and-ram#performance-modes-explained) section (Manual, Balanced, Aggressive scenarios). The extension uses a configurable help base URL (default **`https://help.eggz.ai`**).
+
+  ### About
+
+  - **Settings → About → Version** uses the live **Manifest V3** version from Chrome (`chrome.runtime.getManifest().version`) so it always matches the store and the browser. Packaged builds also embed the same semver from the extension manifest at compile time so UI and tests stay aligned.
+
+  ### Branding / build
+
+  - **Toolbar and Web Store icons** are generated from a single **master PNG** via **Sharp**, letterboxed on black with `contain` fit for non-square sources. **`pnpm run build`** runs icon generation first; the step fails clearly if the source asset is missing.
+
+  ### Testing
+
+  - Automated tests cover extension version resolution when the Chrome manifest API is stubbed and when running outside the extension runtime.
+</Update>
+
+<Update label="v1.1.2" description="RAM-first workspace performance">
+  ### Performance
+
+  - **Performance mode:** **Manual** (default), **Balanced**, or **Aggressive** — controls when eligible inactive tabs are discarded via Chrome [`tabs.discard`](https://developer.chrome.com/docs/extensions/reference/api/tabs).
+  - **Free RAM now:** one-shot discard of **safe** inactive tabs from Settings — tabs stay on the strip; Chrome reloads when you activate them.
+  - **Multi-window inactive sweep:** scheduled work considers tabs across **normal windows**, not only the active window.
+
+  ### Windows & workspace binding
+
+  - Each Chrome window can keep a **workspace binding** so the side panel and dashboard show tabs for the workspace tied to **that** window when you run several workspaces at once.
+
+  ### Safety & privacy
+
+  - **Never** auto-targeted for suspension helpers: active, pinned, audible, already discarded, `chrome://` / extension pages, non-http(s) URLs, and domains you list under **Protected domains**.
+
+  ### Permissions
+
+  - **`windows`** added so the UI can resolve the current Chrome window reliably for routing and bindings ([`chrome.windows.getCurrent`](https://developer.chrome.com/docs/extensions/reference/api/windows)).
+
+  ### Documentation & testing
+
+  - Internal manual UAT checklist for RAM / performance QA (aggregate metrics only — no logging of sensitive tab data).
+  - Expanded automated tests for **discard eligibility** rules.
+</Update>
+
+<Update label="v1.1.1" description="Verified CRX uploads & signing">
+  ### Security
+
+  - Opted in to Chrome Web Store **Verified CRX Uploads** for tamper-evident publishing.
+  - Releases are signed with the project’s **RSA 2048-bit** key before upload; **unsigned packages are rejected**.
+
+  ### Developer experience
+
+  - **`pnpm run pack:crx`** builds and signs the extension in one step (requires local signing key per release runbook).
+  - **Chrome Web Store upload guide** documents a repeatable release checklist for maintainers.
+</Update>
+
+<Update label="v1.1.0" description="Custom emoji, side panel performance, themes, protected domains">
+  ### Custom favicon emoji
+
+  - Choose a **custom emoji** in Settings for tabs with missing favicons (replaces the generic globe) across workspaces, sidebar, and dashboard.
+
+  ### Performance (side panel)
+
+  - **No white flash** when switching workspaces; large workspace switches stay smooth.
+  - **Background tab updates** (URL, title, favicon) are **batched** instead of saving on every event.
+  - **Remembers** scroll position, active view, and expanded workspaces between opens.
+
+  ### Dark & light mode
+
+  - **Theme overhaul** using shared design tokens; **dark mode** aims for **WCAG AA** contrast.
+  - **Light mode:** toasts, tooltips, and modals match the theme; export/import password flows inherit the active theme.
+
+  ### Protected domains
+
+  - **Protected domains** list in Settings — keep important sites (email, calendar, etc.) from being auto-suspended.
+
+  ### Stability
+
+  - Safer behaviour when **no browser window** is available during tab operations.
+  - Fewer startup errors when **restoring session** tabs.
+</Update>
+
+<Update label="v1.0.0" description="Initial public release">
+  - Workspace manager with tab grouping and organisation.
+  - AI-powered tab search and assistant.
+  - Session time travel with auto-snapshots every **5 minutes**.
+  - Tab deduplication with instant switch banner.
+  - Tab suspension to free RAM from inactive tabs.
+  - **Encrypted backup and restore** (AES-256-GCM).
+  - **Workona** import support.
+  - Keyboard shortcuts (e.g. **⌘K** search, **⌘J** AI assistant).
+  - Dashboard with resizable panels for tabs and resources.
+</Update>
+
+---
+
+## Help Centre & platform
+
+<Update label="Week of 5–9 May 2026" description="Unscrambled Tabs documentation in the Help Centre">
+  ### Navigation and home
+
+  - **Sidebar:** Documentation group **Unscrambled Tabs (Chrome extension)** with eight pages (overview through Performance & RAM).
+  - **Resources** group includes **this changelog**.
+  - **Home** ([Overview](/index)): **Unscrambled Tabs** cards in highlight and quick-link sections linking to the [extension overview](/unscrambled-tabs/index).
+
+  ### New pages (summary)
+
+  | Page | Covers |
+  |------|--------|
+  | [Overview](/unscrambled-tabs/index) | Product fit vs [eggz](https://app.eggz.ai), audience, quick links. |
+  | [Install](/unscrambled-tabs/install) | Web Store, pinning, developer load. |
+  | [Workspaces & tabs](/unscrambled-tabs/workspaces) | Workspaces, switching, multi-window binding. |
+  | [AI & search](/unscrambled-tabs/ai-and-search) | Assistant, search, BYO API key (service worker). |
+  | [Session time travel](/unscrambled-tabs/session-time-travel) | Snapshots and restore. |
+  | [Backup & import](/unscrambled-tabs/backup-import) | Encrypted backup, imports. |
+  | [Settings & privacy](/unscrambled-tabs/settings-privacy) | Settings surface and privacy, reader-friendly. |
+  | [Performance & RAM](/unscrambled-tabs/performance-and-ram) | Modes, Free RAM, safety; anchor [`#performance-modes-explained`](/unscrambled-tabs/performance-and-ram#performance-modes-explained). |
+</Update>
+
+<Update label="Week of 28 April – 4 May 2026" description="Discoverability & changelog in the sidebar">
+  ### SEO and metadata
+
+  - Stronger **`title`** and **`description`** front matter across guides so search and previews read clearly (including PR **#5**).
+
+  ### Changelog navigation
+
+  - **Resources → Changelog** in site navigation so release notes are one click from the rest of the docs.
+</Update>
 
 <Update label="Week of 21 April 2026" description="Platform and reliability">
-  No user-facing changes shipped this week. The team focused on internal platform work — dependency and license guardrails that keep the product safe to ship — with no visible impact on the app.
+  ### Engineering
 
-  Up next: improvements to document upload, Xero sync, and dashboard analytics. Watch this space.
+  - **Dependency and licence guardrails** in build and release pipelines (including **automated licence allowlist** checks in the extension repo). **No** end-user dashboard or extension UI change from this work alone.
+
+  ### Looking ahead (from that week)
+
+  - Document upload, Xero sync, and dashboard analytics on the roadmap — watch this page and [Getting started](/guides/onboarding).
 </Update>

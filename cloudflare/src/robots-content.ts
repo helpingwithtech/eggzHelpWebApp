@@ -1,4 +1,10 @@
 /**
+ * Per Google's robots.txt spec the rules apply to the host they were fetched
+ * from, so a single eggz.ai/robots.txt governs all eggz.ai paths (apex,
+ * /help/*, etc.). app.eggz.ai is the authenticated dashboard and does not
+ * require its own robots.txt — Google treats a 404 there as "fully allowed",
+ * but the routes are auth-walled so nothing gets indexed regardless.
+ * 
  * Canonical robots.txt — single source of truth for the entire eggz domain.
  *
  * Served verbatim at:

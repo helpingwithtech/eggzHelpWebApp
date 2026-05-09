@@ -158,7 +158,6 @@ function rewriteLocationHeader(
       if (pathOnly === "/" || pathOnly === "") {
         return `${PUBLIC_ORIGIN}/help${search}`;
       }
-      // Mintlify already uses /help on the preview host (e.g. /help after /help/).
       if (pathOnly === "/help" || pathOnly.startsWith("/help/")) {
         return `${PUBLIC_ORIGIN}${pathOnly}${search}`;
       }

@@ -134,6 +134,15 @@ export default {
       outHeaders.set("Cache-Control", "no-cache, no-store, must-revalidate");
     }
 
+    // Rewrite Location header on redirects so the Mintlify origin is never
+    // exposed to clients or crawlers.
+    if (upstreamResponse.status >= 300 && upstreamResponse.status < 400) {
+      const location = outHeaders.get("Location");
+      if (location) {
+        outHeaders.set("Location", rewriteAbsoluteUrl(location, origin));
+      }
+    }
+
     const contentType = upstreamResponse.headers.get("content-type");
 
     // SEO: rewrite Mintlify-origin URLs to eggz.ai in HTML responses.

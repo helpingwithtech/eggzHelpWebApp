@@ -53,6 +53,12 @@
         ]
       },
       {
+        "group": "Resources",
+        "pages": [
+          "changelog"
+        ]
+      },
+      {
         "group": "Unscrambled Tabs (Chrome extension)",
         "pages": [
           "unscrambled-tabs/index",

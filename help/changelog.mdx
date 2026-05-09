@@ -1,193 +1,119 @@
 ---
 title: "Changelog"
-description: "Single source of truth for eggz and Unscrambled Tabs — Help Centre updates, platform notes, and Chrome extension release notes."
+description: "Release notes for the Help Centre, eggz web app, and the Unscrambled Tabs Chrome extension — newest first."
 sidebarTitle: "Changelog"
 icon: "clock-rotate-left"
 keywords: ["changelog", "release notes", "updates", "what's new", "Unscrambled Tabs"]
 ---
 
-This is the **only public changelog** for **eggz** (web app and Help Centre) and **Unscrambled Tabs** (Chrome extension). Extension semver history that previously lived in the extension repository is maintained here.
+Newest updates appear **first**. Each entry shows the **date** (or “earlier” for older extension builds where we did not record the ship day) and which product it applies to — **Help Docs**, **Web App**, and/or **Chrome Extension** — matching the tags on the card.
 
-Each **Update** is tagged for **Help Docs** (this Mintlify site), **Web App** (eggz at [app.eggz.ai](https://app.eggz.ai)), and/or **Chrome Extension** (Unscrambled Tabs). An entry can carry more than one tag when it touches several surfaces.
-
-**Naming convention (use for every new entry):**
-
-- **`label`** — Unique id for Mintlify (anchors / RSS). Prefer **`YYYY-MM-DD--short-kebab-slug`** (shipping or week-ending date + topic). If **more than one entry shares the same calendar day**, vary the slug (e.g. `2026-05-09--help-url-migration` vs `2026-05-09--ext-v1-1-3`). For **Chrome extension** releases where the historical ship date is unknown, use **`ext-vMAJOR-MINOR-PATCH`** (semver with hyphens, e.g. `ext-v1-1-2`).
-- **`description`** — Visible title: **`Scope · Headline`**. **Scope** is **`Help Docs`**, **`Web App`**, **`Chrome Extension`**, or a **`Help Docs · Chrome Extension`**-style join (same order as tags: Help Docs → Web App → Chrome Extension). **Headline** is a short sentence in sentence case; **include `vX.Y.Z`** in the headline for extension store releases.
-
-For help using any feature, see [Getting started](/help/guides/onboarding) or [hire an Egghead](mailto:support@eggz.ai).
+For product help, see [Getting started](/help/guides/onboarding) or [email support](mailto:support@eggz.ai).
 
 ---
 
-## Help Centre
+<Update label="2026-05-09--help-url-migration" description="Help Centre now lives at eggz.ai/help · 301 from help.eggz.ai" tags={["Help Docs", "Chrome Extension"]}>
 
-<Update label="2026-05-09--help-url-migration" description="Help Docs · Chrome Extension · Help Centre moves to eggz.ai/help (301 from help.eggz.ai)" tags={["Help Docs", "Chrome Extension"]}>
-  ### What changed
+**9 May 2026** · **Help Docs** · **Chrome Extension**
 
-  - The Help Centre now lives at **`eggz.ai/help`** instead of **`help.eggz.ai`**. Bookmarks and search results pointing at the old subdomain are **301-redirected** path-for-path to the new URL — for example, `help.eggz.ai/unscrambled-tabs/install` → `eggz.ai/help/unscrambled-tabs/install`. No content was lost.
-  - Internal links across the Help Centre, the home page, and every Update entry below were rewritten to the new `/help/...` paths.
+- The Help Centre is now at **`eggz.ai/help`** (not **`help.eggz.ai`**). Old URLs are **301-redirected** path-for-path, e.g. `help.eggz.ai/unscrambled-tabs/install` → `eggz.ai/help/unscrambled-tabs/install`.
+- **Why:** keep SEO and brand on the **`eggz.ai`** domain; one host for marketing, app, and docs.
+- **How:** Mintlify hosts the docs; a **Cloudflare Worker** proxies **`/help/*`** to **`eggz.mintlify.app`**. Another Worker **301**s the legacy **`help.eggz.ai`** hostname to **`eggz.ai/help/*`**. Internal links and this changelog use **`/help/...`** paths throughout.
+- **Chrome Extension:** **Performance & RAM → Learn more** opens [`/help/unscrambled-tabs/performance-and-ram#performance-modes-explained`](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained).
 
-  ### Why
-
-  - **SEO consolidation:** moving from a subdomain to a subdirectory keeps all link equity and topical authority on the eggz.ai apex domain instead of splitting it across `eggz.ai` and `help.eggz.ai`.
-  - **One brand, one host:** the Dashboard, marketing, and the Help Centre all share the eggz.ai origin.
-
-  ### How it works
-
-  - **Hosting:** Mintlify serves the docs; a Cloudflare Worker on the eggz.ai zone proxies `/help/*` (and the required Mintlify well-known and asset paths) to `eggz.mintlify.app/help/*`.
-  - **Redirect:** A second Cloudflare Worker on `help.eggz.ai/*` issues HTTP **301** to the matching `eggz.ai/help/*` URL (path, query, and fragment preserved).
-  - **Extension:** the Unscrambled Tabs extension's **Performance & RAM → Learn more** link now opens `eggz.ai/help/unscrambled-tabs/performance-and-ram#performance-modes-explained`.
 </Update>
 
----
+<Update label="2026-05-09--chrome-ext-v1-1-3" description="Chrome extension v1.1.3 — help links, icons, About version" tags={["Chrome Extension"]}>
 
-## Unscrambled Tabs (Chrome extension)
+**9 May 2026** · **Chrome Extension**
 
-<Update label="2026-05-09--ext-v1-1-3" description="Chrome Extension · v1.1.3: Help deep link, icon pipeline, and About version" tags={["Chrome Extension"]}>
-  ### Release
+- **Store / manifest** version **1.1.3** (matches what users install from the Chrome Web Store).
+- **Performance & RAM → Learn more** points at this Help Centre (performance modes). Help base URL defaults to **`https://eggz.ai`** with docs under **`/help`**.
+- **Settings → About → Version** reads the live **Manifest V3** version from Chrome; builds also embed the same semver for tests and non-extension contexts.
+- **Icons:** toolbar and Web Store icons generated from one **master PNG** via **Sharp** (letterboxed on black). **`pnpm run build`** runs icon generation first and fails clearly if the asset is missing.
+- **Tests** for version resolution with a stubbed Chrome API and outside the extension runtime.
 
-  - **Chrome Web Store / manifest** version set to **1.1.3** (matches the built package users install).
-
-  ### UX
-
-  - **Performance & RAM → Learn more** opens this Help Centre at the [**Performance modes**](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained) section (Manual, Balanced, Aggressive scenarios). The extension uses a configurable help base URL (default **`https://eggz.ai`** with docs under **`/help`**).
-
-  ### About
-
-  - **Settings → About → Version** uses the live **Manifest V3** version from Chrome (`chrome.runtime.getManifest().version`) so it always matches the store and the browser. Packaged builds also embed the same semver from the extension manifest at compile time so UI and tests stay aligned.
-
-  ### Branding / build
-
-  - **Toolbar and Web Store icons** are generated from a single **master PNG** via **Sharp**, letterboxed on black with `contain` fit for non-square sources. **`pnpm run build`** runs icon generation first; the step fails clearly if the source asset is missing.
-
-  ### Testing
-
-  - Automated tests cover extension version resolution when the Chrome manifest API is stubbed and when running outside the extension runtime.
 </Update>
 
-<Update label="ext-v1-1-2" description="Chrome Extension · v1.1.2: RAM-first performance, modes, and multi-window binding" tags={["Chrome Extension"]}>
-  ### Performance
+<Update label="2026-05-09--help-tabs-and-pages" description="Help Docs · top tabs (Web App / Chrome Extension) and eight extension pages" tags={["Help Docs", "Chrome Extension"]}>
 
-  - **Performance mode:** **Manual** (default), **Balanced**, or **Aggressive** — controls when eligible inactive tabs are discarded via Chrome [`tabs.discard`](https://developer.chrome.com/docs/extensions/reference/api/tabs).
-  - **Free RAM now:** one-shot discard of **safe** inactive tabs from Settings — tabs stay on the strip; Chrome reloads when you activate them.
-  - **Multi-window inactive sweep:** scheduled work considers tabs across **normal windows**, not only the active window.
+**9 May 2026** · **Help Docs** · **Chrome Extension**
 
-  ### Windows & workspace binding
+- **Navigation:** **Web App** and **Chrome Extension** are **top-level tabs**; extension articles sit under **Chrome Extension → Unscrambled Tabs**. **Resources → Changelog** stays under **Web App**.
+- **New / updated extension articles:** [Overview](/help/unscrambled-tabs/index), [Install](/help/unscrambled-tabs/install), [Workspaces & tabs](/help/unscrambled-tabs/workspaces), [AI & search](/help/unscrambled-tabs/ai-and-search), [Session time travel](/help/unscrambled-tabs/session-time-travel), [Backup & import](/help/unscrambled-tabs/backup-import), [Settings & privacy](/help/unscrambled-tabs/settings-privacy), [Performance & RAM](/help/unscrambled-tabs/performance-and-ram) (including [`#performance-modes-explained`](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained)).
+- [Home](/help/index) highlights Unscrambled Tabs with quick links to the extension overview.
 
-  - Each Chrome window can keep a **workspace binding** so the side panel and dashboard show tabs for the workspace tied to **that** window when you run several workspaces at once.
-
-  ### Safety & privacy
-
-  - **Never** auto-targeted for suspension helpers: active, pinned, audible, already discarded, `chrome://` / extension pages, non-http(s) URLs, and domains you list under **Protected domains**.
-
-  ### Permissions
-
-  - **`windows`** added so the UI can resolve the current Chrome window reliably for routing and bindings ([`chrome.windows.getCurrent`](https://developer.chrome.com/docs/extensions/reference/api/windows)).
-
-  ### Documentation & testing
-
-  - Internal manual UAT checklist for RAM / performance QA (aggregate metrics only — no logging of sensitive tab data).
-  - Expanded automated tests for **discard eligibility** rules.
 </Update>
 
-<Update label="ext-v1-1-1" description="Chrome Extension · v1.1.1: verified CRX uploads and release signing" tags={["Chrome Extension"]}>
-  ### Security
+<Update label="2026-05-04--help-seo-changelog-nav" description="Help Docs · guide SEO metadata and Changelog in the sidebar" tags={["Help Docs"]}>
 
-  - Opted in to Chrome Web Store **Verified CRX Uploads** for tamper-evident publishing.
-  - Releases are signed with the project’s **RSA 2048-bit** key before upload; **unsigned packages are rejected**.
+**4 May 2026** · **Help Docs**
 
-  ### Developer experience
+- Stronger **`title`** and **`description`** front matter on guides for clearer search snippets and previews.
+- **Resources → Changelog** added to navigation so release notes sit beside the rest of the docs.
 
-  - **`pnpm run pack:crx`** builds and signs the extension in one step (requires local signing key per release runbook).
-  - **Chrome Web Store upload guide** documents a repeatable release checklist for maintainers.
 </Update>
 
-<Update label="ext-v1-1-0" description="Chrome Extension · v1.1.0: custom tab emoji, side panel polish, themes, protected domains" tags={["Chrome Extension"]}>
-  ### Custom favicon emoji
+<Update label="2026-04-27--web-app-quiet-week" description="Web App · no user-facing release this week" tags={["Web App"]}>
 
-  - Choose a **custom emoji** in Settings for tabs with missing favicons (replaces the generic globe) across workspaces, sidebar, and dashboard.
+**27 April 2026** · **Web App**
 
-  ### Performance (side panel)
+No customer-visible changes this week. Engineering continued work on document upload, [Xero sync](/help/guides/xero-sync), and [dashboard analytics](/help/guides/dashboard). Follow this changelog for when those ship.
 
-  - **No white flash** when switching workspaces; large workspace switches stay smooth.
-  - **Background tab updates** (URL, title, favicon) are **batched** instead of saving on every event.
-  - **Remembers** scroll position, active view, and expanded workspaces between opens.
-
-  ### Dark & light mode
-
-  - **Theme overhaul** using shared design tokens; **dark mode** aims for **WCAG AA** contrast.
-  - **Light mode:** toasts, tooltips, and modals match the theme; export/import password flows inherit the active theme.
-
-  ### Protected domains
-
-  - **Protected domains** list in Settings — keep important sites (email, calendar, etc.) from being auto-suspended.
-
-  ### Stability
-
-  - Safer behaviour when **no browser window** is available during tab operations.
-  - Fewer startup errors when **restoring session** tabs.
 </Update>
 
-<Update label="ext-v1-0-0" description="Chrome Extension · v1.0.0: initial public release" tags={["Chrome Extension"]}>
-  - Workspace manager with tab grouping and organisation.
-  - AI-powered tab search and assistant.
-  - Session time travel with auto-snapshots every **5 minutes**.
-  - Tab deduplication with instant switch banner.
-  - Tab suspension to free RAM from inactive tabs.
-  - **Encrypted backup and restore** (AES-256-GCM).
-  - **Workona** import support.
-  - Keyboard shortcuts (e.g. **⌘K** search, **⌘J** AI assistant).
-  - Dashboard with resizable panels for tabs and resources.
+<Update label="2026-04-21--ci-licence-guardrails" description="Web App · Chrome Extension · dependency and licence checks in CI" tags={["Web App", "Chrome Extension"]}>
+
+**21 April 2026** · **Web App** · **Chrome Extension**
+
+- **CI / engineering:** dependency and **licence allowlist** checks in build pipelines (including the extension repo). **No** change to dashboard or extension UI from this work alone.
+- Roadmap: document upload, Xero sync, and analytics — watch this page and [Getting started](/help/guides/onboarding).
+
+</Update>
+
+<Update label="ext-v1-1-2" description="Chrome extension v1.1.2 · RAM modes, discard rules, multi-window binding" tags={["Chrome Extension"]}>
+
+**Earlier (before 9 May 2026)** · **Chrome Extension**
+
+- **Performance modes:** **Manual** (default), **Balanced**, or **Aggressive** — controls eligible inactive-tab discard via [`tabs.discard`](https://developer.chrome.com/docs/extensions/reference/api/tabs). **Free RAM now** discards safe inactive tabs in one shot; **multi-window** sweeps include all normal windows.
+- **Workspace binding** per Chrome window so the side panel and dashboard follow the workspace for **that** window.
+- **Safety:** never auto-discards active, pinned, audible, already discarded, `chrome://` / extension pages, non-http(s) URLs, or **Protected domains**.
+- **`windows`** permission for reliable [`chrome.windows.getCurrent`](https://developer.chrome.com/docs/extensions/reference/api/windows) when routing and bindings.
+- Internal RAM/performance QA checklist (aggregate metrics only); more tests for **discard eligibility**.
+
+</Update>
+
+<Update label="ext-v1-1-1" description="Chrome extension v1.1.1 · verified CRX uploads and signed releases" tags={["Chrome Extension"]}>
+
+**Earlier** · **Chrome Extension**
+
+- Chrome Web Store **Verified CRX Uploads**; packages signed with **RSA-2048** before upload (**unsigned rejected**).
+- **`pnpm run pack:crx`** and the release runbook for maintainers.
+
+</Update>
+
+<Update label="ext-v1-1-0" description="Chrome extension v1.1.0 · emoji favicons, side panel polish, themes, protected domains" tags={["Chrome Extension"]}>
+
+**Earlier** · **Chrome Extension**
+
+- **Custom emoji** for tabs missing favicons.
+- **Side panel:** less flash on workspace switch; batched background tab updates; remembers scroll, view, and expanded workspaces.
+- **Themes:** token-based light/dark with **WCAG AA**-oriented dark mode; light-mode toasts, tooltips, modals, and export/import flows follow the theme.
+- **Protected domains** so important sites are not auto-suspended.
+- **Stability:** safer behaviour with no browser window; fewer errors when restoring sessions.
+
+</Update>
+
+<Update label="ext-v1-0-0" description="Chrome extension v1.0.0 · first public release" tags={["Chrome Extension"]}>
+
+**Earlier** · **Chrome Extension**
+
+- Workspaces with tab grouping and organisation; AI tab search and assistant; **Session time travel** (snapshots every **5 minutes**); tab dedupe; tab suspension to free RAM; **AES-256-GCM** backup/restore; **Workona** import; shortcuts (**⌘K** search, **⌘J** assistant); dashboard with resizable panels.
+
 </Update>
 
 ---
 
-## Help Centre & platform
+### For maintainers (entry format)
 
-<Update label="2026-05-09--help-unscrambled-tabs-docs" description="Help Docs · Chrome Extension · Unscrambled Tabs docs, top tabs, and eight new pages" tags={["Help Docs", "Chrome Extension"]}>
-  ### Navigation and home
-
-  - **Top tabs:** **Web App** and **Chrome Extension** separate product areas; extension docs live under **Chrome Extension**.
-  - **Sidebar (Chrome Extension tab):** group **Unscrambled Tabs** with eight pages (overview through Performance & RAM).
-  - **Resources** group includes **this changelog**.
-  - **Home** ([Overview](/help/index)): **Unscrambled Tabs** cards in highlight and quick-link sections linking to the [extension overview](/help/unscrambled-tabs/index).
-
-  ### New pages (summary)
-
-  | Page | Covers |
-  |------|--------|
-  | [Overview](/help/unscrambled-tabs/index) | Product fit vs [eggz](https://app.eggz.ai), audience, quick links. |
-  | [Install](/help/unscrambled-tabs/install) | Web Store, pinning, developer load. |
-  | [Workspaces & tabs](/help/unscrambled-tabs/workspaces) | Workspaces, switching, multi-window binding. |
-  | [AI & search](/help/unscrambled-tabs/ai-and-search) | Assistant, search, BYO API key (service worker). |
-  | [Session time travel](/help/unscrambled-tabs/session-time-travel) | Snapshots and restore. |
-  | [Backup & import](/help/unscrambled-tabs/backup-import) | Encrypted backup, imports. |
-  | [Settings & privacy](/help/unscrambled-tabs/settings-privacy) | Settings surface and privacy, reader-friendly. |
-  | [Performance & RAM](/help/unscrambled-tabs/performance-and-ram) | Modes, Free RAM, safety; anchor [`#performance-modes-explained`](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained). |
-</Update>
-
-<Update label="2026-05-04--help-seo-changelog-nav" description="Help Docs · Stronger page SEO and Resources → Changelog in navigation" tags={["Help Docs"]}>
-  ### SEO and metadata
-
-  - Stronger **`title`** and **`description`** front matter across guides so search and previews read clearly (including PR **#5**).
-
-  ### Changelog navigation
-
-  - **Resources → Changelog** in site navigation so release notes are one click from the rest of the docs.
-</Update>
-
-<Update label="2026-04-27--app-quiet-week" description="Web App · No user-facing release (engineering continues on upload, Xero, analytics)" tags={["Web App"]}>
-  No user-facing changes shipped this week. Engineering continued behind-the-scenes work on document upload, [Xero sync](/help/guides/xero-sync), and [dashboard analytics](/help/guides/dashboard) — nothing visible in the app yet.
-
-  Up next: improvements landing in those areas in the coming weeks.
-</Update>
-
-<Update label="2026-04-21--app-build-licence-guardrails" description="Web App · Chrome Extension · Dependency and licence guardrails in CI (no UI change)" tags={["Web App", "Chrome Extension"]}>
-  ### Engineering
-
-  - **Dependency and licence guardrails** in build and release pipelines (including **automated licence allowlist** checks in the extension repo). **No** end-user dashboard or extension UI change from this work alone.
-
-  ### Looking ahead (from that week)
-
-  - Document upload, Xero sync, and dashboard analytics on the roadmap — watch this page and [Getting started](/help/guides/onboarding).
-</Update>
+Use one `<Update>` per ship batch. **`label`** — unique anchor, e.g. `YYYY-MM-DD--topic` or `ext-vMAJOR-MINOR-PATCH` when no calendar date exists. **`description`** — short headline for the timeline. **`tags`** — only **Help Docs**, **Web App**, and/or **Chrome Extension** (same order as the bold line: Help Docs → Web App → Chrome Extension). Put the **calendar date** and scopes on the first line inside the block, as in the entries above.

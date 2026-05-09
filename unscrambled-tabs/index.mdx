@@ -1,0 +1,76 @@
+---
+title: "Unscrambled Tabs"
+sidebarTitle: "Overview"
+description: "The Unscrambled Tabs Chrome extension — workspaces, AI tab organisation, session snapshots, and performance tools that complement eggz.ai"
+icon: "puzzle-piece"
+---
+
+## What is Unscrambled Tabs?
+
+**Unscrambled Tabs** is the **Chrome extension** half of the **eggz.ai** product. While [eggz](https://app.eggz.ai) runs in your browser as the main web app (invoices, Xero, documents), Unscrambled Tabs runs **inside Chrome** as a Manifest V3 extension. It helps you manage browser workspaces, tabs, and memory — with optional AI features using your own Anthropic API key.
+
+<Note>
+eggz and Unscrambled Tabs share branding and product vision, but they are **different surfaces**: the web app is for accounting workflows; the extension is for **tab and workspace management** in Chrome. This section of the Help Centre is **only** about the extension.
+</Note>
+
+## Who it is for
+
+- People who keep many tabs open across projects and want **saved workspaces** they can switch between.
+- Teams already using **eggz** who want a clearer browser workflow alongside the dashboard.
+- Power users who want **session recovery**, deduplication, and **RAM-conscious** tab behaviour without losing tabs from the strip.
+
+## Quick links
+
+<CardGroup cols={2}>
+  <Card title="Install the extension" icon="download" href="/unscrambled-tabs/install">
+    Chrome Web Store, pinning the action, and optional developer load.
+  </Card>
+
+  <Card title="Workspaces & tabs" icon="folder-tree" href="/unscrambled-tabs/workspaces">
+    How workspaces work, switching, and multi-window behaviour.
+  </Card>
+
+  <Card title="Performance & RAM" icon="gauge" href="/unscrambled-tabs/performance-and-ram">
+    Manual, Balanced, and Aggressive modes; Free RAM; what never discards.
+  </Card>
+
+  <Card title="AI & search" icon="sparkles" href="/unscrambled-tabs/ai-and-search">
+    AI assistant, keyboard search, and your API key (BYO).
+  </Card>
+
+  <Card title="Session Time-Travel" icon="clock-rotate-left" href="/unscrambled-tabs/session-time-travel">
+    Auto-snapshots and restoring tab sets.
+  </Card>
+
+  <Card title="Backup & import" icon="floppy-disk" href="/unscrambled-tabs/backup-import">
+    Encrypted backup, restore, and Workona import.
+  </Card>
+
+  <Card title="Settings & privacy" icon="shield-halved" href="/unscrambled-tabs/settings-privacy">
+    Protected domains, themes, and where data lives.
+  </Card>
+</CardGroup>
+
+## At a glance — main capabilities
+
+| Area | What you get |
+|------|----------------|
+| **Workspaces** | Named workspaces with tabs, optional folders/groups, and per-window binding when you use multiple Chrome windows. |
+| **AI assistant** | Chat and organise tabs using Claude; you provide an Anthropic API key — processing stays in the extension service worker. |
+| **Search** | Open quick search from the keyboard (⌘K on Mac, Ctrl+Shift+K on Windows) from any tab. |
+| **Session Time-Travel** | Periodic snapshots of the current window so you can restore recent tab sets. |
+| **Tab deduplication** | Detect when you open a URL you already have and jump to the existing tab. |
+| **Performance modes** | Use Chrome’s native tab discard to unload eligible inactive tabs while keeping them on the tab strip. |
+| **Encrypted backup** | Export password-protected backups; restore replaces local extension data. |
+| **Workona import** | Import a Workona JSON export into your existing workspace list. |
+
+## Relationship to eggz.ai
+
+- **eggz** (web app): bookkeeping, Xero, receipts, customers — sign in at [app.eggz.ai](https://app.eggz.ai).
+- **Unscrambled Tabs** (extension): **browser** productivity — install from the [Chrome Web Store](https://chrome.google.com/webstore) (listing name: Unscrambled Tabs).
+
+They are designed to work together in your workflow but do **not** need to be logged into eggz for the extension’s core workspace features to work.
+
+## Official Chrome API reference
+
+Tab discard behaviour is implemented with Chrome’s [`tabs.discard`](https://developer.chrome.com/docs/extensions/reference/api/tabs) API — discarded tabs **remain visible**; when you activate a tab, Chrome reloads the page like a normal refresh.

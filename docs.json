@@ -57,6 +57,19 @@
         "pages": [
           "changelog"
         ]
+      },
+      {
+        "group": "Unscrambled Tabs (Chrome extension)",
+        "pages": [
+          "unscrambled-tabs/index",
+          "unscrambled-tabs/install",
+          "unscrambled-tabs/workspaces",
+          "unscrambled-tabs/ai-and-search",
+          "unscrambled-tabs/session-time-travel",
+          "unscrambled-tabs/backup-import",
+          "unscrambled-tabs/settings-privacy",
+          "unscrambled-tabs/performance-and-ram"
+        ]
       }
     ],
     "global": {

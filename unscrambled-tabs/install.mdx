@@ -1,0 +1,52 @@
+---
+title: "Installing Unscrambled Tabs"
+description: "Install the Unscrambled Tabs Chrome extension from the Web Store, pin it for quick access, and optional unpacked load for developers"
+icon: "download"
+---
+
+## Install from the Chrome Web Store
+
+1. Open the **Chrome Web Store** and search for **Unscrambled Tabs**, or use your team’s direct store link.
+2. Click **Add to Chrome** and confirm the permissions prompt.
+3. After install, **pin the extension** so the toolbar icon is always visible:
+   - Click the puzzle piece in the Chrome toolbar → find **Unscrambled Tabs** → click the pin icon.
+
+<Tip>
+Pinning matters because the **side panel**, **dashboard**, and **⌘K / Ctrl+Shift+K** flows are much easier to reach when the action is one click away.
+</Tip>
+
+## First open
+
+After install, typical first steps:
+
+1. Click the **Unscrambled Tabs** icon to open the **side panel** (primary UI).
+2. Complete the **onboarding** wizard if shown (welcome, API key optional, pin reminder).
+3. Open **Settings** in the side panel to set **Performance mode**, **Protected domains**, and (if you use AI) your **Anthropic API key**.
+
+## Full-page dashboard (optional)
+
+The extension can open a **full-page dashboard** for a larger workspace view. Use the controls described in your build (for example toolbar menu or in-product links). The dashboard uses the same data as the side panel.
+
+## Keyboard shortcuts
+
+| Action | Mac | Windows / Linux |
+|--------|-----|------------------|
+| Open search | ⌘K | Ctrl+Shift+K |
+| Open AI assistant | ⌘J | Ctrl+Shift+J |
+
+Shortcuts are defined in the extension manifest and can be customised in **Chrome → Extensions → Keyboard shortcuts**.
+
+## Developers — load unpacked
+
+If you are building from source:
+
+1. Run your team’s build command (for example `pnpm run build`) to produce an unpacked `dist/` folder.
+2. Chrome → **Extensions** → enable **Developer mode** → **Load unpacked** → select `dist/`.
+
+<Warning>
+Unpacked builds are for development only. End users should install from the **Chrome Web Store** so Chrome can apply automatic updates and signature checks.
+</Warning>
+
+## Permissions — why they exist
+
+The extension needs broad **tab** access to save workspaces, switch tabs, capture snapshots, and use discard. **Your browsing data stays local** to the extension unless you explicitly use features that send content to Anthropic (AI), which uses **your** API key. See [Settings & privacy](/unscrambled-tabs/settings-privacy) for detail.

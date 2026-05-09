@@ -1,0 +1,34 @@
+---
+title: "Backup & import"
+description: "Encrypted JSON backup, full restore, and Workona export import for Unscrambled Tabs"
+icon: "floppy-disk"
+---
+
+## Encrypted backup
+
+You can **export** an **AES-256-GCM** encrypted JSON file from **Settings**:
+
+1. Choose **Export encrypted backup** and set a **strong password** (minimum length is enforced in-product).
+2. Store the file somewhere safe — **cloud drive, USB, or password manager attachment**.
+3. **The password cannot be recovered** if you lose it.
+
+## Restore — full replace
+
+**Restore** from an Unscrambled Tabs backup **replaces** all extension data that the backup contains (workspaces, settings snapshot, etc.). This is intentional for migration or disaster recovery.
+
+<Warning>
+Restoring **overwrites** existing extension data. Export a fresh backup first if you might need to roll back.
+</Warning>
+
+## Workona import
+
+If you have a **Workona JSON export**:
+
+1. Use **Import** in Settings and select the file.
+2. The parser merges **Workona workspaces** into your **existing** extension data (import does not wipe the way a full restore does — follow on-screen result messages).
+
+Invalid or malicious JSON should be rejected by validation — if import fails, verify the file is a genuine export.
+
+## What is not in backups
+
+Some **ephemeral** state (for example per-window bindings in session storage) may not travel with a backup the same way as `chrome.storage.local` data. After restore on a new machine, open each surface once so bindings can refresh.

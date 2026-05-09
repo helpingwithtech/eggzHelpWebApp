@@ -1,0 +1,60 @@
+{
+  // Two Workers: one proxies Mintlify content under /help, one 301-redirects the
+  // legacy help.eggz.ai subdomain to the new eggz.ai/help/* paths (SEO).
+  // Mintlify custom-subpath docs require:
+  //   - origin: <subdomain>.mintlify.app  (NOT .dev — .dev is only for "/docs" toggle)
+  //   - never forward Host header
+  //   - send Origin/X-Forwarded-* / User-Agent
+  //   - cache only /mintlify-assets/_next/static/*
+  // Source: Mintlify "Custom subpath" + "Cloudflare" deploy docs.
+  "$schema": "node_modules/wrangler/config-schema.json",
+
+  // Default (top-level) Worker = Mintlify proxy on eggz.ai.
+  // Because env.redirect exists, deploy commands targeting THIS Worker must use
+  // `--env=""` so wrangler does not warn about ambiguity.
+  "name": "eggz-help-proxy",
+  "main": "src/proxy.ts",
+  "compatibility_date": "2026-04-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+
+  "vars": {
+    // Mintlify subdomain (matches dashboard.mintlify.com/<org>/<subdomain>).
+    // Custom subpath REQUIRES the .app origin per Mintlify docs.
+    "MINTLIFY_ORIGIN": "eggz.mintlify.app"
+  },
+
+  // Routes the proxy claims on the eggz.ai zone. Cloudflare picks the most
+  // specific route, so these will not collide with a catch-all eggz.ai/* Worker
+  // serving the marketing site (provided that Worker is registered as `*` and
+  // these are explicit prefixes).
+  "routes": [
+    { "pattern": "eggz.ai/help",                           "zone_name": "eggz.ai" },
+    { "pattern": "eggz.ai/help/*",                         "zone_name": "eggz.ai" },
+    { "pattern": "eggz.ai/.well-known/vercel/*",           "zone_name": "eggz.ai" },
+    { "pattern": "eggz.ai/.well-known/skills/*",           "zone_name": "eggz.ai" },
+    { "pattern": "eggz.ai/skill.md",                       "zone_name": "eggz.ai" },
+    { "pattern": "eggz.ai/_mintlify/*",                    "zone_name": "eggz.ai" },
+    { "pattern": "eggz.ai/mintlify-assets/_next/static/*", "zone_name": "eggz.ai" }
+  ],
+
+  // Second Worker: 301 the legacy subdomain to the new /help/* path.
+  // Path is preserved so SEO link equity migrates per-URL, not flattened to home.
+  // `vars: {}` is set explicitly to silence the "vars not inherited" warning;
+  // the redirect Worker has no runtime configuration.
+  "env": {
+    "redirect": {
+      "name": "eggz-help-redirect",
+      "main": "src/redirect.ts",
+      "compatibility_date": "2026-04-15",
+      "compatibility_flags": ["nodejs_compat"],
+      "observability": { "enabled": true, "head_sampling_rate": 1 },
+      // Same key as the proxy Worker so wrangler stops warning about
+      // non-inherited vars; the redirect Worker does not read this binding.
+      "vars": { "MINTLIFY_ORIGIN": "" },
+      "routes": [
+        { "pattern": "help.eggz.ai/*", "zone_name": "eggz.ai" }
+      ]
+    }
+  }
+}

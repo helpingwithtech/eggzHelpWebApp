@@ -15,60 +15,60 @@
     "dismissible": true
   },
   "description": "eggz connects your email to Xero in two minutes or less. Automate your invoices, bills, and more.",
-  "favicon": "/eggz-logo.png",
+  "favicon": "/help/eggz-logo.png",
   "navigation": {
     "groups": [
       {
         "group": "Getting Started",
         "pages": [
-          "index",
-          "guides/onboarding",
-          "guides/dashboard"
+          "help/index",
+          "help/guides/onboarding",
+          "help/guides/dashboard"
         ]
       },
       {
         "group": "Documents",
         "pages": [
-          "guides/uploading-documents",
-          "guides/expenses"
+          "help/guides/uploading-documents",
+          "help/guides/expenses"
         ]
       },
       {
         "group": "Sales",
         "pages": [
-          "guides/invoices-and-quotes"
+          "help/guides/invoices-and-quotes"
         ]
       },
       {
         "group": "Customers",
         "pages": [
-          "guides/customers-and-contacts"
+          "help/guides/customers-and-contacts"
         ]
       },
       {
         "group": "Integrations & Settings",
         "pages": [
-          "guides/xero-sync",
-          "guides/settings"
+          "help/guides/xero-sync",
+          "help/guides/settings"
         ]
       },
       {
         "group": "Resources",
         "pages": [
-          "changelog"
+          "help/changelog"
         ]
       },
       {
         "group": "Unscrambled Tabs (Chrome extension)",
         "pages": [
-          "unscrambled-tabs/index",
-          "unscrambled-tabs/install",
-          "unscrambled-tabs/workspaces",
-          "unscrambled-tabs/ai-and-search",
-          "unscrambled-tabs/session-time-travel",
-          "unscrambled-tabs/backup-import",
-          "unscrambled-tabs/settings-privacy",
-          "unscrambled-tabs/performance-and-ram"
+          "help/unscrambled-tabs/index",
+          "help/unscrambled-tabs/install",
+          "help/unscrambled-tabs/workspaces",
+          "help/unscrambled-tabs/ai-and-search",
+          "help/unscrambled-tabs/session-time-travel",
+          "help/unscrambled-tabs/backup-import",
+          "help/unscrambled-tabs/settings-privacy",
+          "help/unscrambled-tabs/performance-and-ram"
         ]
       }
     ],
@@ -83,8 +83,8 @@
     }
   },
   "logo": {
-    "light": "/logo/eggz-logo-full.webp",
-    "dark": "/logo/eggz-logo-full.webp"
+    "light": "/help/logo/eggz-logo-full.webp",
+    "dark": "/help/logo/eggz-logo-full.webp"
   },
   "navbar": {
     "links": [

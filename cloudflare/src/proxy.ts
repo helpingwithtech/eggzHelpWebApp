@@ -86,7 +86,8 @@ function prefixHelpForRootRelative(value: string): string {
   if (
     !value.startsWith("/") ||
     value.startsWith("//") ||
-    value.startsWith("/help") ||
+    value === "/help" ||
+    value.startsWith("/help/") ||
     isApexMintlifyPath(value)
   ) {
     return value;
@@ -257,7 +258,8 @@ export default {
       isXmlLike(contentType) &&
       (url.pathname.endsWith("/sitemap.xml") ||
         url.pathname.endsWith("/robots.txt") ||
-        url.pathname.endsWith(".xml"))
+        url.pathname.endsWith(".xml") ||
+        url.pathname.endsWith(".txt"))
     ) {
       const text = await upstreamResponse.text();
       const rewritten = rewritePlainTextMintlifyUrls(text, origin);

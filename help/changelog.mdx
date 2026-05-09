@@ -8,7 +8,29 @@ keywords: ["changelog", "release notes", "updates", "what's new", "Unscrambled T
 
 This is the **only public changelog** for **eggz** (web app and Help Centre) and **Unscrambled Tabs** (Chrome extension). Extension semver history that previously lived in the extension repository is maintained here.
 
-For help using any feature, see [Getting started](/guides/onboarding) or [hire an Egghead](mailto:support@eggz.ai).
+For help using any feature, see [Getting started](/help/guides/onboarding) or [hire an Egghead](mailto:support@eggz.ai).
+
+---
+
+## Help Centre
+
+<Update label="9 May 2026" description="New URL: eggz.ai/help (was help.eggz.ai)">
+  ### What changed
+
+  - The Help Centre now lives at **`eggz.ai/help`** instead of **`help.eggz.ai`**. Bookmarks and search results pointing at the old subdomain are **301-redirected** path-for-path to the new URL — for example, `help.eggz.ai/unscrambled-tabs/install` → `eggz.ai/help/unscrambled-tabs/install`. No content was lost.
+  - Internal links across the Help Centre, the home page, and every Update entry below were rewritten to the new `/help/...` paths.
+
+  ### Why
+
+  - **SEO consolidation:** moving from a subdomain to a subdirectory keeps all link equity and topical authority on the eggz.ai apex domain instead of splitting it across `eggz.ai` and `help.eggz.ai`.
+  - **One brand, one host:** the Dashboard, marketing, and the Help Centre all share the eggz.ai origin.
+
+  ### How it works
+
+  - **Hosting:** Mintlify serves the docs; a Cloudflare Worker on the eggz.ai zone proxies `/help/*` (and the required Mintlify well-known and asset paths) to `eggz.mintlify.app/help/*`.
+  - **Redirect:** A second Cloudflare Worker on `help.eggz.ai/*` issues HTTP **301** to the matching `eggz.ai/help/*` URL (path, query, and fragment preserved).
+  - **Extension:** the Unscrambled Tabs extension's **Performance & RAM → Learn more** link now opens `eggz.ai/help/unscrambled-tabs/performance-and-ram#performance-modes-explained`.
+</Update>
 
 ---
 
@@ -21,7 +43,7 @@ For help using any feature, see [Getting started](/guides/onboarding) or [hire a
 
   ### UX
 
-  - **Performance & RAM → Learn more** opens this Help Centre at the [**Performance modes**](/unscrambled-tabs/performance-and-ram#performance-modes-explained) section (Manual, Balanced, Aggressive scenarios). The extension uses a configurable help base URL (default **`https://help.eggz.ai`**).
+  - **Performance & RAM → Learn more** opens this Help Centre at the [**Performance modes**](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained) section (Manual, Balanced, Aggressive scenarios). The extension uses a configurable help base URL (default **`https://help.eggz.ai`**).
 
   ### About
 
@@ -120,20 +142,20 @@ For help using any feature, see [Getting started](/guides/onboarding) or [hire a
 
   - **Sidebar:** Documentation group **Unscrambled Tabs (Chrome extension)** with eight pages (overview through Performance & RAM).
   - **Resources** group includes **this changelog**.
-  - **Home** ([Overview](/index)): **Unscrambled Tabs** cards in highlight and quick-link sections linking to the [extension overview](/unscrambled-tabs/index).
+  - **Home** ([Overview](/help/index)): **Unscrambled Tabs** cards in highlight and quick-link sections linking to the [extension overview](/help/unscrambled-tabs/index).
 
   ### New pages (summary)
 
   | Page | Covers |
   |------|--------|
-  | [Overview](/unscrambled-tabs/index) | Product fit vs [eggz](https://app.eggz.ai), audience, quick links. |
-  | [Install](/unscrambled-tabs/install) | Web Store, pinning, developer load. |
-  | [Workspaces & tabs](/unscrambled-tabs/workspaces) | Workspaces, switching, multi-window binding. |
-  | [AI & search](/unscrambled-tabs/ai-and-search) | Assistant, search, BYO API key (service worker). |
-  | [Session time travel](/unscrambled-tabs/session-time-travel) | Snapshots and restore. |
-  | [Backup & import](/unscrambled-tabs/backup-import) | Encrypted backup, imports. |
-  | [Settings & privacy](/unscrambled-tabs/settings-privacy) | Settings surface and privacy, reader-friendly. |
-  | [Performance & RAM](/unscrambled-tabs/performance-and-ram) | Modes, Free RAM, safety; anchor [`#performance-modes-explained`](/unscrambled-tabs/performance-and-ram#performance-modes-explained). |
+  | [Overview](/help/unscrambled-tabs/index) | Product fit vs [eggz](https://app.eggz.ai), audience, quick links. |
+  | [Install](/help/unscrambled-tabs/install) | Web Store, pinning, developer load. |
+  | [Workspaces & tabs](/help/unscrambled-tabs/workspaces) | Workspaces, switching, multi-window binding. |
+  | [AI & search](/help/unscrambled-tabs/ai-and-search) | Assistant, search, BYO API key (service worker). |
+  | [Session time travel](/help/unscrambled-tabs/session-time-travel) | Snapshots and restore. |
+  | [Backup & import](/help/unscrambled-tabs/backup-import) | Encrypted backup, imports. |
+  | [Settings & privacy](/help/unscrambled-tabs/settings-privacy) | Settings surface and privacy, reader-friendly. |
+  | [Performance & RAM](/help/unscrambled-tabs/performance-and-ram) | Modes, Free RAM, safety; anchor [`#performance-modes-explained`](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained). |
 </Update>
 
 <Update label="Week of 28 April – 4 May 2026" description="Discoverability & changelog in the sidebar">
@@ -159,5 +181,5 @@ For help using any feature, see [Getting started](/guides/onboarding) or [hire a
 
   ### Looking ahead (from that week)
 
-  - Document upload, Xero sync, and dashboard analytics on the roadmap — watch this page and [Getting started](/guides/onboarding).
+  - Document upload, Xero sync, and dashboard analytics on the roadmap — watch this page and [Getting started](/help/guides/onboarding).
 </Update>

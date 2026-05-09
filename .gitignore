@@ -1,0 +1,17 @@
+# Node / pnpm
+node_modules/
+.pnpm-store/
+*.log
+
+# Wrangler
+.wrangler/
+.dev.vars
+.dev.vars.*
+worker-configuration.d.ts
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

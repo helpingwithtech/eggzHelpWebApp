@@ -40,6 +40,10 @@
             ]
           },
           {
+            "group": "AI Assistants",
+            "pages": ["help/guides/ai-bill-capture"]
+          },
+          {
             "group": "Sales",
             "pages": ["help/guides/invoices-and-quotes"]
           },

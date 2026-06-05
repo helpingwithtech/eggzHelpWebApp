@@ -10,12 +10,15 @@
  * convenience. There is no Vercel-side robots.txt — `app.eggz.ai` is auth-walled.
  *
  * HTML and XML responses rewrite mintlify.app URLs to `https://eggz.ai/help/…`.
+ * Response headers rewrite `frame-ancestors` / drop `X-Frame-Options` so
+ * `app.eggz.ai` (and staging/preview/Vercel previews) can embed help in-app.
  *
  * Per Mintlify Cloudflare guidance: target `subdomain.mintlify.app`, omit Host,
  * set Origin and X-Forwarded-* headers, cache only hashed static under
  * `mintlify-assets/_next/static` (long Cache-Control on that prefix only).
  */
 
+import { applyInAppEmbedHeaders } from "./embed-framing";
 import { ROBOTS_TXT } from "./robots-content";
 
 interface Env {
@@ -253,6 +256,9 @@ export default {
     } else {
       outHeaders.set("Cache-Control", "no-cache, no-store, must-revalidate");
     }
+
+    // In-app Help Centre (app.eggz.ai iframe): Mintlify denies all embeds by default.
+    applyInAppEmbedHeaders(outHeaders);
 
     const contentType = upstreamResponse.headers.get("content-type");
 

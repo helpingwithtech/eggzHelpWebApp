@@ -47,7 +47,7 @@ pnpm tail:redirect
 ## Files
 
 - `wrangler.jsonc` — both Workers (default + `env.redirect`); JSONC, with `compatibility_date` and `nodejs_compat`.
-- `src/proxy.ts` — Mintlify reverse proxy. Sets `Origin`, `X-Forwarded-{For,Proto}`, `X-Real-IP`; **never forwards `Host`**. Caches only `/mintlify-assets/_next/static/*`. Forwards **`/help/...`** to the same path upstream (Mintlify serves docs under **`/help`**), maps **`/help/sitemap.xml`** (etc.) to Mintlify **host-root** files, and uses **`HTMLRewriter`** plus **`Location`** rewriting so canonicals, `og:url`, root-relative links, and sitemaps stay on **`https://eggz.ai/help/...`**.
+- `src/proxy.ts` — Mintlify reverse proxy. Sets `Origin`, `X-Forwarded-{For,Proto}`, `X-Real-IP`; **never forwards `Host`**. Caches only `/mintlify-assets/_next/static/*`. Forwards **`/help/...`** to the same path upstream (Mintlify serves docs under **`/help`**), maps **`/help/sitemap.xml`** (etc.) to Mintlify **host-root** files, and uses **`HTMLRewriter`** plus **`Location`** rewriting so canonicals, `og:url`, root-relative links, and sitemaps stay on **`https://eggz.ai/help/...`**. Strips **`X-Frame-Options`** and rewrites CSP **`frame-ancestors`** so the web app can embed help (`eggz.ai`, `app.eggz.ai`, `staging.app.eggz.ai`, `preview.app.eggz.ai`, `https://*.vercel.app`, `http://localhost:3000`) — see `src/embed-framing.ts`.
 - `src/redirect.ts` — Path-preserving 301 from `help.eggz.ai/*` → `eggz.ai/help/*`.
 
 ## DNS — what NOT to change

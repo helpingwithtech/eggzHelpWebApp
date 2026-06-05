@@ -1,0 +1,40 @@
+name: Validate docs
+
+on:
+  pull_request:
+    paths:
+      - "help/**"
+      - "docs.json"
+      - "docs/**"
+  push:
+    branches: [main]
+    paths:
+      - "help/**"
+      - "docs.json"
+
+jobs:
+  mintlify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Mintlify CLI
+        run: npm install -g mintlify@latest
+
+      - name: Broken links
+        run: mint broken-links
+
+      - name: Frontmatter check (title + description)
+        run: |
+          missing=0
+          while IFS= read -r f; do
+            if ! grep -q '^title:' "$f" || ! grep -q '^description:' "$f"; then
+              echo "::error file=$f::Missing title or description frontmatter"
+              missing=1
+            fi
+          done < <(find help -name '*.mdx' -type f)
+          exit $missing

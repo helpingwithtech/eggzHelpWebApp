@@ -11,7 +11,7 @@
  *
  * HTML and XML responses rewrite mintlify.app URLs to `https://eggz.ai/help/…`.
  * Response headers rewrite `frame-ancestors` / drop `X-Frame-Options` so
- * `app.eggz.ai` (and staging/preview/Vercel previews) can embed help in-app.
+ * `eggz.ai`, `app.eggz.ai` (and staging/preview/Vercel previews) can embed help in-app.
  *
  * Per Mintlify Cloudflare guidance: target `subdomain.mintlify.app`, omit Host,
  * set Origin and X-Forwarded-* headers, cache only hashed static under

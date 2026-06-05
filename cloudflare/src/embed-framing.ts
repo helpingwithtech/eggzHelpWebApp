@@ -16,6 +16,7 @@
  */
 export const IN_APP_FRAME_ANCESTORS = [
   "'self'",
+  "https://eggz.ai",
   "https://app.eggz.ai",
   "https://staging.app.eggz.ai",
   "https://preview.app.eggz.ai",

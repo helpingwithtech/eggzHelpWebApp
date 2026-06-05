@@ -11,7 +11,7 @@ test("rewriteCspForInAppEmbed replaces Mintlify frame-ancestors", () => {
   const upstream =
     "worker-src * blob: data:; frame-ancestors 'self' https://dashboard.mintlify.com; form-action 'self'";
   const out = rewriteCspForInAppEmbed(upstream);
-  assert.match(out, /frame-ancestors 'self' https:\/\/app\.eggz\.ai/);
+  assert.match(out, /frame-ancestors 'self' https:\/\/eggz\.ai https:\/\/app\.eggz\.ai/);
   assert.match(out, /https:\/\/\*\.vercel\.app/);
   assert.match(out, /http:\/\/localhost:3000/);
   assert.doesNotMatch(out, /dashboard\.mintlify\.com/);

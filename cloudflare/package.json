@@ -4,9 +4,12 @@
   "private": true,
   "description": "Cloudflare Workers fronting the eggz Help Centre: /help/* proxy to Mintlify and 301 redirect from the legacy help.eggz.ai subdomain.",
   "type": "module",
+  "engines": {
+    "node": ">=20.17.0"
+  },
   "scripts": {
     "types": "wrangler types --env=\"\"",
-    "test": "node --experimental-strip-types --test src/embed-framing.test.ts",
+    "test": "tsx --test src/embed-framing.test.ts",
     "validate": "pnpm test && wrangler deploy --env=\"\" --dry-run && wrangler deploy --env redirect --dry-run",
     "dev:proxy": "wrangler dev --env=\"\"",
     "dev:redirect": "wrangler dev --env redirect",
@@ -19,6 +22,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260101.0",
+    "tsx": "^4.19.0",
     "typescript": "^5.6.0",
     "wrangler": "^4.0.0"
   }

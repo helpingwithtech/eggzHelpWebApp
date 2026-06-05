@@ -9,7 +9,11 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/frame-ancestors
  */
 
-/** Origins permitted to frame proxied help content (in-app Help Centre). */
+/**
+ * Origins permitted to frame proxied help content (in-app Help Centre).
+ * `https://*.vercel.app` is intentional: eggzWebApp preview deployments use
+ * per-branch `*.vercel.app` hostnames (no single stable preview origin).
+ */
 export const IN_APP_FRAME_ANCESTORS = [
   "'self'",
   "https://app.eggz.ai",

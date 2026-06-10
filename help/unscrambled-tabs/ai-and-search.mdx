@@ -1,8 +1,32 @@
 ---
 title: "AI assistant & search"
-description: "Anthropic Claude in Unscrambled Tabs, bring-your-own API key, tab context, and keyboard search"
+description: "Two AI modes — the eggz CRM agent when you're signed in, or local Claude with your own API key — plus keyboard search"
 icon: "sparkles"
 ---
+
+## Two AI modes
+
+The AI tab works in one of two modes, shown by a small badge in the panel header:
+
+| Mode | When | What it can do |
+|------|------|----------------|
+| **eggz CRM** | Signed in to your [eggz account](/help/unscrambled-tabs/eggz-account) | Chats with your organization's CRM agent — bills, invoices, quotes, accounts, receipts — streamed from eggz. **No API key needed.** |
+| **Local AI** | Signed out | The original assistant using **your own Anthropic API key** — chat about tabs, organise tab groups, save resources. |
+
+### eggz CRM mode (signed in)
+
+When you connect your [eggz account](/help/unscrambled-tabs/eggz-account), the AI tab becomes a chat with your organization's CRM agent:
+
+- Ask about your **accounts, contacts, bills, invoices, quotes, and receipts** — answers stream in with markdown formatting, and you'll see a small pill when the agent uses a tool (for example reading a document).
+- The agent can use your **active browser tab** as context. On an eggz account or contact page, "summarise this account" knows which one you mean; on other sites, the tab title and URL are available as background context.
+- **Upload from chat** — the upload buttons sit with the chat, so you can send a document and then ask about it ("what's the status of the bill I just uploaded?").
+- **New chat** starts a fresh thread; closing and reopening the panel restores your current one.
+
+No Anthropic API key is required in this mode — usage is covered by your eggz organization.
+
+### Local AI mode (signed out)
+
+Signed out, the assistant works exactly as before, with your own key:
 
 ## Bring your own API key
 

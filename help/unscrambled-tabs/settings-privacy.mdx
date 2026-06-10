@@ -24,10 +24,21 @@ The extension supports **light** and **dark** themes using design tokens. Toggle
 
 When **Auto-save tabs** is on, tab navigations in the **active workspace** update saved tab lists through a **debounced** path in the background worker — this avoids writing storage on every single event and reduces UI flicker.
 
+## eggz account
+
+**Settings → eggz account** shows whether the extension is connected to your [eggz account](/help/unscrambled-tabs/eggz-account), with **Sign in** / **Sign out**. One login is shared with the web app.
+
+Privacy notes for the connected mode:
+
+- The extension **never stores tokens or passwords** — your session is a secure, httpOnly browser cookie on `app.eggz.ai`, the same one the web app uses.
+- Your **active tab's title and URL** are sent as chat context **only while you are signed in and using the AI tab**. Other browsing is not sent anywhere.
+- Documents you upload go to **your eggz organization** and follow the web app's data handling.
+
 ## AI and network
 
 - **No eggz server** is required for core workspace features.
-- **Anthropic** is only contacted when you use **AI** features and a valid **API key** is configured.
+- Signed in to eggz, the AI tab talks to **eggz** (your organization's CRM agent) — no API key needed.
+- Signed out, **Anthropic** is only contacted when you use **AI** features and a valid **API key** is configured.
 - Review Anthropic’s policies for **data processing** when you enable AI.
 
 ## Permissions

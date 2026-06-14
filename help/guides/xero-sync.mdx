@@ -24,7 +24,7 @@ eggz syncs your accounting data from Xero so you can view invoices, bills, quote
   </Step>
 
   <Step title="Select your organisation">
-    If you have multiple Xero organisations, choose the one you want to connect. Only one Xero organisation can be connected per eggz workspace.
+    If your Xero login has access to more than one organisation, eggz shows a selection screen after you authorise — pick the organisation you want to connect. Only one Xero organisation can be connected per eggz workspace, so choose carefully. (With a single organisation, eggz connects it automatically and skips this step.)
   </Step>
 </Steps>
 
@@ -86,7 +86,11 @@ eggz automatically refreshes your Xero token daily. If the refresh fails, the st
 
 ### Disconnect Xero
 
-To disconnect your Xero account, click **Disconnect** on the integrations page. This removes the connection but does not delete any data already synced into eggz.
+To disconnect your Xero account, click **Disconnect** on the integrations page. Disconnecting **immediately revokes eggz's access at Xero** — the connection is withdrawn on Xero's side straight away, not just removed from eggz — so eggz can no longer read or sync your data. It does **not** delete any data already synced into eggz.
+
+### Switch to a different organisation
+
+Because only one Xero organisation can be connected per workspace, to change which one is linked: **Disconnect** the current organisation, then **Connect to Xero** again and choose the other organisation on the selection screen.
 
 ## Limitations
 

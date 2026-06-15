@@ -1,69 +1,88 @@
 ---
 title: "AI assistant & search"
-description: "Two AI modes — the eggz CRM agent when you're signed in, or local Claude with your own API key — plus keyboard search"
+description: "One smart chat that knows your tabs, your workspaces, and your eggz books — plus a keyboard search that finds anything fast"
 icon: "sparkles"
 ---
 
-## Two AI modes
+## One chat, one brain
 
-The AI tab has two assistants. Signed out, you get the **Tabs AI** (the original local assistant). Signed in to your [eggz account](/help/unscrambled-tabs/eggz-account), **both** are available and you can switch between them from the panel header — signing in adds the CRM assistant without taking anything away:
+There used to be two AI helpers in here with a little switch between them. We took the switch out. Now there is **one chat**, and it figures out the smart thing to do all by itself. No buttons to flip, no "which mode am I in?" head-scratching.
 
-| Mode | Available | What it can do |
-|------|-----------|----------------|
-| **eggz CRM** | Signed in | Chats with your organization's CRM agent — bills, invoices, quotes, accounts, receipts — streamed from eggz, plus document upload. **No API key needed**; usage is covered by your eggz organization. |
-| **Tabs AI (Local AI)** | Always | Chat about tabs, **Organise** tab groups, save resources, add tab/page/screenshot sources. Signed in to eggz it's **included — no API key needed**; signed out it uses **your own Anthropic API key**. |
+Open the AI tab and just type. Behind the curtain, the chat quietly picks the best helper for you:
 
-Switching: in eggz CRM mode, use the **Tabs AI** button in the chat header; in Tabs AI mode, the badge reads **Local AI · switch to eggz CRM**. Your choice is remembered for the browser session.
+| When you are… | What the chat uses | What it's good at |
+|---------------|--------------------|-------------------|
+| **Signed in to eggz** with AI credits left | The **eggz assistant** (included, no key) | Your bills, invoices, quotes, accounts and receipts — *and* your tabs and workspaces, all in one place |
+| **Signed in** but out of credits, **with your own key** | Your **own Anthropic key** as a backup | Keeps the chat working so you're never stuck mid-sentence |
+| **Signed out**, with your own key | Your **own Anthropic key** | Chat about tabs, **Organise**, and save-resources |
+| **Signed out**, no key | A friendly sign-in screen | Points you to sign in or add a key |
 
-### eggz CRM mode (signed in)
+<Note>
+The easiest path is to [connect your eggz account](/help/unscrambled-tabs/eggz-account). When you're signed in, the AI is **included** — no API key, no copy-pasting secret codes, no surprise bills. It's covered by your eggz plan (fair use applies).
+</Note>
 
-When you connect your [eggz account](/help/unscrambled-tabs/eggz-account), the AI tab gains a chat with your organization's CRM agent:
+## It can see your whole browser (the helpful way)
 
-- Ask about your **accounts, contacts, bills, invoices, quotes, and receipts** — answers stream in with markdown formatting, and you'll see a small pill when the agent uses a tool (for example reading a document).
-- The agent can use your **active browser tab** as context. On an eggz account or contact page, "summarise this account" knows which one you mean; on other sites, the tab title and URL are available as background context.
-- **Upload from chat** — the upload buttons sit with the chat, so you can send a document and then ask about it ("what's the status of the bill I just uploaded?").
-- **New chat** starts a fresh thread; closing and reopening the panel restores your current one.
+Here's the fun part. The chat doesn't just see the one tab you're staring at. It can see **every open tab in every window** — even the sleepy ones that Chrome has put down for a nap to save memory. It reads their **titles and web addresses**, so it knows what you've got going on without poking each tab awake.
 
-No Anthropic API key is required in this mode — usage is covered by your eggz organization.
+It also peeks at your **saved library** — your workspaces, folders, and saved links. So you can ask things like:
 
-### Tabs AI mode
+- *"Which of my open tabs are about the kitchen reno?"*
+- *"Did I already save a workspace for the tax stuff?"*
+- *"Round up all my shopping tabs and tuck them into one group."*
 
-Signed in to eggz, every Tabs AI feature — chat about your tabs, **Organise**, save-resources suggestions — works with **no API key**, covered by your eggz plan. If you've added your own Anthropic API key it keeps being used (your key, your billing). Signed out without a key, the welcome screen offers **Sign in / Sign up** or you can bring your own key:
+<Tip>
+Sleeping tabs stay asleep. The chat reads the title and address of a napping tab, but it won't wake it up just to snoop — that would waste the very memory you were trying to save.
+</Tip>
 
-## Bring your own API key
+When the AI quotes a tab, it names it like **[Tab: My Page Title]** so you can tell exactly which one it means.
 
-The extension’s **AI features** use **Anthropic Claude** (model configured in the product). You paste an **Anthropic API key** in **Settings**. The key is stored in **Chrome local storage** for the extension and is used from the **background service worker** — not from random web pages — so your key does not leak into site JavaScript.
+## Organise your tabs with a nudge
+
+The **Organise** button now lives right in the chat header. Give it a tap and the AI sorts your open tabs into neat, sensible groups — across **all** your windows, not just the one in front of you. You can then drop those groups straight into a **new or existing workspace** so they're saved for later. Tidy tabs, happy brain.
+
+## "Hey, want to capture that bill?"
+
+If you've been browsing supplier or shop websites, the chat may pop up a little suggestion chip — something like *"You've visited supplier.com today — capture any bills?"* Tap it and your question is already typed out for you.
+
+It only does this after you've visited a couple of different sites recently, so it's a gentle nudge, not a nag. Learn more on [Capture bills from any page](/help/unscrambled-tabs/capture-bills).
+
+## When you run low on AI credits
+
+If your eggz plan's included AI gets used up, the chat doesn't just slam the door:
+
+- If you've added **your own Anthropic key**, the chat quietly switches to it as a **backup** so you can keep going. A small banner lets you know, and you can tap **Upgrade** (or just dismiss it).
+- If you **don't** have a key, you'll see a friendly **upgrade card**. Bonus: it also lets you **invite a friend** — when they join, **you both get free AI credits**. Sharing is caring (and also free credits).
+
+## Bring your own key (optional)
+
+Prefer to run on your own steam? You can paste an **Anthropic API key** in **Settings**. Think of it like bringing your own snacks to the movies — totally allowed, and then *you* cover that part of the bill.
+
+A few good-to-knows:
+
+- Your key is stored **on your computer** for the extension, and it's used safely in the background — random websites never get to see it.
+- If you're signed in to eggz *and* have a key, the included eggz AI goes first and your key waits in the wings as backup.
 
 <Warning>
-Never share your API key or commit it to a repo. Rotate the key in the [Anthropic console](https://console.anthropic.com/settings/keys) if you suspect exposure.
+Treat your API key like your house key: don't share it or paste it into random places. If you think it leaked, swap it out in the [Anthropic console](https://console.anthropic.com/settings/keys).
 </Warning>
 
-## What the AI can do
+## Search anything (⌘K)
 
-Typical capabilities (exact labels may vary by version):
+Need to find a workspace, a tab, or an action in a hurry? Pop open **Quick search** from your keyboard — from *any* tab:
 
-- **Chat** about your tabs or selected context.
-- **Organise** tabs into logical **tab groups** within the current workspace.
-- **Save resources** — suggestions for folders of saved links derived from open tabs.
+- **Mac:** ⌘K
+- **Windows / Linux:** Ctrl+Shift+K
 
-The AI only receives what you (or the feature) explicitly sends — for example tab titles, URLs, or extracted snippet content — according to the action you run.
+Start typing and it surfaces matches instantly. Search always uses your own saved stuff on your computer — it doesn't need the internet or your account.
 
-## Search (⌘K / Ctrl+Shift+K)
+## Jump to the AI assistant (⌘J)
 
-**Quick search** opens from the keyboard from **any tab** (command is registered in the extension manifest):
+Want the chat right now?
 
-- **Mac:** ⌘K  
-- **Windows / Linux:** Ctrl+Shift+K  
+- **Mac:** ⌘J
+- **Windows / Linux:** Ctrl+Shift+J
 
-Use it to find workspaces, tabs, or in-product actions without leaving the keyboard.
+## Not into AI? No problem
 
-## AI assistant shortcut
-
-- **Mac:** ⌘J  
-- **Windows / Linux:** Ctrl+Shift+J  
-
-Opens the AI surface from the side panel flow (exact UX depends on your build).
-
-## If you do not use AI
-
-You can leave the API key empty. **Workspaces**, **Performance modes**, **snapshots**, and **backup** work without AI. Only AI-specific actions will prompt you to add a key.
+You can skip the AI entirely and the rest of the extension hums along just fine. **Workspaces**, **Performance modes**, **snapshots**, and **backup** all work with zero AI and zero key. The AI only taps you on the shoulder for AI-specific things.

@@ -9,7 +9,7 @@ icon: "shield-halved"
 | Storage | Typical contents |
 |---------|------------------|
 | **chrome.storage.local** | Workspaces, settings, snapshots, API key, long-lived preferences |
-| **chrome.storage.session** | Short-lived UI state and per-window workspace map (implementation detail) |
+| **chrome.storage.session** | Short-lived UI state, per-window workspace map, and the rolling list of recently-visited domains for the bill-capture nudge (all cleared when Chrome closes) |
 | **Service worker memory** | Tab activity timestamps for discard heuristics (cleared when the worker stops) |
 
 ## Protected domains
@@ -24,6 +24,14 @@ The extension supports **light** and **dark** themes using design tokens. Toggle
 
 When **Auto-save tabs** is on, tab navigations in the **active workspace** update saved tab lists through a **debounced** path in the background worker — this avoids writing storage on every single event and reduces UI flicker.
 
+## Open Tabs view
+
+The [Open Tabs view](/help/unscrambled-tabs/open-tabs) is **off by default**. Turn it on in **Settings**, then choose its **layout**, **sort order**, and whether tabs are **grouped by window**. It reads your open tabs' titles and addresses to build the list — nothing leaves your computer.
+
+## The "capture any bills?" nudge
+
+To offer the occasional [bill-capture suggestion](/help/unscrambled-tabs/capture-bills#the-gentle-capture-any-bills-nudge), the extension keeps a short, rolling list of **website names you've visited recently** (just the domain, like `supplier.com`). This list lives **only in memory for the current browser session** — it's wiped when you close Chrome and is **never sent anywhere**. It's used purely to decide whether to show the chip.
+
 ## eggz account
 
 **Settings → eggz account** shows whether the extension is connected to your [eggz account](/help/unscrambled-tabs/eggz-account), with **Sign in** / **Sign out**. One login is shared with the web app.
@@ -36,10 +44,13 @@ Privacy notes for the connected mode:
 
 ## AI and network
 
-- **No eggz server** is required for core workspace features.
-- In **eggz CRM** mode (signed in), the AI tab talks to **eggz** (your organization's CRM agent) — no API key needed.
-- In **Tabs AI** mode (the local assistant — the only mode when signed out), **Anthropic** is only contacted when you use **AI** features and a valid **API key** is configured.
-- Review Anthropic’s policies for **data processing** when you enable AI.
+There's now **one AI chat** — no modes to flip between. It just picks the right helper for you (see [AI assistant & search](/help/unscrambled-tabs/ai-and-search)):
+
+- **No eggz server** is required for core workspace features — they all work offline-ish, on your computer.
+- **Signed in to eggz:** the chat talks to **eggz** (your organisation's assistant) — no API key needed.
+- **Using your own key:** **Anthropic** is only contacted when you use **AI** features and a valid **API key** is set (signed out, or as a backup when your eggz credits run out).
+- To answer questions about your tabs, the chat sends a list of your open tabs' **titles and web addresses** (and, for tabs you're reading, a capped bit of page text) — only when you actually use the AI.
+- Review Anthropic's policies for **data processing** when you enable AI.
 
 ## Permissions
 

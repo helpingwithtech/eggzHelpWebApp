@@ -7,7 +7,7 @@ icon: "puzzle-piece"
 
 ## What is Unscrambled Tabs?
 
-**Unscrambled Tabs** is the **Chrome extension** half of the **eggz.ai** product. While [eggz](https://app.eggz.ai) runs in your browser as the main web app (invoices, Xero, documents), Unscrambled Tabs runs **inside Chrome** as a Manifest V3 extension. It helps you manage browser workspaces, tabs, and memory — with optional AI features using your own Anthropic API key, or [connect your eggz account](/help/unscrambled-tabs/eggz-account) for shared login, document upload, and CRM chat from the side panel.
+**Unscrambled Tabs** is the **Chrome extension** half of the **eggz.ai** product. While [eggz](https://app.eggz.ai) runs in your browser as the main web app (invoices, Xero, documents), Unscrambled Tabs runs **inside Chrome** as a Manifest V3 extension. It helps you wrangle browser workspaces, tabs, and memory — and when you [connect your eggz account](/help/unscrambled-tabs/eggz-account) you also get one smart AI chat (no key needed), document upload, and [bill capture](/help/unscrambled-tabs/capture-bills) right from the side panel. Prefer to bring your own Anthropic key instead? That works too.
 
 <Note>
 eggz and Unscrambled Tabs share branding and product vision, but they are **different surfaces**: the web app is for accounting workflows; the extension is for **tab and workspace management** in Chrome. This section of the Help Centre is **only** about the extension.
@@ -34,12 +34,20 @@ eggz and Unscrambled Tabs share branding and product vision, but they are **diff
     How workspaces work, switching, and multi-window behaviour.
   </Card>
 
+  <Card title="Open Tabs view" icon="table-columns" href="/help/unscrambled-tabs/open-tabs">
+    Every tab in every window in one list — save the keepers to a workspace.
+  </Card>
+
   <Card title="Performance & RAM" icon="gauge" href="/help/unscrambled-tabs/performance-and-ram">
     Manual, Balanced, and Aggressive modes; Free RAM; what never discards.
   </Card>
 
   <Card title="AI & search" icon="sparkles" href="/help/unscrambled-tabs/ai-and-search">
-    AI assistant, keyboard search, and your API key (BYO).
+    One smart chat that knows your tabs and books, plus keyboard search.
+  </Card>
+
+  <Card title="Capture bills" icon="receipt" href="/help/unscrambled-tabs/capture-bills">
+    Spot a bill on any page and send it to eggz in one click.
   </Card>
 
   <Card title="Session Time-Travel" icon="clock-rotate-left" href="/help/unscrambled-tabs/session-time-travel">
@@ -60,7 +68,9 @@ eggz and Unscrambled Tabs share branding and product vision, but they are **diff
 | Area | What you get |
 |------|----------------|
 | **Workspaces** | Named workspaces with tabs, optional folders/groups, and per-window binding when you use multiple Chrome windows. |
-| **AI assistant** | Chat and organise tabs using Claude; you provide an Anthropic API key — processing stays in the extension service worker. |
+| **Open Tabs view** | See every open tab across every window in one list, then save the keepers into a workspace. |
+| **AI assistant** | One chat that knows your open tabs, your saved workspaces, and (signed in) your eggz books. Included with your eggz plan — no key — or bring your own Anthropic key. |
+| **Capture bills** | Spot a bill or invoice on any page and send it to eggz in one click (signed in). |
 | **Search** | Open quick search from the keyboard (⌘K on Mac, Ctrl+Shift+K on Windows) from any tab. |
 | **Session Time-Travel** | Periodic snapshots of the current window so you can restore recent tab sets. |
 | **Tab deduplication** | Detect when you open a URL you already have and jump to the existing tab. |

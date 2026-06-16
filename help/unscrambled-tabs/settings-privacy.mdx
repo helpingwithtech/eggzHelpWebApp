@@ -9,7 +9,7 @@ icon: "shield-halved"
 | Storage | Typical contents |
 |---------|------------------|
 | **chrome.storage.local** | Workspaces, settings, snapshots, API key, long-lived preferences |
-| **chrome.storage.session** | Short-lived UI state, per-window workspace map, and the rolling list of recently-visited domains for the bill-capture nudge (all cleared when Chrome closes) |
+| **chrome.storage.session** | Short-lived UI state, per-window workspace map, the rolling list of recently-visited domains for the bill-capture nudge, and your per-conversation "always allow" AI permissions (all cleared when Chrome closes) |
 | **Service worker memory** | Tab activity timestamps for discard heuristics (cleared when the worker stops) |
 
 ## Protected domains
@@ -39,8 +39,12 @@ To offer the occasional [bill-capture suggestion](/help/unscrambled-tabs/capture
 Privacy notes for the connected mode:
 
 - The extension **never stores tokens or passwords** — your session is a secure, httpOnly browser cookie on `app.eggz.ai`, the same one the web app uses.
-- Your **active tab's title and URL** are sent as chat context **only while you are signed in and using the AI tab**. Other browsing is not sent anywhere.
+- While you use the AI, it's sent **names and addresses only** by default — your open tabs' titles and URLs, your saved workspace/folder/link names, and the current page's title and URL. The **actual contents** of a page are sent **only after you approve** the permission card (see below). Other browsing is not sent anywhere.
 - Documents you upload go to **your eggz organization** and follow the web app's data handling.
+
+## Asking permission before reading a page
+
+When the AI wants to read **what's on a page** (or look at one of your records), it shows a permission card first — **Allow once**, **Always allow** (for the current conversation), or **Deny**. Until you approve, **no page or record content leaves your browser** — the AI only ever has names and addresses. Your "Always allow" choices are remembered **per conversation** and clear when you start a new chat or close Chrome.
 
 ## AI and network
 
@@ -49,7 +53,7 @@ There's now **one AI chat** — no modes to flip between. It just picks the righ
 - **No eggz server** is required for core workspace features — they all work offline-ish, on your computer.
 - **Signed in to eggz:** the chat talks to **eggz** (your organisation's assistant) — no API key needed.
 - **Using your own key:** **Anthropic** is only contacted when you use **AI** features and a valid **API key** is set (signed out, or as a backup when your eggz credits run out).
-- To answer questions about your tabs, the chat sends a list of your open tabs' **titles and web addresses** (and, for tabs you're reading, a capped bit of page text) — only when you actually use the AI.
+- To answer questions about your tabs, the chat sends your open tabs' **titles and web addresses** (names only) — and the **contents** of a page only after you approve the permission card. This only happens when you actually use the AI.
 - Review Anthropic's policies for **data processing** when you enable AI.
 
 ## Permissions

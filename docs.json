@@ -92,6 +92,11 @@
           "anchor": "Dashboard",
           "href": "https://app.eggz.ai",
           "icon": "arrow-up-right-from-square"
+        },
+        {
+          "anchor": "Get the Chrome Extension",
+          "href": "https://chromewebstore.google.com/detail/unscrambled-tabs/gfjdjhpcemmakhoaggnihfcohkmfcfcc",
+          "icon": "chrome"
         }
       ]
     }

@@ -8,8 +8,8 @@ icon: "shield-halved"
 
 | Storage | Typical contents |
 |---------|------------------|
-| **chrome.storage.local** | Workspaces, settings, snapshots, API key, long-lived preferences |
-| **chrome.storage.session** | Short-lived UI state, per-window workspace map, the rolling list of recently-visited domains for the bill-capture nudge, and your per-conversation "always allow" AI permissions (all cleared when Chrome closes) |
+| **chrome.storage.local** | Workspaces, settings, snapshots, long-lived preferences |
+| **chrome.storage.session** | Short-lived UI state, per-window workspace map, and the rolling list of recently-visited domains for the bill-capture nudge (all cleared when Chrome closes) |
 | **Service worker memory** | Tab activity timestamps for discard heuristics (cleared when the worker stops) |
 
 ## Protected domains
@@ -44,17 +44,16 @@ Privacy notes for the connected mode:
 
 ## Asking permission before reading a page
 
-When the AI wants to read **what's on a page** (or look at one of your records), it shows a permission card first — **Allow once**, **Always allow** (for the current conversation), or **Deny**. Until you approve, **no page or record content leaves your browser** — the AI only ever has names and addresses. Your "Always allow" choices are remembered **per conversation** and clear when you start a new chat or close Chrome.
+When the AI wants to read **what's on a page** (or look at one of your records), it shows a permission card first — **Approve** or **Deny** — and it asks **every time**. Until you approve, **no page or record content leaves your browser**; the AI only ever has names and addresses.
 
 ## AI and network
 
-There's now **one AI chat** — no modes to flip between. It just picks the right helper for you (see [AI assistant & search](/help/unscrambled-tabs/ai-and-search)):
+There's **one AI chat** — no modes to flip between, no key to manage (see [AI assistant & search](/help/unscrambled-tabs/ai-and-search)):
 
 - **No eggz server** is required for core workspace features — they all work offline-ish, on your computer.
-- **Signed in to eggz:** the chat talks to **eggz** (your organisation's assistant) — no API key needed.
-- **Using your own key:** **Anthropic** is only contacted when you use **AI** features and a valid **API key** is set (signed out, or as a backup when your eggz credits run out).
+- **The AI runs through eggz.** When you use the chat, it talks to **eggz** (your organisation's assistant) — included with your plan, no API key needed.
 - To answer questions about your tabs, the chat sends your open tabs' **titles and web addresses** (names only) — and the **contents** of a page only after you approve the permission card. This only happens when you actually use the AI.
-- Review Anthropic's policies for **data processing** when you enable AI.
+- AI features follow the eggz web app's data handling.
 
 ## Permissions
 

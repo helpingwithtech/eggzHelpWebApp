@@ -41,8 +41,18 @@ eggz pulls the following data from your Xero account:
 | **Quotes** | Xero to eggz | Quotes with prospect, amounts, status |
 | **Customers** | Xero to eggz | Contact information synced into your Accounts list |
 | **Chart of Accounts** | Xero to eggz | Account codes used for expense category mapping |
+| **Payments** | Xero to eggz | Payments against invoices and bills, including partial payments and their dates |
+| **Bank transactions** | Xero to eggz | Spend Money and Receive Money transactions |
+
+Payments and bank transactions keep your [Collected and Outstanding views](/help/guides/reporting-views) accurate — eggz knows not just what was invoiced, but what's actually been paid and when.
 
 <Note>Sync is manual -- click the **Sync** button on each section of the integrations page to pull the latest data. eggz does not automatically poll Xero for changes.</Note>
+
+### Sync order
+
+When you first connect, **documents sync first, then payments**. So invoices, bills, and quotes appear before the payments that settle them. If a payment ever lands before its document, eggz links the two automatically once the document arrives.
+
+<Note>If a payment is deleted in Xero, it disappears from your eggz reports automatically on the next sync.</Note>
 
 ## What eggz pushes to Xero
 
@@ -99,3 +109,4 @@ Because only one Xero organisation can be connected per workspace, to change whi
 - **Manual sync**: You need to click the Sync button to pull new data. There is no automatic polling.
 - **No bank reconciliation**: eggz displays financial data but does not perform bank reconciliation. Continue using Xero for reconciliation.
 - **Currency conversion**: Analytics use your default exchange rates set in general settings, not live foreign exchange rates.
+- **Invoices settled by credit notes, overpayments, or prepayments** still show as **Outstanding** in eggz for now, even though Xero considers them settled. This is coming in a follow-up. Invoices settled by an ordinary payment are handled correctly today.

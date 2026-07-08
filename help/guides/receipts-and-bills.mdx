@@ -1,0 +1,44 @@
+---
+title: "How receipts become expenses (or attach to bills)"
+description: "Understand how eggz turns a captured receipt into an expense — or attaches it to an existing bill as proof of payment — so the same purchase is never counted twice."
+icon: "link"
+---
+
+## A receipt is proof of a purchase
+
+When you capture a receipt, eggz treats it as evidence that a purchase happened. It then works out what that receipt *should become* in your reports — automatically.
+
+There are two outcomes:
+
+- **It attaches to an existing bill.** If the same purchase is already in eggz as a bill from that supplier, the receipt attaches to it as proof of payment. Nothing is counted twice — the bill already carries the amount.
+- **It becomes an expense.** If there's no matching bill, the receipt becomes an expense in your reports.
+
+### How eggz decides
+
+eggz looks for a bill from the **same supplier**, for the **same amount**, around the **same date**. If it finds a single clear match, the receipt attaches to that bill. If there's no match — or more than one possible match — the receipt becomes an expense instead, so an ambiguous guess never gets it wrong.
+
+<Note>This prevents the most common double-count: capturing a receipt for a purchase that also arrives as a bill from your supplier. eggz routes each purchase to a single place in your reports.</Note>
+
+## Changing what a receipt becomes
+
+You're always in control. On any receipt you can:
+
+- **Attach it to a bill** — mark it as proof of payment for a supplier bill.
+- **Make it an expense** — count it on its own in your reports.
+
+## Paid or unpaid
+
+Receipts default to **paid** — a receipt is evidence that you've already paid for something. If a particular receipt is actually an outstanding obligation you haven't settled yet, mark it **unpaid** so it shows up correctly in your [Outstanding view](/help/guides/reporting-views).
+
+## Publishing a receipt to Xero
+
+When you publish a receipt to Xero, what eggz creates depends on its payment status:
+
+| Receipt status | Creates in Xero |
+|----------------|-----------------|
+| **Unpaid** | A bill |
+| **Paid** | Spend Money |
+
+Either way, eggz remembers the link between the receipt and what it created in Xero. So when that item syncs back on the next Xero sync, it's recognised as the same purchase and never duplicated.
+
+<Tip>See [Xero integration](/help/guides/xero-sync) for the full picture of what syncs between eggz and Xero.</Tip>

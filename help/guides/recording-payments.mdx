@@ -1,0 +1,33 @@
+---
+title: "Recording payments and partial payments"
+description: "Record a full or partial payment against an invoice in eggz, and see how it flows into your Billed, Collected, and Outstanding views."
+icon: "money-check-dollar"
+---
+
+## Record a payment
+
+On any invoice, use **Record payment** to log money you've received. You'll enter:
+
+| Field | What it is |
+|-------|-----------|
+| **Amount** | How much was paid, up to the remaining balance |
+| **Date** | When the payment arrived |
+| **Method** | How it was paid (for your records) |
+| **Reference** | An optional note, such as a transaction ID |
+
+## Full and partial payments
+
+- **Full payment** — pay off the whole remaining balance and the invoice is marked **paid**.
+- **Partial payment** — pay part of the balance and the remainder stays **Outstanding**. The portion you recorded shows up in **Collected** for the month it arrived.
+
+<Note>Overpayments aren't supported yet — you can record up to the remaining balance, but not more than what's owed.</Note>
+
+## How a payment feeds your three views
+
+A payment doesn't just mark an invoice paid — it flows into your [reporting views](/help/guides/reporting-views):
+
+| View | What a payment does |
+|------|---------------------|
+| **Billed (Accrual)** | No change — the invoice was already counted in the month it was issued |
+| **Collected (Cash)** | The amount you recorded appears in the month the payment arrived |
+| **Outstanding** | The remaining balance drops; if the invoice is now fully paid, it leaves Outstanding entirely |

@@ -1,0 +1,68 @@
+---
+title: "Understanding your three reporting views"
+description: "Switch your eggz dashboard between Billed, Collected, and Outstanding to see what you earned, what actually arrived in the bank, and what's still owed — without changing any of your data."
+icon: "eye"
+---
+
+## One dashboard, three views
+
+At the top of your dashboard is a toggle with three options:
+
+- **Billed (Accrual)**
+- **Collected (Cash)**
+- **Outstanding**
+
+Switching it changes every dashboard card at once, so the whole page tells one consistent story.
+
+<Note>This only changes how you see the dashboard. Your documents and data aren't affected.</Note>
+
+### A quick example
+
+> If you send an invoice in January and it's paid in February: Billed shows it in January, Collected shows it in February, Outstanding shows it until it's paid.
+
+That single invoice is the same in all three views — you're just looking at it through a different lens.
+
+## What each view means
+
+### Billed (Accrual)
+
+What you earned or owed, by the date documents were issued — **whether or not they've been paid**. Amounts include tax. This is the view for "how much business did I do this month?"
+
+### Collected (Cash)
+
+Money that actually moved. A payment shows up in the month it arrived, not the month the invoice was raised. **Partial payments count only the portion that was paid** — the amount is split proportionally, including tax — so a part-payment shows exactly what landed in the bank. This is the number owners tend to feel day to day.
+
+### Outstanding
+
+What's still owed **right now**. Instead of months, Outstanding groups everything by how overdue it is:
+
+| Bucket | Meaning |
+|--------|---------|
+| **Current** | Not yet due |
+| **1–30 days** | Up to a month past due |
+| **31–60 days** | One to two months past due |
+| **61–90 days** | Two to three months past due |
+| **90+ days** | More than three months past due |
+
+Outstanding always shows the **remaining amount**, not the original total. If a $1,000 invoice has had $300 paid, Outstanding shows the $700 that's still owed.
+
+## Two things worth knowing
+
+- **The Quote Pipeline card ignores the toggle.** Quotes aren't revenue yet, so they sit outside Billed, Collected, and Outstanding and always show your open pipeline.
+- **You can set your default view.** Go to **Settings** and choose your **Default reporting view** — that's the one your dashboard opens on. You can still switch views any time; the default is just your starting point.
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Why don't Billed and Collected match?">
+    They almost never match exactly, and that's expected — it's a question of timing. Billed counts a document in the month it was issued; Collected counts the money in the month it actually arrived. Using the example above: an invoice sent in January but paid in February shows under Billed in January and under Collected in February. Across a full year the totals converge, but in any single month they'll differ by whatever is still waiting to be paid.
+  </Accordion>
+
+  <Accordion title="Why does the Expense Breakdown sometimes total more than Monthly Spend in Collected view?">
+    In Collected (Cash) view, if a supplier has refunded you, the refund is subtracted from your Monthly Spend card — but refunds aren't shown as a slice in the Expense Breakdown (they have no category). So when refunds are present, the breakdown can total slightly more than the Monthly Spend figure. This is expected, not an error.
+  </Accordion>
+
+  <Accordion title="What does 'N with no due date' mean?">
+    Some documents don't have a due date, so eggz can't work out how overdue they are. Rather than guess, it shows them as **Current** and tells you how many there are ("N with no due date") so nothing is hidden or mis-aged.
+  </Accordion>
+</AccordionGroup>

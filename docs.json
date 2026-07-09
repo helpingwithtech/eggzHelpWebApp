@@ -33,10 +33,18 @@
             ]
           },
           {
+            "group": "Reports & Dashboard",
+            "pages": [
+              "help/guides/reporting-views",
+              "help/guides/personalising-dashboard"
+            ]
+          },
+          {
             "group": "Documents",
             "pages": [
               "help/guides/uploading-documents",
-              "help/guides/expenses"
+              "help/guides/expenses",
+              "help/guides/receipts-and-bills"
             ]
           },
           {
@@ -45,7 +53,10 @@
           },
           {
             "group": "Sales",
-            "pages": ["help/guides/invoices-and-quotes"]
+            "pages": [
+              "help/guides/invoices-and-quotes",
+              "help/guides/recording-payments"
+            ]
           },
           {
             "group": "Customers",

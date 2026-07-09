@@ -8,18 +8,13 @@ icon: "sparkles"
 
 There used to be two AI helpers in here with a little switch between them. We took the switch out. Now there is **one chat**, and it figures out the smart thing to do all by itself. No buttons to flip, no "which mode am I in?" head-scratching.
 
-Open the AI tab and just type. Behind the curtain, the chat quietly picks the best helper for you:
-
-| When you are… | What the chat uses | What it's good at |
-|---------------|--------------------|-------------------|
-| **Signed in to eggz** with AI credits left | The **eggz assistant** (included, no key) | Your bills, invoices, quotes, accounts and receipts — *and* your tabs and workspaces, all in one place |
-| **Signed in** but out of credits, **with your own key** | Your **own Anthropic key** as a backup | Keeps the chat working so you're never stuck mid-sentence |
-| **Signed out**, with your own key | Your **own Anthropic key** | Chat about tabs, **Organise**, and save-resources |
-| **Signed out**, no key | A friendly sign-in screen | Points you to sign in or add a key |
+Open the AI tab and just type. The assistant is **included** with your eggz plan — no API key to paste, no secret codes, no surprise bills. It answers on your bills, invoices, quotes, accounts and receipts, *and* your open tabs and workspaces, all in one place.
 
 <Note>
-The easiest path is to [connect your eggz account](/help/unscrambled-tabs/eggz-account). When you're signed in, the AI is **included** — no API key, no copy-pasting secret codes, no surprise bills. It's covered by your eggz plan (fair use applies).
+Sign in to unlock the AI — the easiest path is to [connect your eggz account](/help/unscrambled-tabs/eggz-account). Signed out, you'll see a friendly sign-in screen instead. Once you're in, the AI is covered by your eggz plan (fair use applies).
 </Note>
+
+A couple of nice touches: replies **stream in live** as they're written, so you're never left staring at a blank box. And your conversation is saved to your account — **close the browser, come back later, and it's still there**. Your chat is private to your eggz account, so signing in as a different account simply starts a fresh conversation.
 
 ## It knows what you've got open (the helpful way)
 
@@ -39,17 +34,18 @@ When the AI mentions a tab, it names it like **[Tab: My Page Title]** so you can
 
 ## It asks before it reads a page
 
-Names and addresses are one thing — actually reading **what's written on a page** is another. So the chat **asks first**. When it wants to read the contents of a page (or look at one of your records), a little permission card pops up and you pick:
+Names and addresses are one thing — actually reading **what's written on a page** is another. So the chat **asks first**. When it wants to read the contents of a page (or look at one of your records), a little permission card pops up — it even flags how sensitive the request is — and you pick:
 
-- **Allow once** — read it just this one time.
-- **Always allow** — for *this* conversation, stop asking and let it read when it needs to. (New chat = it asks again.)
+- **Approve** — read this page, just for this request.
 - **Deny** — nope, hands off.
 
+It asks **every time** it wants to read a page, so you're never handing over a blanket pass.
+
 <Note>
-**Nothing on a page leaves your browser until you say yes.** Until you approve, the chat only ever sees names and web addresses — never the actual words on the page. Your permission choices last for the current conversation only.
+**Nothing on a page leaves your browser until you say yes.** Until you approve, the chat only ever sees names and web addresses — never the actual words on the page.
 </Note>
 
-When you do say yes, the extension reads the page **cleanly** — it pulls out the real article or content and skips the menus, ads, and clutter — so the AI gets the good stuff and not the junk.
+When you do say yes, the extension reads the page **cleanly** — it pulls out the real article or content and skips the menus, ads, and clutter — so the AI gets the good stuff and not the junk. And when the assistant writes back, any images in its reply are shown as plain text rather than loaded, so a dodgy page can't use them to phone home.
 
 ## Organise your tabs with a nudge
 
@@ -63,23 +59,7 @@ It only does this after you've visited a couple of different sites recently, so 
 
 ## When you run low on AI credits
 
-If your eggz plan's included AI gets used up, the chat doesn't just slam the door:
-
-- If you've added **your own Anthropic key**, the chat quietly switches to it as a **backup** so you can keep going. A small banner lets you know, and you can tap **Upgrade** (or just dismiss it).
-- If you **don't** have a key, you'll see a friendly **upgrade card**. Bonus: it also lets you **invite a friend** — when they join, **you both get free AI credits**. Sharing is caring (and also free credits).
-
-## Bring your own key (optional)
-
-Prefer to run on your own steam? You can paste an **Anthropic API key** in **Settings**. Think of it like bringing your own snacks to the movies — totally allowed, and then *you* cover that part of the bill.
-
-A few good-to-knows:
-
-- Your key is stored **on your computer** for the extension, and it's used safely in the background — random websites never get to see it.
-- If you're signed in to eggz *and* have a key, the included eggz AI goes first and your key waits in the wings as backup.
-
-<Warning>
-Treat your API key like your house key: don't share it or paste it into random places. If you think it leaked, swap it out in the [Anthropic console](https://console.anthropic.com/settings/keys).
-</Warning>
+If your eggz plan's included AI gets used up, the chat doesn't just slam the door — you'll see a friendly **upgrade card**. Bonus: it also lets you **invite a friend**. When they join, **you both get free AI credits**. Sharing is caring (and also free credits).
 
 ## Search anything (⌘K)
 
@@ -99,4 +79,4 @@ Want the chat right now?
 
 ## Not into AI? No problem
 
-You can skip the AI entirely and the rest of the extension hums along just fine. **Workspaces**, **Performance modes**, **snapshots**, and **backup** all work with zero AI and zero key. The AI only taps you on the shoulder for AI-specific things.
+You can skip the AI entirely and the rest of the extension hums along just fine. **Workspaces**, **Performance modes**, **snapshots**, and **backup** all work with zero AI. The AI only taps you on the shoulder for AI-specific things.

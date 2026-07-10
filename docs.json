@@ -57,6 +57,7 @@
             "group": "Sales",
             "pages": [
               "help/guides/invoices-and-quotes",
+              "help/guides/publish-to-xero",
               "help/guides/recording-payments"
             ]
           },
@@ -68,6 +69,7 @@
             "group": "Integrations & Settings",
             "pages": [
               "help/guides/xero-sync",
+              "help/guides/xero-branding",
               "help/guides/settings"
             ]
           },

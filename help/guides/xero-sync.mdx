@@ -6,7 +6,7 @@ icon: "arrows-rotate"
 
 ## How eggz works with Xero
 
-eggz syncs your accounting data from Xero so you can view invoices, bills, quotes, and customer information in one place alongside your uploaded receipts. The integration is primarily one-way (Xero to eggz), with the ability to push processed receipts back to Xero.
+eggz syncs your accounting data from Xero so you can view invoices, bills, quotes, and customer information in one place alongside your uploaded receipts. The integration is primarily one-way (Xero to eggz), with the ability to push processed receipts back to Xero — and to publish draft invoices and quotes you create in eggz.
 
 ## Connect Xero
 
@@ -43,6 +43,7 @@ eggz pulls the following data from your Xero account:
 | **Chart of Accounts** | Xero to eggz | Account codes used for expense category mapping |
 | **Payments** | Xero to eggz | Payments against invoices and bills, including partial payments and their dates |
 | **Bank transactions** | Xero to eggz | Spend Money and Receive Money transactions |
+| **Branding themes** | Xero to eggz | Invoice and quote theme names and logos — refresh from the [Branding themes card](/help/guides/xero-branding) |
 
 Payments and bank transactions keep your [Collected and Outstanding views](/help/guides/reporting-views) accurate — eggz knows not just what was invoiced, but what's actually been paid and when.
 
@@ -63,7 +64,7 @@ eggz can push processed receipts to Xero in two ways:
 | **Unpaid** | Bill (ACCPAY) | A supplier invoice you still need to pay |
 | **Paid** | Spend Money (Bank Transaction) | An expense already paid, recorded against a bank account |
 
-<Warning>Invoices, quotes, and customer records created in eggz cannot be pushed to Xero. They can only be synced from Xero into eggz.</Warning>
+<Note>Draft invoices and quotes you create in eggz can be [published to Xero](/help/guides/publish-to-xero). Documents synced from Xero can't be pushed back, and customer records created in eggz aren't pushed to Xero on their own.</Note>
 
 ## Account mapping
 
@@ -105,7 +106,7 @@ Because only one Xero organisation can be connected per workspace, to change whi
 ## Limitations
 
 - **One Xero organisation per workspace**: You cannot connect multiple Xero organisations to the same eggz workspace.
-- **One-way sync for most data**: Invoices, bills, quotes, and contacts only sync from Xero to eggz, not the other way.
+- **One-way sync for most data**: Bills in eggz are **read-only copies synced from Xero** — edit them in Xero. (Publishing a processed receipt can *create a new bill in Xero* — see [What eggz pushes to Xero](#what-eggz-pushes-to-xero) — but existing bills never sync back.) Contact details also sync one way from Xero; the CRM fields you manage on customers in eggz (owner, segment, annual value, and so on) live only in eggz and are never pushed to Xero. Invoices and quotes synced from Xero are one-way too — but a **draft you create in eggz** can be [published to Xero](/help/guides/publish-to-xero).
 - **Manual sync**: You need to click the Sync button to pull new data. There is no automatic polling.
 - **No bank reconciliation**: eggz displays financial data but does not perform bank reconciliation. Continue using Xero for reconciliation.
 - **Currency conversion**: Analytics use your default exchange rates set in general settings, not live foreign exchange rates.

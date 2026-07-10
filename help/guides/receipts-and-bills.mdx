@@ -19,12 +19,50 @@ eggz looks for a bill from the **same supplier**, for the **same amount**, aroun
 
 <Note>This prevents the most common double-count: capturing a receipt for a purchase that also arrives as a bill from your supplier. eggz routes each purchase to a single place in your reports.</Note>
 
-## Changing what a receipt becomes
+## The Process panel
 
-You're always in control. On any receipt you can:
+You're always in control. Open any receipt and the right-hand **Process** panel shows exactly where it sits, while the top of the page offers the *one* next step for that stage — one state, one action, no hunting through menus.
 
-- **Attach it to a bill** — mark it as proof of payment for a supplier bill.
-- **Make it an expense** — count it on its own in your reports.
+### The stage badge
+
+The **Process** panel names the receipt's stage and explains it in a line:
+
+| Stage | What it means |
+|-------|---------------|
+| **Reading** | eggz is still reading the receipt — the details fill in automatically when it's done. |
+| **Couldn't read** | The document couldn't be read. Check it's clear, or delete it and upload again. |
+| **Needs review** | Something's missing before it can be recorded. A chip shows what: **No date**, **No amount**, or **No supplier**. |
+| **Needs a decision** | eggz needs you to choose how to record it — attach it to a bill it pays, or record it as its own expense. |
+| **Expense** | Recorded as its own expense. |
+| **Attached to bill** | Kept as payment evidence on a bill — the bill carries the amount, so it isn't counted twice. |
+| **Published to Xero** | Sent to Xero. |
+
+### The one next step
+
+The button at the top of the page matches the stage:
+
+- **Needs a decision → Resolve.** Opens a short menu: **Attach to bill…** or **Create expense**.
+- **Needs review (no date) → Add a date.** Jumps to the date fix on the same page — see [Receipts without a date](/help/guides/receipt-dates).
+- **Attached to bill / Published to Xero → View bill.** Opens the linked bill.
+- **Expense →** no top button — publishing is its own **Publish to Xero** step further down the page, so it never competes for the same slot. The panel simply says *"Publish it to Xero below when you're ready."*
+
+### Attaching to a bill
+
+Choosing **Attach to bill…** opens **Attach to a bill**. Search by supplier or reference; any bill whose total matches the receipt is flagged **Matches amount** and floated to the top, so the likely one is right there. Pick it and the receipt attaches as proof of payment.
+
+<Note>Attaching never counts the money twice — the bill carries the amount, and the receipt rides along as evidence.</Note>
+
+### Checking the figures — GST first
+
+The panel lays out what to check against the document image, with GST broken out for Australian substantiation:
+
+- **Total (incl. GST)** · **GST** · **Subtotal (excl. GST)** when the receipt carries tax — or a single **Amount** when it doesn't.
+- The **Supplier**, linked through to its account when eggz has matched one (otherwise the merchant name with a *"Not linked to a supplier"* note).
+- The **Date**, marked *"From bank transaction"* when it was set from a bank match.
+
+### Unlinking
+
+Changed your mind? On an attached receipt, open the **More actions** menu (**⋯**) and choose **Unlink from bill**. The receipt returns to **Needs a decision** — it doesn't quietly become a fresh expense — so you make the call again. **Delete receipt** lives in the same menu.
 
 ## Paid or unpaid
 

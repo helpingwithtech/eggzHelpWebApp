@@ -33,7 +33,7 @@ Click any receipt to open its detail view. Here you can:
 - Review and edit extracted data (merchant, date, amount, line items)
 - See the AI extraction summary
 - Download the original file
-- Publish to Xero (as Bill or Spend Money)
+- [Publish to Xero](#publish-a-receipt-to-xero) (as a bill or Spend Money)
 - Delete the receipt
 
 ### Receipt lifecycle
@@ -45,6 +45,59 @@ Click any receipt to open its detail view. Here you can:
 | Submitted | Submitted | Sent for approval (if applicable) |
 | Approved | Approved | Approved for payment |
 | Published | Published | Created in Xero as Bill or Spend Money |
+
+## Publish a receipt to Xero
+
+Publishing is how a reviewed receipt leaves eggz and becomes a real record in your Xero organisation. Nothing is written to Xero automatically — you review the details first, then approve.
+
+### When the Publish to Xero card appears
+
+The **Publish to Xero** card sits on the receipt detail page, below the extracted data. You'll see it when all of these are true:
+
+- The receipt has finished processing (status **Processed**).
+- Your workspace is [connected to Xero](/help/guides/xero-sync).
+- Your account has permission to publish to Xero. If you don't see the card at all, ask your workspace admin.
+
+If Xero isn't connected — or the connection has expired — the card still appears, but instead of a publish button it prompts you to connect (or reconnect) Xero from **Settings > Integrations**.
+
+### Bill or Spend Money?
+
+What eggz creates in Xero depends on the receipt's payment status:
+
+| Receipt is | Creates in Xero | Extra input needed |
+|------------|-----------------|--------------------|
+| **Unpaid** | A **bill** (ACCPAY) you can pay later in Xero | None |
+| **Paid** | A **Spend Money** bank transaction | The **bank account** it was paid from — required |
+
+The card tells you upfront which one this receipt will become.
+
+### Review, approve, publish
+
+<Steps>
+  <Step title="Click Publish to Xero">
+    On the receipt's detail page, click **Publish to Xero**. A review dialog opens with the receipt's details pre-filled for your review — you may still need to choose accounts in the next step.
+  </Step>
+
+  <Step title="Review the details">
+    Check the contact (taken from the merchant name), the transaction date, the amount, and the line-item count. If something looks wrong, cancel and correct the receipt first — see [the extracted data is wrong](/help/guides/uploading-documents#troubleshooting).
+  </Step>
+
+  <Step title="Choose accounts (if needed)">
+    Optionally pick the **expense account** for the line items — leave it blank to use your default expense account. If the receipt is **paid**, you must also choose the **bank account** the money came from; eggz won't let you publish a paid receipt without one.
+  </Step>
+
+  <Step title="Approve">
+    Click **Publish to Xero** in the dialog. This is the moment eggz writes to Xero — nothing happens without this explicit approval.
+  </Step>
+</Steps>
+
+### After publishing
+
+The card changes to **Published to Xero**, showing what was created (a bill or a Spend Money transaction) and when. That's the receipt's final state — the publish button is gone, and each receipt can only be published once, so you can't create duplicates by revisiting the page.
+
+eggz also remembers the link between the receipt and the record it created. When that bill or transaction syncs back from Xero later, eggz recognises it as the same purchase instead of counting it twice — see [How receipts become expenses](/help/guides/receipts-and-bills).
+
+<Note>If Xero rejects the publish — for example, the connection has a problem — eggz shows you the exact error message and the receipt stays unpublished, so you can fix the issue and try again. Nothing is created silently.</Note>
 
 ## Bills tab
 

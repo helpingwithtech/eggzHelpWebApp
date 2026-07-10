@@ -1,0 +1,60 @@
+---
+title: "Editing totals and line items"
+description: "Edit a receipt's total and eggz keeps it in sync with the line items automatically — a small edit is absorbed with an Undo, a bigger one opens a dialog that must balance to $0.00 before it saves."
+icon: "scale-balanced"
+---
+
+## The total and the lines always agree
+
+A receipt's header total and its line items always tell the same story in eggz — they can never drift apart. Edit one side and eggz either updates the other side for you, or asks you to balance the difference before anything is saved, so a quick correction can't quietly break your Expense Breakdown or tax figures.
+
+## Editing a receipt's total
+
+Click a receipt's **Amount** cell on the Receipts list to edit it in place. What happens next depends on how many line items the receipt has.
+
+### One line item — absorbed automatically
+
+With a single line item there's only one place the change can go, so eggz applies it for you: the line is set to the new total and the tax is recalculated at the same effective rate as before. A toast confirms it:
+
+> **Total updated — line and tax adjusted to match** · Undo
+
+Click **Undo** to put the total, tax, and line back exactly as they were.
+
+### Two or more line items — you choose where the difference goes
+
+With multiple line items, eggz won't guess which one your change belongs to. Instead a **Reconcile line items** dialog opens, telling you the line items don't add up to the new total yet.
+
+In the dialog you can:
+
+- Adjust the **New total** and **Tax** fields.
+- Edit each line item's amount directly.
+- Use a quick action to close the gap: **Distribute proportionally** (spreads the difference across all lines in proportion to their current amounts), **Split evenly** (spreads it equally), or **Add balancing line** (appends an *Adjustment* line for exactly what's left over — only available while there's still a difference).
+
+A live **Remaining** figure shows how far the lines are from the new total, turning green at **$0.00**. **Save** stays disabled until Remaining is exactly $0.00, so an unbalanced receipt can never be saved.
+
+<Tip>**Cancel** closes the dialog without saving anything — nothing is written until Remaining hits $0.00 and you click **Save**, so cancelling is always a clean discard.</Tip>
+
+<Note>If the receipt changed elsewhere while the dialog was open, eggz tells you the new amount that needs reconciling and keeps the dialog open rather than saving over it.</Note>
+
+## When amounts are locked
+
+Some documents' amounts are protected instead of editable:
+
+- **Synced from Xero.** An invoice's **Total** and **Balance** show a lock icon when the invoice is synced from Xero — hover it for *"Synced from Xero — edit it in Xero"*. Xero owns those figures; edit them there and sync.
+- **Payments applied.** If an invoice already has payments recorded against it, an amount edit is refused — eggz tells you how many payments are applied. Those amounts are settled maths at that point, and the only way to unapply payments today is as part of [voiding the invoice](/help/guides/invoices-and-quotes#voiding-and-deleting-invoices) — the payment money isn't deleted, it becomes unallocated credit.
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Does this work if I make the total smaller?">
+    Yes — the difference can go either direction. The dialog just needs the lines to land exactly on the new total, whether it moved up or down.
+  </Accordion>
+
+  <Accordion title="What tax rate does the automatic adjustment use?">
+    The receipt's existing rate. When a one-line receipt absorbs your new total, eggz recalculates tax at the same effective rate it already had, so tax stays proportionate to the amount.
+  </Accordion>
+
+  <Accordion title="What is the 'Adjustment' line?">
+    The balancing line **Add balancing line** creates for you, set to exactly the remaining difference. It's an ordinary line item afterwards — rename or recategorise it any time.
+  </Accordion>
+</AccordionGroup>

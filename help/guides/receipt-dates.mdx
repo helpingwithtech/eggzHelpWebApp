@@ -1,0 +1,73 @@
+---
+title: "Receipts without a date"
+description: "When eggz can't read a transaction date from a receipt, it never guesses — the receipt is flagged Needs date until you set the real one, with a one-tap bank-match suggestion or quick manual entry."
+icon: "calendar-xmark"
+---
+
+## eggz never guesses a date
+
+Some receipts arrive without a readable transaction date — a faded docket, a screenshot with the date cropped off. Rather than silently assuming a date (and quietly putting the purchase in the wrong month), eggz holds the receipt in an explicit **Needs date** state until you set the real one.
+
+You'll see it in two places:
+
+- **On the Receipts list**, the **Transaction date** column shows an amber **Needs date** chip instead of a date.
+- **On the receipt's detail page**, a **Needs date** panel explains: *"This receipt has no transaction date, so it's excluded from Billed reports and can't be published to Xero yet."*
+
+## What a missing date means for your reports
+
+An undated receipt is still real money — eggz just won't place it in a month it can't verify. Until you set a date:
+
+| Where | What happens |
+|-------|--------------|
+| **Billed view — month totals** | The receipt is **left out** of month-by-month numbers, so no month is padded with a guess. An amber banner keeps the total visible: **"Undated — needs review: N receipts · $X"** — click it to jump to the Receipts list. |
+| **Outstanding** | If the receipt is unpaid, it's still **counted** in what you owe — shown as its own **Undated** column in the aging chart (only while any exist), and tagged **Undated** in the list instead of a days-overdue band, since eggz can't tell how overdue it is. |
+| **Publishing to Xero** | Blocked until a date is set — see below. |
+
+<Note>The Billed-view banner only appears while you have undated receipts, and only in that view — fix the dates and it disappears.</Note>
+
+## Set the date
+
+Open the receipt and find the **Needs date** panel. There are two ways to fix it:
+
+### Tap a suggested bank match
+
+If eggz finds a bank transaction that looks like this purchase — a matching amount, dated close to when you captured the receipt — it offers it as a one-tap button, for example:
+
+> **Use 12 Jun 2026 · $84.50 · ABC Supplies**
+
+Tap it and eggz sets the receipt's date from that bank record — a date backed by evidence, not a guess.
+
+### Or enter it manually
+
+No suggestion, or none of them right? Use the date picker to pick the day yourself, then click **Set date**.
+
+Either way, a confirmation appears: **"Date set — reports updated"**.
+
+## Everything updates automatically
+
+The moment a date is set, the receipt leaves the Needs-date state on its own:
+
+- It joins the correct month in **Billed** totals.
+- It leaves the **Undated** tag in Outstanding and ages normally from its real date.
+- The Billed-view banner count drops (and disappears at zero).
+- Publishing to Xero unlocks.
+
+## Why publishing is blocked without a date
+
+If eggz sent a dateless receipt to Xero, Xero would silently stamp it with **today's date** — putting the expense in the wrong period without anyone noticing. So the Publish to Xero card on an undated receipt blocks the action up front: *"Add a date before publishing to Xero — Xero would otherwise stamp today's date."* Set the date and publishing works as normal.
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Where do the one-tap date suggestions come from?">
+    From bank transactions already in eggz. A suggestion appears when a bank transaction matches the receipt's amount and falls within about a week of when you captured it. eggz only ever offers the match — nothing is applied until you tap it.
+  </Accordion>
+
+  <Accordion title="Is an undated receipt missing from my totals?">
+    Only from **Billed month totals**, because eggz can't honestly say which month it belongs to. It still counts in **Outstanding** if unpaid, and the Billed-view banner keeps the undated total visible so nothing slips out of sight.
+  </Accordion>
+
+  <Accordion title="How is 'Undated' different from 'N with no due date'?">
+    Two different missing dates. **Undated** means the receipt has no **transaction** date, so eggz can't place it in a month at all. **"N with no due date"** in the Outstanding aging card means a document has a transaction date but no **due** date, so eggz can't tell how overdue it is and shows it as Current instead. See [Understanding your three reporting views](/help/guides/reporting-views).
+  </Accordion>
+</AccordionGroup>

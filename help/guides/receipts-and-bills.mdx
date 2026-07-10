@@ -60,6 +60,8 @@ The panel lays out what to check against the document image, with GST broken out
 - The **Supplier**, linked through to its account when eggz has matched one (otherwise the merchant name with a *"Not linked to a supplier"* note).
 - The **Date**, marked *"From bank transaction"* when it was set from a bank match.
 
+If eggz couldn't read a printed total, it reconstructs one from the line items and marks it *"From line items"* — so a derived figure is never mistaken for a total printed on the receipt.
+
 ### Unlinking
 
 Changed your mind? On an attached receipt, open the **More actions** menu (**⋯**) and choose **Unlink from bill**. The receipt returns to **Needs a decision** — it doesn't quietly become a fresh expense — so you make the call again. **Delete receipt** lives in the same menu.

@@ -49,13 +49,13 @@ Click any payment-backed row to open its full detail in a side panel: date, amou
 
 ### Voiding and deleting invoices
 
-What you can do to an invoice depends on its status. “Issued” below means any invoice that has left Draft — **Submitted** or **Authorised** in the status list above. The action shows as an icon in the row on the Sales list, or in the **More actions** (**⋯**) menu on the invoice detail page:
+What you can do to an invoice depends on its status — the same **Status** labels listed above. The action shows as an icon in the row on the Sales list, or in the **More actions** (**⋯**) menu on the invoice detail page:
 
 | Invoice is | You can | What happens |
 |------------|---------|---------------|
 | **Draft** | **Delete** | Removed completely — no financial effect, nothing to undo. |
-| **Issued**, no payments applied | **Void** | The invoice and its number are kept forever for your audit trail, but it's excluded from your reports and tax totals from that point on. Voiding is permanent. |
-| **Issued or paid, with payments applied** | **Void** (assisted) | eggz can't void an invoice while payments are still applied to it. Choose **Unapply N payments and void** and eggz keeps the invoice for your records, unapplies the payments, and voids it — the payment money is never deleted, it becomes unallocated credit for that customer that can be reapplied later. |
+| **Submitted** or **Authorised**, no payments applied | **Void** | The invoice and its number are kept forever for your audit trail, but it's excluded from your reports and tax totals from that point on. Voiding is permanent. |
+| **Submitted**, **Authorised**, or **Paid**, with payments applied | **Void** (assisted) | eggz can't void an invoice while payments are still applied to it. Choose **Unapply N payments and void** and eggz keeps the invoice for your records, unapplies the payments, and voids it — the payment money is never deleted, it becomes unallocated credit for that customer that can be reapplied later. |
 
 Cleaning up several drafts at once? Select them on the Sales list and click **Delete selected** — the button only enables when everything selected is a draft, so an issued or synced invoice can never slip into a bulk delete.
 

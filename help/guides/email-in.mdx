@@ -1,0 +1,100 @@
+---
+title: "Email-in: forward receipts to eggz"
+description: "Give your workspace its own email address, forward any receipt or bill to it, and eggz turns every attachment into a receipt you review before anything reaches Xero."
+icon: "envelope"
+---
+
+## Forward it and forget it
+
+Email-in gives your workspace its own eggz address. Forward a receipt or bill to that address -- from your phone, your inbox, or straight from a supplier -- and eggz reads the attachments and creates a receipt for each one automatically. No app to open, no file to save first.
+
+It's the same AI extraction and the same review step as any other upload -- email is just a faster way to get documents in.
+
+## Your workspace address
+
+Each workspace gets one address that looks like this:
+
+```
+acme-7f3q@nest.eggz.ai
+```
+
+You choose the first part (your **slug** -- for example `acme`), and eggz adds a short random code (`7f3q`). That code matters: it means nobody can guess your address and drop documents into your workspace. Treat the address like a password -- share it only with people and suppliers you trust.
+
+<Steps>
+  <Step title="Open Settings > Integrations">
+    Find the **Email-in** card. If you're new, you'll also be offered your address during onboarding.
+  </Step>
+  <Step title="Pick your slug">
+    Type a short name for your workspace and claim it. eggz checks it's available and sets the address up for you.
+  </Step>
+  <Step title="Copy your address">
+    Use the copy button and save it as a contact, or add it to the forwarding rules in your email client.
+  </Step>
+</Steps>
+
+<Note>There's one address per workspace. If you belong to more than one workspace, each has its own.</Note>
+
+## Forwarding your first receipt
+
+<Steps>
+  <Step title="Forward the email">
+    Send (or forward) the receipt to your workspace address. Attachments are what eggz reads -- so forward the email that carries the PDF or photo.
+  </Step>
+  <Step title="eggz reads the attachments">
+    Each attachment becomes its own receipt with status **Pending**, and AI extraction starts automatically -- merchant, date, totals, line items, and category.
+  </Step>
+  <Step title="Review in eggz">
+    Open the receipt to check the extracted data, just like an uploaded document. Nothing goes to Xero until you publish it.
+  </Step>
+</Steps>
+
+## What happens to attachments
+
+- **Each attachment becomes one receipt** when the email is processed — an email with a PDF and a photo lands as two separate **Pending** receipts. (Emails held for review — too many attachments, an unrecognised sender, or an over-limit workspace — create their receipts once released.)
+- **Supported formats are the same as uploads** -- PDFs and images. See [Uploading Documents](/help/guides/uploading-documents) for the full list.
+- **Up to 10 attachments per email.** If an email carries more, the whole email is held for review rather than processing only some of them.
+- **Email-in uses the same document allowance as uploads.** Each stored attachment counts toward your monthly plan limit -- see [document limits](/help/guides/uploading-documents#document-limits).
+
+## Who can send receipts in
+
+Because email can be forwarded by anyone, eggz decides what to trust:
+
+- **Your team sends in freely.** Emails from members of your workspace are accepted automatically.
+- **Add trusted outside senders.** Allowlist your bookkeeper or a regular supplier in the **Email-in** settings so their emails come straight in.
+- **Anyone else is held for review.** An email from a sender eggz doesn't recognise is placed in **quarantine** and your admins are notified. From the quarantine list you can **Trust sender & release** in one click -- the email is processed and that sender's future emails come straight in from then on.
+
+<Note>The allowlist is a convenience filter, not the security boundary -- your unguessable address is what actually keeps your workspace private. Every emailed receipt still lands as **Pending** and is never published on its own.</Note>
+
+## Nothing is published without your review
+
+Email-in never publishes anything to Xero by itself. Every emailed receipt lands as **Pending**, exactly like a manual upload, and waits for you to review and publish it. You stay in control of what reaches your accounts.
+
+Email-in also never *silently* loses a message. Every email becomes one of three things:
+
+- a **Pending** receipt you can review, or
+- a **held-for-review** item in quarantine (with an admin notification), or
+- a **clear error** you can see and act on.
+
+## Changing or rotating your address
+
+You can change your slug or rotate your address at any time from the **Email-in** settings -- useful if the address is ever shared too widely. When you rotate, the old address stops working immediately, so mail sent to it will bounce back to the sender rather than arrive in eggz. Share your new address with anyone who forwards to you.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="My forwarded email bounced">
+    A bounce means the address was mistyped or has been rotated. eggz only accepts mail on a valid, current workspace address -- it never silently swallows mail sent to a wrong address. Double-check the address in **Settings > Integrations** and resend.
+  </Accordion>
+
+  <Accordion title="I forwarded a receipt but it didn't appear">
+    Check your **quarantine** list in the **Email-in** settings -- if the sender isn't a workspace member or on your allowlist, the email is held there for review. Also confirm the email actually carried an attachment: eggz creates receipts from attached PDFs and images, not from the message body.
+  </Accordion>
+
+  <Accordion title="An email is stuck in quarantine">
+    Open the quarantine list and choose **Trust sender & release** to process it and accept that sender in future, **Release once** to process just this one, or **Delete** to discard it. Only workspace admins can manage quarantine.
+  </Accordion>
+
+  <Accordion title="Emailed receipts stopped coming in">
+    You may have reached your plan's monthly document limit -- email-in shares the same allowance as uploads, and over-limit emails are held rather than processed. Upgrade from **Settings > Billing**, or wait for your next billing cycle. Workspaces on unlimited plans also have a generous daily fair-use ceiling to stop runaway forwarding loops.
+  </Accordion>
+</AccordionGroup>

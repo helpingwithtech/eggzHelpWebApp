@@ -21,7 +21,7 @@ acme-7f3q@nest.eggz.ai
 You choose the first part (your **slug** -- for example `acme`), and eggz adds a short random code (`7f3q`). That code matters: it means nobody can guess your address and drop documents into your workspace. Treat the address like a password -- share it only with people and suppliers you trust.
 
 <Steps>
-  <Step title="Open Settings → Integrations">
+  <Step title="Open Settings > Integrations">
     Find the **Email-in** card. If you're new, you'll also be offered your address during onboarding.
   </Step>
   <Step title="Pick your slug">
@@ -50,7 +50,7 @@ You choose the first part (your **slug** -- for example `acme`), and eggz adds a
 
 ## What happens to attachments
 
-- **Each attachment becomes one receipt.** An email with a PDF and a photo lands as two separate pending receipts.
+- **Each attachment becomes one receipt.** An email with a PDF and a photo lands as two separate **Pending** receipts.
 - **Supported formats are the same as uploads** -- PDFs and images. See [Uploading Documents](/help/guides/uploading-documents) for the full list.
 - **Up to 10 attachments per email.** If an email carries more, the whole email is held for review rather than processing only some of them.
 - **Email-in uses the same document allowance as uploads.** Each stored attachment counts toward your monthly plan limit -- see [document limits](/help/guides/uploading-documents#document-limits).
@@ -63,15 +63,15 @@ Because email can be forwarded by anyone, eggz decides what to trust:
 - **Add trusted outside senders.** Allowlist your bookkeeper or a regular supplier in the **Email-in** settings so their emails come straight in.
 - **Anyone else is held for review.** An email from a sender eggz doesn't recognise is placed in **quarantine** and your admins are notified. From the quarantine list you can **Trust sender & release** in one click -- the email is processed and that sender's future emails come straight in from then on.
 
-<Note>The allowlist is a convenience filter, not the security boundary -- your unguessable address is what actually keeps your workspace private. Every emailed receipt still lands as **pending** and is never published on its own.</Note>
+<Note>The allowlist is a convenience filter, not the security boundary -- your unguessable address is what actually keeps your workspace private. Every emailed receipt still lands as **Pending** and is never published on its own.</Note>
 
 ## Nothing is published without your review
 
-Email-in never publishes anything to Xero by itself. Every emailed receipt lands as **pending**, exactly like a manual upload, and waits for you to review and publish it. You stay in control of what reaches your accounts.
+Email-in never publishes anything to Xero by itself. Every emailed receipt lands as **Pending**, exactly like a manual upload, and waits for you to review and publish it. You stay in control of what reaches your accounts.
 
 Email-in also never *silently* loses a message. Every email becomes one of three things:
 
-- a **pending receipt** you can review, or
+- a **Pending** receipt you can review, or
 - a **held-for-review** item in quarantine (with an admin notification), or
 - a **clear error** you can see and act on.
 
@@ -83,7 +83,7 @@ You can change your slug or rotate your address at any time from the **Email-in*
 
 <AccordionGroup>
   <Accordion title="My forwarded email bounced">
-    A bounce means the address was mistyped or has been rotated. eggz only accepts mail on a valid, current workspace address -- it never silently swallows mail sent to a wrong address. Double-check the address in **Settings → Integrations** and resend.
+    A bounce means the address was mistyped or has been rotated. eggz only accepts mail on a valid, current workspace address -- it never silently swallows mail sent to a wrong address. Double-check the address in **Settings > Integrations** and resend.
   </Accordion>
 
   <Accordion title="I forwarded a receipt but it didn't appear">
@@ -95,6 +95,6 @@ You can change your slug or rotate your address at any time from the **Email-in*
   </Accordion>
 
   <Accordion title="Emailed receipts stopped coming in">
-    You may have reached your plan's monthly document limit -- email-in shares the same allowance as uploads, and over-limit emails are held rather than processed. Upgrade from **Settings → Billing**, or wait for your next billing cycle. Workspaces on unlimited plans also have a generous daily fair-use ceiling to stop runaway forwarding loops.
+    You may have reached your plan's monthly document limit -- email-in shares the same allowance as uploads, and over-limit emails are held rather than processed. Upgrade from **Settings > Billing**, or wait for your next billing cycle. Workspaces on unlimited plans also have a generous daily fair-use ceiling to stop runaway forwarding loops.
   </Accordion>
 </AccordionGroup>

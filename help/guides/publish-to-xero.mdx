@@ -1,0 +1,62 @@
+---
+title: "Publish invoices & quotes to Xero"
+description: "Publish a draft invoice or quote created in eggz to Xero in one click — Xero numbers it, then you review, approve, and send it from Xero."
+icon: "cloud-arrow-up"
+---
+
+## From an eggz draft to a Xero draft
+
+Drafted an invoice or quote in eggz — perhaps one the AI assistant put together for you? You can push it straight to Xero as a draft, ready to review, approve, and send from there. Xero assigns the invoice number and keeps your eggz reference, so the two stay linked with no duplicates.
+
+## Publish a draft
+
+On a draft invoice or quote created in eggz, the detail page shows a **Publish to Xero** card.
+
+<Steps>
+  <Step title="Open the draft">
+    Open the invoice or quote you drafted in eggz. Publishing works on **drafts created in eggz** that have a customer, valid dates, and a positive total.
+  </Step>
+  <Step title="Read what happens">
+    The card explains it up front: *"Publishes a draft to Xero — nothing is sent to your customer. Review, approve and send it in Xero."* It also notes: *"Xero assigns the next invoice number when the draft is created (deleting it leaves a gap in the sequence); your eggz reference is saved in Xero's Reference field."* For a quote, it adds *"The quote will be dated {date}."* — the date you created the quote in eggz, in your organisation's timezone.
+  </Step>
+  <Step title="Publish draft to Xero">
+    Click **Publish draft to Xero**. eggz creates the draft in Xero and links it to your eggz document. Clicking twice won't create a duplicate.
+  </Step>
+</Steps>
+
+<Note>Publishing creates a **draft** in Xero only — **nothing is sent to your customer**. You review, approve, and send it from Xero.</Note>
+
+## After you publish
+
+Once published, the card shows **In Xero** with a **View draft in Xero** link that opens Xero's edit screen. (Drafts can't be emailed from Xero until you approve them there.) Two more things happen:
+
+- **View branded PDF** becomes available, so you can see the document exactly as Xero renders it with your branding. See [Your Xero branding in eggz](/help/guides/xero-branding).
+- The document is now **linked**, so future [Xero syncs](/help/guides/xero-sync) update it instead of creating a duplicate.
+
+## What you can publish
+
+You can publish **drafts created in eggz** that have a customer, valid dates, and a positive total.
+
+Documents **synced from Xero** can't be pushed back — they already live in Xero, and the card tells you so. Your customer is matched to an existing Xero contact when eggz knows its Xero identity; otherwise Xero finds or creates a contact by **exact name**. If Xero reports an archived or duplicate-name contact, the error explains what to fix in Xero.
+
+<Note>Publishing needs the publish permission, which your organisation admin manages. If you don't see the **Publish draft to Xero** button, ask your admin.</Note>
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Will my customer see this?">
+    No. Publishing creates a **draft** in Xero — nothing is sent to anyone. You review, approve, and send it from Xero when you're ready.
+  </Accordion>
+
+  <Accordion title="Why did Xero skip a number when I deleted the draft?">
+    Xero assigns the next invoice number the moment the draft is created, so deleting it leaves a gap in the sequence. That's Xero's numbering at work, not an eggz error.
+  </Accordion>
+
+  <Accordion title="Can I publish an invoice that came from Xero?">
+    No — a document synced from Xero already lives there, so there's nothing to push back. Only drafts you created in eggz can be published.
+  </Accordion>
+
+  <Accordion title="Which branding theme is used?">
+    The theme you pick on the document's **Publish to Xero** card, or your organisation's default if you leave it on **Organisation default**, or Xero's own default if no eggz default is set. See [Your Xero branding in eggz](/help/guides/xero-branding).
+  </Accordion>
+</AccordionGroup>

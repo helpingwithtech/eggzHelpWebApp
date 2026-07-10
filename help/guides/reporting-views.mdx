@@ -28,6 +28,8 @@ That single invoice is the same in all three views — you're just looking at it
 
 What you earned or owed, by the date documents were issued — **whether or not they've been paid**. Amounts include tax. This is the view for "how much business did I do this month?"
 
+<Note>Receipts with no transaction date are left out of month totals here until they're dated — see [Receipts without a date](/help/guides/receipt-dates). When there are any, a banner reads **Undated — needs review: N receipts · $X**.</Note>
+
 ### Collected (Cash)
 
 Money that actually moved. A payment shows up in the month it arrived, not the month the invoice was raised. **Partial payments count only the portion that was paid** — the amount is split proportionally, including tax — so a part-payment shows exactly what landed in the bank. This is the number owners tend to feel day to day.
@@ -43,6 +45,8 @@ What's still owed **right now**. Instead of months, Outstanding groups everythin
 | **31–60 days** | One to two months past due |
 | **61–90 days** | Two to three months past due |
 | **90+ days** | More than three months past due |
+
+**Receipts with no transaction date are still counted here**, but open the Outstanding list and you'll see them tagged **Undated** instead of a days-overdue band — eggz doesn't guess how overdue an undated receipt is. See [Receipts without a date](/help/guides/receipt-dates).
 
 Outstanding always shows the **remaining amount**, not the original total. If a $1,000 invoice has had $300 paid, Outstanding shows the $700 that's still owed.
 
@@ -64,5 +68,9 @@ Outstanding always shows the **remaining amount**, not the original total. If a 
 
   <Accordion title="What does 'N with no due date' mean?">
     Some documents don't have a due date, so eggz can't work out how overdue they are. Rather than guess, it shows them as **Current** and tells you how many there are ("N with no due date") so nothing is hidden or mis-aged.
+  </Accordion>
+
+  <Accordion title="What's the difference between 'Undated' and 'N with no due date'?">
+    They're about different missing dates. **"N with no due date"** counts invoices or bills with no **due date** — eggz shows them as Current rather than guess how overdue they are. **Undated** is specific to receipts with no **transaction date** — eggz can't tell how overdue they are at all, so they get their own tag instead of a days-overdue band. Both are "eggz won't guess" behaviours, just for different missing fields — see [Receipts without a date](/help/guides/receipt-dates).
   </Accordion>
 </AccordionGroup>

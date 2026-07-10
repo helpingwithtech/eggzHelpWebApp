@@ -22,6 +22,8 @@ The invoice table displays:
 
 You can group invoices by customer, status, or consultant using the table controls.
 
+Reference, customer, status, dates, and amounts can all be edited inline — click a cell to edit it. **Total** and **Balance** are locked on invoices synced from Xero, or refused if payments are already applied — see [Editing totals and line items](/help/guides/editing-amounts) for what each locked state looks like and how to [unapply payments first](#voiding-and-deleting-invoices) if you need to.
+
 ### Invoice detail
 
 Click an invoice to view the full detail page:
@@ -29,8 +31,35 @@ Click an invoice to view the full detail page:
 - All fields from the list view, plus notes
 - PDF download (if a file is attached)
 - Payment date (for paid invoices)
-- Edit fields inline (reference, customer, status, dates, amounts)
-- Delete the invoice
+- A full [settlement history](#settlement-history) — every payment applied, in order
+- Void or delete, from the **More actions** (**⋯**) menu — see [Voiding and deleting invoices](#voiding-and-deleting-invoices)
+
+<Note>Reference, customer, status, dates, and amounts are edited inline on the **Sales** list (above), not on this detail page.</Note>
+
+### Settlement history
+
+Every invoice detail page shows a **Settlement** panel:
+
+- **Total**, **Paid**, and **Amount due** — Amount due is the headline figure.
+- A date-ordered list of every payment, credit note, overpayment, or prepayment applied to the invoice, each row showing its source, the amount applied, and the running balance left after it.
+
+Click any payment-backed row to open its full detail in a side panel: date, amount, method, reference, contact, and where it came from (**Manual**, **Xero**, or **QuickBooks**). Rows without a payment behind them — credit notes, overpayments, prepayments — aren't clickable.
+
+<Note>If a payment is later voided or unapplied, its row stays in the history — struck through, with a note explaining why (for example *"Unapplied when the invoice was voided"*). Nothing disappears from the audit trail.</Note>
+
+### Voiding and deleting invoices
+
+What you can do to an invoice depends on its status. The action shows as an icon in the row on the Sales list, or in the **More actions** (**⋯**) menu on the invoice detail page:
+
+| Invoice is | You can | What happens |
+|------------|---------|---------------|
+| **Draft** | **Delete** | Removed completely — no financial effect, nothing to undo. |
+| **Issued**, no payments applied | **Void** | The invoice and its number are kept forever for your audit trail, but it's excluded from your reports and tax totals from that point on. Voiding is permanent. |
+| **Issued or paid, with payments applied** | **Void** (assisted) | eggz can't void an invoice while payments are still applied to it. Choose **Unapply N payments and void** and eggz keeps the invoice for your records, unapplies the payments, and voids it — the payment money is never deleted, it becomes unallocated credit for that customer, ready to apply to another invoice. |
+
+<Tip>If the sale genuinely happened and the invoice was sent, a credit note is usually the better fix than voiding — voiding says "this shouldn't have counted," a credit note says "this needs an adjustment."</Tip>
+
+<Note>Only invoices created in eggz can be voided or deleted here. Invoices synced from Xero are managed entirely in Xero — see [Xero integration](/help/guides/xero-sync).</Note>
 
 ### Syncing invoices
 

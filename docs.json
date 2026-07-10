@@ -44,7 +44,9 @@
             "pages": [
               "help/guides/uploading-documents",
               "help/guides/expenses",
-              "help/guides/receipts-and-bills"
+              "help/guides/receipts-and-bills",
+              "help/guides/editing-amounts",
+              "help/guides/receipt-dates"
             ]
           },
           {

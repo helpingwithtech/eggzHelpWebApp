@@ -55,6 +55,12 @@ You choose the first part (your **slug** -- for example `acme`), and eggz adds a
 - **Up to 10 attachments per email.** If an email carries more, the whole email is held for review rather than processing only some of them.
 - **Email-in uses the same document allowance as uploads.** Each stored attachment counts toward your monthly plan limit -- see [document limits](/help/guides/uploading-documents#document-limits).
 
+## Emails with no attachment
+
+Plenty of receipts don't arrive as a PDF -- a SaaS bill or subscription receipt is often just the body of the email. If a forwarded email has no usable attachment but does have readable content in its body, eggz uses the **message itself** as the evidence document -- read, extracted, and turned into a **Pending** receipt exactly like an attachment would be.
+
+Only when there's genuinely nothing to read -- no valid attachment **and** an empty or unreadable body, too many attachments, or a message body that's too large -- does the email go to quarantine, labelled **Invalid attachment or no readable content**.
+
 ## Who can send receipts in
 
 Because email can be forwarded by anyone, eggz decides what to trust:
@@ -87,7 +93,7 @@ You can change your slug or rotate your address at any time from the **Email-in*
   </Accordion>
 
   <Accordion title="I forwarded a receipt but it didn't appear">
-    Check your **quarantine** list in the **Email-in** settings -- if the sender isn't a workspace member or on your allowlist, the email is held there for review. Also confirm the email actually carried an attachment: eggz creates receipts from attached PDFs and images, not from the message body.
+    Check your **quarantine** list in the **Email-in** settings -- if the sender isn't a workspace member or on your allowlist, the email is held there for review. If the email had no attachment, eggz falls back to reading the message body itself -- see [Emails with no attachment](#emails-with-no-attachment) -- so it's only quarantined when neither a usable attachment nor readable body content is there to extract.
   </Accordion>
 
   <Accordion title="An email is stuck in quarantine">

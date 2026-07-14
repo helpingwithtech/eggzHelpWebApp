@@ -9,7 +9,7 @@ icon: "receipt"
 The Expenses page brings together two types of outbound transactions:
 
 - **Receipts**: Documents you upload to eggz (photos, PDFs). AI extracts the data automatically.
-- **Bills**: Purchase invoices synced from Xero (accounts payable).
+- **Bills**: Purchase invoices you owe (accounts payable), synced from Xero or captured in eggz itself.
 
 Both appear on the Expenses page, separated by tabs.
 
@@ -106,9 +106,20 @@ eggz also remembers the link between the receipt and the record it created. When
 
 ## Bills tab
 
+### Where bills come from
+
+A bill can reach eggz several ways:
+
+- **Synced from Xero.** Purchase invoices from your connected Xero organisation.
+- **Created in eggz.** Choose **New Bill** from the main menu to capture a bill by hand, with its own supplier, dates, line items, and currency.
+- **Captured in ChatGPT or Claude.** See [Capture bills in ChatGPT & Claude](/help/guides/ai-bill-capture).
+- **Created from a receipt.** If a receipt is really money you still owe, the receipt page's **This is actually a bill** button records it as a bill, with an Undo. See [You always have the final say](/help/guides/receipts-and-bills#you-always-have-the-final-say).
+
+The bill's detail page names its origin in the **Source** field, for example **Manually captured** for a bill created in eggz.
+
 ### Viewing bills
 
-The Bills tab shows purchase invoices synced from Xero. Each bill displays:
+The Bills tab shows all your bills, whatever their source. Each bill displays:
 
 - Invoice number and reference
 - Contact (supplier) name
@@ -118,9 +129,9 @@ The Bills tab shows purchase invoices synced from Xero. Each bill displays:
 
 ### Bill detail page
 
-Click any bill to view full details including the PDF attachment (if available in Xero). Bills are read-only -- all editing happens in Xero.
+Click any bill to view full details, including the PDF attachment where one exists.
 
-<Note>Bills are synced from Xero and cannot be created, edited, or deleted in eggz. Use Xero to manage your bills, then sync the latest data from **Settings > Integrations**.</Note>
+<Note>A bill **synced from Xero** is managed in Xero: edit it there, then sync the latest data from **Settings > Integrations**. Bills captured in eggz (the **Manually captured** source) live in eggz.</Note>
 
 Bills also show a full **Settlement** history — Total, Paid, and Amount due, plus every payment applied — exactly as described for invoices. See [Settlement history](/help/guides/invoices-and-quotes#settlement-history).
 

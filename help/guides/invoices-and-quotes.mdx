@@ -34,9 +34,17 @@ Click an invoice to view the full detail page:
 - PDF download (if a file is attached)
 - Payment date (for paid invoices)
 - A full [settlement history](#settlement-history) — every payment applied, in order
+- [Related records](#related-records) — a **Customer** card, and a **Source quote** card if this invoice came from a converted quote
+- An [Activity](#activity) timeline of what's happened to the invoice
 - Void or delete, from the **More actions** (**⋯**) menu — see [Voiding and deleting invoices](#voiding-and-deleting-invoices)
 
 <Note>Customer, status, dates, and amounts are edited inline on the **Sales** list (above), not on this detail page.</Note>
+
+### Viewing on your phone
+
+On a small screen, the document preview moves behind a **Details / View document** toggle at the top of the page — **Details** opens first so the fields you're checking are front and centre, and **View document** shows the original file. The page's actions — things like **Record payment** or **Download** — stay pinned to the bottom of the screen, so you never have to scroll to find them.
+
+This layout is the same on every document's detail page: invoices, bills, receipts, and quotes.
 
 ### Settlement history
 
@@ -48,6 +56,24 @@ Every invoice detail page shows a **Settlement** panel:
 Click any payment-backed row to open its full detail in a side panel: date, amount, method, reference, contact, and where it came from (**Manual** or **Xero**). Rows without a payment behind them — credit notes, overpayments, prepayments — aren't clickable.
 
 <Note>If a payment is later voided or unapplied, its row stays in the history — struck through, with a note explaining why (for example *"Unapplied when the invoice was voided"*). Nothing disappears from the audit trail.</Note>
+
+### Related records
+
+Every invoice detail page shows a **Customer** card linking straight to that customer's account, with a status line if it isn't the everyday **Active** (for example **At Risk** or **Pending**). If the invoice was created by [converting an accepted quote](#converting-a-quote-to-an-invoice), a **Source quote** card sits alongside it, showing the quote's reference, status, and amount.
+
+Bills show the same idea from the other side — a **Supplier** card, plus a card for every receipt attached as evidence. See [Bill detail page](/help/guides/expenses#bill-detail-page).
+
+<Note>Nothing renders here if there's nothing to show — an invoice with no linked customer account, for example, simply has no card.</Note>
+
+### Activity
+
+An **Activity** timeline on the detail page lists what's happened to the document, newest first — things like **Voided**, **Draft created**, **Date set**, or **Converted to an invoice**. Beyond ten events it collapses behind a **Show all (N)** link.
+
+Most entries are simply what you did, with no label. When something happened by AI or automatically, a small chip says so — **AI agent** or **Automation** — and a **System** chip marks events eggz itself triggered.
+
+<Note>The Activity timeline only appears once there's at least one event to show — an empty timeline isn't shown at all. Its absence doesn't mean nothing happened, just that eggz hasn't logged anything for this document yet.</Note>
+
+The same timeline appears on bill, receipt, quote, and customer detail pages.
 
 ### Voiding and deleting invoices
 
@@ -75,7 +101,7 @@ Click the **Sync** button on the Sales page to pull the latest invoices from Xer
 
 ### Publish a draft to Xero
 
-Most invoices arrive by syncing from Xero, but you can also **draft an invoice in eggz** — including one the AI assistant prepares for you — and publish it to Xero as a draft in one click. See [Publish invoices & quotes to Xero](/help/guides/publish-to-xero).
+Most invoices arrive by syncing from Xero, but you can also **draft an invoice in eggz** — including one the AI assistant prepares for you, or one [converted from an accepted quote](#converting-a-quote-to-an-invoice) — and publish it to Xero as a draft in one click. See [Publish invoices & quotes to Xero](/help/guides/publish-to-xero).
 
 ---
 
@@ -103,8 +129,29 @@ Click a quote to view:
 
 - All list fields plus notes
 - PDF download (if attached)
-- Linked invoice (if the quote has been converted)
+- An **Invoice** [related-record card](#related-records) linking to the invoice this quote became, once [converted](#converting-a-quote-to-an-invoice)
+- An [Activity](#activity) timeline of what's happened to the quote
 - Delete the quote
+
+### Converting a quote to an invoice
+
+An **Accepted** quote you created in eggz — not one synced from Xero — can become an invoice in one step.
+
+<Steps>
+  <Step title="Click Convert to invoice">
+    On an accepted quote's detail page, click **Convert to invoice**.
+  </Step>
+  <Step title="Confirm">
+    A dialog explains what's about to happen: *"A draft invoice is created with this quote's amount for you to review. Nothing is sent and your reports don't change until you authorise it."* It also flags the one irreversible part: *"The quote is marked Invoiced — this can't be undone."* Click **Convert to invoice** to confirm, or **Cancel** to back out.
+  </Step>
+  <Step title="Review the draft">
+    eggz creates a **Draft** invoice for the quote's amount and takes you straight to it. A draft has no effect on your reports until you authorise it, so nothing about your numbers is final yet.
+  </Step>
+</Steps>
+
+The two documents link to each other from then on: the quote shows an **Invoice** card, the invoice shows a **Source quote** card (see [Related records](#related-records)) — and the quote's own status becomes **Invoiced**, its final state.
+
+<Note>**Convert to invoice** only appears on a quote that's **Accepted**, created in eggz, and not already converted. A **Draft** or **Sent** quote needs to be marked **Accepted** first; a **Declined** quote can't convert; and a quote synced from Xero is converted in Xero itself, so the two ledgers never disagree.</Note>
 
 ### Quotes in analytics
 

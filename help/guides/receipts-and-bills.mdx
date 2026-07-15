@@ -1,23 +1,56 @@
 ---
-title: "How receipts become expenses (or attach to bills)"
-description: "Understand how eggz turns a captured receipt into an expense — or attaches it to an existing bill as proof of payment — so the same purchase is never counted twice."
+title: "How receipts become expenses (or proof of payment)"
+description: "Understand how eggz turns a captured receipt into an expense, or keeps it as proof of payment on a bill, so the same purchase is never counted twice."
 icon: "link"
 ---
 
 ## A receipt is proof of a purchase
 
-When you capture a receipt, eggz treats it as evidence that a purchase happened. It then works out what that receipt *should become* in your reports — automatically.
+When you capture a receipt, eggz treats it as evidence that a purchase happened. It then works out what that receipt should become in your reports, automatically.
 
 There are two outcomes:
 
-- **It attaches to an existing bill.** If the same purchase is already in eggz as a bill from that supplier, the receipt attaches to it as proof of payment. Nothing is counted twice — the bill already carries the amount.
+- **It becomes proof of payment on an existing bill.** If the same purchase is already in eggz as a bill from that supplier, the receipt is kept on that bill as proof you paid it. Nothing is counted twice, because the bill already carries the amount.
 - **It becomes an expense.** If there's no matching bill, the receipt becomes an expense in your reports.
 
 ### How eggz decides
 
-eggz looks for a bill from the **same supplier**, for the **same amount**, around the **same date**. If it finds a single clear match, the receipt attaches to that bill. If there's no match — or more than one possible match — the receipt becomes an expense instead, so an ambiguous guess never gets it wrong.
+eggz looks for a bill from the **same supplier**, for the **same amount**, around the **same date**. If it finds a single clear match, the receipt becomes proof of payment on that bill. If there's no match, or more than one possible match, the receipt becomes an expense instead, so an ambiguous guess never gets it wrong.
 
 <Note>This prevents the most common double-count: capturing a receipt for a purchase that also arrives as a bill from your supplier. eggz routes each purchase to a single place in your reports.</Note>
+
+## Two documents, one purchase
+
+The same purchase often reaches eggz twice: a supplier emails you an invoice, and later you photograph the payment receipt. Or the invoice arrives by [email-in](/help/guides/email-in) while you upload the receipt by hand. To eggz these are not two expenses. They are two documents for **the same purchase**, and eggz **combines** them so the purchase is counted once.
+
+A combined pair shows as one purchase. One document is the **Main record** (usually the invoice) and carries the amount; the other is kept alongside it as evidence. Both files stay openable, and you can undo the combination at any time with **Separate**.
+
+### When eggz is sure
+
+If two documents clearly describe the same purchase, eggz combines them for you. On the main document's page you'll see a **Same purchase** card saying *"Combined — counted once. Both files are kept and open below."*, with a **Separate** button right there if eggz got it wrong.
+
+### When eggz asks first
+
+When the match is likely but not certain, eggz proposes instead of deciding. A **"Looks like the same purchase"** card shows both documents side by side, with a plain line explaining what they share, such as *Same supplier · same amount · same date*. You choose:
+
+- **Yes, same purchase** combines them. A toast confirms *"Combined — counted once."*
+- **No, keep separate** leaves them as two records. That answer is remembered, so the suggestion doesn't come back.
+
+If neither document is obviously the main one, the card asks you to pick first: *"Choose which document is the main record before combining."* Click **Make this the main record** on the one that should carry the amount.
+
+These suggestion cards appear in two places: a **Purchases to review** card on your dashboard home, and the same queue in **Settings**. Both are visible to admins only, and the dashboard card simply isn't there when there's nothing to review. See [Purchases to review](/help/guides/dashboard#purchases-to-review).
+
+### Proof of payment arrived
+
+There's one special case. When a receipt matches an invoice that's still marked unpaid, the card is headed **"Proof of payment arrived"** and explains: *"Looks like proof you paid \{supplier\}. Combining keeps both files, marks the invoice paid, and counts it once."* The button reads **Yes, attach proof of payment**, and answering yes does exactly what the card promises, including marking the invoice paid. The toast confirms *"Combined — marked paid."*
+
+### Combining by hand
+
+You can also combine two documents yourself. On any receipt, open the **More actions** menu (**⋯**) and choose **Combine with another document…**. The **Same purchase?** dialog lets you pick the other document; eggz combines them and counts the purchase once. You can separate them again anytime. (Combining is an admin action, so the menu item only appears for admins.)
+
+### Separating
+
+Combined the wrong pair? On the supporting document, click **Separate**. A short confirmation (*"Separate this document?"*) explains that it becomes its own record again, no longer combined with the main document. Nothing is deleted; the two documents simply go back to standing on their own.
 
 ## The Process panel
 
@@ -32,25 +65,26 @@ The **Process** panel names the receipt's stage and explains it in a line:
 | **Reading** | eggz is still reading the receipt — the details fill in automatically when it's done. |
 | **Couldn't read** | The document couldn't be read. Check it's clear, or delete it and upload again. |
 | **Needs review** | Something's missing before it can be recorded. A chip shows what: **No date**, **No amount**, or **No supplier**. (On the Receipts list, a missing date shows as a **Needs date** chip in the Transaction date column — see [Receipts without a date](/help/guides/receipt-dates).) |
-| **Needs a decision** | eggz needs you to choose how to record it — attach it to a bill it pays, or record it as its own expense. |
+| **Needs a decision** | eggz needs you to choose how to record it: it's proof of payment for a bill, or its own expense. |
 | **Expense** | Recorded as its own expense. |
-| **Attached to bill** | Kept as payment evidence on a bill — the bill carries the amount, so it isn't counted twice. |
+| **Proof of payment** | Attached to a bill as proof of payment. The bill carries the amount, so the purchase is counted once, not twice. |
+| **Combined** | Combined with another document as the same purchase. The main document carries the amount, so it's counted once, not twice. |
 | **Published to Xero** | Sent to Xero. |
 
 ### The one next step
 
 The button at the top of the page matches the stage:
 
-- **Needs a decision → Resolve.** Opens a short menu: **Attach to bill…** or **Create expense**.
+- **Needs a decision → Resolve.** Opens a short menu: **Attach as proof of payment…** or **Create expense**.
 - **Needs review (no date) → Add a date.** Jumps to the date fix on the same page — see [Receipts without a date](/help/guides/receipt-dates).
-- **Attached to bill / Published to Xero → View bill.** Opens the linked bill.
+- **Proof of payment / Published to Xero → View bill.** Opens the bill the receipt pays.
 - **Expense →** no top button — publishing is its own **Publish to Xero** step further down the page, so it never competes for the same slot. The panel simply says *"Publish it to Xero below when you're ready."*
 
-### Attaching to a bill
+### Attaching proof of payment to a bill
 
-Choosing **Attach to bill…** opens **Attach to a bill**. Search by supplier or reference; any bill whose total matches the receipt is flagged **Matches amount** and floated to the top, so the likely one is right there. Pick it and the receipt attaches as proof of payment.
+Choosing **Attach as proof of payment…** opens a dialog headed **Proof of payment for a bill?**. Pick the bill this receipt pays: search by merchant or reference, and any bill whose total matches the receipt is flagged **Matches amount** and floated to the top, so the likely one is right there. Pick it and a toast confirms *"Attached as proof of payment — counted once."*
 
-<Note>Attaching never counts the money twice — the bill carries the amount, and the receipt rides along as evidence.</Note>
+<Note>Attaching never counts the money twice. The bill carries the amount, and the receipt rides along as evidence.</Note>
 
 ### Checking the figures — GST first
 
@@ -62,13 +96,39 @@ The panel lays out what to check against the document image, with GST broken out
 
 If eggz couldn't read a printed total, it reconstructs one from the line items and marks it *"From line items"* — so a derived figure is never mistaken for a total printed on the receipt.
 
-### Unlinking
+### Separating from a bill
 
-Changed your mind? On an attached receipt, open the **More actions** menu (**⋯**) and choose **Unlink from bill**. The receipt returns to **Needs a decision** — it doesn't quietly become a fresh expense — so you make the call again. **Delete receipt** lives in the same menu.
+Changed your mind? On a proof-of-payment receipt, open the **More actions** menu (**⋯**) and choose **Separate from bill**. The receipt returns to **Needs a decision** rather than quietly becoming a fresh expense, so you make the call again. **Delete receipt** lives in the same menu.
 
-## Paid or unpaid
+## You always have the final say
 
-Receipts default to **paid** — a receipt is evidence that you've already paid for something. If a particular receipt is actually an outstanding obligation you haven't settled yet, mark it **unpaid** so it shows up correctly in your [Outstanding view](/help/guides/reporting-views).
+eggz classifies every document for you, but its classification is a starting point, not a verdict. The **Change how this is recorded** section of the receipt page lets you override it, and eggz never blocks an override. Where a change has a real accounting consequence, an orange advisory note explains it first; you can still proceed.
+
+### This is actually a bill
+
+Sometimes what eggz recorded as an expense is really a bill: money you still owe, not money already spent. Click **This is actually a bill** and eggz records it as a payable, counted once.
+
+If a matching bill already exists, an orange note headed **"This purchase may already be a bill"** warns that a second bill would count the same purchase twice. If the document itself looks like proof the payment was made, a note headed **"This looks like proof of payment"** points out that turning it into an unpaid bill may misstate what's outstanding. Either way the choice stays yours: **Create the bill anyway** or **Keep as expense**.
+
+Changed your mind afterwards? Click **Undo — restore as its own expense** and the receipt goes back to being an expense. If the bill you created has since had activity, such as a payment, eggz keeps the bill and tells you so.
+
+### Paid or unpaid
+
+Receipts default to **paid**, because a receipt is normally evidence that money already left your account. The receipt page shows which state it's in (**Marked as paid** or **Marked as unpaid**) with a **Mark paid** / **Mark unpaid** button beside it, so a wrong guess takes one click to fix. An unpaid receipt shows up in your [Outstanding view](/help/guides/reporting-views).
+
+Marking something unpaid when its own evidence says it was paid gets a heads-up first: an orange note headed **"This looks like it's already paid"**. You can still choose **Mark unpaid anyway**, or back out with **Keep as paid**. Going the other way, from unpaid to paid, never needs a confirmation.
+
+<Note>These notes advise; they never block. eggz proposes, you decide.</Note>
+
+### The GST substantiation note
+
+For Australian businesses, eggz checks something most bookkeeping tools skip: whether a document would actually hold up as a tax invoice if the ATO asked.
+
+To claim a GST credit on a purchase over **A$82.50** (GST inclusive), the ATO requires a valid tax invoice showing details such as the supplier's ABN and the GST amount. A card-machine docket or a bare payment confirmation often shows neither. The claim looks fine in your books today, and then fails at audit time because the paperwork behind it can't substantiate it.
+
+So when a document over A$82.50 is missing an ABN or a GST breakdown, eggz shows a standing orange note headed **"Weak GST substantiation"**: *"This purchase is over $82.50 but the document is missing an ABN or a GST breakdown, so it may not substantiate a GST credit at audit. Keeping a valid tax invoice protects your claim."*
+
+The note is advisory only. It doesn't block anything and there's nothing to click, but it tells you now, while asking the supplier for a proper tax invoice is still easy. Purchases of A$82.50 or less never show it, because the ATO doesn't require a tax invoice at that level.
 
 ## Publishing a receipt to Xero
 

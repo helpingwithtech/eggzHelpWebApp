@@ -8,6 +8,8 @@ icon: "file-invoice-dollar"
 
 The **Sales** page shows all your invoices — those **synced from your connected Xero account** and any **drafts created in eggz** (for example by the AI assistant). Invoices represent money owed to you by your customers. Where an invoice came from matters: synced invoices are managed in Xero, while eggz-created ones can be voided or deleted here (see below).
 
+When you create an invoice, quote, bill, or customer account in eggz, the form includes a **Currency** picker. It starts on your organisation's reporting currency, and the line-item amounts and totals follow whichever currency you pick, so a USD invoice reads in USD from the first line to the total.
+
 ### Invoice list
 
 The invoice table displays:
@@ -82,6 +84,8 @@ What you can do to an invoice depends on its status — the same **Status** labe
 | **Draft** | **Delete** | Removed completely — no financial effect, nothing to undo. |
 | **Submitted** or **Authorised**, no payments applied | **Void** | The invoice and its number are kept forever for your audit trail, but it's excluded from your reports and tax totals from that point on. Voiding is permanent. |
 | **Submitted**, **Authorised**, or **Paid**, with payments applied | **Void** (assisted) | eggz can't void an invoice while payments are still applied to it. Choose **Unapply N payments and void** and eggz keeps the invoice for your records, unapplies the payments, and voids it — the payment money is never deleted, it becomes unallocated credit for that customer that can be reapplied later. |
+
+Once voided, a document owes nothing: it shows **$0 due** everywhere an amount due appears, including the settlement panel and the Outstanding view.
 
 Cleaning up several drafts at once? Select them on the Sales list and click **Delete selected** — the button only enables when everything selected is a draft, so an issued or synced invoice can never slip into a bulk delete.
 

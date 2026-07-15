@@ -93,7 +93,7 @@ You can change your slug or rotate your address at any time from the **Email-in*
   </Accordion>
 
   <Accordion title="I forwarded a receipt but it didn't appear">
-    Check your **quarantine** list in the **Email-in** settings -- if the sender isn't a workspace member or on your allowlist, the email is held there for review. If the email had no attachment, eggz falls back to reading the message body itself -- see [Emails with no attachment](#emails-with-no-attachment) -- so it's only quarantined when neither a usable attachment nor readable body content is there to extract.
+    Check your **quarantine** list in the **Email-in** settings -- if the sender isn't a workspace member or on your allowlist, the email is held there for review. If the email had no attachment, eggz falls back to reading the message body itself -- see [Emails with no attachment](#emails-with-no-attachment) -- so a missing attachment alone won't send it to quarantine. It's still held for review when the sender isn't trusted, when there are too many attachments, or when there's genuinely nothing readable in either the attachment or the body.
   </Accordion>
 
   <Accordion title="An email is stuck in quarantine">

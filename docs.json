@@ -118,8 +118,8 @@
     }
   },
   "logo": {
-    "light": "/help/logo/eggz-logo-full.webp",
-    "dark": "/help/logo/eggz-logo-full.webp"
+    "light": "/help/logo/light.svg",
+    "dark": "/help/logo/dark.svg"
   },
   "navbar": {
     "links": [

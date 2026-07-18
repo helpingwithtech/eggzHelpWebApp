@@ -55,6 +55,10 @@
             "pages": ["help/guides/ai-bill-capture"]
           },
           {
+            "group": "Automations & Approvals",
+            "pages": ["help/guides/approvals"]
+          },
+          {
             "group": "Sales",
             "pages": [
               "help/guides/invoices-and-quotes",

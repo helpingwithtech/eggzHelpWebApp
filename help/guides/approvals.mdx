@@ -1,0 +1,113 @@
+---
+title: "Approvals: your yes before eggz acts"
+description: "The approvals inbox is where eggz asks permission before it touches your money or books. See what's waiting, approve or deny, and understand where each request came from."
+sidebarTitle: "Approvals"
+icon: "shield-check"
+keywords: ["approvals", "approve", "deny", "automation", "egghead", "permission", "governed writes"]
+---
+
+## What approvals are
+
+eggz can prepare a lot of work for you — draft a bill, set a receipt's date, categorise a line, publish to Xero. But it never does the consequential part on its own. When something would touch your money or your books, eggz **pauses and asks first**. Those requests wait for you in the **approvals inbox**.
+
+The promise is simple: **nothing touches your money or books without your say-so.** eggz proposes, you decide, and only then does the work apply.
+
+Two kinds of thing land here:
+
+- **Your egghead's proposals** — for example, your egghead spots receipts with no date, finds matching bank payments, and proposes the dates for you to confirm.
+- **Automation rule runs** — a rule you've set up reaches a step that needs a human yes (like publishing to Xero) and pauses there until you approve it.
+
+## Where to find your approvals
+
+You can reach a waiting approval three ways, so it's never buried:
+
+- **The Approvals item in the top navigation** carries a small gold **count badge** showing how many approvals are waiting. It's hidden when nothing's waiting, and shows **99+** once you go past ninety-nine.
+- **On your phone**, the same badge appears in the menu and on the new **Approvals tab** in the bottom dock (Home · Expenses · scan · Approvals).
+- **Your home page** shows anything waiting at the very top — see [What needs your attention](/help/guides/dashboard#what-needs-your-attention). Its **Review** button takes you straight to the inbox.
+
+<Tip>The count is live. Approve something on your laptop and the badge drops on your phone a moment later — no refresh needed.</Tip>
+
+## Approve or deny
+
+Open the approvals inbox and you'll see one card per waiting request. Each card names the action in plain English, shows the amount where there is one, and gives you a short summary of exactly what eggz wants to do.
+
+<Steps>
+  <Step title="Read the request">
+    The card tells you the action (for example **Draft a bill** or **Set receipt date**), the amount if money is involved, and a one-line summary such as *"Set date to 3 Jul 2026 — matches ACME bank payment"*.
+  </Step>
+  <Step title="Approve or Deny">
+    Click **Approve** to give eggz the go-ahead, or **Deny** to decline it. That's the whole decision — one click.
+  </Step>
+  <Step title="It applies in the background">
+    Once you approve, eggz carries out the work in the background and the card leaves your inbox on its own. If you deny it, the card simply clears and nothing happens.
+  </Step>
+</Steps>
+
+The action names you'll see match the rest of eggz exactly:
+
+| On the card | What eggz will do once you approve |
+|-------------|-------------------------------------|
+| **Draft a bill** | Create a draft bill from a document |
+| **Set receipt date** | Apply a transaction date to an undated receipt |
+| **Categorise** | Apply a category to a line |
+| **Send a notification** | Send an alert as part of a rule |
+| **Publish to Xero** | Create the record in your Xero organisation |
+
+<Note>Each approval is decided once. If a teammate approves it, or it expires, before you get to it, the card updates on its own — you don't need to do anything.</Note>
+
+<Warning>If your session has expired, an approval can't be recorded until you sign in again. eggz tells you plainly — *"Your session expired — sign in again to decide"* — and nothing is lost; the request is still waiting once you're back in.</Warning>
+
+## The expiry countdown
+
+Some approvals carry a small clock with a countdown — for example **expires in 2d**, **expires in 6h**, or **expiring now**. That's how long you have to decide before eggz lets the request lapse on its own.
+
+If an approval expires, nothing is applied — it's treated the same as if it were never approved. You can always set the underlying task up again.
+
+## Where the request came from
+
+Every card shows its provenance, so you always know **who's asking**:
+
+- A card with an **egghead** chip is a proposal from **your egghead** — eggz's assistant suggesting something it found for you.
+- A card with **no egghead chip** comes from an **automation rule** that reached a step needing your approval.
+
+Either way the decision is yours, and either way the work only happens after you approve.
+
+## Getting notified
+
+When an automation rule pauses for approval, everyone on your team gets an **in-app notification** so a waiting decision doesn't go unseen. Open the notification bell to find it — the subject reads like:
+
+> **Approval needed: Draft a bill A$1,240.00**
+
+or, when there's no amount:
+
+> **Approval needed: Set receipt date**
+
+with the same plain-English summary underneath. **Click the notification and it takes you straight to the approvals inbox.**
+
+These sit in their own **Approvals** group in the notification bell's preferences, alongside **Receipt Processing** — so you can tell approval alerts apart from ordinary activity at a glance.
+
+## Where your automation rules live
+
+Your automation rules have a home under **Settings → Automations**. That's where you set up and review the rules that prepare work for you.
+
+When a rule reaches a step that needs your yes, it **pauses** at that point — it doesn't skip ahead or act without you. The paused step waits as an approval until you approve it (it carries on in the background) or deny it (it stops there). See [Automations](/help/guides/settings#automations) in the settings guide.
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Does approving something publish it to Xero immediately?">
+    Approving gives eggz the go-ahead to do exactly what the card describes, and it applies in the background. If the action is **Publish to Xero**, approving is what publishes it — which is why eggz asks first rather than doing it automatically.
+  </Accordion>
+
+  <Accordion title="What happens if I deny an approval?">
+    Nothing is applied. The card clears from your inbox and eggz doesn't carry out the work. If it was a proposal from your egghead, you're free to handle that task yourself instead.
+  </Accordion>
+
+  <Accordion title="Can my teammates see and decide the same approvals?">
+    Yes. Approvals belong to your whole workspace — any member can open the inbox and decide. Whoever gets there first makes the call, and everyone else's view updates on its own.
+  </Accordion>
+
+  <Accordion title="What does the egghead chip mean?">
+    It marks a request that came from your egghead — eggz's assistant — rather than from an automation rule you set up. It's there so you always know whether a person configured the rule or the assistant proposed the idea. The decision is yours either way.
+  </Accordion>
+</AccordionGroup>

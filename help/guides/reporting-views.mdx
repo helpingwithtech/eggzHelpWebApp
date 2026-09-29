@@ -6,17 +6,28 @@ icon: "eye"
 
 ## One dashboard, three views
 
-At the top of your dashboard is a toggle with three options:
+At the top of your dashboard, a button shows the view you're on. Click it to pick one of three:
 
-- **Billed (Accrual)**
-- **Collected (Cash)**
-- **Outstanding**
+- **Billed (Accrual):** based on invoice date
+- **Collected (Cash):** based on payment date
+- **Outstanding:** invoiced and unpaid
 
-Switching it changes every dashboard card at once, so the whole page tells one consistent story.
+Switching changes every dashboard card at once, so the whole page tells one consistent story. On a phone, the list opens from the bottom of the screen.
 
-<Tip>Not sure what a view means? A small explainer icon sits next to the toggle — on phones, it sits to the toggle's left and opens on tap.</Tip>
+<Note>This only changes how you see the dashboard. Your documents, your data and your business's accounting method aren't affected.</Note>
 
-<Note>This only changes how you see the dashboard. Your documents and data aren't affected.</Note>
+### Which view your dashboard opens on
+
+Your dashboard opens on your business's **Accounting method**, set in **Settings > General**:
+
+| Accounting method | Dashboard opens on |
+|-------------------|--------------------|
+| **Money in and out (Cash)** | **Collected (Cash)** |
+| **Invoices and bills (Accrual)** | **Billed (Accrual)** |
+
+A business that hasn't picked a method opens on **Collected (Cash)**. If you've [pinned a view](#two-things-worth-knowing), yours opens on that instead.
+
+If you only see the documents you captured yourself, a Cash business opens on **Billed (Accrual)** for you. Collected is worked out from the whole business's payments, which you don't see.
 
 ### A quick example
 
@@ -28,7 +39,7 @@ That single invoice is the same in all three views — you're just looking at it
 
 ### Billed (Accrual)
 
-What you earned or owed, by the date documents were issued — **whether or not they've been paid**. Amounts include tax. This is the view for "how much business did I do this month?"
+What you earned or owed, by the date documents were issued, **whether or not they've been paid**. Revenue includes GST; spending is shown before GST. This is the view for "how much business did I do this month?"
 
 <Note>Receipts with no transaction date are left out of month totals here until they're dated — see [Receipts without a date](/help/guides/receipt-dates). When there are any, a banner reads **Undated — needs review: N receipts · $X**.</Note>
 
@@ -53,6 +64,17 @@ What's still owed **right now**. Instead of months, Outstanding groups everythin
 
 Outstanding always shows the **remaining amount**, not the original total. If a $1,000 invoice has had $300 paid, Outstanding shows the $700 that's still owed.
 
+## What spending leaves out
+
+**Monthly Spend** and the **Expense Breakdown** leave out money paid to drawings, loans and assets, in Billed and Collected alike. That's anything coded to an asset, liability or equity account in Xero, such as owner's drawings, a loan repayment or a vehicle you bought. None of it is an expense, and Xero's Profit and Loss leaves it out too.
+
+Revenue and Outstanding count every document. An unpaid bill for a new laptop shows in Outstanding, because you still owe it.
+
+Two things to watch for:
+
+- **In Collected, the payments listed behind a Monthly Spend month include drawings, loan repayments and assets.** In a month where you paid any, the list adds up to more than the card.
+- **Assets bought on a bill synced from Xero are still counted.** eggz gets that bill's totals without the account on each line, so it can't tell the asset apart. Drawings and loan repayments made as Spend Money in Xero carry their accounts, so those are left out.
+
 ## Seeing what's behind a number
 
 Click a slice on the **Expense Breakdown** card and eggz shows you the records behind that number, in whichever view you're currently in:
@@ -73,7 +95,7 @@ Tap a chart to see its details in a tooltip — tap **Show More** inside the too
 
 - **Your choice sticks for the session.** Switch the toggle and it stays where you put it while you move around the app in that browser tab, even across page reloads. Closing the tab ends the session, and your next visit opens on your default view again. To change what that default is, use the pin below.
 - **The Quote Pipeline card ignores the toggle.** Quotes aren't revenue yet, so they sit outside Billed, Collected, and Outstanding and always show your open pipeline.
-- **Pin a view as your personal default.** Click the **pin** next to the toggle to save whichever view you're on as *your* default — your dashboard will open on it from now on. Click the pin again to go back to following your organisation's default (set in **Settings**) instead. This only changes what *you* see; the organisation's setting is unchanged.
+- **Pin a view as your personal default.** Open the view list and click the **pin** beside any view. Your dashboard opens on it from then on, whatever the business's accounting method, and pinning doesn't switch the view you're on now. Click the same pin again to follow the business's method instead. A pin changes only what *you* see; the setting in **Settings > General** stays as it is.
 
   > A CFO might pin **Outstanding** so what's owed is always front and centre, while a sales manager pins **Billed** to track deals as they're issued — same dashboard, same data, different starting point for each person.
 

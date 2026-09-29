@@ -15,8 +15,8 @@ The top of the dashboard shows four summary widgets for the current month:
 | Widget | What it shows | Data source |
 |--------|---------------|-------------|
 | **Revenue** | Total inbound income | Invoices from Xero |
-| **Monthly Spend** | Total outbound expenses | Receipts + Bills from Xero |
-| **Expense Breakdown** | Spending by category | Categorised receipt and bill line items — bills without line detail (common for Xero-synced bills) are included as whole documents |
+| **Monthly Spend** | Total outbound expenses, leaving out [drawings, loans and assets](/help/guides/reporting-views#what-spending-leaves-out) | Receipts + Bills from Xero |
+| **Expense Breakdown** | Spending by category, leaving out drawings, loans and assets | Categorised receipt and bill line items. Bills without line detail (common for Xero-synced bills) are included as whole documents |
 | **Quote Pipeline** | Value of open quotes | Quotes from Xero |
 
 <Tip>This is the default left-to-right order. See [Personalising your dashboard](/help/guides/personalising-dashboard) to rearrange, resize, add, or remove widgets — and widgets keep updating automatically as new data syncs from Xero or as you upload new receipts.</Tip>
@@ -27,7 +27,7 @@ The cards aren't just for looking at. **Click a card — or a specific month, ba
 
 Categories read like English, too — you'll see **"Software & Subscriptions"**, not `software_subscriptions`.
 
-<Note>Drill-downs follow whichever reporting view you're in — **Billed**, **Collected**, or **Outstanding** — so the detail always matches the headline number above it. Your view choice sticks for the rest of your browser session, so flipping to another page and back doesn't reset it. See [Understanding your three reporting views](/help/guides/reporting-views).</Note>
+<Note>Drill-downs follow whichever reporting view you're in (**Billed**, **Collected** or **Outstanding**), so the detail matches the headline number above it. One exception: in Collected, the payments behind a Monthly Spend month include drawings, loan repayments and assets, which the card leaves out. The dashboard opens on your business's accounting method unless you've pinned your own view, and your view choice sticks for the rest of your browser session, so flipping to another page and back doesn't reset it. See [Understanding your three reporting views](/help/guides/reporting-views).</Note>
 
 ### Explore charts on your phone
 
@@ -98,7 +98,7 @@ Access settings from the gear icon in the header. Settings are organised into fo
 
 | Tab | What you can configure |
 |-----|------------------------|
-| **General** | Workspace name, timezone, reporting currency, industry |
+| **General** | Organisation name, timezone, reporting currency, accounting method, financial year, industry, default tax label and rate |
 | **Billing** | View and manage your subscription plan |
 | **Users** | Invite and manage team members |
 | **Integrations** | Connect or disconnect Xero and Gmail |

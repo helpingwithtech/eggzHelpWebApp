@@ -39,13 +39,13 @@ That single invoice is the same in all three views — you're just looking at it
 
 ### Billed (Accrual)
 
-What you earned or owed, by the date documents were issued, **whether or not they've been paid**. Revenue includes GST; spending is shown before GST. This is the view for "how much business did I do this month?"
+What you earned or owed, by the date documents were issued, **whether or not they've been paid**. Revenue and spending are both before GST, here and in Collected, as they are in Xero's Profit and Loss. If your business isn't registered for GST, you see the full amounts. This is the view for "how much business did I do this month?"
 
 <Note>Receipts with no transaction date are left out of month totals here until they're dated — see [Receipts without a date](/help/guides/receipt-dates). When there are any, a banner reads **Undated — needs review: N receipts · $X**.</Note>
 
 ### Collected (Cash)
 
-Money that actually moved. A payment shows up in the month it arrived, not the month the invoice was raised. **Partial payments count only the portion that was paid** — the amount is split proportionally, including tax — so a part-payment shows exactly what landed in the bank. This is the number owners tend to feel day to day.
+Money that actually moved. A payment shows up in the month it arrived, not the month the invoice was raised. **Partial payments count only the portion that was paid**, split between the document and its GST in proportion. As in Billed, the card counts that portion before GST, and the **Total** column in the list behind a month shows what landed in the bank. This is the number owners tend to feel day to day.
 
 ### Outstanding
 
@@ -66,13 +66,12 @@ Outstanding always shows the **remaining amount**, not the original total. If a 
 
 ## What spending leaves out
 
-**Monthly Spend** and the **Expense Breakdown** leave out money paid to drawings, loans and assets, in Billed and Collected alike. That's anything coded to an asset, liability or equity account in Xero, such as owner's drawings, a loan repayment or a vehicle you bought. None of it is an expense, and Xero's Profit and Loss leaves it out too.
+**Monthly Spend** and the **Expense Breakdown** leave out money paid to drawings, loans and assets, in Billed and Collected alike, and so do the lists behind them. That's anything coded to an asset, liability or equity account in Xero, such as owner's drawings, a loan repayment or a vehicle you bought. None of it is an expense, and Xero's Profit and Loss leaves it out too.
 
-Revenue and Outstanding count every document. An unpaid bill for a new laptop shows in Outstanding, because you still owe it.
+Revenue leaves out money received on those accounts, such as a loan you took out, because it isn't income either. Outstanding counts every document. An unpaid bill for a new laptop shows in Outstanding, because you still owe it.
 
-Two things to watch for:
+One thing to watch for:
 
-- **In Collected, the payments listed behind a Monthly Spend month include drawings, loan repayments and assets.** In a month where you paid any, the list adds up to more than the card.
 - **Assets bought on a bill synced from Xero are still counted.** eggz gets that bill's totals without the account on each line, so it can't tell the asset apart. Drawings and loan repayments made as Spend Money in Xero carry their accounts, so those are left out.
 
 ## Seeing what's behind a number
@@ -106,8 +105,8 @@ Tap a chart to see its details in a tooltip — tap **Show More** inside the too
     They almost never match exactly, and that's expected — it's a question of timing. Billed counts a document in the month it was issued; Collected counts the money in the month it actually arrived. Using the example above: an invoice sent in January but paid in February shows under Billed in January and under Collected in February. Across a full year the totals converge, but in any single month they'll differ by whatever is still waiting to be paid.
   </Accordion>
 
-  <Accordion title="Why does the Expense Breakdown sometimes total more than Monthly Spend in Collected view?">
-    In Collected (Cash) view, if a supplier has refunded you, the refund is subtracted from your Monthly Spend card — but refunds aren't shown as a slice in the Expense Breakdown (they have no category). So when refunds are present, the breakdown can total slightly more than the Monthly Spend figure. This is expected, not an error.
+  <Accordion title="Where does a supplier refund show in Collected view?">
+    In Collected (Cash) view, a refund from a supplier comes off Monthly Spend and the Expense Breakdown alike, so the two cards show the same total. A refund has no category, so it comes off **Uncategorised**, and **Show All Details** lists it as a negative row. If the refunds are bigger than that month's Uncategorised spending, the slice goes below zero.
   </Accordion>
 
   <Accordion title="What does 'N with no due date' mean?">

@@ -126,7 +126,27 @@ The Bills tab shows all your bills, whatever their source. Each bill displays:
 - Contact (supplier) name
 - Dates (issued, due)
 - Amounts (subtotal, tax, total, paid, due)
-- Status (from Xero: Draft, Submitted, Authorised, Paid, Voided)
+- Status: DRAFT, SUBMITTED, AUTHORISED, PAID or VOIDED, as in Xero
+
+### Approve a captured bill
+
+Like Xero, a bill counts once it's approved. Every bill eggz captures for you (in ChatGPT or Claude, from email, or with **This is actually a bill**) arrives as a **DRAFT**. A draft, or a bill awaiting approval (**SUBMITTED**), isn't counted anywhere yet: not in **Bills you need to pay**, not in your spending, and not on the supplier's page.
+
+<Steps>
+  <Step title="Open the bill">
+    On the Bills tab, click the bill to open its detail page.
+  </Step>
+  <Step title="Click Approve">
+    **Approve** sits at the top of the page. Check the bill number and amount in the box that opens.
+  </Step>
+  <Step title="Click Approve bill">
+    To keep it as it is for now, click **Leave unapproved** instead.
+  </Step>
+</Steps>
+
+You'll know it worked when the status reads **AUTHORISED** and the bill shows in **Bills you need to pay** on your dashboard, in your spending for its month, and on the supplier's page.
+
+<Note>A bill **synced from Xero** is approved in Xero, so its page shows **Open in Xero** instead of **Approve**. The next sync brings the approval into eggz. Approve isn't offered on a bill that's voided, paid or already approved, or to someone whose role can't approve bills. Don't see it on a draft? Ask an admin in your organisation to approve it.</Note>
 
 ### Bill detail page
 

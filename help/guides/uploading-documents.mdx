@@ -96,7 +96,7 @@ Forward a receipt or bill to your workspace's own eggz address and each attachme
 
     - Merchant/vendor name
     - Transaction date
-    - Total amount and currency
+    - Total amount and currency (a receipt that shows only "$" is read in your organisation's own currency; it's US dollars only when it says US$ or USD)
     - Individual line items with quantities and prices
     - Expense category
   </Step>
@@ -135,7 +135,7 @@ Your plan sets how many documents eggz processes for you. Your live usage is on 
 ### How document credits are counted {#how-document-credits-are-counted}
 
 - **One document, one credit.** eggz charges one document credit for each document it processes, however many pages it has. A 3-page PDF is one document and uses one credit, not three. Only documents eggz successfully processes count towards your usage, which is the same rule the **Settings > Billing** usage card states.
-- **A document eggz already holds is not charged again when the extension collects it for you.** When the eggz Chrome extension [collects the invoices or receipts listed on a page](/help/unscrambled-tabs/collect-bills) (a supplier's billing portal, for example), eggz recognises the documents it already holds from that same website and does not upload or charge them again. The approval card tells you the split before you decide, as *3 new, 51 you already have*. This applies only to that collect flow. A one-click capture from the bill banner, **Upload document**, **Send tab screenshot**, or a file you upload again by hand is processed as a new document and counts.
+- **A file eggz already holds is not charged again.** Drop, pick or capture a file eggz already has, byte for byte, and eggz says *receipt.pdf is already in eggz.* instead of processing it, even when you're out of documents. When the eggz Chrome extension [collects the invoices or receipts listed on a page](/help/unscrambled-tabs/collect-bills), it also recognises documents it already holds from that same website, and the approval card tells you the split before you decide, as *3 new, 51 you already have*. A new copy whose bytes differ, such as a fresh **Send tab screenshot** or a PDF the website makes again, is a new document and counts.
 
 ## Troubleshooting
 
@@ -157,7 +157,7 @@ Your plan sets how many documents eggz processes for you. Your live usage is on 
   </Accordion>
 
   <Accordion title="Am I charged again for a document eggz already has?">
-    Only in one case is it free: when the eggz Chrome extension [collects](/help/unscrambled-tabs/collect-bills) the invoices or receipts on a page for you and eggz already holds that document from the same website. Everything else, including a file you upload again by hand, is processed as a new document and counts. See [How document credits are counted](#how-document-credits-are-counted).
+    Not for the same file. eggz recognises a file it already holds, byte for byte, however it arrives, and tells you it's already in eggz. A [collect](/help/unscrambled-tabs/collect-bills) also skips documents eggz already holds from the same website. A new copy whose bytes differ, such as a fresh tab screenshot, is processed as a new document and counts. See [How document credits are counted](#how-document-credits-are-counted).
   </Accordion>
 
   <Accordion title="I can't publish to Xero">

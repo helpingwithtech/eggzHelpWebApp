@@ -1,12 +1,12 @@
 ---
 title: "Recording payments and partial payments"
-description: "Record a full or partial payment against an invoice in eggz, and see how it flows into your Billed, Collected, and Outstanding views."
+description: "Record a full or partial payment against an approved invoice in eggz, and see how it flows into your Billed, Collected, and Outstanding views."
 icon: "money-check-dollar"
 ---
 
 ## Record a payment
 
-On any invoice, use **Record payment** to log money you've received. You'll enter:
+On an approved invoice with money still owing, use **Record payment** to log money you've received. You'll enter:
 
 | Field | What it is |
 |-------|-----------|
@@ -14,6 +14,19 @@ On any invoice, use **Record payment** to log money you've received. You'll ente
 | **Date** | When the payment arrived |
 | **Method** | How it was paid (for your records) |
 | **Reference** | An optional note, such as a transaction ID |
+
+### Which invoices take a payment
+
+Like Xero, a payment goes against an **Authorised** invoice: one that's been approved, so your customer has been asked to pay it. **Record payment** shows on those, while money is still owing, on the Sales list and on the invoice page.
+
+| Invoice status | Record payment |
+|----------------|----------------|
+| **Draft** or **Submitted** (awaiting approval) | Not shown. Your customer hasn't been asked to pay yet. Set the status to **Authorised** first. |
+| **Authorised** with money owing | Shown |
+| **Paid** | Not shown. There's nothing left to pay. |
+| **Voided** | Not shown. It's cancelled, so nothing is owed on it. |
+
+If eggz turns a payment down, the dialog says why and what to do instead.
 
 ## Full and partial payments
 
@@ -28,7 +41,7 @@ A payment doesn't just mark an invoice paid — it flows into your [reporting vi
 
 | View | What a payment does |
 |------|---------------------|
-| **Billed (Accrual)** | No change — the invoice was already counted in the month it was issued |
+| **Billed (Accrual)** | No change. The invoice already counted once it was approved, in the month it's dated |
 | **Collected (Cash)** | The amount you recorded counts in the month the payment arrived, before GST if your business is registered for GST |
 | **Outstanding** | The remaining balance drops; if the invoice is now fully paid, it leaves Outstanding entirely |
 

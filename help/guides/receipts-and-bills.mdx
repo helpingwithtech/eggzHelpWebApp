@@ -94,7 +94,7 @@ The panel lays out what to check against the document image, with GST broken out
 - The **Supplier**, linked through to its account when eggz has matched one (otherwise the merchant name with a *"Not linked to a supplier"* note).
 - The **Date**, marked *"From bank transaction"* when it was set from a bank match.
 
-If eggz couldn't read a printed total, it reconstructs one from the line items and marks it *"From line items"* — so a derived figure is never mistaken for a total printed on the receipt.
+If eggz can't read the printed total, it shows **Not detected** and asks you to check the receipt. It never works one out from the line items, because those often already include GST.
 
 ### Separating from a bill
 
@@ -102,7 +102,7 @@ Changed your mind? On a proof-of-payment receipt, open the **More actions** menu
 
 ## You always have the final say
 
-eggz classifies every document for you, but its classification is a starting point, not a verdict. The **Change how this is recorded** section of the receipt page lets you override it, and eggz never blocks an override. Where a change has a real accounting consequence, an orange advisory note explains it first; you can still proceed.
+eggz classifies every document for you, but its classification is a starting point, not a verdict. The **Change how this is recorded** section of the receipt page lets you override it, and eggz never blocks an override. The one exception: a receipt with no readable total can't become a bill until you enter its printed total. Where a change has a real accounting consequence, an orange advisory note explains it first; you can still proceed.
 
 ### This is actually a bill
 

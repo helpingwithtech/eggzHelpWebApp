@@ -27,10 +27,10 @@ You choose the first part (your **slug** -- for example `acme`), and eggz adds a
     Find the **Email-in** card. If you're new, you'll also be offered your address during onboarding.
   </Step>
   <Step title="Pick your slug">
-    Type a short name for your workspace and claim it. eggz checks it's available and sets the address up for you.
+    Type a short name for your workspace and click **Claim address**. eggz checks it's available and sets the address up for you.
   </Step>
   <Step title="Copy your address">
-    Use the copy button and save it as a contact, or add it to the forwarding rules in your email client.
+    Your address shows on the **Email-in** card. Click **Copy**, then save it as a contact or add it to the forwarding rules in your email client.
   </Step>
 </Steps>
 
@@ -68,7 +68,7 @@ Only when there's genuinely nothing to read -- no valid attachment **and** an em
 Because email can be forwarded by anyone, eggz decides what to trust:
 
 - **Your team sends in freely.** Emails from members of your workspace are accepted automatically.
-- **Add trusted outside senders.** Allowlist your bookkeeper or a regular supplier in the **Email-in** settings so their emails come straight in.
+- **Add trusted outside senders.** On the **Email-in** card, click **Trusted senders**, then **Add trusted sender** for your bookkeeper or a regular supplier, so their emails come straight in.
 - **Anyone else is held for review.** An email from a sender eggz doesn't recognise is placed in **quarantine** and your admins are notified. From the quarantine list you can **Trust sender & release** in one click -- the email is processed and that sender's future emails come straight in from then on.
 
 <Note>The allowlist is a convenience filter, not the security boundary -- your unguessable address is what actually keeps your workspace private. Every emailed receipt still lands as **Pending** and is never published on its own.</Note>
@@ -85,7 +85,7 @@ Email-in also never *silently* loses a message. Every email becomes one of three
 
 ## Changing or rotating your address
 
-You can change your slug or rotate your address at any time from the **Email-in** settings -- useful if the address is ever shared too widely. When you rotate, the old address stops working immediately, so mail sent to it will bounce back to the sender rather than arrive in eggz. Share your new address with anyone who forwards to you.
+You can change your address at any time -- useful if it's ever shared too widely. In **Settings > Integrations**, press **⋯** at the top right of the **Email-in** card, choose **Change address**, pick a new slug, and click **Change address**. When you change it, the old address stops working immediately, so mail sent to it will bounce back to the sender rather than arrive in eggz. Share your new address with anyone who forwards to you.
 
 ## Troubleshooting
 
@@ -95,11 +95,11 @@ You can change your slug or rotate your address at any time from the **Email-in*
   </Accordion>
 
   <Accordion title="I forwarded a receipt but it didn't appear">
-    Check your **quarantine** list in the **Email-in** settings -- if the sender isn't a workspace member or on your allowlist, the email is held there for review. If the email had no attachment, eggz falls back to reading the message body itself -- see [Emails with no attachment](#emails-with-no-attachment) -- so a missing attachment alone won't send it to quarantine. It's still held for review when the sender isn't trusted, when there are too many attachments, or when there's genuinely nothing readable in either the attachment or the body.
+    Check **Emails held back** on the **Email-in** card in **Settings > Integrations** (it shows while any email is waiting) -- if the sender isn't a workspace member or on your allowlist, the email is held there for review. If the email had no attachment, eggz falls back to reading the message body itself -- see [Emails with no attachment](#emails-with-no-attachment) -- so a missing attachment alone won't send it to quarantine. It's still held for review when the sender isn't trusted, when there are too many attachments, or when there's genuinely nothing readable in either the attachment or the body.
   </Accordion>
 
   <Accordion title="An email is stuck in quarantine">
-    Open the quarantine list and choose **Trust sender & release** to process it and accept that sender in future, **Release once** to process just this one, or **Delete** to discard it. Admins can manage every email in quarantine. A team member can release or delete the emails held from their own Gmail, under **Emails held back** (see [When eggz holds an email back](/help/guides/gmail-eggz-nest#when-eggz-holds-an-email-back)).
+    Open **Emails held back** on the **Email-in** card and choose **Trust sender & release** to process it and accept that sender in future, **Release once** to process just this one, or **Delete** to discard it. Admins can manage every email in quarantine. A team member can release or delete the emails held from their own Gmail, under **Emails held back** (see [When eggz holds an email back](/help/guides/gmail-eggz-nest#when-eggz-holds-an-email-back)).
   </Accordion>
 
   <Accordion title="Emailed receipts stopped coming in">

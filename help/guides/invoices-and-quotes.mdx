@@ -18,9 +18,8 @@ The invoice table displays:
 - **Customer**: Who the invoice is for
 - **Consultant**: Who raised the invoice (if tracked)
 - **Status**: Draft, Submitted, Authorised, Paid, or Voided
-- **Issue date** and **Due date**
-- **Total** and **Balance** (amount remaining)
-- **Currency**
+- **Issue Date** and **Due Date**
+- **Total** and **Balance** (amount remaining), shown in the invoice's currency
 
 You can group invoices by customer, status, or consultant using the table controls.
 
@@ -30,9 +29,11 @@ Customer, status, consultant, dates, and amounts can all be edited inline — cl
 
 Click an invoice to view the full detail page:
 
-- All fields from the list view, plus notes
-- PDF download (if a file is attached)
-- Payment date (for paid invoices)
+- All fields from the list view, plus notes and the invoice's **Currency**
+- A **Line items** section
+- A **Financial** block with **Total**, **Balance** and **Paid At** (for paid invoices). A voided invoice also shows **Voided At** and the **Reason**
+- **Download** for the PDF (if a file is attached), and **View branded PDF** for an invoice that is in Xero
+- **Record payment**, when money is still owing (see [Recording payments](/help/guides/recording-payments))
 - A full [settlement history](#settlement-history) — every payment applied, in order
 - [Related records](#related-records) — a **Customer** card, and a **Source quote** card if this invoice came from a converted quote
 - An [Activity](#activity) timeline of what's happened to the invoice
@@ -82,12 +83,12 @@ What you can do to an invoice depends on its status — the same **Status** labe
 | Invoice is | You can | What happens |
 |------------|---------|---------------|
 | **Draft** | **Delete** | Removed completely — no financial effect, nothing to undo. |
-| **Submitted** or **Authorised**, no payments applied | **Void** | The invoice and its number are kept forever for your audit trail, but it's excluded from your reports and tax totals from that point on. Voiding is permanent. |
+| **Submitted** or **Authorised**, no payments applied | **Void** | The invoice and its number are kept forever for your audit trail, but it's excluded from your reports and tax totals from that point on. You can add a **Reason (optional)**. Voiding is permanent. |
 | **Submitted**, **Authorised**, or **Paid**, with payments applied | **Void** (assisted) | eggz can't void an invoice while payments are still applied to it. Choose **Unapply N payments and void** and eggz keeps the invoice for your records, unapplies the payments, and voids it — the payment money is never deleted, it becomes unallocated credit for that customer that can be reapplied later. |
 
 Once voided, a document owes nothing: it shows **$0 due** everywhere an amount due appears, including the settlement panel and the Outstanding view.
 
-Cleaning up several drafts at once? Select them on the Sales list and click **Delete selected** — the button only enables when everything selected is a draft, so an issued or synced invoice can never slip into a bulk delete.
+Cleaning up several drafts at once? Select them on the Sales list and click **Delete selected**, which shows how many you picked, for example **Delete selected (3)**. The button only works when everything selected is a draft. Otherwise it stays off and says *Only draft invoices can be bulk deleted: deselect issued, voided, or synced invoices to continue.* An issued or synced invoice can never slip into a bulk delete.
 
 <Tip>If the sale genuinely happened and the invoice was sent, a credit note is usually the better fix than voiding — voiding says "this shouldn't have counted," a credit note says "this needs an adjustment."</Tip>
 
@@ -95,9 +96,17 @@ Cleaning up several drafts at once? Select them on the Sales list and click **De
 
 ### Syncing invoices
 
-Click the **Sync** button on the Sales page to pull the latest invoices from Xero.
+Click **Sync from Xero** on the Sales page to pull the latest invoices from Xero. Only admins and accountants see the button, and only when Xero is connected. The Quotes page has the same button.
 
 <Note>Invoices synced from Xero are one-way — changes you make in eggz (edits, deletions) don't sync back to Xero.</Note>
+
+### Owed to you, from the chat
+
+Ask eggheadz who owes you and the **Owed invoices** card links to the Sales page with the list already filtered. A chip above the table says what you are looking at: **Owed to you**, **Owed to you by** a customer, or **Overdue on** a date. Click the **×** on the chip (named **Show every invoice**) to see everything again.
+
+### Create an invoice
+
+Click **New Invoice** in the menu to draft one in eggz. The form has **Customer** (search the ones you have), **Reference**, **Status**, **Issue Date**, **Due Date**, **Payment Terms** (Due on receipt, Net 15, Net 30 or Net 60), **Consultant**, **Currency**, **Line Items**, **Tax Amount**, **Total** (including tax) and **Notes to customer**.
 
 ### Publish a draft to Xero
 
@@ -107,7 +116,7 @@ Most invoices arrive by syncing from Xero, but you can also **draft an invoice i
 
 ## Quotes
 
-The **Quotes** page shows all quotes synced from Xero. Quotes represent potential future revenue in your sales pipeline.
+The **Quotes** page shows the quotes synced from Xero and the ones you create in eggz. Quotes represent potential future revenue in your sales pipeline. To start one, click **New Quote** in the menu.
 
 ### Quote list
 
@@ -117,18 +126,24 @@ The quote table displays:
 - **Prospect**: The potential customer
 - **Owner**: Who manages the quote
 - **Status**: Draft, Sent, Accepted, Declined, or Invoiced
-- **Amount** and **Currency**
-- **Expected close date** and **Valid until date**
-- **Win likelihood**: Probability of conversion
+- **Expected Close**
+- **Amount**, shown in the quote's currency
+- **Win %**: Probability of conversion
+- **Valid Until**
 
 You can group quotes by prospect, status, or owner.
+
+### Create a quote
+
+The **New Quote** form has the prospect (**Customer / Prospect**), **Reference**, **Status**, **Expected Close**, **Valid Until**, **Win Likelihood (%)**, **Owner**, **Currency**, **Line Items** and **Terms & Notes**.
 
 ### Quote detail
 
 Click a quote to view:
 
 - All list fields plus notes
-- PDF download (if attached)
+- **Download** for the PDF (if attached), and **View branded PDF**
+- A **Publish to Xero** card on a quote you created in eggz
 - An **Invoice** [related-record card](#related-records) linking to the invoice this quote became, once [converted](#converting-a-quote-to-an-invoice)
 - An [Activity](#activity) timeline of what's happened to the quote
 - Delete the quote
@@ -155,6 +170,6 @@ The two documents link to each other from then on: the quote shows an **Invoice*
 
 ### Quotes in analytics
 
-Quotes feed into the **Quote Pipeline** widget on the dashboard, showing the total value of your open quotes for the current month. Click the widget to drill down by month or source type.
+Quotes feed into the **Quote Pipeline** widget on the dashboard. It shows the total value of your quotes for the current month, how that compares with last month, and a six-month chart. Click a month to drill down. Quotes aren't revenue yet, so the widget keeps them apart from your income.
 
 <Note>Quotes synced from Xero are one-way — you can't push changes back. But a quote you **draft in eggz** can be published to Xero as a draft. See [Publish invoices & quotes to Xero](/help/guides/publish-to-xero).</Note>

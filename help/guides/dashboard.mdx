@@ -10,20 +10,22 @@ The dashboard is your home screen in eggz. It gives you a snapshot of your busin
 
 ## Analytics widgets
 
-The top of the dashboard shows four summary widgets for the current month:
+The top of the dashboard shows four summary widgets. Revenue and Monthly Spend show the current month with a six-month sparkline and the change **vs last month**:
 
 | Widget | What it shows | Data source |
 |--------|---------------|-------------|
 | **Revenue** | Total inbound income | Invoices from Xero |
 | **Monthly Spend** | Total outbound expenses, leaving out [drawings, loans and assets](/help/guides/reporting-views#what-spending-leaves-out) | Receipts + Bills from Xero |
 | **Expense Breakdown** | Spending by category, leaving out drawings, loans and assets | Categorised receipt and bill line items. Bills without line detail (common for Xero-synced bills) are included as whole documents |
-| **Quote Pipeline** | Value of open quotes | Quotes from Xero |
+| **Quote Pipeline** | Total value of quotes over the past 6 months, with the change on last month | Quotes from Xero |
+
+On the **Outstanding** view, three cards take new names: Revenue becomes **Owed to you**, Monthly Spend becomes **Bills you need to pay**, and Expense Breakdown becomes **Outstanding by category**. They show how overdue things are instead of months. See [Understanding your three reporting views](/help/guides/reporting-views).
 
 <Tip>This is the default left-to-right order. See [Personalising your dashboard](/help/guides/personalising-dashboard) to rearrange, resize, add, or remove widgets — and widgets keep updating automatically as new data syncs from Xero or as you upload new receipts.</Tip>
 
 ### Drill into the numbers
 
-The cards aren't just for looking at. **Click a card — or a specific month, bar, or category on it — to jump straight to the transactions behind that number**, already filtered for you. Not sure what a card is measuring? Each one has a small **?** that explains it in plain English, plus a **Show All Details** link. In Billed and Collected, the link on Revenue, Monthly Spend and the Expense Breakdown lists exactly what that card counts for its month, with **Subtotal**, **GST** and **Total** on every row. If your business isn't registered for GST, the list shows one column of full amounts.
+The cards aren't just for looking at. **Click a card — or a specific month, bar, or category on it — to jump straight to the transactions behind that number**, already filtered for you. Not sure what a card is measuring? Each one has a small **?** that explains it in plain English. Once a card has data, it also shows a **Show All Details** link. In Billed and Collected, the link on Revenue, Monthly Spend and the Expense Breakdown lists exactly what that card counts for its month, with **Subtotal**, **GST** and **Total** on every row. If your business isn't registered for GST, the list shows one column of full amounts. In Outstanding, the list has a single **Owed** column.
 
 Categories read like English, too — you'll see **"Software & Subscriptions"**, not `software_subscriptions`.
 
@@ -35,23 +37,23 @@ On mobile, tap a chart to see its details in a **tooltip** — tap **Show More**
 
 ## Purchases to review
 
-If you're an admin, a **Purchases to review** card can appear on your dashboard home. It lists pairs of documents that might be the same purchase captured twice, typically an invoice and its payment receipt, so a couple of taps clears them: *"These might be the same purchase captured twice — an invoice and its payment receipt. Combine the ones that belong together so each is counted once."*
+If you're an admin, **Purchases to review** lives in **Settings > Integrations**, inside the Email-in card. It lists pairs of documents that might be the same purchase captured twice, typically an invoice and its payment receipt: *"One purchase, two documents: combine an invoice and its payment receipt so it's counted once."*
 
-Each suggestion shows both documents side by side with what they share (same supplier, same amount, and so on). Answer **Yes, same purchase** to combine them, or **No, keep separate** to leave them as two records. When a receipt looks like proof you paid an unpaid invoice, the card says **Proof of payment arrived**, and combining also marks the invoice paid.
+Each suggestion shows both documents side by side with what they share (same supplier, same amount, and so on). Answer **Yes, same purchase** to combine them, or **No, keep separate** to leave them as two records. When a receipt looks like proof you paid an unpaid invoice, the suggestion says **Proof of payment arrived**, and combining also marks the invoice paid.
 
-The card only appears when there's something to review, and only for admins. Once you've answered every suggestion it disappears. See [Two documents, one purchase](/help/guides/receipts-and-bills#two-documents-one-purchase) for the full picture.
+It no longer appears on the dashboard. See [Two documents, one purchase](/help/guides/receipts-and-bills#two-documents-one-purchase) for the full picture.
 
 ## Upload area
 
-Below the widgets, a drag-and-drop zone lets you quickly upload receipts. Drop a PDF or image file to start processing immediately. See [Uploading Documents](/help/guides/uploading-documents) for details.
+Below the widgets, the **Upload Receipts** card has a drag-and-drop zone for quick uploads. Drop a PDF or image file to start processing immediately. See [Uploading Documents](/help/guides/uploading-documents) for details.
 
 ## Recent activity
 
-The dashboard shows a notification inbox with your most recent activity -- processed receipts, sync updates, and other events.
+Beside the upload card, **Recent Activity** ("Processed receipts and updates") lists your latest events, such as processed receipts and sync updates.
 
 ## Receipt table
 
-Below the activity feed, a table shows your recent receipts with status, merchant, amount, and date. Click any row to open the receipt detail view.
+Below the upload card and Recent Activity, a table shows your receipts. Columns include **File name**, **Supplier**, **Transaction date**, **Amount**, **Currency**, **Status**, **Uploaded** and **Size**, and you can change which ones show. Click any row to open the receipt detail view.
 
 ---
 
@@ -64,12 +66,23 @@ The desktop header contains:
 | Element | Location | Purpose |
 |---------|----------|---------|
 | **eggz logo** | Top left | Click to return to the dashboard |
-| **Main menu** | Top centre | Home, Sales, Expenses, Quotes, Customers, Approvals |
-| **Search** | Top right area | Search across your documents |
+| **Main menu** | Top left, beside the logo | Home, Sales, Expenses, Quotes, Customers, Approvals |
+| **Ask eggheadz** | Top right | Opens the assistant. Press ⌘J (Ctrl+J on Windows) anywhere. See [Asking eggheadz](/help/guides/asking-eggheadz) |
 | **Dark mode toggle** | Top right | Switch between light and dark themes |
-| **Settings** | Top right icon | General, Billing, Users, Integrations |
-| **Notifications** | Top right bell | View recent activity and updates |
-| **Profile** | Top right avatar | My Profile, Sign Out |
+| **Help** | Top right question mark | **Community** (opens the eggz community), **Help Centre**, **Live Chat** |
+| **Settings** | Top right gear | General, Billing, Manage Users, Integrations, Automations |
+| **Notifications** | Top right bell | Open your notifications. A number on the bell counts the unread ones |
+| **User menu** | Top right avatar | My Profile, Sign Out |
+
+The dashboard has no search box in the header. Tables have their own search.
+
+### Notifications
+
+Click the bell to see receipts that are ready, held emails and approval notices. Click a notice to go to the receipt, or to the approvals page for an approval. In the bell's settings you can choose which kinds you get: **Receipt Processing** and **Approvals**.
+
+### My Profile
+
+Open the user menu and choose **My Profile**. You can change your name and other personal details and upload a profile picture (JPEG, PNG or WebP, up to 5 MB). Click **Save Changes** to keep them. Under **Security**, **Reset Password** emails you a reset link and signs you out everywhere once you reset it.
 
 ### Main menu items
 
@@ -80,25 +93,20 @@ The desktop header contains:
 | **Expenses** | `/expenses` | Receipts and bills in tabbed view |
 | **Quotes** | `/quotes` | Quotes — synced from Xero or created in eggz |
 | **Customers** | `/accounts` | Customer accounts — synced from Xero or created in eggz |
-| **Approvals** | `/automations/approvals` | Actions waiting for a human decision |
+| **Approvals** | `/automations/approvals` | Actions waiting for a human decision. Shown only to people who see the whole business |
+
+Sales, Expenses, Quotes and Customers each have a **New** shortcut in their menu: **New Invoice**, **New Receipt**, **New Bill**, **New Quote** and **New Customer**.
 
 ### Mobile
 
 On mobile devices, eggz uses a simplified layout:
 
-- **Top bar**: Logo, settings, notifications, profile
+- **Top bar**: Logo, Help, Settings, Ask eggheadz, notifications, user menu, and the main menu button
 - **Bottom dock**: Home, Camera (quick capture), Expenses
 - **Menu**: The same items as the desktop main menu, including **Home** and **Approvals**, each opening its page with a tap
 
-<Tip>The camera button on the mobile bottom dock opens your device camera to photograph a receipt. The photo is automatically uploaded and processed.</Tip>
+<Tip>The camera button on the mobile bottom dock opens your device camera to photograph a receipt. Check the photo on the **Review Photo** screen, then it's uploaded and processed.</Tip>
 
-### Settings tabs
+### Settings
 
-Access settings from the gear icon in the header. Settings are organised into four tabs:
-
-| Tab | What you can configure |
-|-----|------------------------|
-| **General** | Organisation name, timezone, reporting currency, accounting method, financial year, industry, default tax label and rate |
-| **Billing** | View and manage your subscription plan |
-| **Users** | Invite and manage team members |
-| **Integrations** | Connect or disconnect Xero and Gmail |
+Open settings from the gear in the header. Settings has five tabs: **General**, **Billing**, **Users**, **Integrations** and **Automations**. Everyone can open **Integrations**; the other four are for people who can manage settings. See [Settings](/help/guides/settings) for what each tab holds.

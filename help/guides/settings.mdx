@@ -6,7 +6,9 @@ icon: "gear"
 
 ## Accessing settings
 
-Click the gear icon in the top-right corner of the header to open Settings. Settings are organised into four tabs.
+Click the gear icon in the header to open the Settings menu. It lists **General**, **Billing**, **Manage Users**, **Integrations** and **Automations**. These are the five tabs of Settings, and **Manage Users** opens the **Users** tab.
+
+Admins use every tab. Everyone else can open only **Integrations**, where each person connects their own Gmail and sees their held emails.
 
 ## General settings
 
@@ -40,10 +42,10 @@ In the Chrome extension, once you're signed in, **Settings > eggz account** has 
 
 View and manage your subscription:
 
-- See your current plan and usage: documents and AI messages both count against your plan
-- Upgrade or downgrade your plan
-- Turn on **Auto top-up** to buy a [document pack](/help/guides/uploading-documents#document-packs) whenever fewer than 5 documents are left. It isn't offered on Scale, where documents are unlimited; if it was on when you moved to Scale, Billing keeps the switch so you can turn it off.
-- Manage payment methods
+- See your current plan and usage: documents and AI messages both count against your plan. The **Document usage** card shows how many documents are left, where they came from and when they reset
+- Pick **Monthly** or **Annual** under **Available Plans**, then upgrade or downgrade. Billing opens on the plan you hold, smaller plans say **Downgrade**, and every plan change shows the amount before you agree. You can't downgrade while you're out of documents
+- Turn on **Auto top-up** to buy a [document pack](/help/guides/uploading-documents#document-packs) whenever fewer than 5 documents are left. Switch on **Top up documents automatically** and set **Documents per top-up**. It isn't offered on Scale, where documents are unlimited; if it was on when you moved to Scale, Billing keeps the switch so you can turn it off.
+- Click **Open billing portal** to manage payment methods and see invoices
 
 ### Plans and prices {#plans-and-prices}
 
@@ -52,24 +54,24 @@ View and manage your subscription:
 | **Free** | A$0 | — | — |
 | **Solo** | A$19 | A$190 | A$90 |
 | **Growth** | A$79 | A$790 | A$390 |
-| **Business** | A$190 | A$1,990 | A$990 |
 | **Scale** | A$590 | A$5,990 | A$2,990 |
 
-Founding member prices are yearly only, for the first 100 founding members. The **Yearly** column is the regular price.
+Founding member prices are for annual plans only. The first 100 businesses to put a card on file get a place, and the billing page and the confirm box show your saving. The **Yearly** column is the regular price.
 
 ### Plan limits {#plan-limits}
 
-| Limit | Free | Solo | Growth | Business | Scale |
-|-------|------|------|--------|----------|-------|
-| **Documents** | 50, once | 100 a month | 500 a month | 1,000 a month | Unlimited |
-| **AI messages a month** | 100 | 1,000 | 5,000 | 12,500 | Unlimited |
-| **AI messages a day, per person** | 150 | 150 | 150 | 500 | 500 |
-| **AI messages a minute, per person** | 10 | 10 | 20 | 20 | 40 |
-| **Characters in one message** | 4,000 | 4,000 | 4,000 | 12,000 | 12,000 |
-| **Connected platforms** | 2 | 2 | 5 | 10 | Unlimited |
-| **Team members** | 1 | 1 | 5 | 5 | Unlimited |
+| Limit | Free | Solo | Growth | Scale |
+|-------|------|------|--------|-------|
+| **Documents** | 50, once | 100 a month | 500 a month | Unlimited |
+| **AI messages a month** | 100 | 1,000 | 5,000 | Unlimited |
+| **AI messages a day, per person** | 150 | 150 | 150 | 500 |
+| **AI messages a minute, per person** | 10 | 10 | 20 | 40 |
+| **Quotes and invoices the assistant drafts a day, per person** | 20 | 20 | 20 | 60 |
+| **Characters in one message** | 4,000 | 4,000 | 4,000 | 12,000 |
+| **Connected platforms** | 2 | 2 | 5 | Unlimited |
+| **Team members** | 1 | 1 | 5 | Unlimited |
 
-- **Documents** refill every month on Solo, Growth and Business, whether you are billed monthly or yearly. Free's 50 documents are granted once and do not refill. See [Document limits](/help/guides/uploading-documents#document-limits).
+- **Documents** refill every month on Solo and Growth, whether you are billed monthly or yearly. Free's 50 documents are granted once and do not refill. See [Document limits](/help/guides/uploading-documents#document-limits).
 - **AI messages** are shared by your workspace each month, and each person can send up to the daily number. When the month's messages run out, eggz offers an upgrade first. If you'd rather not upgrade, the assistant pauses until your allowance resets.
 - **AI messages a minute** count any 60 seconds. Send more than that and the chat tells you how many seconds until you can ask again.
 - **A message over your plan's characters** isn't sent. Your words stay in the box, so you can shorten it or split it in two.
@@ -80,18 +82,32 @@ Founding member prices are yearly only, for the first 100 founding members. The 
 
 Manage your team:
 
-- Invite new members to your workspace by email
-- View current team members and their roles
-- Remove members who no longer need access
+- Click **Invite a team member**, fill in an email and a role, then click **Send invite**. The person gets an email to create their account or sign in. If your team is full, the dialog says so and offers **Invite more team members**
+- Find people with **Search by name or email** or **Filter by role**
+- See each person's role, their status (**Invited**, **Invite expired** or **Invite cancelled**) and when they last signed in, or **Not signed in yet**
+- Use **Change role** then **Save role** to move someone to another role
+- Use **Resend invite** or **Cancel invite** on an invite that hasn't been accepted
+- Use **Remove** for people who no longer need access. Each of these asks you to confirm
+- Click **Show more** to page through a big team
 
-<Note>User management is powered by WorkOS. Invited users receive an email to create their account or sign in with an existing one.</Note>
+Only admins open this tab.
 
 ### Roles
 
-| Role | Permissions |
+The **Role** list in the invite box shows the roles your workspace offers. Under the list, eggz says: "Receipts from the Expenses role need an admin or accountant to approve them." Four kinds of role matter, and what each can do is below.
+
+| Role | What it can do |
 |------|------------|
-| **Admin** | Full access to all data, settings, integrations, and user management |
-| **Member** | Access to own data only. Cannot manage settings, billing, or users. |
+| An admin | Full access to all data, settings, integrations, and user management |
+| An accountant | Sees every record in the workspace, but isn't an admin. Can't manage settings, billing, or users. Can approve and send back team receipts |
+| A member | Sees only what they created. Can't manage settings, billing, or users, but connects their own Gmail on **Integrations** |
+| The Expenses role | Sees only what they created. Their receipts wait for an admin or accountant to approve them before they go further |
+
+If someone holds two roles, the wider view wins.
+
+## Automations
+
+**Automations** is the fifth tab. It lists your workspace's rules, each with a status switch, and a gallery of templates you can add in one click. The **Approvals** button opens the things waiting for a person to decide. Only admins open this tab.
 
 ## Integrations
 
@@ -120,14 +136,6 @@ See [Send emails to eggz with the eggz Nest label](/help/guides/gmail-eggz-nest)
 - **⋯ > Disconnect Xero**, after you confirm
 
 See [Xero Integration](/help/guides/xero-sync) for the full setup guide.
-
-### Bank feed
-
-- **Connect your bank** to bring its payments into **Expenses**, on the **Bank payments** tab
-- **Renew bank feed** shows on the card from 14 days before the bank feed needs renewing
-- **⋯ > Disconnect bank**, after you confirm. The payments already in eggz stay
-
-Only admins can use this card. See [Bring your bank's payments into eggz](/help/guides/bank-feed).
 
 ### Unscrambled Tabs
 

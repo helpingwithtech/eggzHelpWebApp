@@ -1,0 +1,115 @@
+---
+title: "Engagements & timesheets (beta)"
+description: "Set up a retainer for a client, log and confirm the week's hours, raise a draft invoice, and authorise it in Xero. In beta, switched on per workspace."
+icon: "clock"
+keywords: ["engagements", "timesheets", "retainer", "hours", "invoice", "authorise in Xero", "beta"]
+---
+
+<Warning>
+**Engagements and Timesheets are in beta.** They are off for most workspaces. If you don't see them, [ask eggz support](mailto:support@eggz.ai) to switch them on. There is no setting for you to turn on yourself.
+</Warning>
+
+## What it does
+
+An **engagement** holds a client's retainer, hourly rate and billing day, so you agree the terms once. **Timesheets** are where you log the hours worked against that retainer and confirm each week. Each billing cycle, eggz works out the invoice from the terms and your confirmed hours, and raises it as a **draft**.
+
+Nothing is sent to your client, and nothing reaches Xero, until you publish the invoice yourself.
+
+## Open them
+
+Engagements and Timesheets aren't in the menu yet. Once your workspace has the beta, go straight to the page:
+
+- Engagements: [app.eggz.ai/engagements](https://app.eggz.ai/engagements)
+- Timesheets: [app.eggz.ai/timesheets](https://app.eggz.ai/timesheets)
+
+Without the beta, those addresses show a "not found" page.
+
+## Add an engagement
+
+<Steps>
+  <Step title="Start a new engagement">
+    On **Engagements**, click **Add your first engagement**. Once you have one, the button reads **New engagement**.
+  </Step>
+  <Step title="Fill in the client">
+    Choose a **Customer**, then set the **Name on the invoice**, the **Invoice reference prefix** (A to Z, 0 to 9 and hyphens), and the **Status**: **Active**, **Paused** or **Ended**. Every invoice is referenced as the prefix, then the year and month. The customer can't be changed later. A new customer means a new engagement.
+  </Step>
+  <Step title="Set the terms">
+    Fill in **Retainer hours a month**, **Hourly rate, ex tax**, **Currency**, **Payment terms, in days**, and **Billing day** (**1st of the month** or **25th of the month**). Pick what happens to **Hours beyond the retainer**: **Bill them at the rate** or **Absorb them**. Tick **Bill the retainer in advance** if you bill ahead. On the 1st that means the month you are in. On the 25th it means the month you are about to enter.
+  </Step>
+  <Step title="Say where invoices go">
+    Add an **Accounts contact** and, if you like, **Copy to** addresses separated by commas, plus any **Notes**. You can't stage an invoice pack without an accounts contact.
+  </Step>
+  <Step title="Create it">
+    Click **Create engagement**. To change the terms later, open the engagement and click **Edit terms**.
+  </Step>
+</Steps>
+
+The list shows each client's retainer, rate, billing day and status. A paused or ended engagement can't have a cycle raised until you set it back to **Active**.
+
+## Log and confirm a week
+
+On **Timesheets**, pick the **Engagement** and use **Previous week** and **Next week** to find the week.
+
+<Steps>
+  <Step title="Log hours">
+    Choose the **Day**, say **What was done**, enter the **Hours**, and click **Log hours**. The description goes on your client's timesheet. One entry can't be longer than a single day's work, so split longer stretches across the days they were worked. Click **Remove** on a row to take an entry out.
+  </Step>
+  <Step title="Confirm the week">
+    When the week is right, click **Confirm week**. The week shows **Confirmed** and its hours are locked. Confirming is what makes them billable and visible to your client.
+  </Step>
+  <Step title="Reopen if you must">
+    To correct a confirmed week, click **Reopen week**. You can't reopen it once its hours have gone onto an invoice.
+  </Step>
+</Steps>
+
+<Note>Anyone can log their own hours. **Confirm week** and **Reopen week** are for admins only. You can also review and confirm a week from [ChatGPT or Claude](/help/guides/review-timesheets-in-chatgpt-and-claude).</Note>
+
+## Raise a cycle
+
+Open an engagement and find **Raise a cycle**. Admins and accountants can raise a cycle.
+
+<Steps>
+  <Step title="Choose the billing date">
+    Set the **Billing date**. Add **Extra hours last month** if you worked beyond the retainer. If the engagement sells a block of hours, fill in **Block instalment** with the instalment number to bill.
+  </Step>
+  <Step title="Check the invoice">
+    eggz shows the invoice it will raise, with its reference, issue and due dates, lines, subtotal ex tax and total.
+  </Step>
+  <Step title="Raise it">
+    Click **Raise this draft invoice**. The cycle appears under **Cycles raised**. Raising the same cycle again gives you the invoice you already have, never a second one.
+  </Step>
+</Steps>
+
+Publish the draft from the invoice, as in [Publish invoices & quotes to Xero](/help/guides/publish-to-xero).
+
+## Authorise in Xero
+
+Once a draft is in Xero, the **In Xero** card on the invoice shows **Authorise in Xero** for an invoice that's a draft or awaiting approval. Only **organisation admins** see it.
+
+1. Click **Authorise in Xero**.
+2. Read the confirmation, **Authorise this invoice in Xero?** Authorising posts the invoice to your customer's account in Xero and, as the dialog puts it, locks the invoice number. Xero assigned that number when the draft was created. Nothing is emailed to your customer.
+3. Click **Authorise in Xero** again to go ahead. You see **Authorised in Xero.**
+
+Then send it to your customer from Xero. eggz never sends it for you.
+
+## Send the invoice by email
+
+Each row under **Cycles raised** has an **Email pack**. Open it and click **Stage the pack**. eggz writes the subject and body and attaches the invoice PDF. You can **Copy subject** and **Copy body**, and **Attach a timesheet PDF**.
+
+Nothing here sends mail. Send it from your own mail client, then click **I've sent this** to record that you did. That freezes the pack, because it becomes the record of what you sent. **Refresh the pack** rewrites the wording from the invoice, so adjust the words in your mail client, not here. **Discard** sets an unsent pack aside.
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Why can't I see Engagements or Timesheets?">
+    They're in beta and switched on per workspace. [Email support](mailto:support@eggz.ai) and ask for timesheet billing.
+  </Accordion>
+
+  <Accordion title="It says timesheet billing isn't enabled for this account">
+    Your workspace doesn't have the beta, or no longer does. [Email support](mailto:support@eggz.ai) to turn it on.
+  </Accordion>
+
+  <Accordion title="Will my client see anything before I publish?">
+    Not an invoice. A raised cycle is a draft inside eggz. Nothing is sent, and nothing reaches Xero, until you publish it. Confirming a week is separate: that makes its hours client-visible, but it doesn't send or publish any invoice.
+  </Accordion>
+</AccordionGroup>

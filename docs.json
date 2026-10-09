@@ -55,6 +55,7 @@
             "group": "AI Assistants",
             "pages": [
               "help/guides/ai-bill-capture",
+              "help/guides/review-timesheets-in-chatgpt-and-claude",
               "help/guides/asking-eggheadz"
             ]
           },
@@ -63,7 +64,8 @@
             "pages": [
               "help/guides/invoices-and-quotes",
               "help/guides/publish-to-xero",
-              "help/guides/recording-payments"
+              "help/guides/recording-payments",
+              "help/guides/engagements-and-timesheets"
             ]
           },
           {

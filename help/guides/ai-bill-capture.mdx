@@ -6,7 +6,7 @@ icon: "robot"
 
 ## What you can do
 
-eggz works as an **app inside your AI assistant**. Drop a receipt or bill into ChatGPT or Claude and eggz reads it, **auto-categorises** every line, and shows you an editable card — then saves it straight into your eggz account. No switching tabs, no manual data entry.
+eggz works as an **app inside your AI assistant**. Drop a receipt or bill into ChatGPT or Claude. Your assistant reads it, eggz assigns a category to every line, and you get an editable card. Save it and it goes straight into your eggz account, with no switching tabs and no typing it in.
 
 <Note>You can try it **without an eggz account**. Extraction runs as a guest preview; your bills are only saved once you sign in.</Note>
 
@@ -28,32 +28,33 @@ eggz works as an **app inside your AI assistant**. Drop a receipt or bill into C
 
 <Steps>
   <Step title="Share your document">
-    Ask eggz to capture a bill and attach the files — **PDF or image** (JPG, PNG, WebP, GIF, HEIC), each up to 25 MB. You can send **several at once**.
+    Ask eggz to capture a bill and attach the file. ChatGPT or Claude reads the document itself and hands eggz the details it found, so the file types and sizes it accepts are your assistant's, not eggz's. You can send up to **10 bills** in one capture.
   </Step>
-  <Step title="eggz extracts and categorises">
-    eggz reads the supplier, dates, line items, amounts and tax, and assigns an **expense category** to each line automatically.
+  <Step title="eggz categorises">
+    Your assistant reads the supplier, dates, line items, amounts and tax. eggz assigns an **expense category** to each line from its fixed list and recalculates the line totals, subtotal and total.
   </Step>
   <Step title="Review and edit the card">
-    An interactive card appears. Edit the supplier, dates, descriptions and amounts, change any **category**, expand a bill to review its lines, or remove one. Totals update as you go. Only a supplier, a currency and at least one line item are required — everything else is optional.
+    An interactive card appears. Edit the supplier, reference, issue date, due date, descriptions and amounts, change any **category**, expand a bill to review its lines, or remove one. Totals update as you go. A supplier, an issue date and at least one line item are required. Everything else is optional.
   </Step>
   <Step title="Save to eggz">
-    Select **Save to eggz**. If you're not signed in yet, your assistant prompts you to connect eggz — sign in (or sign up in one tap) and it saves automatically. Your bills appear in **[Expenses](/help/guides/expenses)**.
+    Select **Save to eggz**, or **Sign in to save** if you're not signed in yet. Sign in (or sign up in one tap) and your bills save. Once they have saved, the card says *Your bills have been saved to eggz.* and shows an **Open in eggz** link to **[Expenses](/help/guides/expenses)**. If the save fails, the card offers **Try again**.
   </Step>
 </Steps>
 
 <Tip>Capturing several invoices? Upload them together and review them as a batch — each bill keeps its own categories and totals.</Tip>
 
-## What eggz extracts
+## What the card shows
 
 | Field | Notes |
 |-------|-------|
 | Supplier | Name (and tax/ABN if shown on the document) |
-| Dates | Issue date and due date |
+| Reference | Optional |
+| Dates | Issue date (required) and due date |
 | Line items | Description, quantity, unit price, and line total |
 | Category | Auto-assigned per line; fully editable |
-| Totals | Subtotal, tax/GST, and total — recalculated as you edit |
+| Totals | Subtotal, tax/GST, and total, recalculated as you edit |
 
-<Warning>AI extraction isn't perfect — always review the card before saving, especially totals on faded or photographed receipts.</Warning>
+<Warning>Reading a document isn't perfect. Always review the card before saving, especially totals on faded or photographed receipts.</Warning>
 
 ## Where your bills go
 
@@ -75,7 +76,7 @@ Prefer to capture bills straight from your browser? The free **[eggz Chrome exte
   </Accordion>
 
   <Accordion title="What file types can I send?">
-    PDF, JPG, PNG, WebP, GIF or HEIC, up to 25 MB each — the same formats as [document upload](/help/guides/uploading-documents) in the web app.
+    That depends on ChatGPT or Claude. They read the file and send eggz the details, so eggz sets no file type or size limit here. Uploading a file in the eggz web app has its own limits: see [document upload](/help/guides/uploading-documents).
   </Accordion>
 
   <Accordion title="Do I need an eggz account?">
@@ -83,7 +84,7 @@ Prefer to capture bills straight from your browser? The free **[eggz Chrome exte
   </Accordion>
 
   <Accordion title="Can I capture more than one bill at once?">
-    Yes. Share multiple files and review them as a batch; remove any you don't want before saving.
+    Yes, up to 10 bills in one capture. Review them as a batch and remove any you don't want before saving.
   </Accordion>
 
   <Accordion title="Where do my bills end up?">
@@ -91,7 +92,7 @@ Prefer to capture bills straight from your browser? The free **[eggz Chrome exte
   </Accordion>
 
   <Accordion title="I selected Save but it asked me to sign in">
-    That's expected the first time — saving needs an eggz account. Sign in (or sign up in one tap) when your assistant prompts you, and your reviewed bills save automatically. Your edits on the card are kept.
+    That's expected the first time, because saving needs an eggz account. Select **Sign in to save**, sign in (or sign up in one tap), and your reviewed bills save. Your edits on the card are kept.
   </Accordion>
 
   <Accordion title="The bill card didn't appear">
@@ -99,6 +100,6 @@ Prefer to capture bills straight from your browser? The free **[eggz Chrome exte
   </Accordion>
 
   <Accordion title="An amount or category looks wrong">
-    Edit it directly on the card before saving — change the supplier, any line, or the **category**, and totals recalculate automatically. AI extraction isn't perfect, so a quick review is always worth it.
+    Edit it directly on the card before saving. Change the supplier, any line, or the **category**, and totals recalculate automatically. A quick review is always worth it.
   </Accordion>
 </AccordionGroup>

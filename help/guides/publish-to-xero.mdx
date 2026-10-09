@@ -28,20 +28,20 @@ On a draft invoice or quote created in eggz, the detail page shows a **Publish t
 
 ## After you publish
 
-Once published, the card shows **In Xero** with a **View draft in Xero** link that opens Xero's edit screen. (Drafts can't be emailed from Xero until you approve them there.) Two more things happen:
+Once published, the card shows **In Xero** with a link that opens the document in Xero. A quote's card says *This quote is a draft in Xero. Review, approve and send it there.* and its link reads **View draft in Xero**. An invoice's card changes as the invoice moves through Xero. While the invoice is a draft, the link reads **View draft in Xero** and the card says *This invoice is a draft in Xero. Review, approve and send it there.* Once the invoice is awaiting approval or authorised, the link reads **View in Xero**, and once it is authorised the card tells you to send it to your customer from Xero. (Drafts can't be emailed from Xero until you approve them there.) Two more things happen:
 
 - **View branded PDF** becomes available, so you can see the document exactly as Xero renders it with your branding. See [Your Xero branding in eggz](/help/guides/xero-branding).
 - The document is now **linked**, so future [Xero syncs](/help/guides/xero-sync) update it instead of creating a duplicate.
 
-<Note>The draft arrives in Xero as a **single summary line** carrying your eggz reference and total — you itemise it and set account and tax codes while reviewing in Xero.</Note>
+<Note>A document with line items arrives in Xero as those lines, at the prices you entered before tax. You set the account and tax codes while reviewing in Xero. A document with no line items arrives as a single summary line carrying your eggz reference and total.</Note>
 
 ## What you can publish
 
 You can publish **drafts created in eggz** that have a customer, valid dates, and a positive total.
 
-Documents **synced from Xero** can't be pushed back — they already live in Xero, and the card tells you so. Your customer is matched to an existing Xero contact when eggz knows its Xero identity; otherwise Xero finds or creates a contact by **exact name**. If Xero reports an archived or duplicate-name contact, the error explains what to fix in Xero.
+Documents **synced from Xero** can't be pushed back. They already live in Xero, and the card tells you so. Your customer is matched to an existing Xero contact when eggz knows its Xero identity. When it doesn't, publishing an invoice can stop on a **Which Xero contact is this?** card. Choose an existing Xero contact and click **Use this contact and publish**, or choose **Create a new Xero contact**. eggz remembers the choice for that customer, so you are only asked once. If Xero reports an archived or duplicate-name contact, the error explains what to fix in Xero.
 
-<Note>Publishing needs the publish permission, which your organisation admin manages. Without it, clicking **Publish draft to Xero** shows a *"Not authorised to publish to Xero"* message — ask your admin for access. Unless you're an admin, you can only publish drafts you created yourself.</Note>
+<Note>Only admins and accountants see the **Publish to Xero** card, and only when they have the publish permission, which your organisation admin manages. If you don't see the card, ask your admin for access.</Note>
 
 ## Common questions
 
@@ -59,6 +59,6 @@ Documents **synced from Xero** can't be pushed back — they already live in Xer
   </Accordion>
 
   <Accordion title="Which branding theme is used?">
-    The theme you pick on the document's **Publish to Xero** card, or your organisation's default if you leave it on **Organisation default**, or Xero's own default if no eggz default is set. See [Your Xero branding in eggz](/help/guides/xero-branding).
+    On plans with custom branding, the theme you pick on the document's **Publish to Xero** card, or your organisation's default if you leave it on **Organisation default**. Other plans don't show the picker, and the document uses your organisation's default or Xero's own. See [Your Xero branding in eggz](/help/guides/xero-branding).
   </Accordion>
 </AccordionGroup>

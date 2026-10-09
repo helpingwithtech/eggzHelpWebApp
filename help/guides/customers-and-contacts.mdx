@@ -14,28 +14,28 @@ The **Customers** page shows your customer accounts. When Xero is connected, cus
 
 The customer table displays:
 
-- **Name**: Company or individual name
+- **Customer Name**: Company or individual name
 - **Email** and **Phone**: Contact details for the account
 - **Status**: Active, At Risk, Pending, or Closed
 - **Owner**: Team member responsible for the account
 - **Region** and **Segment**
-- **Annual value** and **Currency**
+- **Annual value**
 - **Industry**
+- **Renewal Date**
 
 You can group customers by region, segment, owner, status, or industry.
 
-When you type in the search box above the table, the matching words in the **Name** and **Email** columns are highlighted so you can see at a glance why each row appears. The same highlight shows up when you search your contacts, invoices, quotes, and bills.
+When you type in the search box above the table, the matching words in the **Customer Name** and **Email** columns are highlighted so you can see at a glance why each row appears. The same highlight shows up when you search your contacts, invoices, quotes, and bills.
 
 ### Customer detail
 
 Click any customer to view their full profile:
 
 - **Owed to you** and **You owe** in the page header — see [Money owed each way](#money-owed-each-way) below
-- Account details: status, annual value, industry, owner, renewal date
+- Account details: status, annual value, industry, owner, renewal date, currency, source and when it was last synced
 - Contact information: email, phone, website, tax number
 - Region and segment classification
-- Activity feed showing recent interactions
-- A separate, read-only **Activity** timeline of account-level events — not the activity feed above, see [Activity](/help/guides/invoices-and-quotes#activity)
+- A read-only **Activity** timeline of account-level events, see [Activity](/help/guides/invoices-and-quotes#activity)
 - **Related documents**: every invoice, quote, bill, and receipt linked to the account — see [Related documents](#related-documents) below
 
 To ask a question about the account, see [Ask about a customer or contact](#ask-about-a-customer-or-contact).
@@ -59,17 +59,17 @@ Below the profile, a **Related Documents** section totals the account's **Revenu
 
 Customers support full create, update, and delete operations:
 
-- **Create**: Add new customers manually (independent of Xero sync)
+- **Create**: Click **New Customer** to add a customer or a supplier manually (independent of Xero sync). You can also add a supplier from a bill
 - **Edit**: Update fields like region, segment, owner, annual value, industry, and notes
-- **Delete**: Remove individual customers or use bulk delete
+- **Delete**: Click **Delete customer** and confirm, or use bulk delete
 - **Xero sync**: When syncing from Xero, customer records are updated with the latest contact data. Fields you have enriched in eggz (region, segment, owner, annual value, industry, notes) are preserved and not overwritten by Xero sync.
 
 <Tip>Use the customer detail page to enrich synced accounts with business-specific information like region, segment, and annual value. This data persists across Xero syncs.</Tip>
 
 ### Access control
 
-- **Admins** can see all customers across the workspace
-- **Members** can only see customers assigned to them
+- **Admins and accountants** can see all customers across the workspace
+- **Members and expenses users** can only see the customers they added
 
 ---
 
@@ -91,7 +91,7 @@ You can group contacts by status, type, or source.
 
 ### Contact detail
 
-Click a contact to view their profile and activity feed. To ask a question about them, see [Ask about a customer or contact](#ask-about-a-customer-or-contact).
+Click a contact to view their **Contact Details**, **Classification** and **Sync Information**. To ask a question about them, see [Ask about a customer or contact](#ask-about-a-customer-or-contact).
 
 <Note>Contacts are read-only in eggz. They are populated by syncing from connected systems. To edit contact information, make changes in Xero and then sync.</Note>
 
@@ -101,6 +101,6 @@ Click a contact to view their profile and activity feed. To ask a question about
 
 Customer and contact pages don't carry a chat of their own. There is one chat, and it opens from anywhere: click **Ask** in the header.
 
-Open it from a customer or contact page and it already knows which record you're looking at. The record's name sits above the message box as **About Bright Lane Trading**, so a question like *"what do they still owe us?"* is answered about that account without you naming it.
+Open it from a customer or contact page and it already knows which record you're looking at. You can also click **Ask eggheadz about this customer** (or **contact**) under the page title. The record sits above the message box as a chip showing the kind of record and its name, such as **Customer**: Bright Lane Trading. A question like *"what do they still owe us?"* is then answered about that account without you naming it.
 
-Want to ask about something else? Click the **×** beside the name and the record is dropped from your question. The chat stays where it is.
+Want to ask about something else? Click the **×** on the chip and the record is dropped from your question. The chat stays where it is.

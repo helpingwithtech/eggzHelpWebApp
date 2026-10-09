@@ -17,7 +17,7 @@ eggz uses AI to automatically extract data from your receipts and bills. Upload 
 | PNG | `.png` | Screenshots and scanned documents |
 | WebP | `.webp` | Compressed web images |
 | GIF | `.gif` | Still images only |
-| HEIC | `.heic` | iPhone photos, read as they are |
+| HEIC, HEIF | `.heic`, `.heif` | iPhone photos, read as they are |
 
 Any file up to 25 MB.
 
@@ -73,7 +73,7 @@ If the camera is blocked or can't start, eggz shows **Upload from Photos Instead
 
 If you use the **eggz Chrome extension** with a [connected eggz account](/help/unscrambled-tabs/eggz-account), you can upload without opening the web app:
 
-- **Upload photos or files** in the **+** menu of the side panel chat — PDF, JPG, PNG, WebP, GIF or HEIC up to 25 MB.
+- **Upload photos or files** in the **+** menu of the side panel chat — PDF, JPG, PNG, WebP, GIF, HEIC or HEIF up to 25 MB.
 - **Take a screenshot** in the same menu — captures the page you're viewing (for example an invoice in webmail) and uploads it as an image.
 - **File the bill on this page**, or **Save to eggz** on the banner that appears when a page holds a bill. A PDF is sent as the original file, not a picture. See [Capture bills from any page](/help/unscrambled-tabs/capture-bills).
 - **Collect a whole billing page** — three or more documents on one page becomes a single approval, and anything eggz already holds is skipped. See [Collect every bill on a page](/help/unscrambled-tabs/collect-bills).
@@ -149,20 +149,20 @@ Packs are sold on every plan except Scale. Scale's documents are unlimited, so t
 ### How document credits are counted {#how-document-credits-are-counted}
 
 - **One document, one credit.** eggz charges one document credit for each document it processes, however many pages it has. A 3-page PDF is one document and uses one credit, not three. Only documents eggz successfully processes count towards your usage, which is the same rule the **Settings > Billing** usage card states.
-- **A file eggz already holds is not charged again.** Drop, pick or capture a file eggz already has, byte for byte, and eggz says *receipt.pdf is already in eggz.* instead of processing it, even when you're out of documents. When the eggz Chrome extension [collects the invoices or receipts listed on a page](/help/unscrambled-tabs/collect-bills), it also recognises documents it already holds from that same website, and the approval card tells you the split before you decide, as *3 new, 51 you already have*. A new copy whose bytes differ, such as a fresh **Send tab screenshot** or a PDF the website makes again, is a new document and counts.
+- **A file eggz already holds is not charged again.** Drop, pick or capture a file eggz already has, byte for byte, and eggz says *receipt.pdf is already in eggz.* instead of processing it, even when you're out of documents. When the eggz Chrome extension [collects the invoices or receipts listed on a page](/help/unscrambled-tabs/collect-bills), it also recognises documents it already holds from that same website, and the approval card tells you the split before you decide, as *3 new, 51 you already have*. A new copy whose bytes differ, such as a fresh **Take a screenshot** or a PDF the website makes again, is a new document and counts.
 
 ## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="My document failed to process">
-    Check that the file is a supported format (PDF, JPG, PNG, WebP, GIF or HEIC), under 25 MB, and that the image is clear and readable. Blurry photos or very low-resolution images may fail to extract correctly. Try re-uploading a clearer version.
+    Check that the file is a supported format (PDF, JPG, PNG, WebP, GIF, HEIC or HEIF), under 25 MB, and that the image is clear and readable. Blurry photos or very low-resolution images may fail to extract correctly. Try re-uploading a clearer version.
 
     After an upload, eggz tells you what happened to each file:
 
     - *report.pdf is in. The eggheadz are reading it now.*
     - *report.pdf is already in eggz.*
     - *report.pdf is over 25 MB. Shrink it or split it, then drop it in again.*
-    - *report.docx isn't a file type eggz reads yet. PDF, JPG, PNG, WebP, GIF or HEIC work.*
+    - *report.docx isn't a file type eggz reads yet. PDF, JPG, PNG, WebP, GIF, HEIC or HEIF work.*
     - *Hmm, report.pdf didn't make it through. The eggheadz have been told and are looking; contact support if it's urgent.*
 
     While a batch uploads, the zone shows how far along it is, for example *Uploading 2 of 5…*. Several files with the same outcome get one message for the lot.

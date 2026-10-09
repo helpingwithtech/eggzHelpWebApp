@@ -27,9 +27,7 @@ Top to bottom.
 
 Whether you are connected to your eggz account, with **Sign in** and **Sign out**. One login is shared with the web app. The full story is on [Connect your eggz account](/help/unscrambled-tabs/eggz-account).
 
-**Accounting method** appears here once you're signed in. It opens **Settings > General** in the eggz web app in a new tab, where you set your accounting method, financial year, tax label and the rest of your business's details. See [Accounting method](/help/guides/settings#accounting-method).
-
-**Show the approvals inbox** sits here too, and it is **off**. While it is off the extension never asks eggz whether anything is waiting, so there is no tray icon and no background checking at all. Turn it on and the inbox appears in the header of the card and the side panel, with a badge counting the decisions your organisation's automations are holding for a person. See [The approvals inbox](/help/unscrambled-tabs/ai-and-search#the-approvals-inbox).
+**Accounting method** appears here once you're signed in, captioned *Financial year, tax label and more, in the eggz web app*. It opens **Settings > General** in the eggz web app in a new tab, where you set your accounting method, financial year, tax label and the rest of your business's details. See [Accounting method](/help/guides/settings#accounting-method).
 
 **File bills you download** is a row here with a screen of its own, and it is **off**. While it is off nothing is watched at all: the extension registers no download listener and reads nothing. Turn it on and it watches downloads **from pages where eggz has found bills**, and files each one as it lands. Nothing else is watched. Each one files a document and uses one document credit, the same as a bill you upload by hand, and the screen keeps a list of what it has filed. It is the answer when a supplier's site will not hand a file to the extension but will hand it to you: [collect](/help/unscrambled-tabs/collect-bills) says so, and this catches them as you click the site's own download button.
 
@@ -43,17 +41,20 @@ What the extension does as you open and close tabs.
 
 **Auto-save tabs**, on by default, means the workspace your window is using quietly keeps up with what you open and close, plus changes to tab groups and which tab you are on, so switching away never loses anything. Turn it off and workspaces only change when you act on them directly.
 
-**Tab deduplication**, also on by default, means that when you open a page you already have open, a small ["Already open" bar](/help/unscrambled-tabs/manage-tabs#already-open-the-duplicate-catcher) offers to switch you to the existing tab.
+**Spot duplicate tabs**, also on by default, means that when you open a page you already have open, a small ["Already open" bar](/help/unscrambled-tabs/manage-tabs#already-open-the-duplicate-catcher) offers to switch you to the existing tab.
 
 **Keep the eggz tab pinned**, on by default, puts an eggz tab at the front of the tab strip in every ordinary window, so your workspaces are always one click away. Close it and it stays closed in that window for the rest of the session rather than springing back at you, and it returns next time you start Chrome. Turn the setting off and it is not created at all.
 
+**Look for documents in open tabs**, on by default, finds the invoices and receipts already sitting in your open tabs, so nothing gets missed. Only counts leave a page, and filing stays your call, one tab at a time. See [Bills already sitting in your open tabs](/help/unscrambled-tabs/capture-bills#bills-already-sitting-in-your-open-tabs).
+
+**Open a task’s tabs when it’s due** only shows when you are signed in, and is **off** by default. At a task's due date and time, once, it opens the task's tabs in the window you are using. See [Tasks](/help/unscrambled-tabs/tasks#open-tabs-without-asking).
+
 ### Open Tabs view
 
-Four controls that shape the [Open Tabs list](/help/unscrambled-tabs/open-tabs) everywhere.
+Three controls that shape the [Open Tabs list](/help/unscrambled-tabs/open-tabs) everywhere. Open Tabs is its own first tab in the side panel, so there is no setting for where it sits.
 
 | Setting | Options | Default |
 |---------|---------|---------|
-| **Placement** | **Pinned section**, always visible above your workspaces · **Dedicated tab**, its own "Open Tabs" tab | Pinned section |
 | **Sort tabs by** | **Window order (tab strip)** · **Most recently active** · **Site name (A–Z)** | Window order |
 | **Group by window** | On, a divider per Chrome window · Off, one flat list | On |
 | **Keep the original tab open when dragging to a workspace** | Off, the tab moves and closes here · On, it is copied and stays open | Off |
@@ -78,7 +79,7 @@ The extension name, the version you are running, and where the AI comes from. Us
 
 ### Delete everything
 
-**Wipe all data in this browser** permanently deletes all workspaces, folders, resources, session snapshots and settings from this browser, and disconnects your eggz account here. It asks you to confirm, and it means it. Snapshots go with everything else, which matters because they hold the name and address of every tab that was in them.
+**Wipe all data in this browser** permanently deletes all workspaces, folders, resources, session snapshots and settings from this browser. It asks you to confirm, and it means it. It cannot delete anything held in your eggz account: bills you have already sent, your chat history and your tasks stay there, and you may still be signed in afterwards. Snapshots go with everything else, which matters because they hold the name and address of every tab that was in them.
 
 <Warning>
 There is no undo for **Wipe all data**. If there is any chance you will want your setup back, [export an encrypted backup](/help/unscrambled-tabs/backup-import) first.
@@ -102,7 +103,7 @@ All of it skips your active tab, pinned tabs, tabs playing sound, Chrome's own p
 
 ### Protected Domains
 
-Sites that are never unloaded, so drafts, forms and logged-in dashboards are always safe. Type one domain per line and click **Save**. You can list up to 100.
+Sites that are never unloaded, so drafts, forms and logged-in dashboards are always safe. Type one domain per line and click **Save**. You can list up to 10,000. Every line must be a domain with a dot, like `example.com`, or nothing saves and the box says *A domain needs a dot, like example.com*.
 
 Anything here is skipped by performance-mode sweeps, by **Free RAM now**, and by the manual [Suspend buttons](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). Good candidates are your webmail, your documents tool, your banking, your payroll or HR system, and anything you routinely leave a half-written form in.
 
@@ -112,7 +113,7 @@ Paste addresses however you like. A full web address is tidied down to just its 
 
 ### Keyboard shortcuts
 
-A read-only list of every command and the key it is bound to right now, which is yours rather than the factory setting. Unbound commands read *not set*. **Change shortcuts…** opens Chrome's own shortcut page, and when you come back the list has already caught up. See [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
+A read-only list of the key each command is bound to right now, which is yours rather than the factory setting: **Search everything**, **Ask eggheadz**, **Jump to a workspace**, **Save tab to a workspace**, **Next workspace** and **Previous workspace**. Unbound commands read *not set*. Two fixed dashboard rows follow, **Dashboard: search** and **Dashboard: toggle sidebar**. **Change shortcuts…** opens Chrome's own shortcut page, and when you come back the list has already caught up. See [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
 
 ### Sessions
 
@@ -132,16 +133,14 @@ The theme toggle lives in the header of the card, the side panel and the dashboa
 
 Your tabs, workspaces, snapshots and settings live locally in your browser. Core tab and workspace features need no account and no internet.
 
-The AI and eggz features are optional. When you use them, only names and web addresses are shared by default: your open tabs' titles and addresses, and your workspace, folder and saved-link names. A page's actual content is sent only after you approve the permission card, each time. See [It asks before it reads a page](/help/unscrambled-tabs/ai-and-search#it-asks-before-it-reads-a-page).
+The eggheadz and the other eggz features are optional. When you use them, only names and web addresses are shared by default: your open tabs' titles and addresses, and your workspace, folder and saved-link names. A page's actual content is sent only after you approve the permission card, each time. See [It asks before it reads a page](/help/unscrambled-tabs/ai-and-search#it-asks-before-it-reads-a-page).
 
 Signing in, uploads and bill capture use your eggz account and follow the web app's data handling. The extension never stores passwords. Your session is the same secure browser cookie the web app uses.
 
-The bill-capture nudge is local. To offer the occasional ["capture any bills?" suggestion](/help/unscrambled-tabs/capture-bills#the-gentle-capture-any-bills-nudge), the extension keeps a short, rolling list of site names you have visited recently. It lives only in memory for the current browser session, is wiped when Chrome closes, and is never sent anywhere.
-
-Search is local too. Finding your tabs and workspaces happens on your computer.
+Matching your tabs and workspaces in search happens on your computer. When you are signed in, searching also asks eggz for matching records (invoices, customers, bills, suppliers, quotes and receipts) and tasks.
 
 ## About the permissions Chrome asks for
 
-The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots and unload tabs. Its right-click menu items (**Rename this tab…**, **Save for later & close tab**, **Move tab to workspace**) need permission to appear on pages, and it needs to draw on the page you are reading, because that is what the floating card is.
+The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots and unload tabs. Its right-click menu items (**Rename this tab…**, **Save for later & close tab**, **Move tab to workspace**, **Save as a task**) need permission to appear on pages, and it needs to draw on the page you are reading, because that is what the floating card is.
 
 Granting only some permissions is not supported. If you decline, some features will not work.

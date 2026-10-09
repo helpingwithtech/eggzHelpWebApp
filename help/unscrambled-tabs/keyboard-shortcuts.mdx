@@ -1,6 +1,6 @@
 ---
 title: "Keyboard shortcuts"
-description: "Every eggz Tab Manager keyboard shortcut in one place: search, AI, the workspace quick switcher, saving tabs, and how to change any of them"
+description: "Every eggz Tab Manager keyboard shortcut in one place: search, eggheadz, the workspace quick switcher, saving tabs, and how to change any of them"
 icon: "keyboard"
 keywords: ['shortcuts', 'hotkeys', 'keyboard', 'quick switcher', 'command bar', 'undo']
 ---
@@ -14,7 +14,7 @@ These are Chrome-level shortcuts. They work wherever you are, with nothing open.
 | What it does | Mac | Windows / Linux |
 |--------------|-----|------------------|
 | **Search everything** | ⌘K | Ctrl+Shift+K |
-| **AI Assistant** | ⌘J | Ctrl+Shift+J |
+| **Ask eggheadz** | ⌘J | Ctrl+Shift+J |
 | **Jump to a workspace** | ⌥A | Alt+A |
 | **Save tab to a workspace** | ⌥D | Alt+D |
 | **Next workspace** | not set | not set |
@@ -35,19 +35,19 @@ These work while the dashboard tab itself is the one you are looking at.
 | What it does | Mac | Windows / Linux |
 |--------------|-----|------------------|
 | **Open the command bar** | ⌘K, or just **/** | Ctrl+K, or just **/** |
-| **Show or hide the sidebar** | ⌘B | Ctrl+B |
+| **Show or hide the sidebar** | ⌘B, or ⌘\ | Ctrl+B, or Ctrl+\ |
 | **Open the ask bar** | ⌘I | Ctrl+I |
-| **Undo the last drop**, while the message is on screen | ⌘Z | Ctrl+Z |
+| **Undo**, while the message is on screen | ⌘Z | Ctrl+Z |
 
 ## What each one does
 
 ### Search everything
 
-Opens search over your workspaces, open tabs, saved tabs and saved links. Normally it opens the side panel on its Search tab. If the dashboard is the tab you are on, it opens the dashboard's [command bar](/help/unscrambled-tabs/ai-and-search#the-command-bar) instead, which is the same search plus actions you can run by name. On the dashboard you can also just press **/**.
+Opens search over your workspaces, open tabs, saved tabs and saved links. Normally it focuses the ask bar in the extension with its search showing. If the dashboard is the tab you are on, it opens the dashboard's [command bar](/help/unscrambled-tabs/ai-and-search#the-command-bar) instead, which is the same search plus actions you can run by name. On the dashboard you can also just press **/**.
 
-### AI Assistant
+### Ask eggheadz
 
-Opens the side panel straight onto the chat. See [AI assistant & the command bar](/help/unscrambled-tabs/ai-and-search).
+Opens the side panel straight onto the chat and raises a small ask box over it, so you can type at once. See [Ask eggheadz & search](/help/unscrambled-tabs/ai-and-search).
 
 ### Jump to a workspace {#jump-to-a-workspace-alta}
 
@@ -61,9 +61,23 @@ Opens a small **Save to workspace** picker: your workspaces grouped by folder, w
 
 To move a tab, meaning save it there and close it here, drag it or use the right-click menu. See [Moving tabs](/help/unscrambled-tabs/moving-tabs).
 
-### Undo the last drop
+### Undo
 
-While the **"Moved 1 tab to…"** message is still on screen, **⌘Z** (**Ctrl+Z**) takes the drop back. It never steals ⌘Z from a text box you are typing in. See [Undo](/help/unscrambled-tabs/moving-tabs#undo).
+While an undo message is still on screen, **⌘Z** (**Ctrl+Z**) takes the newest one back. That covers a drop (**"Moved 1 tab to…"**), a task you ticked (**Done. Nice work.**), and an approval or rejection. Press it again for the one before. It never steals ⌘Z from a text box you are typing in. See [Undo](/help/unscrambled-tabs/moving-tabs#undo) and [Tasks](/help/unscrambled-tabs/tasks).
+
+## Shortcuts in the lists
+
+These work inside the side panel, the card and the dashboard once the thing they belong to is open.
+
+| Where | Key | What it does |
+|-------|-----|--------------|
+| Ask bar search | ↑ / ↓, **Enter**, **Esc** | Move through results, open one, close search |
+| Chat | ⌘I (Ctrl+I) | Put the cursor in the chat's own box |
+| Tasks, search | **Esc** | Close task search |
+| Tasks, a task | **Space** or **Enter** | Tick it |
+| Tasks, reject reason | ⌘Enter (Ctrl+Enter), **Esc** | Send the reason and reject, or keep the task |
+| The **+** menu | ↑ / ↓, **Home**, **End** | Move through its rows |
+| Floating card | **Esc** | Fold the card away |
 
 ## Change or add shortcuts {#change-or-add-shortcuts}
 
@@ -88,5 +102,5 @@ If a shortcut does not seem to do anything, another extension or app may already
 </Tip>
 
 <Note>
-The dashboard shortcuts (**/**, **⌘K**, **⌘B**, **⌘I**, **⌘Z**) belong to the page rather than to Chrome, so they are not listed at `chrome://extensions/shortcuts` and cannot be changed there.
+The dashboard shortcuts (**/**, **⌘K**, **⌘B**, **⌘\\**, **⌘I**, **⌘Z**) belong to the page rather than to Chrome, so they are not listed at `chrome://extensions/shortcuts` and cannot be changed there.
 </Note>

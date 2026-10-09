@@ -110,6 +110,12 @@
             ]
           },
           {
+            "group": "Tasks",
+            "pages": [
+              "help/unscrambled-tabs/tasks"
+            ]
+          },
+          {
             "group": "Bills & Documents",
             "pages": [
               "help/unscrambled-tabs/eggz-account",

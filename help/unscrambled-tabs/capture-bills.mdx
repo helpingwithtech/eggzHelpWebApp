@@ -16,43 +16,43 @@ This feature needs you to be [signed in to eggz](/help/unscrambled-tabs/eggz-acc
 
 ## The "looks like a bill" banner
 
-When you land on a page that looks like an invoice or a bill — including PDFs opened right in Chrome — a little banner slides in at the top of the side panel and offers to save it for you.
+When you land on a page that looks like an invoice or a bill, including a PDF opened right in Chrome, a small banner slides in at the top of the side panel and offers to save it for you.
 
 <Steps>
   <Step title="Open a bill or invoice">
     Visit a supplier's invoice page, or open a bill PDF in your browser.
   </Step>
   <Step title="Spot the banner">
-    A banner pops up offering to **capture** the page. It stays until you close it with the **✕**. It will not time out and vanish while you are still reading the very page it is about.
+    The banner reads **Invoice detected — save to eggz?**, or **PDF open — save to eggz?** for a PDF. It stays until you close it with the **✕** (**Dismiss**). It will not time out and vanish while you are still reading the very page it is about.
   </Step>
   <Step title="Send it to eggz">
-    Click to capture. The extension grabs the **original invoice** — the actual PDF, filename and all pages intact — and sends it straight into your eggz organisation.
+    Click **Save to eggz**. If you are signed out, the button says **Sign in** instead. For a PDF, the extension sends the original file with its filename and all pages intact; a web-page invoice is captured as a picture of what is visible. Either way it goes straight into your eggz organisation. The banner shows **Capturing and uploading…** while it works. If something goes wrong it says what, with **Retry**.
   </Step>
 </Steps>
 
-The capture uses the **same upload pipeline and credits** as the dashboard, so your bill lands in [Expenses](/help/guides/expenses) and starts being read automatically — supplier, amounts, tax and all. See [Uploading documents](/help/guides/uploading-documents) for what happens after.
+The capture uses the **same upload pipeline and credits** as the dashboard, so your bill lands in [Expenses](/help/guides/expenses) and starts being read automatically: supplier, amounts, tax and all. See [Uploading documents](/help/guides/uploading-documents) for what happens after.
 
 <Tip>
-Switched tabs and the banner vanished? No drama. It belongs to the tab it found the bill on, so it never follows you around. Go back to the bill page and it will offer again.
+Switched tabs and the banner vanished? It belongs to the tab it found the bill on, so it never follows you around. Go back to the bill page and it will offer again.
 </Tip>
 
-## The gentle "capture any bills?" nudge
+## Bills already sitting in your open tabs
 
-The [AI assistant](/help/unscrambled-tabs/ai-and-search) also keeps a light touch on this. If you've been hopping around a few different supplier or shop websites, the chat may show a suggestion chip like *"You've visited supplier.com today — capture any bills?"* Tap it and your message is pre-filled, ready to go.
+You do not have to visit each page again. **Settings → Tabs → Look for documents in open tabs** is on by default. It finds the invoices and receipts already open in your tabs. It only counts the documents on each page, inside your browser, and no page text is sent anywhere. Filing stays your call, one tab at a time.
 
-It only shows up after you've visited a couple of sites recently, so it's a friendly heads-up, not a pushy salesperson.
+The finds appear under **Documents in your open tabs** in the chat's Tasks menu. Click one and the extension switches to that tab, where the usual **Save to eggz** banner offers to capture it. With the setting off, the menu says **Turn on in Settings**. See [Settings & privacy](/help/unscrambled-tabs/settings-privacy#tabs).
 
 ## What gets sent (and what doesn't)
 
 Keeping it honest:
 
-- When the bill is a **PDF** — including one opened in Chrome's built-in viewer — the capture sends the **original PDF file**, filename and all pages intact, so multi-page invoices arrive complete. Only an on-screen **web-page** invoice falls back to a picture of what's visible.
+- When the bill is a **PDF**, including one opened in Chrome's built-in viewer, the capture sends the **original PDF file**, filename and all pages intact, so multi-page invoices arrive complete. Only an on-screen **web-page** invoice falls back to a picture of what's visible.
 - It sends anything at all **only when you click to capture**.
 - The "looks like a bill" check happens **on your computer**. Pages aren't sent anywhere just for being looked at.
 - Your everyday browsing is **not** uploaded. Nothing leaves your browser until you choose to capture.
 
 <Warning>
-The bill-detector is smart, but not psychic. It may occasionally wave at a page that isn't really a bill — close it with the **✕** and it will not raise that page again. And when a web page is captured as a picture (rather than an original PDF), glance over the screen first so nothing private tags along.
+The bill-detector is smart, but not psychic. It may occasionally wave at a page that isn't really a bill. Close it with the **✕** and it will not raise that page again. And when a web page is captured as a picture (rather than an original PDF), glance over the screen first so nothing private tags along.
 </Warning>
 
 ## What a capture costs
@@ -62,7 +62,7 @@ The bill-detector is smart, but not psychic. It may occasionally wave at a page 
 
 ## If your credits run out
 
-Bills are captured with the same **document credits** as the rest of eggz. If your organisation runs out, the capture card shows an upgrade prompt with a link to **Billing**. Upgrade and you're back in business.
+Bills are captured with the same **document credits** as the rest of eggz. If your organisation runs out, the banner says **Document credits exhausted** and links to **Billing**. Upgrade and you're back in business.
 
 ## A whole page of bills at once
 

@@ -10,7 +10,7 @@ A receipt's header total and its line items always tell the same story in eggz �
 
 ## Editing a receipt's total
 
-Click a receipt's **Amount** cell on the Receipts list to edit it in place. What happens next depends on how many line items the receipt has.
+Click a receipt's **Amount** cell on the Receipts list to edit it in place. Press Enter or click away to save, or Esc to cancel. If the value isn't a number, eggz says "Enter a valid amount, like 47.99." You can't clear the total on a receipt that has line items. What happens next depends on how many line items the receipt has.
 
 ### One line item — absorbed automatically
 
@@ -32,9 +32,15 @@ In the dialog you can:
 
 A live **Remaining** figure shows how far the lines are from the new total, turning green at **$0.00**. **Save** stays disabled until Remaining is exactly $0.00, so an unbalanced receipt can never be saved.
 
+When it saves, a toast says "Receipt total and lines saved." If it can't, you see "Couldn't save the receipt. Try again."
+
 <Tip>**Cancel** closes the dialog without saving anything — nothing is written until Remaining hits $0.00 and you click **Save**, so cancelling is always a clean discard.</Tip>
 
 <Note>If the receipt changed elsewhere while the dialog was open, eggz tells you the new amount that needs reconciling and keeps the dialog open rather than saving over it.</Note>
+
+## Receipts in another currency
+
+A receipt charged in another currency is saved as the amount charged. If eggz needs an exchange rate to report it in your own currency, press **Edit rate** on the receipt page and enter the rate, or the amount in your own currency. See [Currency and exchange rates](/help/guides/expenses#currency-and-exchange-rates).
 
 ## When amounts are locked
 

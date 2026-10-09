@@ -47,7 +47,7 @@ The fastest way to upload on desktop:
 
 ### File picker (desktop and mobile)
 
-Click the upload zone to open your system file picker. Select one or more files and confirm.
+Press **Select files** in the upload zone to open your system file picker. Select one or more files and confirm. The button shows how many documents you have left, for example **Select files (104 left)**.
 
 ### Camera capture (mobile)
 
@@ -59,21 +59,23 @@ On mobile, use the camera button in the bottom navigation dock:
   </Step>
 
   <Step title="Take a photo">
-    Point your camera at a receipt or bill and take the photo.
+    Point your camera at a receipt or bill and tap the shutter button.
   </Step>
 
-  <Step title="Confirm upload">
-    The captured image uploads automatically. If you prefer, tap **Upload from Photos Instead** to pick an existing image from your gallery.
+  <Step title="Retake or submit">
+    The photo shows on screen. Tap **Retake** to try again, or **Submit** to send it. A message tells you what happened to it, for example that it's in and the eggheadz are reading it, or that eggz already has it.
   </Step>
 </Steps>
+
+If the camera is blocked or can't start, eggz shows **Upload from Photos Instead** so you can pick an existing image from your gallery.
 
 ### From the eggz Chrome extension {#from-the-unscrambled-tabs-extension}
 
 If you use the **eggz Chrome extension** with a [connected eggz account](/help/unscrambled-tabs/eggz-account), you can upload without opening the web app:
 
-- **Upload document** in the side panel — PDF, JPG, PNG, WebP, GIF or HEIC up to 25 MB.
-- **Send tab screenshot** — captures the page you're viewing (for example an invoice in webmail) and uploads it as an image.
-- **Capture the bill on this page** — a banner offers it whenever the page looks like an invoice, and a PDF is sent as the original file, not a picture. See [Capture bills from any page](/help/unscrambled-tabs/capture-bills).
+- **Upload photos or files** in the **+** menu of the side panel chat — PDF, JPG, PNG, WebP, GIF or HEIC up to 25 MB.
+- **Take a screenshot** in the same menu — captures the page you're viewing (for example an invoice in webmail) and uploads it as an image.
+- **File the bill on this page** — a task for a page that holds a bill. A PDF is sent as the original file, not a picture. See [Capture bills from any page](/help/unscrambled-tabs/capture-bills).
 - **Collect a whole billing page** — three or more documents on one page becomes a single approval, and anything eggz already holds is skipped. See [Collect every bill on a page](/help/unscrambled-tabs/collect-bills).
 
 Extension uploads use the **same document credits and pipeline** as the dashboard. Files appear in eggz like any other upload, and extraction starts automatically.
@@ -88,7 +90,7 @@ Forward a receipt or bill to your workspace's own eggz address and each attachme
 
 <Steps>
   <Step title="Document stored">
-    The file is securely stored in eggz and a new receipt record is created with status **Pending**.
+    The file is securely stored in eggz and a new receipt record is created. It shows in **Receipts** at once, with status **Reading**.
   </Step>
 
   <Step title="AI extraction">
@@ -113,7 +115,7 @@ After a receipt is processed, you can publish it to Xero from the **Publish to X
 | Payment State | Xero Record Type | What it creates |
 |--------------|-------------------|-----------------|
 | **Unpaid** | Bill (ACCPAY) | A purchase invoice in Xero for your supplier |
-| **Paid** | Spend Money (Bank Transaction) | A bank transaction in Xero. Requires selecting a bank account. |
+| **Paid** | Spend money | A bank transaction in Xero. Requires selecting a bank account. |
 
 <Note>Each receipt can only be published to Xero once. Make sure the extracted data is correct before publishing.</Note>
 
@@ -154,6 +156,16 @@ Packs are sold on every plan except Scale. Scale's documents are unlimited, so t
 <AccordionGroup>
   <Accordion title="My document failed to process">
     Check that the file is a supported format (PDF, JPG, PNG, WebP, GIF or HEIC), under 25 MB, and that the image is clear and readable. Blurry photos or very low-resolution images may fail to extract correctly. Try re-uploading a clearer version.
+
+    After an upload, eggz tells you what happened to each file:
+
+    - *report.pdf is in. The eggheadz are reading it now.*
+    - *report.pdf is already in eggz.*
+    - *report.pdf is over 25 MB. Shrink it or split it, then drop it in again.*
+    - *report.docx isn't a file type eggz reads yet. PDF, JPG, PNG, WebP, GIF or HEIC work.*
+    - *Hmm, report.pdf didn't make it through. The eggheadz have been told and are looking; contact support if it's urgent.*
+
+    While a batch uploads, the zone shows how far along it is, for example *Uploading 2 of 5…*. Several files with the same outcome get one message for the lot.
   </Accordion>
 
   <Accordion title="The extracted data is wrong">
@@ -161,7 +173,9 @@ Packs are sold on every plan except Scale. Scale's documents are unlimited, so t
   </Accordion>
 
   <Accordion title="I've hit my document limit">
-    Your plan has a document allowance. Once you reach it, new uploads are refused with an upgrade prompt and nothing is stored, so keep those documents and upload them again after you upgrade from **Settings > Billing** or, on Solo, Growth and Business (billed monthly or yearly, the allowance refills every month either way), after it refills. You can also buy a [document pack](#document-packs). On Free the allowance does not refill, so upgrading or buying a pack is the way to process more.
+    Your plan has a document allowance. If you run out part-way through a drop, the eggheadz panel shows a credits card saying how many of your files are waiting. The waiting files stay in the page. Add documents by upgrading from **Settings > Billing** or buying a [document pack](#document-packs), then press **Collect the remaining N** to send them on. On Solo, Growth and Business (billed monthly or yearly, the allowance refills every month either way), you can also wait for the refill. On Free the allowance does not refill, so upgrading or buying a pack is the way to process more.
+
+    A document that arrives with no documents left, by email for example, is kept as a receipt with the status **Out of documents**. Its page offers **Upgrade your plan**, and **Try again** reads it once you have documents. eggz also reads up to 50 documents a day without using credits, shared between uploads and email.
   </Accordion>
 
   <Accordion title="Does a multi-page PDF use more than one credit?">
@@ -173,6 +187,6 @@ Packs are sold on every plan except Scale. Scale's documents are unlimited, so t
   </Accordion>
 
   <Accordion title="I can't publish to Xero">
-    Ensure your Xero connection is active in **Settings > Integrations**. The receipt must be in **Processed** status before it can be published. If publishing a paid receipt as Spend Money, you must select a bank account first.
+    Ensure your Xero connection is active in **Settings > Integrations**. The receipt must be in **Processed** status before it can be published. If publishing a paid receipt as Spend money, you must select a bank account first.
   </Accordion>
 </AccordionGroup>

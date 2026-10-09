@@ -1,8 +1,8 @@
 ---
 title: "Open Tabs view"
-description: "See every tab in every Chrome window in one tidy list, then jump, rename, suspend, save, and close duplicates from one place"
+description: "See every tab in every Chrome window in one tidy list, then jump, rename, suspend, save, group, organize, and close duplicates from one place"
 icon: "table-columns"
-keywords: ['open tabs', 'all tabs', 'save window', 'suspend others', 'close duplicates']
+keywords: ['open tabs', 'all tabs', 'save window', 'suspend others', 'close duplicates', 'tab groups', 'organize']
 ---
 
 You know the tab is open. You just cannot find which of your four windows it is in.
@@ -19,7 +19,7 @@ Open Tabs is a live list. As you open, close, and jump between tabs, the view ke
 
 Open Tabs is in both surfaces.
 
-In the card and side panel it is on from the start, as a pinned section above your workspaces. If you would rather have it out of the way, go to **Settings → Open Tabs view → Placement** and switch to **Dedicated tab**, and it becomes its own **Open Tabs** tab instead.
+In the card and side panel it is the first of three tabs along the top: **Open Tabs**, **Workspaces** and **Tasks**. Its heading shows how many tabs you have open, with **Organize** and, when there are duplicates, a close-duplicates button beside it.
 
 On the dashboard, click **Open Tabs** at the top of the sidebar, where it shows a live count of how many tabs you have. The whole main area becomes the list, with room to breathe.
 
@@ -27,9 +27,11 @@ On the dashboard, click **Open Tabs** at the top of the sidebar, where it shows 
 
 Two settings shape the list on both surfaces, both under **Settings → Open Tabs view**.
 
-**Group by window** is on by default. The list gets a divider per Chrome window, **This window** and **Window 2** and so on, with the current window also showing which workspace it is using. Turn it off for one flat **All open tabs** list.
+**Group by window** is on by default. The list gets a divider per Chrome window, **This window** and **Window 2** and so on. A private window reads **(Incognito)** after its name. Turn it off for one flat **All open tabs** list. Click a window's divider, or its arrow, to fold that window's tabs away.
 
 **Sort tabs by** offers **Window order (tab strip)** to mirror the order of your real tabs, **Most recently active** to float what you touched last, or **Site name (A–Z)** to group by site.
+
+A third setting in the same place, **Keep the original tab open when dragging to a workspace**, changes what dragging does rather than how the list looks. See [Moving tabs](/help/unscrambled-tabs/moving-tabs#if-you-would-rather-copy-every-time).
 
 ## What you can do with a tab {#what-you-can-do-with-a-tab}
 
@@ -39,33 +41,73 @@ Click any row and you go straight to that tab, even if it is in another window. 
 |--------|--------------|
 | **Rename tab** | Type your own name right in the row. Enter saves, Esc cancels. See [why renaming helps](/help/unscrambled-tabs/manage-tabs#rename-any-tab). |
 | **Suspend tab** | Puts that tab to sleep and frees its memory. It stays on the tab strip and reloads when you click it. Hidden on the tab you are using and on tabs already asleep. |
-| **Save to workspace** | Saves the tab into a workspace so it is safe to close. |
-| **Save as resource** | Files the tab into a workspace's saved links instead. |
+| **Save to workspace** | Saves the tab into a workspace so it is safe to close. Click it to pick a workspace, or click it again to save straight to your active one. |
+| **Save as resource** | Files the tab into a workspace's saved links instead. It picks the same way. |
 | **Close tab** | Closes it, right from the list. |
+
+The two save buttons only show once you have at least one workspace.
 
 Two small markers help you triage. A green dot means that tab is front-and-centre in its window. A green check means it is already saved in the workspace you are viewing.
 
-Drag any row onto a workspace to file the tab there, which works in the card, the side panel and the dashboard. Hold **⌥ Option** (**Alt** on Windows and Linux) as you let go to copy instead of move, and you can undo any drop for ten seconds afterwards. See [Moving tabs](/help/unscrambled-tabs/moving-tabs).
+On the dashboard you can drag any row onto a workspace in the sidebar to file the tab there. Hold **⌥ Option** (**Alt** on Windows and Linux) as you let go to copy instead of move, and you can undo any drop for ten seconds afterwards. In the card and side panel, your workspaces are on another tab, so use the row's **Save to workspace** button instead. See [Moving tabs](/help/unscrambled-tabs/moving-tabs).
 
-To take several at once, hover a row and a small square appears where its icon was. Click it to start selecting, then **⌘-click** (**Ctrl-click**) for one more row or **Shift-click** for a run of them. Drag any selected row and the whole selection goes together. **Esc** clears it.
+To take several at once, hover a row and a small square appears where its icon was. Click it to start selecting, then **⌘-click** (**Ctrl-click**) for one more row or **Shift-click** for a run of them. Drag any selected row and the whole selection goes together.
+
+While you are selecting, the heading is replaced by a bar reading **N selected**, with four actions and a way out:
+
+| Button | What it does |
+|--------|--------------|
+| **Select all** | Selects every tab in the list |
+| **Group tabs** | Puts the selected tabs into one Chrome tab group. See [Chrome tab groups](#chrome-tab-groups) |
+| **Suspend** | Puts the selected tabs to sleep |
+| **Close** | Closes the selected tabs |
+| **Clear** | Ends the selection. **Esc** does the same |
 
 ## Whole-window moves {#whole-window-moves}
 
-When grouping by window is on, each window's divider carries two bigger levers.
+When grouping by window is on, each window's divider carries two bigger levers. On the dashboard they are words. In the side panel they are small icons that show on hover, each with a tooltip.
 
-**Save all** saves every tab in that window into a brand-new workspace. A small dialog suggests a name, and clicking **Create & save** captures the whole window in one go. This is the one to use when the window *is* the project.
+**Save all** saves every tab in that window into a brand-new workspace. In the side panel its tooltip reads **Save all tabs in this window to a workspace**. A small dialog, **Save window to a workspace**, suggests a name, and clicking **Create & save** captures the whole window in one go. This is the one to use when the window *is* the project.
 
-**Suspend others** puts every eligible background tab in that window to sleep at once, leaving your current tab awake.
+**Suspend others** puts every eligible background tab in that window to sleep at once, leaving your current tab awake. In the side panel its tooltip reads **Suspend all background tabs in this window**. Private windows have no **Suspend others**.
+
+## Chrome tab groups {#chrome-tab-groups}
+
+Tabs you have grouped in Chrome show up as a heading with the group's name and colour, and its tabs sit underneath. Click the heading's arrow to fold the group away.
+
+The heading's **⋯** menu, or a right-click on it, has **Rename**, a row of colours, **Ungroup** and **Close group**.
+
+You can also drag a group. Drag its heading up or down to reorder it, or onto another window's divider to move the whole group to that window. Drag a tab above or below another tab, or onto a group's heading, to move it in your tab strip and into that group.
+
+To make a group from tabs you already have, select them and click **Group tabs** on the bar that appears. Chrome unpins a tab when it joins a group, so if your selection includes pinned tabs, a box reads **Group a pinned tab** (or **Group pinned tabs**) and asks you to confirm with **Group and unpin it** (or **Group and unpin them**).
+
+Groups show as headings when **Sort tabs by** is **Window order (tab strip)**. In the other two sorts the tabs are spread out, so each tab wears a coloured dot and its group's name instead.
+
+Your workspaces keep their tab groups too. See [Workspaces](/help/unscrambled-tabs/workspaces#the-tabs-inside-a-workspace).
+
+## Organize with AI {#organize-with-ai}
+
+In the card and side panel, **Organize** sits in the Open Tabs heading. Click it and eggz reads your open tabs across every window and proposes a tidy-up in an **AI Organize** box with three modes:
+
+| Mode | What it does | Button |
+|------|--------------|--------|
+| **Group** | Sorts your tabs into named groups | **Apply Groups** |
+| **Reorder** | Puts your tabs in a sensible order | **Reorder Tabs** |
+| **Bookmark** | Proposes where to file each group in your workspaces | **Save to Workspaces** |
+
+Organize needs you to be signed in to eggz and at least 3 open tabs. If either is missing, a short message tells you so.
 
 ## Close duplicates in one click {#close-duplicates-in-one-click}
 
-Opened the same page three times across two windows? When the list spots duplicates, a **Close duplicates** button appears with the count, in the dashboard panel header and at the top of the side panel's pinned **Open Tabs** section.
+Opened the same page three times across two windows? When the list spots duplicates, a close-duplicates button appears with the count. On the dashboard it is a **Close duplicates** button in the panel header. In the side panel it is a small icon and count in the **Open Tabs** heading.
+
+In the side panel, hover the button before you click. A box reads **Closes 3 duplicate tabs** and **One copy of each stays open.**, then lists each page with how many copies are open, such as *open twice* or *open 3 times*. Nothing closes until you click.
 
 One click closes the extras across every window. It always keeps the copy you are using, and it never touches pinned tabs or tabs you have renamed apart on purpose. The full rules are on [Rename & tidy tabs](/help/unscrambled-tabs/manage-tabs#close-duplicate-tabs-in-one-click).
 
-## Your AI knows about these tabs too
+## eggheadz knows about these tabs too
 
-The same open tabs feed into the [AI assistant](/help/unscrambled-tabs/ai-and-search), so you can ask the chat something like *"which of my open tabs haven't I saved yet?"* and it knows the answer, because it can see the same list you can.
+The same open tabs feed into [eggheadz, the AI assistant](/help/unscrambled-tabs/ai-and-search), so you can ask the chat something like *"which of my open tabs haven't I saved yet?"* and it knows the answer, because it can see the same list you can.
 
 ## A quick note on memory
 

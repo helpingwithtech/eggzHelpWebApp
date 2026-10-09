@@ -13,6 +13,8 @@ This page shows you what you can pick up, everywhere you can drop it, how to cop
 
 You can drag an open tab, meaning any row in the **Open Tabs** list, in the side panel, the floating card, or the dashboard.
 
+You can also drag a Chrome tab group by its heading. Dropped on another window's divider in the Open Tabs list, the whole group moves to that window. The drag label reads **Moving** with no copy hint, because a group only moves. See [Chrome tab groups](/help/unscrambled-tabs/open-tabs#chrome-tab-groups).
+
 You can also drag a saved tab, meaning any row in a workspace's **Tabs** pane on the dashboard, and a saved link, meaning any row in a workspace's **Resources** pane on the dashboard.
 
 <Tip>
@@ -21,14 +23,16 @@ You can also drag a saved tab, meaning any row in a workspace's **Tabs** pane on
 
 ## Where you can drop it
 
-The rules are the same everywhere, so there is nothing to relearn between the panel and the dashboard.
+In the card and side panel, **Open Tabs** and **Workspaces** are separate tabs, so an open tab and a workspace are never on screen together there. Dragging an open tab onto a workspace happens on the dashboard, where the Open Tabs list sits beside the sidebar. In the card and side panel, click the row's **Save to workspace** button instead.
 
 | Drop it on | What happens |
 |---|---|
-| A workspace, in the card, the side panel, or the dashboard's open sidebar | The tab is saved into that workspace |
+| A workspace in the dashboard's open sidebar | The tab is saved into that workspace |
 | A pinned workspace's icon on the dashboard's slim sidebar | The same thing, with no need to open the sidebar first |
 | A folder | Hold still over the folder for a moment and it opens, then drop on a workspace inside it. Dropping on the folder itself does nothing, because a folder holds workspaces rather than tabs |
-| The **Resources** pane, or one of its named sections, on the dashboard | The page is filed as a saved link instead of a tab |
+| A workspace in the dashboard, from the side panel | Drag a tab out of the side panel's Open Tabs list and drop it on a workspace in the dashboard, and the other way round. Both need to be open in the same browser |
+| The **Resources** pane, or one of its named sections, on the dashboard | A saved tab is filed as a saved link instead of a tab |
+| Another row in the Open Tabs list | The tab moves to that spot in your tab strip, joining a tab group if you drop it on or inside one. This works when **Sort tabs by** is **Window order (tab strip)** |
 
 ## Move is the default, hold a key to copy
 
@@ -84,8 +88,10 @@ Undo covers the last drop only, and only for ten seconds. It also stays out of t
 
 Dragging is not the only route.
 
-Right-click any web page and choose **eggz Tab Manager → Move tab to workspace**, then pick one. The tab is saved there and closed here. Your most recently used workspaces are listed first, up to 25 of them.
+Right-click any web page and choose **eggz Tab Manager → Move tab to workspace**, then pick one. The tab is saved there and closed here. Your most recently used workspaces are listed first, up to 200 of them, and archived workspaces are left out. If you have more, the last line reads **Showing 200 of N — open the panel for the rest**.
 
 On the dashboard, press **⌘K** (**Ctrl+K**), type *move*, and choose **Move tab to workspace…**. See [the command bar](/help/unscrambled-tabs/ai-and-search#the-command-bar).
+
+To keep the page as a task instead, choose **eggz Tab Manager → Save as a task**. The tab stays open.
 
 To save without closing, use the **Save tab to a workspace** shortcut (**⌥D** on a Mac, **Alt+D** on Windows and Linux). It opens a small picker and the tab stays open. Or press **⌘K** and type *save*.

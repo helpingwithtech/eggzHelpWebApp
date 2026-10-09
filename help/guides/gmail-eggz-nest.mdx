@@ -1,14 +1,14 @@
 ---
 title: "Send emails to eggz with the eggz Nest label"
 sidebarTitle: "Gmail eggz Nest"
-description: "Connect Gmail and eggz adds an eggz Nest label. Put an email under it and eggz turns it into a pending receipt you review before it reaches Xero."
+description: "Connect Gmail and eggz adds an eggz Nest label. Put an email under it and eggz turns it into a receipt you review before it reaches Xero."
 keywords: ["Gmail", "eggz Nest", "label", "email receipts", "held emails", "Release", "disconnect Gmail"]
 icon: "tag"
 ---
 
 ## What eggz Nest does
 
-eggz Nest is a label in your Gmail. Put an email under it and eggz reads that email and turns it into a **Pending** receipt, the same way it handles an email [forwarded to your eggz email address](/help/guides/email-in). You check the receipt in eggz, and nothing goes to Xero until you publish it.
+eggz Nest is a label in your Gmail. Put an email under it and eggz reads that email and turns it into a receipt, the same way it handles an email [forwarded to your eggz email address](/help/guides/email-in). You check the receipt in eggz, and nothing goes to Xero until you publish it.
 
 eggz opens only the emails you put under eggz Nest. See [what eggz reads in your Gmail](#what-eggz-reads-in-your-gmail).
 
@@ -38,7 +38,7 @@ Add the **eggz Nest** label to an email in Gmail, the same way you label anythin
 
 eggz then reads the email the same way it reads a forwarded one:
 
-- **Each attachment becomes its own Pending receipt.** PDFs and images, the same formats as [uploads](/help/guides/uploading-documents).
+- **Each attachment becomes its own receipt.** PDFs and images, the same formats as [uploads](/help/guides/uploading-documents).
 - **An email with no attachment** is read from the message itself, so a subscription receipt written in the email still becomes a receipt.
 - **Up to 10 attachments per email.** An email with more is held back whole.
 - **Each receipt uses one document credit**, from the same allowance as uploads and forwarded emails.
@@ -48,7 +48,7 @@ eggz reads each email once. Taking the label off and putting it back doesn't mak
 
 ## Every team member connects their own Gmail
 
-eggz Nest is set up per person. Each team member connects their own Gmail on **Settings > Integrations**, and the emails they label become their own pending receipts.
+eggz Nest is set up per person. Each team member connects their own Gmail on **Settings > Integrations**, and the emails they label become their own receipts.
 
 - A member's Integrations page shows the Gmail card and the emails eggz held back from their Gmail. Everything that manages the workspace, such as billing, users, email-in and Xero, stays with admins.
 - A Gmail sends to one person in one workspace. If a teammate already connected it, the card says "A teammate already connected this Gmail, so labelled emails land as their pending receipts." If it already sends to another workspace, the card says "This Gmail already sends to" and names that workspace.
@@ -58,14 +58,14 @@ eggz Nest is set up per person. Each team member connects their own Gmail on **S
 
 Some emails can't become receipts straight away. eggz holds them back and lets the person whose Gmail it came from know.
 
-- **Admins** see every held email in the workspace, forwarded or from anyone's Gmail, in **Quarantine** on the **Email-in** card.
+- **Admins** see every held email in the workspace, forwarded or from anyone's Gmail, in **Emails held back** on the **Email-in** card.
 - **Everyone else** sees the emails held from their own Gmail in **Emails held back**, under the Gmail card.
 
 Each held email shows why it was held:
 
 | Label | Why | What to do |
 |---|---|---|
-| **Out of document credits** | Your workspace has used its document allowance. | Once your workspace has document credits again, press **Release**. |
+| **Out of document credits** | Your workspace has no documents left and eggz couldn't read the email's documents without credits. Usually each document is held as an **Out of documents** receipt instead. | Once your workspace has document credits again, press **Release**. |
 | **Daily limit reached** | The workspace reached its daily limit for emailed receipts. | Press **Release** later. |
 | **Couldn't process** | Reading the email failed. | Press **Release** to read it again. |
 | **Couldn't open** | eggz couldn't open the email at all, so its subject shows as **Subject unknown**. | Press **Release** to try again, or put the receipt under eggz Nest again as a PDF or photo. |
@@ -77,7 +77,7 @@ Each held email shows why it was held:
 
 ### Release and Delete
 
-**Release** reads the email from Gmail again. While it does, the row says "eggz is reading this email from Gmail again." Once the email is read, it leaves the list and its receipts appear as **Pending**. If it's held again, it comes back with the new reason. **Release** only appears where reading the email again can help; on the other rows, the row's own words say what to do.
+**Release** reads the email from Gmail again. While it does, the row says "eggz is reading this email from Gmail again." Once the email is read, it leaves the list and its receipts appear, each **Reading** until eggz has read it. If it's held again, it comes back with the new reason. **Release** only appears where reading the email again can help; on the other rows, the row's own words say what to do.
 
 Release needs the Gmail the email came from to be connected to this workspace. If it isn't, the row says "eggz can't read this email again until its Gmail is connected to this workspace. Reconnect Gmail in Settings, then release it." If the email is gone from Gmail, the row says "eggz can't find this email in Gmail any more."
 
@@ -85,6 +85,7 @@ Release needs the Gmail the email came from to be connected to this workspace. I
 
 ## What eggz reads in your Gmail
 
+- Google's screen asks for a standard set of Gmail permissions. eggz uses only what's on this list.
 - eggz adds one label, eggz Nest, and opens only the emails you put under it. It reads each one in full, the message and its attachments, to make your receipts.
 - When you ask eggheadz about a contact, it sees only each email's sender, recipients, subject, date and preview.
 - eggz never sends, deletes or changes an email.
@@ -103,13 +104,13 @@ Release needs the Gmail the email came from to be connected to this workspace. I
     Press **⋯** at the top right of the **Gmail** card.
   </Step>
   <Step title="Press Manage connection">
-    A panel opens at the bottom of the card. Disconnect Gmail there.
+    A panel opens at the bottom of the card, with your connected Gmail account in it. Use the option there to disconnect the account, then confirm when eggz asks.
   </Step>
 </Steps>
 
 You can also remove eggz's access from your Google Account.
 
-Once Gmail is disconnected, eggz stops reading emails under eggz Nest. The label and every email under it stay in your Gmail. From then on, only admins see the emails eggz held back from that Gmail, in **Quarantine**.
+Once Gmail is disconnected, eggz stops reading emails under eggz Nest. The label and every email under it stay in your Gmail. From then on, only admins see the emails eggz held back from that Gmail, in **Emails held back** on the **Email-in** card.
 
 To start again, press **Connect Gmail**. eggz finds the eggz Nest label already in your Gmail and reads any email under it that it hasn't read before.
 

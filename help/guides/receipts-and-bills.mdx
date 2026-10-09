@@ -38,7 +38,9 @@ When the match is likely but not certain, eggz proposes instead of deciding. A *
 
 If neither document is obviously the main one, the card asks you to pick first: *"Choose which document is the main record before combining."* Click **Make this the main record** on the one that should carry the amount.
 
-These suggestion cards appear in two places: a **Purchases to review** card on your dashboard home, and the same queue in **Settings**. Both are visible to admins only, and the dashboard card isn't there when there's nothing to review. See [Purchases to review](/help/guides/dashboard#purchases-to-review).
+These suggestion cards are in **Purchases to review** on **Settings > Integrations**, visible to admins only. The eggheadz **Tasks** menu has a row, **Purchases that look like the same bill**, that opens it when there's something to review.
+
+Two documents with the same supplier, amount and printed date but different reference numbers get the same question instead of being missed, because they might be one purchase captured twice.
 
 ### Proof of payment arrived
 
@@ -63,13 +65,18 @@ The **Process** panel names the receipt's stage and explains it in a line:
 | Stage | What it means |
 |-------|---------------|
 | **Reading** | eggz is still reading the receipt — the details fill in automatically when it's done. |
+| **Not sent** | The document was stored but never reached the reader. The eggheadz have been notified. Press **Try again**. |
 | **Couldn't read** | The document couldn't be read. Check it's clear, or delete it and upload again. |
-| **Needs review** | Something's missing before it can be recorded. A chip shows what: **No date**, **No amount**, or **No supplier**. (On the Receipts list, a missing date shows as a **Needs date** chip in the Transaction date column — see [Receipts without a date](/help/guides/receipt-dates).) |
+| **Out of documents** | Your workspace had no documents left when processing was attempted, so it's held. **Upgrade your plan** or buy a pack, then press **Try again**. |
+| **Needs review** | Something's missing before it can be recorded. A chip shows what: **No date**, **No amount**, **No supplier**, **No currency** or **No exchange rate**. For **No currency**, pick the currency in the **Currency** list on the page. For **No exchange rate**, press **Edit rate** under the converted amount and enter the rate or the amount in your own currency. (On the Receipts list, a missing date shows as a **Needs date** chip in the Transaction date column — see [Receipts without a date](/help/guides/receipt-dates).) |
 | **Needs a decision** | eggz needs you to choose how to record it: it's proof of payment for a bill, or its own expense. |
+| **Looks like a bill** | An invoice still to be paid. It isn't counted until you record it. |
 | **Expense** | Recorded as its own expense. |
 | **Proof of payment** | Attached to a bill as proof of payment. The bill carries the amount, so the purchase is counted once, not twice. |
 | **Combined** | Combined with another document as the same purchase. The main document carries the amount, so it's counted once, not twice. |
 | **Published to Xero** | Sent to Xero. |
+| **Waiting for approval** | The receipt came from someone whose only role is Expenses. An admin or accountant approves it before it can go to Xero. See [Approving receipts from the Expenses role](/help/guides/team-receipt-approval). |
+| **Sent back** | An approver sent it back with a reason. Edit the receipt and it goes for approval again. |
 
 ### The one next step
 
@@ -90,7 +97,7 @@ Choosing **Attach as proof of payment…** opens a dialog headed **Proof of paym
 
 The panel lays out what to check against the document image, with GST broken out for Australian substantiation:
 
-- **Total (incl. GST)** · **GST** · **Subtotal (excl. GST)** when the receipt carries tax — or a single **Amount** when it doesn't.
+- **Total (incl. GST)** · **GST** · **Subtotal (excl. GST)** when the receipt carries tax — or a single **Total** when it doesn't (the page then says **No GST on this document**).
 - The **Supplier**, linked through to its account when eggz has matched one (otherwise the merchant name with a *"Not linked to a supplier"* note).
 - The **Date**, marked *"From bank transaction"* when it was set from a bank match.
 
@@ -103,6 +110,10 @@ Changed your mind? On a proof-of-payment receipt, open the **More actions** menu
 ## You always have the final say
 
 eggz classifies every document for you, but its classification is a starting point, not a verdict. The **Change how this is recorded** section of the receipt page lets you override it, and eggz never blocks an override. The one exception: a receipt with no readable total can't become a bill until you enter its printed total. Where a change has a real accounting consequence, an orange advisory note explains it first; you can still proceed.
+
+### Looks like a bill
+
+When eggz reads an invoice that's still to be paid, the receipt's stage is **Looks like a bill** and the page leads with two choices. **Record as a bill** makes a draft bill from it for you to approve. **It's already paid** records it as its own expense. To leave it out of your bills, choose **Don't make the bill**.
 
 ### This is actually a bill
 
@@ -137,7 +148,7 @@ When you publish a receipt to Xero, what eggz creates depends on its payment sta
 | Receipt status | Creates in Xero |
 |----------------|-----------------|
 | **Unpaid** | A bill |
-| **Paid** | Spend Money |
+| **Paid** | Spend money |
 
 Either way, eggz remembers the link between the receipt and what it created in Xero. So when that item syncs back on the next Xero sync, it's recognised as the same purchase and never duplicated.
 

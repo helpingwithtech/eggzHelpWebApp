@@ -11,19 +11,24 @@ The Expenses page brings together two types of outbound transactions:
 - **Receipts**: Documents you upload to eggz (photos, PDFs). AI extracts the data automatically.
 - **Bills**: Purchase invoices you owe (accounts payable), synced from Xero or captured in eggz itself.
 
-Both appear on the Expenses page, separated by tabs.
+The Expenses page has three tabs: **All** (receipts and bills stacked, one list above the other), **Receipts** and **Bills**. In the **Expenses** menu, **New Receipt** and **New Bill** start a new one by hand.
 
 ## Receipts tab
 
 ### Viewing receipts
 
-The Receipts tab shows all documents you have uploaded. Each receipt displays:
+The Receipts tab shows all documents you have uploaded. A file appears here the moment it is submitted, with the status **Reading**. The columns are:
 
-- **Status**: Pending (processing), Processed (ready to review), or Published (sent to Xero)
-- **Merchant name**: Extracted by AI from the document
-- **Amount**: Total transaction amount and currency
+- **File name**
+- **Supplier**: Extracted by AI from the document
 - **Transaction date**: The date on the receipt — or a **Needs date** chip if eggz couldn't find one (see [Receipts without a date](/help/guides/receipt-dates))
-- **Category**: AI-assigned expense category
+- **Amount**: Total transaction amount
+- **Currency**
+- **Status**: **Reading**, **Processed**, **Needs review**, **Failed**, **Error** or **Out of documents**. A **Looks like a bill** chip marks an invoice still to be paid.
+- **Uploaded**
+- **Size**
+
+In the list you can edit the **Transaction date** (with a date picker), **Amount**, **Currency** and **Status** in place.
 
 ### Receipt detail page
 
@@ -31,12 +36,17 @@ Click any receipt to open its detail view. Here you can:
 
 - See where the receipt sits in its process — the **Process** panel names its stage, and when there's a step to take the top of the page offers exactly one (Resolve, Add a date, or View bill; an Expense-stage receipt publishes from the **Publish to Xero** card below instead). See [The Process panel](/help/guides/receipts-and-bills#the-process-panel).
 - View the original document (PDF viewer or image) — on a phone, behind a **View document** tab. See [Viewing on your phone](/help/guides/invoices-and-quotes#viewing-on-your-phone).
-- Check the extracted figures with **GST first** — Total (incl. GST) · GST · Subtotal — and follow the supplier through to its account
+- Check the extracted figures with **GST first** — Total (incl. GST) · GST · Subtotal — and follow the supplier through to its account. A receipt with no GST shows **Total** and **No GST on this document**.
+- Pick the receipt's **Currency** and set or change its exchange rate with **Edit rate**, see [Currency and exchange rates](#currency-and-exchange-rates)
 - Review the line items and AI extraction summary — amounts are edited on the Receipts list, see below
 - See its [Activity](/help/guides/invoices-and-quotes#activity) timeline of what's happened to it
-- Download the original file
-- [Publish to Xero](#publish-a-receipt-to-xero) (as a bill or Spend Money)
-- Delete the receipt
+- Press **Download** for the original file
+- [Publish to Xero](#publish-a-receipt-to-xero) (as a bill or Spend money)
+- Open the **⋯** menu for **Separate from bill**, **Combine with another document…** or **Delete receipt**
+
+### Currency and exchange rates
+
+A receipt in a currency eggz can't be sure of shows **Needs review** with a **No currency** chip. Pick the right one in the **Currency** list on the receipt page and the chip clears. A receipt in a currency eggz can't convert shows **No exchange rate**. Press **Edit rate** under the converted amount, then either **Enter rate** or enter the amount in your own currency, and press **Save rate**. The rate applies to that document only, and **Revert to daily rate** takes it back.
 
 ### Editing a receipt's amount
 
@@ -44,13 +54,25 @@ On the Receipts list, click a receipt's **Amount** to edit it in place. eggz kee
 
 ### Receipt lifecycle
 
-| Stage | Status | What happens |
-|-------|--------|-------------|
-| Uploaded | Pending | File stored, AI processing queued |
-| Processed | Processed | Data extracted, ready for review |
-| Submitted | Submitted | Sent for approval (if applicable) |
-| Approved | Approved | Approved for payment |
-| Published | Published | Created in Xero as Bill or Spend Money |
+| Status | What happens |
+|--------|-------------|
+| **Reading** | File stored, the eggheadz are reading it |
+| **Processed** | Data extracted, ready for review |
+| **Needs review** | Something is missing, such as a date or a currency. A chip shows what. |
+| **Failed** or **Error** | The document couldn't be read |
+| **Out of documents** | Held because your workspace had no documents left |
+
+The **Status** column and the **Process** panel are two views of the same receipt. The panel is more detailed: **Failed** and **Error** show there as **Couldn't read**, and a document that never reached the reader shows **Not sent**. See [The Process panel](/help/guides/receipts-and-bills#the-process-panel).
+
+Past those, the **Process** panel on the receipt names the stage, from **Needs a decision** to **Expense** to **Published to Xero**. See [The Process panel](/help/guides/receipts-and-bills#the-process-panel). A team receipt also shows **Waiting for approval** and **Sent back**, see [Approving receipts from the Expenses role](/help/guides/team-receipt-approval).
+
+### Search, filter and export
+
+Above every list, **Search** looks across the rows. **Filters** adds a filter on a column, and **Clear all** removes them. **Group by** gathers rows under a column's values. **Columns** picks what shows, see [Customise your table columns](#customise-your-table-columns).
+
+Tick the box beside rows to act on them. **Export all** becomes **Export N** for the rows you ticked, and **Delete selected (N)** asks you to confirm in **Delete Records**. Each row also has **View details** and **Delete**. Bills can't be deleted from the list.
+
+In a narrow window the table scrolls sideways. The tick box and **File name** stay pinned on the left, and the row actions on the right. Sorting, grouping and hiding a column never move the other columns.
 
 ## Publish a receipt to Xero
 
@@ -60,20 +82,21 @@ Publishing is how a reviewed receipt leaves eggz and becomes a real record in yo
 
 The **Publish to Xero** card sits on the receipt detail page, below the extracted data. You'll see it when all of these are true:
 
-- The receipt has finished processing (status **Processed**).
+- The receipt has finished processing (status **Processed**), has a date, and isn't a combined document.
+- It isn't waiting for an admin or accountant to approve it. See [Approving receipts from the Expenses role](/help/guides/team-receipt-approval).
 - Your workspace is [connected to Xero](/help/guides/xero-sync).
 - Your account has permission to publish to Xero. If you don't see the card at all, ask your workspace admin.
 
 If Xero isn't connected — or the connection has expired — the card still appears, but instead of a publish button it prompts you to connect (or reconnect) Xero from **Settings > Integrations**.
 
-### Bill or Spend Money?
+### Bill or Spend money?
 
 What eggz creates in Xero depends on the receipt's payment status:
 
 | Receipt is | Creates in Xero | Extra input needed |
 |------------|-----------------|--------------------|
 | **Unpaid** | A **bill** (ACCPAY) you can pay later in Xero | None |
-| **Paid** | A **Spend Money** bank transaction | The **bank account** it was paid from — required |
+| **Paid** | A **Spend money** bank transaction | The **bank account** it was paid from — required |
 
 The card tells you upfront which one this receipt will become.
 
@@ -85,11 +108,11 @@ The card tells you upfront which one this receipt will become.
   </Step>
 
   <Step title="Review the details">
-    Check the contact (taken from the merchant name), the transaction date, the amount, and the line-item count. If something looks wrong, cancel and correct the receipt first — see [the extracted data is wrong](/help/guides/uploading-documents#troubleshooting).
+    Check the contact (taken from the merchant name), the transaction date, the amount, the line items and the attachments. If something looks wrong, cancel and correct the receipt first — see [the extracted data is wrong](/help/guides/uploading-documents#troubleshooting).
   </Step>
 
   <Step title="Choose accounts (if needed)">
-    Optionally pick the **expense account** for the line items — leave it blank to use your default expense account. If the receipt is **paid**, you must also choose the **bank account** the money came from; eggz won't let you publish a paid receipt without one.
+    Pick the **Expense account (optional)** for the line items, or leave it blank to use your default expense account. If the receipt is **paid**, you must also choose the **Bank account (paid from)**, the account the money came from; eggz won't let you publish a paid receipt without one.
   </Step>
 
   <Step title="Approve">
@@ -99,7 +122,7 @@ The card tells you upfront which one this receipt will become.
 
 ### After publishing
 
-The card changes to **Published to Xero**, showing what was created (a bill or a Spend Money transaction) and when. That's the receipt's final state — the publish button is gone, and each receipt can only be published once, so you can't create duplicates by revisiting the page.
+The card changes to **Published to Xero**, showing what was created (a bill or a Spend money transaction) and when. That's the receipt's final state — the publish button is gone, and each receipt can only be published once, so you can't create duplicates by revisiting the page.
 
 eggz also remembers the link between the receipt and the record it created. When that bill or transaction syncs back from Xero later, eggz recognises it as the same purchase instead of counting it twice — see [How receipts become expenses](/help/guides/receipts-and-bills).
 
@@ -112,7 +135,7 @@ eggz also remembers the link between the receipt and the record it created. When
 A bill can reach eggz several ways:
 
 - **Synced from Xero.** Purchase invoices from your connected Xero organisation.
-- **Created in eggz.** Choose **New Bill** from the main menu to capture a bill by hand, with its own supplier, dates, line items, and currency.
+- **Created in eggz.** Choose **New Bill** in the **Expenses** menu to capture a bill by hand, with its own supplier, dates, line items, and currency.
 - **Captured in ChatGPT or Claude.** See [Capture bills in ChatGPT & Claude](/help/guides/ai-bill-capture).
 - **Created from a receipt.** If a receipt is really money you still owe, the receipt page's **This is actually a bill** button records it as a bill, with an Undo. See [You always have the final say](/help/guides/receipts-and-bills#you-always-have-the-final-say).
 
@@ -122,11 +145,13 @@ The bill's detail page names its origin in the **Source** field, for example **M
 
 The Bills tab shows all your bills, whatever their source. Each bill displays:
 
-- Invoice number and reference
-- Contact (supplier) name
-- Dates (issued, due)
-- Amounts (subtotal, tax, total, paid, due)
-- Status: DRAFT, SUBMITTED, AUTHORISED, PAID or VOIDED, as in Xero
+- **Contact** (supplier)
+- **Reference**
+- **Date** and **Due Date**
+- **Total** and **Amount Due**
+- **Status**: DRAFT, SUBMITTED, AUTHORISED, PAID or VOIDED, as in Xero
+
+The subtotal, tax and amount paid are on the bill's detail page. Admins and accountants with Xero connected also see **Sync from Xero** above the list. With no bills yet, the list says "No bills found. Connect Xero and sync to import your bills."
 
 ### Approve a captured bill
 
@@ -150,7 +175,7 @@ You'll know it worked when the status reads **AUTHORISED** and the bill shows in
 
 ### Bill detail page
 
-Click any bill to view full details, including the PDF attachment where one exists.
+Click any bill to view full details, including the PDF attachment where one exists. **Download** saves it, and a bill from Xero has **Open in Xero**.
 
 <Note>A bill **synced from Xero** is managed in Xero: edit it there, then pull the latest: in **Settings > Integrations**, click **Xero settings** on the **Xero** card, then **Refresh** next to **Bills**. Bills captured in eggz (the **Manually captured** source) live in eggz.</Note>
 
@@ -163,10 +188,6 @@ The detail page also shows:
 - An [Activity](/help/guides/invoices-and-quotes#activity) timeline of what's happened to the bill
 
 On a phone, the same [Details / View document layout](/help/guides/invoices-and-quotes#viewing-on-your-phone) applies here too.
-
-## Bank payments tab
-
-Once your bank is connected, admins and accountants see a **Bank payments** tab with the payments your bank feed brings in. See [Bring your bank's payments into eggz](/help/guides/bank-feed).
 
 ## Customise your table columns
 
@@ -195,7 +216,7 @@ You'll know it worked when the table redraws with your chosen columns — and it
 From the Expenses page, you can upload new documents directly:
 
 - **Drag and drop** PDFs or images onto the upload zone
-- **Click** the upload zone to open the file picker
+- Press **Select files** to open the file picker
 - On mobile, use the **camera button** in the bottom dock
 
 See [Uploading Documents](/help/guides/uploading-documents) for full details on supported formats and processing.

@@ -41,19 +41,21 @@ eggz pulls the following data from your Xero account:
 | **Quotes** | Xero to eggz | Quotes with prospect, amounts, status |
 | **Customers** | Xero to eggz | Contact information synced into your Accounts list |
 | **Chart of accounts** | Xero to eggz | Account codes used for expense category mapping |
-| **Payments** | Xero to eggz | Payments against invoices and bills, including partial payments and their dates |
-| **Bank transactions** | Xero to eggz | Spend Money and Receive Money transactions |
+| **Payments** | Xero to eggz | Payments against invoices and bills, including partial payments and their dates. They come in when you connect. |
+| **Bank transactions** | Xero to eggz | Spend Money and Receive Money transactions. They come in when you connect. |
 | **Branding themes** | Xero to eggz | Invoice and quote theme names and logos — refresh from [Branding themes](/help/guides/xero-branding) |
 
 Payments and bank transactions keep your [Collected and Outstanding views](/help/guides/reporting-views) accurate — eggz knows not just what was invoiced, but what's actually been paid and when.
 
-<Note>After the first sync, refreshing is manual. On the **Xero** card, click **Xero settings**, then click **Refresh** next to the data you want under **Synced data**. eggz does not automatically poll Xero for changes.</Note>
+<Note>Customers refresh automatically every 8 hours. Everything else refreshes by hand: on the **Xero** card, click **Xero settings**, then click **Refresh** next to **Chart of accounts**, **Invoices**, **Bills**, **Quotes** or **Financial year** under **Synced data**. **Customers** has a **Refresh** too, if you don't want to wait. Payments and bank transactions have no **Refresh**.</Note>
+
+**Financial year** shows the month your Xero year starts, as **Starts** and the month.
 
 ### Sync order
 
 When you first connect, **documents sync first, then payments**. So invoices, bills, and quotes appear before the payments that settle them. If a payment ever lands before its document, eggz links the two automatically once the document arrives.
 
-<Note>If a payment is deleted in Xero, it disappears from your eggz reports automatically on the next sync.</Note>
+<Note>eggz checks for deleted payments each time it syncs payments. That happens when you connect, so a payment deleted in Xero later stays in your eggz reports until then.</Note>
 
 ## What eggz pushes to Xero
 
@@ -64,7 +66,7 @@ eggz can push processed receipts to Xero in two ways:
 | **Unpaid** | Bill (ACCPAY) | A supplier invoice you still need to pay |
 | **Paid** | Spend Money (Bank Transaction) | An expense already paid, recorded against a bank account |
 
-<Note>Draft invoices and quotes you create in eggz can be [published to Xero](/help/guides/publish-to-xero). Documents synced from Xero can't be pushed back, and customer records created in eggz aren't pushed to Xero on their own.</Note>
+<Note>Draft invoices and quotes you create in eggz can be [published to Xero](/help/guides/publish-to-xero). Documents synced from Xero can't be pushed back, and customer records created in eggz aren't pushed to Xero on their own. When you publish, eggz creates the supplier or customer in Xero if Xero doesn't already have a match.</Note>
 
 ## Account mapping
 
@@ -84,6 +86,10 @@ After syncing your chart of accounts from Xero, you can map eggz expense categor
   </Step>
 </Steps>
 
+Your mappings are listed under **Current Mappings**. When a receipt publishes to Xero, each line uses its category's account. The mapping marked **Default** covers everything unmatched. To make a different mapping the default, use **Set as default** on its row. To remove one, delete it and confirm **Delete this mapping?**
+
+People who can't edit mappings see **Contact an administrator to manage account mappings**.
+
 ## Managing your connection
 
 ### Connection status
@@ -97,7 +103,7 @@ The line under **Xero** on the card says how the connection stands:
 | **Xero stopped answering. Reconnect to keep syncing.** | The connection has a problem, and the card shows what Xero said. Click **Reconnect**. |
 | **Keep your bills, invoices and contacts in step with Xero.** | No Xero organisation is connected. Click **Connect**. |
 
-eggz automatically renews its access to Xero daily. If that fails, the card says the connection expired. A team member who can't connect Xero sees **Ask an admin to connect Xero.** or **Ask an admin to reconnect it.** in place of the button.
+eggz renews its access to Xero automatically. A connection nobody has touched for 60 days reads as expired. If renewing fails, the card says the connection expired. Only admins see the **Xero** card, so only an admin can connect, reconnect or disconnect.
 
 ### Disconnect Xero
 
@@ -111,8 +117,6 @@ eggz automatically renews its access to Xero daily. If that fails, the card says
   </Step>
 </Steps>
 
-If there's no **⋯** on the card, ask your workspace admin to disconnect Xero.
-
 Disconnecting **immediately revokes eggz's access at Xero** — the connection is withdrawn on Xero's side straight away, not just removed from eggz — so eggz can no longer read or sync your data. It does **not** delete any data already synced into eggz.
 
 ### Switch to a different organisation
@@ -123,7 +127,7 @@ Because only one Xero organisation can be connected per workspace, to change whi
 
 - **One Xero organisation per workspace**: You cannot connect multiple Xero organisations to the same eggz workspace.
 - **One-way sync for most data**: Bills in eggz are **read-only copies synced from Xero** — edit them in Xero. (Publishing a processed receipt can *create a new bill in Xero* — see [What eggz pushes to Xero](#what-eggz-pushes-to-xero) — but existing bills never sync back.) Contact details also sync one way from Xero; the CRM fields you manage on customers in eggz (owner, segment, annual value, and so on) live only in eggz and are never pushed to Xero. Invoices and quotes synced from Xero are one-way too — but a **draft you create in eggz** can be [published to Xero](/help/guides/publish-to-xero).
-- **Manual refresh**: After the first sync, click **Refresh** under **Xero settings** to pull new data. There is no automatic polling.
+- **Mostly manual refresh**: Customers refresh by themselves every 8 hours. For invoices, bills, quotes and your chart of accounts, click **Refresh** under **Xero settings**. Payments and bank transactions come in when you connect.
 - **No bank reconciliation**: eggz displays financial data but does not perform bank reconciliation. Continue using Xero for reconciliation.
-- **Currency conversion**: Analytics use your default exchange rates set in general settings, not live foreign exchange rates.
+- **Currency conversion**: Analytics convert foreign currency at the daily reference rate for each document's date, not a live rate. To use a different rate for one document, click **Set exchange rate** on it. **Reverted to the daily rate** confirms you went back.
 - **Invoices settled by credit notes, overpayments, or prepayments** still show as **Outstanding** in eggz for now, even though Xero considers them settled. This is coming in a follow-up. Invoices settled by an ordinary payment are handled correctly today.

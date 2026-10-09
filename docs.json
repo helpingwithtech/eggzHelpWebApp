@@ -29,6 +29,7 @@
             "pages": [
               "help/index",
               "help/guides/onboarding",
+              "help/guides/try-eggz",
               "help/guides/dashboard"
             ]
           },

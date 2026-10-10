@@ -1,0 +1,125 @@
+---
+title: "Import a bank statement"
+description: "Send your bank's statement to eggz and see its payments on Bank payments. Free on every plan, including the forever free trial."
+icon: "file-import"
+keywords: ["bank statement", "import", "CSV", "OFX", "QIF", "Bank payments", "undo import", "supplier statement"]
+---
+
+## What importing a statement does
+
+Your bank gives you a statement as a file. Send that file to eggz and its payments appear on **Bank payments**, ready to sit beside your receipts and bills. You check what eggz found, click **Add**, and the payments are in.
+
+Importing statements is free on every plan, including the forever free trial. A statement never uses one of your document credits, however it reaches eggz.
+
+<Info>Only admins and accountants add statements. See [Who can import a statement](#who-can-import-a-statement).</Info>
+
+## Send it to eggz
+
+There is no separate door. Send the file the way you send receipts:
+
+- **Upload** it in the web app. See [Upload documents](/help/guides/uploading-documents).
+- **Email** it to your workspace address. See [Upload receipts to Xero by email](/help/guides/email-in).
+- **Upload** it with the Chrome extension.
+
+The mobile app sends photos, not files, so send a statement file one of these ways.
+
+eggz works out what the file is:
+
+| What you send | Where it goes |
+|---|---|
+| A bank file: CSV (comma-separated values), OFX (Open Financial Exchange) or QIF (Quicken Interchange Format) | **Bank payments** |
+| A PDF of a bank or card statement | **Bank payments** |
+| A PDF of a supplier's statement | **Expenses**, labelled **Supplier statement** |
+| Anything else | **Expenses**, as a receipt or bill |
+
+A bank file can be up to 10 MB and hold up to 20,000 payments. It must hold one account and one currency. If your bank gives you more, download one account at a time, or a shorter date range, and import each.
+
+<Tip>Download the CSV, OFX or QIF file from your bank when you can. A PDF is read from a picture of a page, so a file from your bank is the more reliable of the two.</Tip>
+
+## Import steps
+
+When a file arrives, the eggheadz read it. A band appears at the top of **Bank payments** saying "Reading 1 statement…", then "1 statement is ready to add." or "1 statement needs a look." Click **Review** to open it.
+
+Most files go straight to the last step. Where eggz can't be sure of something, it asks, one question at a time. Click **Continue** after each answer.
+
+### Which column is which?
+
+Some CSV files have columns eggz doesn't know yet. Match them once and eggz remembers this layout for the next file from that bank.
+
+- **Date**: the column that holds each payment's date.
+- **Description**: pick one column, or several to join.
+- **Amount**: choose **One column, money out as minus**, or **Separate money in and money out** and pick the **Money in** and **Money out** columns.
+- **Balance**: pick the balance column, or choose **No balance column**.
+
+### Which way round are this file's dates?
+
+If a date such as 03/02/2026 could mean two days, eggz asks which you mean, for example "Is 03/02/2026 the 3rd of February or the 2nd of March?" Pick the right day. If it can't ask by a single row, it asks by order: **Day first, like 31/12/2026**, **Month first, like 12/31/2026** or **Year first, like 2026-12-31**.
+
+If a column holds no dates eggz can read, it says so. Pick the column that holds each payment's date.
+
+### Which account is this?
+
+Pick the account the payments belong to, or choose **A new account** and fill in **Account name**, **Last 4 digits** and **Currency**. If the file names an account ending in the same four digits as one you have, eggz picks it for you.
+
+### Is this money in or money out?
+
+Banks mark money out differently. When eggz can't tell, it shows you one payment from the file and asks. Choose **Money in** or **Money out** to say which it is. When eggz has flipped a file's amounts so that its balance adds up, it tells you.
+
+## Check these rows, then add
+
+When the file is read, the last step shows how many payments are new, for example "12 new payments", and any that are already here. Click **Add 12 payments** to add them. Payments that were already in eggz are never added twice.
+
+### Check these
+
+Some rows look like a payment already here, a few days apart. They appear under **Check these**, each beside the payment it looks like ("Looks like Office rent on 3 Jul 2026."). For each one, click:
+
+- **Add it** if it is a different payment, or
+- **It's already here** if it is the same payment.
+
+A row you don't choose is left out of the add.
+
+### Pending payments and empty amounts
+
+Payments still pending at your bank are left out and come in with a later statement once they post. Rows with no amount are left out too. eggz tells you how many.
+
+## Needs a look
+
+When eggz can't read a file, the band says "needs a look" and the step is titled **Needs a look**. It says what is wrong and what to do, for example:
+
+- "This file holds more than one account. Download one account at a time and import each."
+- "Row 14's date isn't one eggz can read, so this file can't be imported. Check that row in your bank's file, or download it again."
+- "The balance column stops adding up at row 31, so eggz won't guess which figure is right."
+- For a PDF whose figures don't add up to its closing balance: "Import the CSV or OFX file from your bank instead."
+
+eggz won't guess at a figure. When a file can't be used, click **Remove**. The import stays listed under **Imports** as "Removed before adding", and you can send a fresh file.
+
+If a step says "That step didn't go through", the eggheadz have been notified and are on it. Contact support if it is urgent.
+
+## Undo import
+
+Every import is listed under **Imports** on Bank payments, newest first, with its account, its period and where it stands. If an import added payments, open the menu on its row (**More actions**) and click **Undo import**.
+
+eggz asks "Undo this import?" and tells you it removes the payments the import added. Payments that were already here stay. Click **Undo import** to go ahead, or **Keep them**. When it finishes, the row reads "Import undone", with how many payments were removed.
+
+## Who can import a statement
+
+Only admins and accountants. They see Bank payments, and they import, add, undo and remove statements.
+
+Everyone else doesn't see Bank payments or the import. If a member or an expenses-only member sends a bank file, it isn't lost: the line reads "is in. It's waiting for an admin or your accountant to approve." The file waits in **Approvals** as "Bank statement" with the sender's name. An admin or accountant approves it, and eggz reads it. If it is sent back, the sender is told why and can send the statement again once it's sorted.
+
+## Supplier statements stay in Expenses
+
+A supplier's statement lists what you owe or have paid them. It isn't your bank's, so it never goes to Bank payments. It stays in **Expenses**, labelled **Supplier statement**, and doesn't need a decision from you.
+
+If eggz reads a document as a supplier's statement after you sent it, the import says: "is a supplier's statement, not your bank's, so it stays with your documents in Expenses." A document you have already changed yourself, such as one you've published to Xero or approved, is never moved.
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Upload documents" icon="upload" href="/help/guides/uploading-documents">
+    Send files from the web app.
+  </Card>
+  <Card title="Upload receipts by email" icon="envelope" href="/help/guides/email-in">
+    Send files to your workspace address.
+  </Card>
+</Columns>

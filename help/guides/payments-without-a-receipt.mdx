@@ -1,0 +1,90 @@
+---
+title: "Payments without a receipt"
+description: "See which money-out bank payments have no receipt or bill, so you know which receipts to find. The count is on every plan; the list is on Solo and above."
+icon: "receipt"
+keywords: ["payments without a receipt", "missing receipts", "bank payments", "no receipt", "bank feed", "bank statement", "matching"]
+---
+
+## What the list shows
+
+**Payments without a receipt** lists the money-out bank payments that no receipt or bill matches, so you know which receipts to find. It sits inside **Bank payments**.
+
+Bank payments tells you how many there are and what they add up to, for example "8 payments have no receipt · $1,240.50". If you have payments in more than one currency, each currency gets its own total, for example "$1,240.50 and US$80.00", largest first. When there are none, the list says "No payments without a receipt".
+
+A payment is on the list when all of these are true:
+
+- It is money out. Money in, such as a client paying you or a refund, never looks for a receipt.
+- The bank has posted it. A payment still pending at your bank isn't listed until it posts.
+- No receipt or bill matches it, and none is waiting for you to confirm. A payment with a suggested receipt is in your matching screens, not here.
+- Xero doesn't already hold it with paperwork. See [Payments Xero already holds](#payments-xero-already-holds).
+
+<Note>Transfers, wages and bank fees are listed too, for now.</Note>
+
+## Where the payments come from
+
+The list reads two places:
+
+- **The bank feed**, the payments your bank sends to eggz.
+- **Imported statements**, the files you send to eggz. See [Import a bank statement](/help/guides/import-bank-statement).
+
+You see the payments from the places switched on for your business.
+
+## How eggz decides a payment has a receipt
+
+eggz weighs four things together for each receipt and each money-out payment: the **amount**, the **date**, the **supplier name** against the words your bank uses, and the **currency**. No one of them decides it alone.
+
+- **A clear match is made on its own.** The amount is exact, the date and name agree, and no other payment is a close rival. eggz matches it and the payment leaves the list.
+- **A close call goes to a person.** A good fit with something off, such as an amount a few cents out, a card surcharge, or two payments that fit about equally, is suggested for you to confirm. It isn't on this list while it waits.
+- **A poor fit is no match.** The payment stays on the list.
+
+eggz looks at payments from 20 days before the receipt's date to 90 days after it, because bills are often paid weeks later.
+
+The date compared is the date **printed on the receipt**. Only a receipt with no printed date uses the day it was put into eggz. See [Receipt dates](/help/guides/receipt-dates).
+
+## Payments Xero already holds
+
+A payment leaves the list when Xero already holds the same payment with paperwork:
+
+- a Spend Money entry in Xero with an attachment, or one eggz published from a receipt, or
+- a bill paid in Xero, because the bill is the paperwork.
+
+It has to be the same day and the same amount, and the same currency where Xero records one. Each Xero entry covers one bank payment. If two equal payments fall on one day and Xero holds one entry, the second stays on the list.
+
+## Who sees it, and on which plan
+
+Only admins and accountants see **Bank payments**, so only they see this list. Members and expenses-only members see nothing.
+
+| Plan | What admins and accountants see |
+|---|---|
+| Forever free trial | The count and total, and **See which ones**, which offers Solo, billed monthly. The rows behind it are placeholder bars, never your payments. |
+| Solo, Growth, Business and Scale | The count and total, **Show them**, and the list. |
+| Plan couldn't be read | The count and total, and a line saying the eggheadz are on it. No list. |
+
+eggz checks your plan on its own servers, not in your browser, so the forever free trial never receives the rows.
+
+## Open the list
+
+1. Open **Bank payments**.
+2. Click **Show them** on the count line. On the forever free trial the button is **See which ones**.
+
+You can also press Cmd+J and choose **Payments without a receipt**. In the Chrome extension, **Payments without a receipt** follows **Bank payments** in the **Go to** list.
+
+The list shows each payment's date, description and amount, 25 at a time. Click **Show more** for the next 25. Click **Upload receipts** to add the receipts you find, or **All bank payments** to go back.
+
+Once a receipt is saved and matches, its payment leaves the list. The count is counted again after you add or undo a statement, after the bank feed brings in payments, after a receipt is saved or deleted, and when Bank payments opens on a count more than a minute old. The list itself is always read live.
+
+## If the list doesn't load
+
+- "We couldn't check your plan, so this list didn't load. That's on our side, and our eggheadz are on it now. Contact support if this is urgent."
+- "This list didn't load. Our eggheadz have been notified and are on it now. Contact support if this is urgent."
+
+## Related guides
+
+<Columns cols={2}>
+  <Card title="Import a bank statement" icon="file-import" href="/help/guides/import-bank-statement">
+    Send your bank's statement to eggz.
+  </Card>
+  <Card title="Receipt dates" icon="calendar" href="/help/guides/receipt-dates">
+    Which date eggz uses for a receipt.
+  </Card>
+</Columns>

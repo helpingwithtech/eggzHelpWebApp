@@ -1,6 +1,6 @@
 ---
 title: "Performance & RAM"
-description: "Manual, Balanced and Aggressive performance modes, Free RAM now, protected tabs, and how Chrome tab discard works in eggz Tab Manager & Bill Capture"
+description: "Manual, Balanced and Aggressive modes, Free RAM now, protected tabs, and how suspended tabs work"
 icon: "gauge"
 ---
 
@@ -10,19 +10,19 @@ This page shows you how to get the memory back without losing the tabs, and how 
 
 ## How it works, in plain English
 
-eggz Tab Manager & Bill Capture uses Chrome's native tab discard. When a tab is discarded, it stays on your tab strip with its title and URL, but its page content is unloaded from memory to save RAM. When you click that tab again, Chrome reloads the page from the network, like opening it fresh.
+The extension frees a tab's memory through Chrome. A suspended tab stays on your tab strip with its title and URL, and your computer gets its memory back. Click it and it reloads from the network.
 
-The official behaviour is documented in [Chrome `tabs.discard`](https://developer.chrome.com/docs/extensions/reference/api/tabs).
+See Chrome's [tabs API reference](https://developer.chrome.com/docs/extensions/reference/api/tabs).
 
 <Tip>
-Discarding is not closing. If a tab disappears entirely, that was a close, not Performance mode.
+Performance mode never closes tabs. If a tab disappears, something else closed it.
 </Tip>
 
 ## The three performance modes {#performance-modes-explained}
 
 You choose a mode in **Settings → Advanced → Performance & RAM**. All three respect the same safety rules for automatic background sweeps: active, pinned and audible tabs, internal pages, and anything on your **Protected Domains** list are skipped. **Free RAM now** is available in every mode and uses the same safety gates.
 
-If you would rather aim by hand, you can suspend a single tab, or all background tabs of one window at once, straight from the Open Tabs view. See [Suspend a tab](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). The same protections apply.
+To do it by hand, free one tab's memory, or a whole window's background tabs, from the Open Tabs view. See [Free a tab's memory](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). The same protections apply.
 
 ### Manual, with no timer
 
@@ -34,17 +34,17 @@ Choose Manual when you want maximum predictability and only occasional cleanup, 
 
 **Free RAM now** still works in this mode. Click it and the extension frees the memory of eligible tabs you are not using. They load again when you click them.
 
-### Balanced, discarding after an interval you choose
+### Balanced, after an interval you choose
 
-When enabled, the extension periodically looks at all normal tabs across all windows and may discard tabs that have been inactive longer than your selected interval, which the settings offer as 5, 10, 15, 30 or 60 minutes.
+The extension regularly checks normal tabs in every window and may suspend any left unused longer than your interval: 5, 10, 15, 30 or 60 minutes.
 
 Only http(s) sites are candidates. Internal schemes such as `chrome://`, extension pages and similar are skipped.
 
 Choose Balanced when you want steady RAM savings without the Aggressive five-minute cap.
 
-### Aggressive, the same rules with a faster idle cutoff
+### Aggressive, the same rules with a shorter interval
 
-Aggressive has the same eligibility and protections as Balanced, but the effective idle time is capped at five minutes, so inactive eligible tabs can be discarded sooner than your dropdown might suggest for Balanced.
+Aggressive uses Balanced's rules but caps the interval at five minutes, so tabs may be suspended sooner than your setting says.
 
 Choose Aggressive when you run very large tab sets and want lower memory pressure between tasks, and you accept more frequent reloads when you return to a background tab.
 
@@ -56,11 +56,11 @@ You have twenty tabs open across research, docs and tools. Tab 1 is your main do
 
 | Mode | What you are likely to see |
 |------|----------------------------|
-| **Manual** | All nineteen background tabs stay loaded in memory until you close them, Chrome itself discards them, or you press **Free RAM now**. |
-| **Balanced** | After your chosen interval, say 15 minutes, of being inactive, eligible background tabs may show as discarded. They remain on the strip, and clicking one reloads the page. Tabs you pinned, sites on **Protected Domains**, audible tabs and the active tab are not discarded by the extension sweep. |
-| **Aggressive** | The same as Balanced for this sweep, except the effective idle threshold is at most five minutes, so background eligible tabs tend to discard sooner. |
+| **Manual** | All nineteen background tabs stay loaded until you close them, Chrome's memory saver steps in, or you press **Free RAM now**. |
+| **Balanced** | After your interval, say 15 minutes, unused background tabs may be suspended. They stay on the strip and reload when clicked. The extension never suspends pinned, audible or active tabs, or sites on **Protected Domains**. |
+| **Aggressive** | Same as Balanced, but the interval is at most five minutes, so tabs tend to be suspended sooner. |
 
-If you press **Free RAM now** in any mode, eligible inactive tabs can unload immediately, subject to the same skip rules: nothing pinned, protected, active or internal.
+In any mode, **Free RAM now** frees eligible tabs' memory at once, skipping anything pinned, protected, active or internal.
 
 ---
 
@@ -80,20 +80,20 @@ Pinned tabs stay as they are. Sites on your **Protected Domains** list and Chrom
 
 ## Free RAM now
 
-**Free RAM now** is a manual button in **Settings → Advanced → Performance & RAM**. It discards eligible inactive tabs now rather than on a timer, it does not remove tabs from the strip, and it uses the same protections as automatic discard: active, pinned, audible, internal or non-http(s), and protected domains.
+**Free RAM now** is a button in **Settings → Advanced → Performance & RAM**. It frees eligible tabs' memory now, not on a timer, and keeps them on the strip. It skips what the timer skips: active, pinned, audible, internal or non-http(s) tabs, and sites on **Protected Domains**.
 
 Use it when the fans spin up or Chrome feels heavy, without changing your performance mode.
 
 ---
 
-## What is never discarded
+## What is never suspended
 
 These are always skipped:
 
 - The active tab in its window
 - Pinned tabs
 - Audible tabs
-- Tabs that are already discarded
+- Tabs that are already suspended
 - Internal pages (`chrome://`, extension pages, `about:` or new-tab style pages where applicable)
 - Non-http(s) URLs the extension treats as ineligible
 - Hostnames matching your **Protected Domains** list
@@ -104,20 +104,20 @@ Add the domains you care about, such as mail, docs, banking and HR tools, under 
 
 ## Multiple windows
 
-If you use several Chrome windows, sweeps consider all of them, not only the one that was focused last. Each window can still have its own active tab, which will not be discarded.
+Sweeps cover every Chrome window, not only the last one you used. Each window's active tab is never suspended.
 
 ---
 
 ## Measuring the saving honestly
 
-Discarding reduces memory for heavy pages, but the exact saving depends on the site, the Chrome version and the operating system. eggz Tab Manager & Bill Capture does not promise a fixed percentage.
+Suspending heavy pages saves memory, but how much depends on the site, Chrome version and operating system. We don't promise a fixed percentage.
 
 For a sanity check:
 
 1. Open Chrome Task Manager, from the Chrome menu under **More tools → Task manager**.
-2. Note the memory for a few heavy tabs before discarding.
+2. Note the memory of a few heavy tabs.
 3. Trigger **Free RAM now**, or wait for your mode to run.
-4. Click a discarded tab. It reloads, and memory rises again for that tab.
+4. Click a suspended tab. It reloads, and its memory rises again.
 
 That cycle is expected.
 

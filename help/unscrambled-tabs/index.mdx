@@ -65,11 +65,11 @@ If you are the sort of person who has already lost a session once, you also get 
   </Card>
 
   <Card title="Rename & tidy tabs" icon="wand-magic-sparkles" href="/help/unscrambled-tabs/manage-tabs">
-    Custom tab names, save for later, closing duplicates, suspending hungry tabs.
+    Custom tab names, save for later, closing duplicates, freeing memory.
   </Card>
 
   <Card title="Open Tabs view" icon="table-columns" href="/help/unscrambled-tabs/open-tabs">
-    Every tab in every window in one list. Jump, save, suspend, tidy.
+    Every window's tabs in one list. Jump, save, free memory, tidy.
   </Card>
 
   <Card title="Ask eggheadz & search" icon="sparkles" href="/help/unscrambled-tabs/ai-and-search">
@@ -93,7 +93,7 @@ If you are the sort of person who has already lost a session once, you also get 
   </Card>
 
   <Card title="Performance & RAM" icon="gauge" href="/help/unscrambled-tabs/performance-and-ram">
-    Manual, Balanced and Aggressive modes, Free RAM now, and what is never unloaded.
+    Manual, Balanced and Aggressive modes, Free RAM now, and what's never suspended.
   </Card>
 
   <Card title="Backup & import" icon="floppy-disk" href="/help/unscrambled-tabs/backup-import">
@@ -117,9 +117,9 @@ If you are the sort of person who has already lost a session once, you also get 
 | Workspaces | Named workspaces with colours, icons, folders, pinning and archiving, one per Chrome window. Switching brings everything back: tab groups, pinned tabs, custom tab names, and the tab you were on. |
 | Moving tabs | Drag a tab onto a workspace to file it. It moves by default; hold **⌥ Option** (**Alt**) to copy. A label follows your cursor saying which. Every drop has a ten-second **Undo**. |
 | Right-click a row | Right-clicking any workspace row opens the same menu as its **⋯** button, right where your cursor is. |
-| The command bar | On the dashboard, **⌘K** (**Ctrl+K**), or just **/**, finds your workspaces, tabs and links, and runs actions by name: create, switch, archive, suspend, close duplicates. |
-| Tab tools | Rename any tab with your own name, save a page for later, close duplicates in one click, and suspend hungry tabs. |
-| Open Tabs view | Its own tab, first in the row. Every open tab across every window in one list. Jump, rename, suspend, save one tab or a whole window, tidy with **Organize**, group several at once, and close duplicates. |
+| The command bar | On the dashboard, **⌘K** (**Ctrl+K**) or **/** finds your workspaces, tabs and links, and runs actions by name: create, switch, archive, free memory, close duplicates. |
+| Tab tools | Rename any tab, save a page for later, close duplicates in one click, and free memory from hungry tabs. |
+| Open Tabs view | Its own tab, first in the row. Every open tab in every window, in one list. Jump, rename, free memory, save one tab or a whole window, tidy with **Organize**, group several at once and close duplicates. |
 | Tasks | The third tab in the card and side panel, and a place in the dashboard sidebar, for tabs you have saved as tasks. |
 | eggheadz | One chat that knows your open tabs and your saved workspaces, and, once you sign in, your eggz books. It is included with your eggz plan and there is no key to paste. |
 | Capture bills | Spot a bill or invoice on any page and send it to eggz in one click, once you are signed in. A PDF is sent as the original file, all pages intact. |
@@ -128,7 +128,7 @@ If you are the sort of person who has already lost a session once, you also get 
 | Quick switcher | **⌥A** (**Alt+A**) lists workspaces most-recent-first, and Enter flips you back to your previous one. |
 | Session Time-Travel | Automatic five-minute snapshots, the last 50 kept. Restore any point as a fresh workspace. |
 | Duplicate catcher | Open a page you already have and a bar offers to jump to the existing tab. |
-| Performance modes | Unload eligible inactive tabs while keeping them on the tab strip: Manual, Balanced or Aggressive. |
+| Performance modes | Free unused tabs' memory and keep them on the tab strip: Manual, Balanced or Aggressive. |
 | Encrypted backup | Export password-protected backups. Restoring one replaces local extension data. |
 
 ## How it relates to eggz
@@ -141,4 +141,4 @@ They are designed to work together, but you do not need an eggz account for the 
 
 ## Official Chrome API reference
 
-Tab unloading is built on Chrome's [`tabs.discard`](https://developer.chrome.com/docs/extensions/reference/api/tabs) API. Unloaded tabs stay visible, and when you activate one, Chrome reloads the page like a normal refresh.
+Suspending uses Chrome's [tabs API](https://developer.chrome.com/docs/extensions/reference/api/tabs). Suspended tabs stay visible and reload when you click them, like a normal refresh.

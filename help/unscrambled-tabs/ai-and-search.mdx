@@ -41,7 +41,7 @@ Click into the empty ask bar and **Recent** appears, with up to four rows. Your 
 
 ## It knows what you have open
 
-The chat does not only see the one tab you are staring at. It knows about every open tab in every window, including the ones Chrome has put to sleep to save memory. By default it sees only the names and web addresses, the titles and URLs, so it knows what you have going on without waking anything.
+The chat does not only see the one tab you are staring at. It knows every open tab in every window, suspended ones too. By default it sees only their titles and addresses, so it loads nothing.
 
 It also knows the names of things in your saved library: your workspaces, folders, and saved links. So you can ask it things like:
 
@@ -50,7 +50,7 @@ It also knows the names of things in your saved library: your workspaces, folder
 - *"Round up all my shopping tabs and tuck them into one group."*
 
 <Tip>
-Sleeping tabs stay asleep. The chat sees the name and address of a sleeping tab, but it will not wake it up to look, because that would spend the memory you were trying to save.
+The chat sees a suspended tab's title and address, and only loads it if you let it read the page.
 </Tip>
 
 ## It asks before it reads a page {#it-asks-before-it-reads-a-page}
@@ -114,7 +114,7 @@ Type nothing and you get a list of things you can do. Type a word and it narrows
 | **Save this tab to…** | Keeps the page you were on, leaves it open |
 | **Move tab to workspace…** | Saves the page and closes it here |
 | **Archive workspace…** | Keeps everything, leaves the lists |
-| **Suspend other tabs** | Frees their memory, and they reload when clicked |
+| **Free memory** | Frees other tabs' memory. They reload when clicked |
 | **Close duplicate tabs** | Same page open twice, so it keeps one |
 | **Toggle sidebar** | Shows or hides the workspace list |
 | **Open settings** | Account, backup, shortcuts and more |
@@ -124,7 +124,7 @@ A name ending in **…** asks a second question. Pick **Switch workspace…** an
 A command only appears when it would actually do something. **Close duplicate tabs** stays out of sight unless you really have a duplicate, and the tab commands need a web page to act on. Six are shown at a time, so keep typing to reach the rest.
 
 <Tip>
-It matches on more than the exact words. Typing *dup* finds **Close duplicate tabs**, *susp* finds **Suspend other tabs**, and initials work too, so **cw** finds **Create workspace**.
+It matches on more than the exact words. Typing *dup* finds **Close duplicate tabs**, *mem* finds **Free memory**, and initials work too, so **cw** finds **Create workspace**.
 </Tip>
 
 ## Ask eggheadz from anywhere

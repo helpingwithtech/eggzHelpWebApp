@@ -20,17 +20,19 @@ Discarding is not closing. If a tab disappears entirely, that was a close, not P
 
 ## The three performance modes {#performance-modes-explained}
 
-You choose a mode in **Settings → Advanced → Performance & RAM**. All three respect the same safety rules for automatic background sweeps: active, pinned and audible tabs, internal pages, and anything on your **Protected domains** list are skipped. **Free RAM now** is available in every mode and uses the same safety gates.
+You choose a mode in **Settings → Advanced → Performance & RAM**. All three respect the same safety rules for automatic background sweeps: active, pinned and audible tabs, internal pages, and anything on your **Protected Domains** list are skipped. **Free RAM now** is available in every mode and uses the same safety gates.
 
 If you would rather aim by hand, you can suspend a single tab, or all background tabs of one window at once, straight from the Open Tabs view. See [Suspend a tab](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). The same protections apply.
 
-### Manual, with no automatic discarding
+### Manual, with no timer
 
-The extension does not run timed background discards on eligible inactive tabs. Your tabs stay loaded until Chrome or you do something else: Chrome's own memory saver may step in, or you may close tabs yourself.
+The extension never frees a tab's memory on a timer. A tab that has loaded stays loaded until Chrome or you do something else: Chrome's own memory saver may step in, or you may close tabs yourself.
 
-Choose Manual when you want maximum predictability and only occasional cleanup, or when you are working in long drafts and want no automatic unloading at all.
+When you open a workspace, only the tab you were last on loads. The others load when you click them. This is the same in every mode. See [Scenario B](#switching-workspaces).
 
-**Free RAM now** is still available in this mode: a one-shot discard of eligible inactive tabs when you click the button.
+Choose Manual when you want maximum predictability and only occasional cleanup, or when you are working in long drafts and want a tab that has loaded to stay loaded.
+
+**Free RAM now** still works in this mode. Click it and the extension frees the memory of eligible tabs you are not using. They load again when you click them.
 
 ### Balanced, discarding after an interval you choose
 
@@ -44,8 +46,6 @@ Choose Balanced when you want steady RAM savings without the Aggressive five-min
 
 Aggressive has the same eligibility and protections as Balanced, but the effective idle time is capped at five minutes, so inactive eligible tabs can be discarded sooner than your dropdown might suggest for Balanced.
 
-After you switch workspaces, Aggressive mode may also immediately discard some newly opened inactive tabs, still respecting the pinned, protected, audible and internal rules.
-
 Choose Aggressive when you run very large tab sets and want lower memory pressure between tasks, and you accept more frequent reloads when you return to a background tab.
 
 ---
@@ -57,22 +57,24 @@ You have twenty tabs open across research, docs and tools. Tab 1 is your main do
 | Mode | What you are likely to see |
 |------|----------------------------|
 | **Manual** | All nineteen background tabs stay loaded in memory until you close them, Chrome itself discards them, or you press **Free RAM now**. |
-| **Balanced** | After your chosen interval, say 15 minutes, of being inactive, eligible background tabs may show as discarded. They remain on the strip, and clicking one reloads the page. Tabs you pinned, sites on **Protected domains**, audible tabs and the active tab are not discarded by the extension sweep. |
+| **Balanced** | After your chosen interval, say 15 minutes, of being inactive, eligible background tabs may show as discarded. They remain on the strip, and clicking one reloads the page. Tabs you pinned, sites on **Protected Domains**, audible tabs and the active tab are not discarded by the extension sweep. |
 | **Aggressive** | The same as Balanced for this sweep, except the effective idle threshold is at most five minutes, so background eligible tabs tend to discard sooner. |
 
 If you press **Free RAM now** in any mode, eligible inactive tabs can unload immediately, subject to the same skip rules: nothing pinned, protected, active or internal.
 
 ---
 
-## Scenario B: switching workspaces, when many tabs load at once
+## Scenario B: switching workspaces {#switching-workspaces}
 
-Workspace A has a handful of tabs. Workspace B has fifteen. You switch, so the window now loads all fifteen. Tab 1 becomes active and the other fourteen open in the background.
+Workspace A has a handful of tabs. Workspace B has fifteen. You switch, and all fifteen come back on the strip with their titles and icons. Only the tab you were last on loads. The others load when you click them.
+
+Pinned tabs stay as they are. Sites on your **Protected Domains** list and Chrome's own pages load straight away. **Open in new window**, eggz reopening your workspace when Chrome starts up, and restoring a snapshot work the same way, in every mode.
 
 | Mode | What you are likely to see |
 |------|----------------------------|
-| **Manual** | All fourteen background tabs stay loaded after the switch, unless you use **Free RAM now** or close tabs yourself. |
-| **Balanced** | The switch itself does not immediately discard those fourteen. Over time, if they stay inactive past your Balanced interval, the periodic sweep may discard eligible ones. |
-| **Aggressive** | After the workspace opens, eligible background tabs may be discarded quickly right after load, though still never your active tab, pinned tabs, protected domains, audible tabs or internal pages. Combined with the five-minute cap on idle time, Aggressive is the strongest RAM-saving mode. |
+| **Manual** | The others load when you click them. A tab that has loaded stays loaded until you close it or press **Free RAM now**. |
+| **Balanced** | The others load when you click them. If a tab that has loaded sits unused past your Balanced interval, the extension may free its memory. It loads again when you click it. |
+| **Aggressive** | The same as Balanced, but the interval is capped at five minutes, so the extension frees a tab's memory sooner. That cap makes Aggressive the strongest RAM-saving mode. |
 
 ---
 
@@ -94,7 +96,7 @@ These are always skipped:
 - Tabs that are already discarded
 - Internal pages (`chrome://`, extension pages, `about:` or new-tab style pages where applicable)
 - Non-http(s) URLs the extension treats as ineligible
-- Hostnames matching your **Protected domains** list
+- Hostnames matching your **Protected Domains** list
 
 Add the domains you care about, such as mail, docs, banking and HR tools, under **Settings → Advanced → Protected Domains**.
 

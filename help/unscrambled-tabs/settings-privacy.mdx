@@ -93,11 +93,11 @@ Four groups and nothing else. Three of them are right there on the page. The fou
 
 ### Performance & RAM
 
-**Performance mode** gives you **Manual**, which does no automatic unloading, **Balanced**, which unloads eligible inactive tabs after your chosen interval, or **Aggressive**, which does the same with the idle threshold capped at five minutes. The default is Manual.
+**Performance mode** gives you **Manual**, which never frees a tab's memory on a timer, **Balanced**, which frees the memory of eligible tabs you have not used for your chosen interval, or **Aggressive**, which does the same with the interval capped at five minutes. The default is Manual. In every mode, when you open a workspace only the tab you were last on loads. The others load when you click them.
 
 **Discard after** is the Balanced and Aggressive idle interval: 5, 10, 15, 30 or 60 minutes, with 15 as the default. It appears once you have picked something other than Manual.
 
-**Free RAM now** is a one-click sweep that unloads eligible inactive tabs immediately, whatever mode you are in. It tells you how many it did.
+**Free RAM now** frees the memory of eligible tabs you are not using, straight away, in any mode. It tells you how many it did. They load again when you click them.
 
 All of it skips your active tab, pinned tabs, tabs playing sound, Chrome's own pages, and every site on your Protected Domains list. The full picture is on [Performance & RAM](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained).
 

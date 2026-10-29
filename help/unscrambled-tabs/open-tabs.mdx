@@ -1,15 +1,15 @@
 ---
 title: "Open Tabs view"
-description: "See every tab in every Chrome window in one tidy list, then jump, rename, suspend, save, group, organize, and close duplicates from one place"
+description: "See every tab in every Chrome window in one list, then jump, rename, free memory, save, group, organize and close duplicates"
 icon: "table-columns"
-keywords: ['open tabs', 'all tabs', 'save window', 'suspend others', 'close duplicates', 'tab groups', 'organize']
+keywords: ['open tabs', 'all tabs', 'save window', 'free memory', 'close duplicates', 'tab groups', 'organize']
 ---
 
 You know the tab is open. You just cannot find which of your four windows it is in.
 
 The **Open Tabs** view rounds up every open tab across every Chrome window and lays them out in one list. This page shows you where that list lives, how to shape it, and what you can do to a tab from it.
 
-Even tabs that have been put to sleep to save memory show up here, listed by their title and web address with a small *suspended* note.
+Suspended tabs show up here too, by title and web address, with a small *suspended* note.
 
 <Note>
 Open Tabs is a live list. As you open, close, and jump between tabs, the view keeps up on its own.
@@ -40,7 +40,7 @@ Click any row and you go straight to that tab, even if it is in another window. 
 | Action | What it does |
 |--------|--------------|
 | **Rename tab** | Type your own name right in the row. Enter saves, Esc cancels. See [why renaming helps](/help/unscrambled-tabs/manage-tabs#rename-any-tab). |
-| **Suspend tab** | Puts that tab to sleep and frees its memory. It stays on the tab strip and reloads when you click it. Hidden on the tab you are using and on tabs already asleep. |
+| **Free memory** | Frees that tab's memory. It stays on the tab strip and reloads when you click it. Hidden on your current tab and on suspended tabs. |
 | **Save to workspace** | Saves the tab into a workspace so it is safe to close. Click it to pick a workspace, or click it again to save straight to your active one. |
 | **Save as resource** | Files the tab into a workspace's saved links instead. It picks the same way. |
 | **Close tab** | Closes it, right from the list. |
@@ -59,7 +59,7 @@ While you are selecting, the heading is replaced by a bar reading **N selected**
 |--------|--------------|
 | **Select all** | Selects every tab in the list |
 | **Group tabs** | Puts the selected tabs into one Chrome tab group. See [Chrome tab groups](#chrome-tab-groups) |
-| **Suspend** | Puts the selected tabs to sleep |
+| **Free memory** | Frees selected tabs' memory |
 | **Close** | Closes the selected tabs |
 | **Clear** | Ends the selection. **Esc** does the same |
 
@@ -69,7 +69,7 @@ When grouping by window is on, each window's divider carries two bigger levers. 
 
 **Save all** saves every tab in that window into a brand-new workspace. In the side panel its tooltip reads **Save all tabs in this window to a workspace**. A small dialog, **Save window to a workspace**, suggests a name, and clicking **Create & save** captures the whole window in one go. This is the one to use when the window *is* the project.
 
-**Suspend others** puts every eligible background tab in that window to sleep at once, leaving your current tab awake. In the side panel its tooltip reads **Suspend all background tabs in this window**. Private windows have no **Suspend others**.
+**Free memory** frees every eligible background tab in that window at once, except your current tab. In the side panel its tooltip reads **Free memory of this window's other tabs**. Private windows don't have it.
 
 ## Chrome tab groups {#chrome-tab-groups}
 
@@ -111,4 +111,4 @@ The same open tabs feed into [eggheadz, the AI assistant](/help/unscrambled-tabs
 
 ## A quick note on memory
 
-Listing a sleeping tab does not wake it up. Open Tabs reads the title and address only, so your sleeping tabs stay asleep. For more on keeping memory in check, see [Performance & RAM](/help/unscrambled-tabs/performance-and-ram).
+Listing a suspended tab doesn't load it. Open Tabs reads only its title and address. For more on keeping memory in check, see [Performance & RAM](/help/unscrambled-tabs/performance-and-ram).

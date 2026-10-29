@@ -93,19 +93,19 @@ Four groups and nothing else. Three of them are right there on the page. The fou
 
 ### Performance & RAM
 
-**Performance mode** gives you **Manual**, which does no automatic unloading, **Balanced**, which unloads eligible inactive tabs after your chosen interval, or **Aggressive**, which does the same with the idle threshold capped at five minutes. The default is Manual.
+**Performance mode** gives you **Manual**, which never frees a tab's memory on a timer, **Balanced**, which frees the memory of eligible tabs you have not used for your chosen interval, or **Aggressive**, which does the same with the interval capped at five minutes. The default is Manual. In every mode, when you open a workspace only the tab you were last on loads. The others load when you click them.
 
 **Discard after** is the Balanced and Aggressive idle interval: 5, 10, 15, 30 or 60 minutes, with 15 as the default. It appears once you have picked something other than Manual.
 
-**Free RAM now** is a one-click sweep that unloads eligible inactive tabs immediately, whatever mode you are in. It tells you how many it did.
+**Free RAM now** frees the memory of eligible tabs you are not using, straight away, in any mode. It tells you how many it did. They load again when you click them.
 
 All of it skips your active tab, pinned tabs, tabs playing sound, Chrome's own pages, and every site on your Protected Domains list. The full picture is on [Performance & RAM](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained).
 
 ### Protected Domains
 
-Sites that are never unloaded, so drafts, forms and logged-in dashboards are always safe. Type one domain per line and click **Save**. You can list up to 10,000. Every line must be a domain with a dot, like `example.com`, or nothing saves and the box says *A domain needs a dot, like example.com*.
+Sites never suspended, so drafts, forms and logged-in dashboards stay safe. Type one domain per line and click **Save**. You can list up to 10,000. Every line must be a domain with a dot, like `example.com`, or nothing saves and the box says *A domain needs a dot, like example.com*.
 
-Anything here is skipped by performance-mode sweeps, by **Free RAM now**, and by the manual [Suspend buttons](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). Good candidates are your webmail, your documents tool, your banking, your payroll or HR system, and anything you routinely leave a half-written form in.
+Performance modes, **Free RAM now** and the [Free memory buttons](/help/unscrambled-tabs/manage-tabs#suspend-a-tab) all skip anything here. Good candidates are your webmail, your documents tool, your banking, your payroll or HR system, and anything you routinely leave a half-written form in.
 
 <Tip>
 Paste addresses however you like. A full web address is tidied down to just its domain when you save, so `https://www.example.com/inbox/2` becomes `example.com`.
@@ -141,6 +141,6 @@ Matching your tabs and workspaces in search happens on your computer. When you a
 
 ## About the permissions Chrome asks for
 
-The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots and unload tabs. Its right-click menu items (**Rename this tab…**, **Save for later & close tab**, **Move tab to workspace**, **Save as a task**) need permission to appear on pages, and it needs to draw on the page you are reading, because that is what the floating card is.
+The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots and free memory. Its right-click menu items (**Rename this tab…**, **Save for later & close tab**, **Move tab to workspace**, **Save as a task**) need permission to appear on pages, and it needs to draw on the page you are reading, because that is what the floating card is.
 
 Granting only some permissions is not supported. If you decline, some features will not work.

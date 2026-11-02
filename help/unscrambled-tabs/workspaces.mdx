@@ -35,8 +35,8 @@ There are other ways to make one. **Save all** on a window in the [Open Tabs vie
 
 Switching is the heart of the product, so here is exactly what happens. When you switch this window from workspace A to workspace B:
 
-1. **A is saved first.** Its tabs, their order, which tabs were pinned, your Chrome tab groups (names, colours, and whether they were collapsed), which tab you were focused on, and any [custom tab names](/help/unscrambled-tabs/manage-tabs#rename-any-tab).
-2. **B opens in the same window.** Not just its tabs: its tab groups are rebuilt, pinned tabs are pinned again, your custom tab names are back on the strip, and the exact tab you were on last time is focused.
+1. **A is saved first.** Its tabs, their order, your Chrome tab groups (names, colours, and whether they were collapsed), which tab you were focused on, and any [custom tab names](/help/unscrambled-tabs/manage-tabs#rename-any-tab). Pinned tabs are not part of it. See [Pinned tabs](#pinned-tabs).
+2. **B opens in the same window.** Its tabs come back with their tab groups rebuilt, your custom tab names back on the strip, and the exact tab you were on last time focused. Your pinned tabs stay where they are.
 
 You do not get mystery windows or a rough approximation of what you had. You leave a workspace mid-thought and come back to the same thought.
 
@@ -55,7 +55,7 @@ Two more commands, **Switch to the next workspace** and **Switch to the previous
 
 Each Chrome window remembers its own workspace. Switching only ever affects the window you are in, so you can keep one client on your left monitor and another on your right, each window showing its own world.
 
-Want that second window without leaving your first? Hover a workspace row on the dashboard and click **Open in new window**. The workspace opens in a fresh Chrome window, groups and pins and all, and that window is now bound to it. Your current window does not change. The same button lives in the pinned-workspace flyouts on the slim sidebar.
+Want that second window without leaving your first? Hover a workspace row on the dashboard and click **Open in new window**. The workspace opens in a fresh Chrome window with its tab groups, and that window is now bound to it. Your current window does not change. The same button lives in the pinned-workspace flyouts on the slim sidebar.
 
 ## The row menu, two ways to open it {#row-menu}
 
@@ -162,7 +162,7 @@ In the card and side panel, the active workspace's resources appear as a **Resou
 
 ## Pinned tabs
 
-Tabs you pin in Chrome get careful treatment. Pinning survives every switch and restart, and pinned tabs are never suspended by [Performance modes](/help/unscrambled-tabs/performance-and-ram) or closed by [Close duplicates](/help/unscrambled-tabs/manage-tabs#close-duplicate-tabs-in-one-click).
+A pinned tab stays pinned in its own window. Switching workspaces never closes or unpins it, and it is not saved into a workspace or reopened with one. You can still save a pinned tab to a workspace yourself. It is saved as an ordinary page and the pinned tab stays open, and a page that is already saved is not saved twice. Pinned tabs are never suspended by [Performance modes](/help/unscrambled-tabs/performance-and-ram) or closed by [Close duplicates](/help/unscrambled-tabs/manage-tabs#close-duplicate-tabs-in-one-click).
 
 ## Opening a page you already have open?
 

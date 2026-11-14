@@ -20,6 +20,7 @@
 
 import { applyInAppEmbedHeaders } from "./embed-framing";
 import { ROBOTS_TXT } from "./robots-content";
+import { isSkillsIndexPath, repairSkillsIndex } from "./skills-index";
 
 interface Env {
   MINTLIFY_ORIGIN: string;
@@ -27,9 +28,14 @@ interface Env {
 
 const PUBLIC_ORIGIN = "https://eggz.ai";
 
+// The two skills paths are the ones Mintlify's reverse-proxy guide says to
+// forward: `/.well-known/agent-skills/` is the current Agent Skills Discovery
+// path (v0.2.0), `/.well-known/skills/` the legacy one. Each needs a matching
+// route in wrangler.jsonc, or the request never reaches this Worker.
 const PROXIED_PREFIXES: readonly string[] = [
   "/help",
   "/.well-known/vercel/",
+  "/.well-known/agent-skills/",
   "/.well-known/skills/",
   "/_mintlify/",
   "/mintlify-assets/_next/static/",
@@ -298,6 +304,22 @@ export default {
       });
     }
 
+    if (request.method === "GET" && upstreamResponse.ok && isSkillsIndexPath(url.pathname)) {
+      const text = await upstreamResponse.text();
+      const repaired = await repairSkillsIndex(text, upstream, readUpstreamSkill);
+      // The body is now plain text, whatever encoding it arrived in, so drop
+      // the upstream's encoding and length and let Cloudflare compress it for
+      // the client that asked.
+      outHeaders.delete("Content-Encoding");
+      outHeaders.delete("Content-Length");
+      if (repaired !== null) outHeaders.delete("ETag");
+      return new Response(repaired ?? text, {
+        status: upstreamResponse.status,
+        statusText: upstreamResponse.statusText,
+        headers: outHeaders,
+      });
+    }
+
     return new Response(upstreamResponse.body, {
       status: upstreamResponse.status,
       statusText: upstreamResponse.statusText,
@@ -305,3 +327,16 @@ export default {
     });
   },
 };
+
+/**
+ * One skill file, straight from Mintlify, for `repairSkillsIndex`. Null on any
+ * failure, so the index is still served with the description it came with.
+ */
+async function readUpstreamSkill(skillUrl: URL): Promise<string | null> {
+  try {
+    const res = await fetch(skillUrl.toString(), { redirect: "manual" });
+    return res.ok ? await res.text() : null;
+  } catch {
+    return null;
+  }
+}

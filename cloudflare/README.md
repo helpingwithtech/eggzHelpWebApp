@@ -4,7 +4,7 @@ Two Workers that front the eggz Help Centre on the **`eggz.ai`** zone.
 
 | Worker | Route(s) | Purpose |
 |---|---|---|
-| `eggz-help-proxy` | `eggz.ai/robots.txt`, `eggz.ai/help`, `eggz.ai/help/*`, plus required Mintlify well-known and asset paths | **`/robots.txt`** and **`/help/robots.txt`** 307-redirect to **`https://app.eggz.ai/robots.txt`** (single canonical file in **receipt-tracker-master** `public/robots.txt`). Otherwise: reverse proxy to **`eggz.mintlify.app`** (docs under `/help`). **`/help/sitemap.xml`** maps to Mintlify host-root `/sitemap.xml`. HTML/XML rewrites and **`Location`** fixes keep **`https://eggz.ai/help/...`** canonical. |
+| `eggz-help-proxy` | `eggz.ai/robots.txt`, `eggz.ai/help`, `eggz.ai/help/*`, plus required Mintlify well-known and asset paths | **`/robots.txt`** and **`/help/robots.txt`** answer 200 with the bytes in **`src/robots-content.ts`**, the one robots.txt for the whole domain, Content-Signal line included. **`/.well-known/agent-skills/*`** and **`/.well-known/skills/*`** forward Mintlify's skill discovery index and skill files; the index's cut-off skill description is made whole on the way through (`src/skills-index.ts`). Otherwise: reverse proxy to **`eggz.mintlify.app`** (docs under `/help`). **`/help/sitemap.xml`** maps to Mintlify host-root `/sitemap.xml`. HTML/XML rewrites and **`Location`** fixes keep **`https://eggz.ai/help/...`** canonical. |
 | `eggz-help-redirect` | `help.eggz.ai/*` | HTTP **301** to `eggz.ai/help/<path>` so SEO link equity migrates per URL. |
 
 > Mintlify origin = `eggz.mintlify.app` (custom subpath uses **`.app`**, not `.dev`).
@@ -73,9 +73,9 @@ If Mintlify keeps prompting to add `eggz.ai` in the dashboard, leave the project
    - Add property for `eggz.ai` if not present, verify ownership.
    - Open the **`help.eggz.ai`** property → **Settings → Change of Address** → choose `eggz.ai`.
    - Submit the Help Centre sitemap: **`https://eggz.ai/help/sitemap.xml`** (do not replace **`https://eggz.ai/sitemap.xml`** — that is the marketing site index; list **both** in Search Console and/or in robots).
-   - **Single `robots.txt`:** edit **`receipt-tracker-master/public/robots.txt`** and deploy the Vercel app; then **`pnpm deploy:proxy`** so **`https://eggz.ai/robots.txt`** and **`https://eggz.ai/help/robots.txt`** mirror it (`APP_ROBOTS_ORIGIN`, default `https://app.eggz.ai`). Remove any stale marketing-only **`robots.txt`** on the apex host if another Worker still serves it—this Worker’s route must win for **`eggz.ai/robots.txt`**.
+   - **Single `robots.txt`:** edit **`cloudflare/src/robots-content.ts`**, then **`pnpm deploy:proxy`** so **`https://eggz.ai/robots.txt`** and **`https://eggz.ai/help/robots.txt`** serve it. The landing page repo still has its own `public/robots.txt`; this Worker's route wins for **`eggz.ai/robots.txt`**, so that file is never served on eggz.ai.
 6. Ship the extension version with the new help URL.
 
 ## Routing safety
 
-This Worker only claims explicit routes (`/robots.txt`, `/help`, `/help/*`, `/.well-known/vercel/*`, `/.well-known/skills/*`, `/skill.md`, `/_mintlify/*`, `/mintlify-assets/_next/static/*`). Cloudflare matches the most specific route first, so a catch-all `eggz.ai/*` Worker that serves the marketing site continues to handle every other URL.
+This Worker only claims explicit routes (`/robots.txt`, `/help`, `/help/*`, `/.well-known/vercel/*`, `/.well-known/agent-skills/*`, `/.well-known/skills/*`, `/skill.md`, `/_mintlify/*`, `/mintlify-assets/_next/static/*`). Cloudflare matches the most specific route first, so a catch-all `eggz.ai/*` Worker that serves the marketing site continues to handle every other URL.

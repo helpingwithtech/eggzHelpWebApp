@@ -17,19 +17,35 @@
  * so the order makes no functional difference but the top-grouping is the
  * widely-followed industry pattern (cf. https://www.salesforce.com/robots.txt).
  *
+ * Content signals (https://contentsignals.org/) state what the content may be
+ * used for once it has been fetched. They sit inside the `User-agent: *` group,
+ * so they apply to every crawler the group lets in:
+ *   - search=yes    building a search index and linking to the pages;
+ *   - ai-input=yes  feeding a page into an AI answer at the moment it is asked;
+ *   - ai-train=yes  training or fine-tuning a model.
+ * All three are yes because that is what the file already allowed: nothing
+ * here blocks a training crawler such as GPTBot or ClaudeBot. Saying so out loud
+ * changes no crawler's access. Turning ai-train to no is a decision for Alex,
+ * and would be one edit to the line below.
+ *
  * Edit this file ONLY. Deploy the worker to roll out changes.
  *
  * https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec
  */
 export const ROBOTS_TXT = `# Robots.txt file for https://eggz.ai
-# Single source of truth: help-eggz-ai/cloudflare/src/robots-content.ts
+# Single source of truth: cloudflare/src/robots-content.ts in the eggzHelpWebApp repo
 # Served at https://eggz.ai/robots.txt and https://eggz.ai/help/robots.txt
 # All web crawlers may spider the domain.
 
 Sitemap: https://eggz.ai/sitemap.xml
 Sitemap: https://eggz.ai/help/sitemap.xml
 
+# Content signals: what the content may be used for once it is fetched.
+# search=yes lets it be indexed for search. ai-input=yes lets it be used in
+# an AI answer. ai-train=yes lets it be used to train a model.
+# See https://contentsignals.org/
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 # Cloudflare and Mintlify infrastructure paths — no user content

@@ -78,7 +78,8 @@ export function frontmatterDescription(markdown: string): string | null {
     continuation.pop();
   }
 
-  const block = /^([>|])[+-]?\d?$/.exec(head);
+  // YAML lets the chomping and indentation indicators come in either order.
+  const block = /^([>|])(?:[+-]?[1-9]?|[1-9][+-])$/.exec(head);
   if (block) {
     const body = continuation.map((line) => line.trim());
     if (block[1] === "|") return body.join("\n").trim() || null;

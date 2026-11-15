@@ -52,6 +52,10 @@ test("frontmatterDescription reads quoted and block descriptions", () => {
     "folded across two lines",
   );
   assert.equal(
+    frontmatterDescription(`---\ndescription: >2-\n  indent first\n  then chomp\n---\n`),
+    "indent first then chomp",
+  );
+  assert.equal(
     frontmatterDescription(`---\ndescription: |\n  kept\n  apart\n---\n`),
     "kept\napart",
   );

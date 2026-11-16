@@ -33,6 +33,7 @@
     { "pattern": "eggz.ai/help",                           "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/help/*",                         "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/.well-known/vercel/*",           "zone_name": "eggz.ai" },
+    { "pattern": "eggz.ai/.well-known/agent-skills/*",     "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/.well-known/skills/*",           "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/skill.md",                       "zone_name": "eggz.ai" },
     { "pattern": "eggz.ai/_mintlify/*",                    "zone_name": "eggz.ai" },

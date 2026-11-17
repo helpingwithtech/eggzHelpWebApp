@@ -66,7 +66,7 @@ eggz can push processed receipts to Xero in two ways:
 | **Unpaid** | Bill (ACCPAY) | A supplier invoice you still need to pay |
 | **Paid** | Spend Money (Bank Transaction) | An expense already paid, recorded against a bank account |
 
-<Note>Draft invoices and quotes you create in eggz can be [published to Xero](/help/guides/publish-to-xero). Documents synced from Xero can't be pushed back, and customer records created in eggz aren't pushed to Xero on their own. When you publish, eggz creates the supplier or customer in Xero if Xero doesn't already have a match.</Note>
+<Note>Draft invoices and quotes you create in eggz can be [published to Xero](/help/guides/publish-to-xero). Documents synced from Xero can't be pushed back, and customer records created in eggz aren't pushed to Xero on their own. When you publish, eggz creates the supplier or customer in Xero if Xero doesn't already have a match. Deleting a draft invoice that's in Xero deletes it in Xero too: see [Voiding and deleting invoices](/help/guides/invoices-and-quotes#voiding-and-deleting-invoices).</Note>
 
 ## Account mapping
 
@@ -126,7 +126,7 @@ Because only one Xero organisation can be connected per workspace, to change whi
 ## Limitations
 
 - **One Xero organisation per workspace**: You cannot connect multiple Xero organisations to the same eggz workspace.
-- **One-way sync for most data**: Bills in eggz are **read-only copies synced from Xero** — edit them in Xero. (Publishing a processed receipt can *create a new bill in Xero* — see [What eggz pushes to Xero](#what-eggz-pushes-to-xero) — but existing bills never sync back.) Contact details also sync one way from Xero; the CRM fields you manage on customers in eggz (owner, segment, annual value, and so on) live only in eggz and are never pushed to Xero. Invoices and quotes synced from Xero are one-way too — but a **draft you create in eggz** can be [published to Xero](/help/guides/publish-to-xero).
+- **One-way sync for most data**: Bills in eggz are **read-only copies synced from Xero** — edit them in Xero. (Publishing a processed receipt can *create a new bill in Xero* — see [What eggz pushes to Xero](#what-eggz-pushes-to-xero) — but existing bills never sync back.) Contact details also sync one way from Xero; the CRM fields you manage on customers in eggz (owner, segment, annual value, and so on) live only in eggz and are never pushed to Xero. Invoices and quotes synced from Xero are one-way too. A **draft you create in eggz** can be [published to Xero](/help/guides/publish-to-xero), and deleting a draft invoice that's in Xero deletes it in Xero too.
 - **Mostly manual refresh**: Customers refresh by themselves every 8 hours. For invoices, bills, quotes and your chart of accounts, click **Refresh** under **Xero settings**. Payments and bank transactions come in when you connect.
 - **No bank reconciliation**: eggz displays financial data but does not perform bank reconciliation. Continue using Xero for reconciliation.
 - **Currency conversion**: Analytics convert foreign currency at the daily reference rate for each document's date, not a live rate. To use a different rate for one document, click **Set exchange rate** on it. **Reverted to the daily rate** confirms you went back.

@@ -6,7 +6,7 @@ icon: "file-invoice-dollar"
 
 ## Sales invoices
 
-The **Sales** page shows all your invoices — those **synced from your connected Xero account** and any **drafts created in eggz** (for example by the AI assistant). An invoice counts as money owed to you once it's approved (**Authorised**) and only while money is still due, as in Xero. A draft or an invoice awaiting approval (**Submitted**) shows here, but isn't owed or billed until it's approved. Where an invoice came from matters: synced invoices are managed in Xero, except that a draft in Xero can be deleted here. Invoices that aren't in Xero can be voided or deleted here (see below).
+The **Sales** page shows all your invoices — those **synced from your connected Xero account** and any **drafts created in eggz** (for example by the AI assistant). An invoice counts as money owed to you once it's approved (**Authorised**) and only while money is still due, as in Xero. A draft or an invoice awaiting approval (**Submitted**) shows here, but isn't owed or billed until it's approved. Where an invoice came from matters: synced invoices are managed in Xero, except that a draft in Xero can be edited or deleted here. Invoices that aren't in Xero can be edited, voided or deleted here (see below).
 
 When you create an invoice, quote, bill, or customer account in eggz, the form includes a **Currency** picker. It starts on your organisation's reporting currency, and the line-item amounts and totals follow whichever currency you pick, so a USD invoice reads in USD from the first line to the total.
 
@@ -23,7 +23,7 @@ The invoice table displays:
 
 You can group invoices by customer, status, or consultant using the table controls.
 
-Customer, status, consultant, dates, and amounts can all be edited inline — click a cell to edit it. (The reference is the link that opens the invoice's detail page, so it isn't edited here.) **Total** and **Balance** are locked on invoices synced from Xero, and refused while payments are applied — see [Editing totals and line items](/help/guides/editing-amounts) for what each locked state looks like.
+Click a cell to edit it in place. (The reference is the link that opens the invoice's detail page, so it isn't edited here.) On an invoice that isn't in Xero, you can edit the customer, status, consultant, dates and amounts, though amounts are refused while payments are applied. On an invoice synced from Xero, **Customer**, **Status**, **Issue Date**, **Due Date**, **Total** and **Balance** show a lock, because Xero owns them. **Consultant** stays editable. On a draft in Xero that you can edit, the lock says *Open the invoice to edit it.* See [Editing totals and line items](/help/guides/editing-amounts) for what each locked state looks like.
 
 ### Invoice detail
 
@@ -33,13 +33,24 @@ Click an invoice to view the full detail page:
 - A **Line items** section
 - A **Financial** block with **Total**, **Balance** and **Paid At** (for paid invoices). A voided invoice also shows **Voided At** and the **Reason**
 - **Download** for the PDF (if a file is attached), and **View branded PDF** for an invoice that is in Xero
+- **Edit**, to change the invoice (see [Edit an invoice](#edit-an-invoice))
 - **Record payment**, when money is still owing (see [Recording payments](/help/guides/recording-payments))
 - A full [settlement history](#settlement-history) — every payment applied, in order
 - [Related records](#related-records) — a **Customer** card, and a **Source quote** card if this invoice came from a converted quote
 - An [Activity](#activity) timeline of what's happened to the invoice
 - Void or delete, from the **More actions** (**⋯**) menu — see [Voiding and deleting invoices](#voiding-and-deleting-invoices)
 
-<Note>Customer, status, dates, and amounts are edited inline on the **Sales** list (above), not on this detail page.</Note>
+### Edit an invoice
+
+Click **Edit** on an invoice's page to open **Edit invoice**. Change the customer, reference, consultant, dates, payment terms or line items, then click **Save changes**. eggz takes you back to the invoice and says, for example, *INV-0042 saved.* **Cancel** leaves the invoice as it was.
+
+An invoice that isn't in Xero also shows its notes and tax rate. Once a payment is applied, you can reword a line but not change its amount. The invoice number, status and currency stay as they are.
+
+**Edit** shows on an invoice that isn't in Xero until it's voided. On an invoice in Xero, it shows only while Xero holds it as a draft, and only to people who can [publish to Xero](/help/guides/publish-to-xero). Once Xero has it awaiting approval, authorised or paid, make changes in Xero.
+
+On an invoice raised from an engagement, the page says *Your confirmed timesheet hours stay as they are.*
+
+<Note>On a draft in Xero, the page opens on Xero's own lines and says *Saving changes the draft in Xero too.* You can also choose each line's **Account** and **Tax rate**. eggz saves the change in Xero first, then in eggz. If the draft changed in Xero after you opened it, or Xero refuses the change, eggz says why and keeps your edits on the page.</Note>
 
 ### Viewing on your phone
 
@@ -92,13 +103,13 @@ Cleaning up several drafts at once? Select them on the Sales list and click **De
 
 <Tip>If the sale genuinely happened and the invoice was sent, a credit note is usually the better fix than voiding — voiding says "this shouldn't have counted," a credit note says "this needs an adjustment."</Tip>
 
-<Note>Only invoices that aren't in Xero can be voided here. A draft that's in Xero can be deleted here, which deletes it in Xero too, until Xero approves it. After that, eggz says *This invoice is no longer a draft in Xero, so it can't be deleted.* Only people who can [publish to Xero](/help/guides/publish-to-xero) see **Delete** on it. Everything else synced from Xero is managed in Xero. See [Xero integration](/help/guides/xero-sync).</Note>
+<Note>Only invoices that aren't in Xero can be voided here. A draft that's in Xero can be deleted here, which deletes it in Xero too, until Xero approves it. After that, eggz says *This invoice is no longer a draft in Xero, so it can't be deleted.* Only people who can [publish to Xero](/help/guides/publish-to-xero) see **Delete** on it. Apart from deleting or [editing](#edit-an-invoice) a draft, everything synced from Xero is managed in Xero. See [Xero integration](/help/guides/xero-sync).</Note>
 
 ### Syncing invoices
 
 Click **Sync from Xero** on the Sales page to pull the latest invoices from Xero. Only admins and accountants see the button, and only when Xero is connected. The Quotes page has the same button.
 
-<Note>Invoices synced from Xero are one-way: edits you make in eggz don't sync back to Xero. Deleting a draft is different: it's deleted in Xero too.</Note>
+<Note>Invoices synced from Xero are one-way, except for a draft in Xero. Deleting it deletes it in Xero too, and [editing it](#edit-an-invoice) saves the change in Xero first, then in eggz.</Note>
 
 ### Owed to you, from the chat
 

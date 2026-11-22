@@ -14,6 +14,7 @@ Mintlify docs for **eggz.ai** (`https://eggz.ai/help`). This repo is a **consume
 2. Add drift rows to the canonical register in `receipt-tracker-master` — do not invent limits or step counts.
 3. User-visible fixes → `<Update>` in [`help/changelog.mdx`](help/changelog.mdx).
 4. After MDX edits: `mint broken-links` (see `.github/workflows/validate-docs.yml`).
+5. Every word follows `receipt-tracker-master/VOICE.md`.
 
 ## Brand
 

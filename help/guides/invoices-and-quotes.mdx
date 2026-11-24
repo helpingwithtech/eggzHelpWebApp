@@ -44,7 +44,7 @@ Click an invoice to view the full detail page:
 
 Click **Edit** on an invoice's page to open **Edit invoice**. Change the customer, reference, consultant, dates, payment terms or line items, then click **Save changes**. eggz takes you back to the invoice and says, for example, *INV-0042 saved.* **Cancel** leaves the invoice as it was.
 
-An invoice that isn't in Xero also shows its notes and tax rate. Once a payment is applied, you can reword a line but not change its amount. The status and currency stay as they are.
+An invoice that isn't in Xero also shows its notes. With Xero connected, each line item has an **Account** and a **Tax rate** (see [Line items](#line-items)). A line item without them starts on your defaults, or on the tax rate for line items without GST if the invoice was saved with no GST. Without Xero, the invoice shows its **GST Rate (%)**. Once a payment is applied, you can reword a line but not change its amount. The status and currency stay as they are.
 
 **Edit** shows on an invoice that isn't in Xero until it's voided. On an invoice in Xero, it shows only while Xero holds it as a draft, and only to people who can [publish to Xero](/help/guides/publish-to-xero). Once Xero has it awaiting approval, authorised or paid, make changes in Xero.
 
@@ -121,6 +121,12 @@ Click **New Invoice** in the **Sales** menu to draft one in eggz. The form has *
 
 The Reference box opens on the next free number in your own sequence (INV-0043 after INV-0042); type over it to use your own.
 
+### Line items
+
+With Xero connected, each line item on **New Invoice**, **New Quote** and **Edit invoice** has an **Account** and a **Tax rate**. On a new invoice or quote, they start on your defaults under [Account mappings](/help/guides/xero-sync#account-mapping), and you can pick a different one on any line item. The GST is worked out from each line item's tax rate, so there's no **GST Rate (%)** box. If your business isn't registered for GST, line items have an **Account** only.
+
+A line item's description can run over several lines, such as a bulleted list. Press Enter to start a new line. The invoice or quote page, and Xero, show the description as you typed it.
+
 ### Publish a draft to Xero
 
 Most invoices arrive by syncing from Xero, but you can also **draft an invoice in eggz** — including one the AI assistant prepares for you, or one [converted from an accepted quote](#converting-a-quote-to-an-invoice) — and publish it to Xero as a draft in one click. See [Publish invoices & quotes to Xero](/help/guides/publish-to-xero).
@@ -148,7 +154,7 @@ You can group quotes by prospect, status, or owner.
 
 ### Create a quote
 
-The **New Quote** form has the prospect (**Customer / Prospect**), **Reference**, **Status**, **Expected Close**, **Valid Until**, **Win Likelihood (%)**, **Owner**, **Currency**, **Line Items** and **Terms & Notes**.
+The **New Quote** form has the prospect (**Customer / Prospect**), **Reference**, **Status**, **Expected Close**, **Valid Until**, **Win Likelihood (%)**, **Owner**, **Currency**, **Line Items** and **Terms & Notes**. Line items work as on an invoice: see [Line items](#line-items).
 
 The Reference box opens on the next free number in your own sequence (Q-0043 after Q-0042); type over it to use your own.
 

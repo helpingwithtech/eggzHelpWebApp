@@ -66,9 +66,27 @@ eggz can push processed receipts to Xero in two ways:
 | **Unpaid** | Bill (ACCPAY) | A supplier invoice you still need to pay |
 | **Paid** | Spend Money (Bank Transaction) | An expense already paid, recorded against a bank account |
 
+Each receipt goes with one of your organisation's own tax rates in Xero, the one that gives the GST on the receipt. If your business isn't registered for GST, the GST becomes part of the cost instead of being claimed back.
+
+If the GST doesn't fit exactly one tax rate, publishing stops and says why, for example:
+
+- *The GST on this receipt ($12.00) doesn't match 10% of its line items ($10.00). Check the GST, then publish again.*
+- *No tax rate in Xero matches this receipt's GST ($3.50). Check the GST, then publish again.*
+- *This receipt's GST fits two tax rates in Xero. Add it in Xero yourself.*
+
 <Note>Draft invoices and quotes you create in eggz can be [published to Xero](/help/guides/publish-to-xero). When you publish, eggz creates the supplier or customer in Xero if Xero doesn't already have a match. Customer records created in eggz aren't pushed to Xero on their own. Documents synced from Xero aren't pushed back, except a draft invoice that's in Xero. [Deleting it](/help/guides/invoices-and-quotes#voiding-and-deleting-invoices) deletes it in Xero too, and [editing it](/help/guides/invoices-and-quotes#edit-an-invoice) saves the change in Xero first.</Note>
 
 ## Account mapping
+
+**Account mappings**, under **Xero settings** on the **Xero** card, sets the accounts and tax rates your documents go to Xero with. Only admins see the **Xero** card, so account mappings are managed there by admins.
+
+### Invoices and quotes
+
+Invoice and quote line items go to Xero with a **Sales account** and **Tax rate**, and an invoice or quote with no GST uses **Tax rate for line items without GST**. eggz picks them for you from Xero and says so, for example *Picked from your Xero: 200 - Sales, GST on Income and GST Free Income. Change them any time.* To change one, choose another in its list. You can also pick a different one on any line item: see [Line items](/help/guides/invoices-and-quotes#line-items).
+
+If your business isn't registered for GST, only **Sales account** shows. When you edit an invoice that's a draft in Xero, each line item still shows its **Tax rate**. If eggz can't read your accounts and tax rates from Xero, it says *Couldn't load your sales accounts and tax rates.*
+
+### Receipts
 
 After syncing your chart of accounts from Xero, you can map eggz expense categories to Xero account codes. This ensures receipts are posted to the correct account when published to Xero.
 
@@ -87,8 +105,6 @@ After syncing your chart of accounts from Xero, you can map eggz expense categor
 </Steps>
 
 Your mappings are listed under **Current Mappings**. When a receipt publishes to Xero, each line uses its category's account. The mapping marked **Default** covers everything unmatched. To make a different mapping the default, use **Set as default** on its row. To remove one, delete it and confirm **Delete this mapping?**
-
-Only admins see the **Xero** card, so account mappings are managed there by admins.
 
 ## Managing your connection
 
